@@ -1,0 +1,185 @@
+.analytics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  margin-left: -240px;
+  width: 82%;
+}
+
+.analytics-header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2D3748;
+  margin: 0;
+}
+
+.period-selector {
+  padding: 0.5rem 1rem;
+  border: 1px solid #E2E8F0;
+  border-radius: 0.5rem;
+  background-color: white;
+  font-size: 0.9rem;
+  color: #4A5568;
+  cursor: pointer;
+  outline: none;
+}
+
+.period-selector:hover {
+  border-color: #CBD5E0;
+}
+
+.analytics-overview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.overview-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.overview-card h3 {
+  font-size: 1rem;
+  color: #4A5568;
+  margin: 0 0 0.5rem 0;
+}
+
+.overview-card .amount {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2D3748;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.overview-card .amount svg {
+  font-size: 1.2rem;
+}
+
+.overview-card .trend {
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.trend.positive {
+  color: #48BB78;
+}
+
+.trend.negative {
+  color: #F56565;
+}
+
+.trend svg {
+  font-size: 0.875rem;
+}
+
+.analytics-charts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.chart-container {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container h2 {
+  font-size: 1.25rem;
+  color: #2D3748;
+  margin: 0 0 0.5rem 0;
+}
+
+.chart-subtitle {
+  font-size: 0.875rem;
+  color: #718096;
+  margin: 0 0 1rem 0;
+}
+
+.income-expenses {
+  grid-column: span 2;
+}
+
+.weekly-spending,
+.expense-breakdown {
+  height: 400px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .analytics-charts {
+    grid-template-columns: 1fr;
+  }
+
+  .income-expenses {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .analytics-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .period-selector {
+    width: 100%;
+  }
+}
+
+/* Chart Customization */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #E2E8F0;
+}
+
+.recharts-tooltip-wrapper {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recharts-default-tooltip {
+  background-color: white !important;
+  border: none !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  padding: 0.75rem !important;
+}
+
+.recharts-tooltip-label {
+  color: #4A5568 !important;
+  font-weight: 500 !important;
+}
+
+/* Bar Chart Colors */
+.recharts-bar-rectangle {
+  fill: currentColor;
+  transition: opacity 0.2s;
+}
+
+.recharts-bar-rectangle:hover {
+  opacity: 0.8;
+}
+
+/* Pie Chart Labels */
+.recharts-pie-label-text {
+  font-size: 0.75rem;
+  fill: #4A5568;
+} 

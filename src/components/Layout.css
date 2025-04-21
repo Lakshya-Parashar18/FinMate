@@ -1,0 +1,184 @@
+/* Layout Container */
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  position: relative;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 260px;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e9ecef;
+  position: fixed;
+  height: 100vh;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+}
+
+.sidebar h2 {
+  color: #2563eb;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: #4b5563;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.sidebar a:hover {
+  background-color: #f3f4f6;
+  color: #2563eb;
+}
+
+.sidebar a.active {
+  background-color: #e0e7ff;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.sidebar .icon {
+  margin-right: 0.75rem;
+  font-size: 1.25rem;
+}
+
+/* Profile Section */
+.profile-section {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #2563eb;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 0.75rem;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 0.875rem;
+}
+
+.profile-email {
+  color: #6b7280;
+  font-size: 0.75rem;
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 220px;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  z-index: 1000;
+  margin-bottom: 0.5rem;
+}
+
+.dropdown-header {
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.dropdown-header h3 {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.dropdown-options {
+  padding: 0.5rem 0;
+}
+
+.dropdown-option {
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdown-option:hover {
+  background-color: #f3f4f6;
+}
+
+.dropdown-option .option-icon {
+  margin-right: 0.75rem;
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+.dropdown-option span {
+  color: #4b5563;
+  font-size: 0.875rem;
+}
+
+.dropdown-option.logout {
+  border-top: 1px solid #e9ecef;
+  margin-top: 0.5rem;
+}
+
+.dropdown-option.logout .option-icon,
+.dropdown-option.logout span {
+  color: #dc2626;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  margin-left: 260px;
+  padding: 2rem;
+  max-width: calc(100% - 260px);
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+    max-width: 100%;
+  }
+} 
