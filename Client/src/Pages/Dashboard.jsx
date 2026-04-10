@@ -26,7 +26,7 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
   PieChart, Pie, Cell
 } from 'recharts';
-import './dashboard.css';
+import './Dashboard.css';
 import axios from 'axios';
 import { API_URL } from '../config';
 import { useAuth } from '../context/AuthContext';
