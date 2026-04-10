@@ -6,8 +6,8 @@
       "destination": "/api/index.mjs"
     },
     {
-      "source": "/(.*)",
-      "destination": "/Client/$1"
+      "source": "/((?!api/).*)",
+      "destination": "/Client/index.html"
     }
   ],
   "builds": [
