@@ -29,6 +29,10 @@ import subscriberRoutes from "../server/routes/subscriberRoutes.js";
 import supportRoutes from "../server/routes/supportRoutes.js";
 
 const app = express();
+
+// Trust Vercel's proxy for secure cookies
+app.set("trust proxy", 1);
+
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
 const SESSION_SECRET = process.env.SESSION_SECRET;
@@ -45,8 +49,9 @@ app.use(cookieParser());
 app.use(
   session({
     secret: SESSION_SECRET || 'fallback_secret',
-    resave: false,
+    resave: true, // Force session to be saved back to the session store
     saveUninitialized: false,
+    proxy: true, // Tell express-session to trust the proxy
     store: MongoStore.create({
       mongoUrl: MONGO_URI,
       collectionName: 'sessions',
@@ -55,7 +60,7 @@ app.use(
     cookie: {
       maxAge: 14 * 24 * 60 * 60 * 1000,
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      secure: true, // Must be true when 'trust proxy' is set
       sameSite: 'lax'
     }
   })
