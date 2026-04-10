@@ -1,15 +1,5 @@
 {
   "version": 2,
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/index.mjs"
-    },
-    {
-      "source": "/((?!api/).*)",
-      "destination": "/Client/index.html"
-    }
-  ],
   "builds": [
     {
       "src": "api/index.mjs",
@@ -21,6 +11,19 @@
       "config": {
         "distDir": "dist"
       }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.mjs"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/Client/index.html"
     }
   ]
 }
