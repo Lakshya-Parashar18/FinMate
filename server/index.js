@@ -82,25 +82,23 @@ app.get("/", (req, res) => {
   res.send("✅ FinMate Backend is running!");
 });
 
-// MongoDB Connection (Connection check moved earlier)
-mongoose.connect(MONGO_URI)
-.then(() => {
-  console.log("✅ MongoDB connected");
+// Export the app for Vercel
+export default app;
 
-  // Serve static assets in production (e.g., React build)
-  if (process.env.NODE_ENV === "production") {
-    // Set static folder
-    const clientBuildPath = path.resolve(__dirname, '..', 'Client', 'dist'); // Adjust path if needed
-    app.use(express.static(clientBuildPath));
-    app.get("*", (req, res) => {
-      res.sendFile(path.join(clientBuildPath, 'index.html'));
+// Start the server ONLY if not in a serverless environment
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  mongoose.connect(MONGO_URI)
+    .then(() => {
+      console.log("✅ MongoDB connected (Local/Standard Mode)");
+      app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+    })
+    .catch(err => {
+      console.error("❌ MongoDB connection error:", err);
+      process.exit(1);
     });
-  }
-
-  // Start the server
-  app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
-})
-.catch(err => {
-    console.error("❌ MongoDB connection error:", err);
-    process.exit(1); // Exit if DB connection fails
-});
+} else {
+    // In Vercel, we connect to DB but don't call app.listen()
+    mongoose.connect(MONGO_URI)
+      .then(() => console.log("✅ MongoDB connected (Serverless Mode)"))
+      .catch(err => console.error("❌ MongoDB serverless connection error:", err));
+}

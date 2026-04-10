@@ -1,30 +1,20 @@
 {
   "version": 2,
-  "name": "finmate",
-  "builds": [
+  "rewrites": [
     {
-      "src": "server/index.js",
-      "use": "@vercel/node"
+      "source": "/api/(.*)",
+      "destination": "server/index.js"
     },
     {
-      "src": "Client/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
+      "source": "/(.*)",
+      "destination": "/Client/$1"
     }
   ],
-  "routes": [
+  "redirects": [
     {
-      "src": "/api/(.*)",
-      "dest": "server/index.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "Client/$1"
+      "source": "/Client/(.*)",
+      "destination": "/$1",
+      "permanent": true
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
