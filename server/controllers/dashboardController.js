@@ -58,8 +58,8 @@ const getDashboardSummary = asyncHandler(async (req, res) => {
         }
     ]);
 
-    monthlyIncome = currentMonthData[0]?.income || 0;
-    monthlyExpenses = currentMonthData[0]?.expenses || 0;
+    monthlyIncome = (currentMonthData && currentMonthData.length > 0) ? currentMonthData[0].income : 0;
+    monthlyExpenses = (currentMonthData && currentMonthData.length > 0) ? currentMonthData[0].expenses : 0;
 
     // Categorical breakdown for pie chart
     currentMonthTransactions.forEach(tx => {
