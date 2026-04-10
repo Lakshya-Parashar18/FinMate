@@ -1,0 +1,64 @@
+.custom-cursor-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.cursor-main {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: 2px solid #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+    will-change: transform, opacity;
+}
+
+.cursor-trail {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(
+        circle at 35% 35%,
+        rgba(199, 210, 254, 0.85),
+        rgba(129, 140, 248, 0.45) 50%,
+        rgba(79, 70, 229, 0.25) 100%
+    );
+    border-radius: 50%;
+    box-shadow:
+        0 0 4px rgba(129, 140, 248, 0.35),
+        0 0 12px rgba(79, 70, 229, 0.22);
+    filter: blur(0.35px);
+    will-change: transform, opacity, filter;
+}
+
+/* Hide default cursor on the landing page layout */
+.landing-page, 
+.hero-section,
+.overlay {
+    cursor: none;
+}
+
+/* Use hand cursor for clickable elements (footer links, buttons, etc.) */
+.landing-page a, 
+.landing-page a *,
+.landing-page button,
+.landing-page button *,
+.landing-page [role="button"],
+.landing-page [role="button"] *,
+.google-login-container,
+.google-login-container * {
+    cursor: pointer !important;
+}
+
+/* Keep native cursor behavior for form fields and embeds */
+.landing-page input,
+.landing-page select,
+.landing-page iframe {
+    cursor: auto !important;
+}

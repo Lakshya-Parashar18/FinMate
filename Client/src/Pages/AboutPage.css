@@ -1,0 +1,86 @@
+.about-page {
+  background: #0f172a;
+  min-height: 100vh;
+  color: #fff;
+  padding-top: 5rem;
+  overflow-x: hidden;
+}
+
+.about-hero {
+  text-align: center;
+  padding: 8rem 2rem;
+  background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+}
+
+.about-hero h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+
+.about-hero p {
+  font-size: 1.25rem;
+  color: #94a3b8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 4rem 2rem;
+}
+
+.about-card {
+  padding: 3rem;
+  text-align: center;
+  border-radius: 2rem;
+  transition: all 0.4s ease;
+}
+
+.about-icon {
+  font-size: 3rem;
+  color: #10b981;
+  margin-bottom: 2rem;
+}
+
+.about-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-card p {
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.about-story {
+  max-width: 900px;
+  margin: 6rem auto;
+  padding: 5rem;
+  border-radius: 3rem;
+  text-align: center;
+}
+
+.about-story h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #fff 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-story p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #cbd5e1;
+}
+
+@media (max-width: 768px) {
+  .about-hero h1 { font-size: 2.5rem; }
+  .about-story { padding: 3rem 2rem; margin: 4rem 1.5rem; }
+}

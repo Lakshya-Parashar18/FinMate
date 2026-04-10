@@ -1,0 +1,189 @@
+/* Sidebar container */
+.sidebar {
+  box-sizing: border-box;
+  background-color: var(--sidebar-bg, #ffffff); /* Use CSS variable with fallback */
+  width: 260px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100; /* Ensure sidebar is above content */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+}
+
+/* Sidebar logo/title */
+.sidebar h2 {
+  text-align: left;
+  color: var(--text-primary, #000);
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+}
+
+/* Sidebar links (using NavLink) */
+.sidebar a {
+  text-decoration: none;
+  color: var(--sidebar-text, #4c51bf);
+  font-size: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar a:hover {
+  background-color: var(--sidebar-hover, #e0e7ff);
+  color: var(--text-primary, #2563eb);
+}
+
+/* Active link style */
+.sidebar a.active {
+  background-color: var(--sidebar-hover, #2b6cb0);
+  color: var(--button-primary-text, #ffffff);
+  font-weight: 500;
+}
+
+/* Icon style */
+.sidebar a .icon {
+  margin-right: 12px;
+  font-size: 18px;
+}
+
+/* --- Profile Section Styles --- */
+
+.profile-section {
+  margin-top: auto; /* Pushes profile to the bottom */
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color, #e2e8f0);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #2563eb; /* Keep a default color or use a variable */
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent long names/emails from breaking layout */
+}
+
+.profile-name {
+  font-weight: 600;
+  color: var(--text-primary, #1f2937);
+  font-size: 0.875rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-email {
+  color: var(--text-secondary, #6b7280);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- Profile Dropdown Styles --- */
+
+.profile-dropdown {
+  position: absolute;
+  bottom: calc(100% + 8px); /* Position above avatar */
+  left: 0;
+  width: 220px;
+  background-color: var(--modal-bg, white);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 110; /* Above sidebar */
+  overflow: hidden; /* Ensures border-radius clips content */
+  border: 1px solid var(--border-color, #e2e8f0);
+}
+
+.dropdown-header {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color, #e9ecef);
+}
+
+.dropdown-header h3 {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary, #4b5563);
+}
+
+.dropdown-options {
+  padding: 0.5rem 0;
+}
+
+.dropdown-option {
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Consistent gap */
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  color: var(--modal-text, #4b5563);
+}
+
+.dropdown-option:hover {
+  background-color: var(--sidebar-hover, #f3f4f6);
+  color: var(--text-primary);
+}
+
+.dropdown-option .option-icon {
+  font-size: 1rem;
+  color: var(--text-secondary, #6b7280);
+  flex-shrink: 0;
+}
+
+.dropdown-option span {
+  font-size: 0.875rem;
+}
+
+/* Specific styles for logout option */
+.dropdown-option.logout {
+  border-top: 1px solid var(--border-color, #e9ecef);
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+}
+
+.dropdown-option.logout .option-icon,
+.dropdown-option.logout span {
+  color: #dc2626; /* Keep logout red */
+}
+
+.dropdown-option.logout:hover {
+  background-color: rgba(220, 38, 38, 0.1); /* Light red background on hover */
+}
+
+
+/* Dark mode specific adjustments if needed (using CSS variables is preferred) */
+[data-theme="dark"] .sidebar {
+  box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .profile-avatar {
+  /* Adjust avatar background/color if needed */
+}
+
+[data-theme="dark"] .dropdown-option.logout:hover {
+  background-color: rgba(248, 113, 113, 0.2); /* Slightly adjusted hover for dark */
+} 
