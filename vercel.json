@@ -8,6 +8,10 @@
     {
       "source": "/(.*)",
       "destination": "/Client/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/Client/index.html"
     }
   ],
   "builds": [
