@@ -1,0 +1,501 @@
+user_id,name,persona,monthly_income,monthly_budget,salary_day,city,state,savings_rate,subscriptions_count
+USR_00001,Arjun Sharma,Business Owner,198000.0,152500.0,5,Chandigarh,Punjab,0.23,5
+USR_00002,Aditi Sharma,Working Professional,47000.0,36200.0,1,Jaipur,Rajasthan,0.23,4
+USR_00003,Tanvi Mehta,Freelancer,89400.0,70600.0,Irregular,Indore,Madhya Pradesh,0.21,5
+USR_00004,Riya Nair,Business Owner,162200.0,98900.0,10,Hyderabad,Telangana,0.39,5
+USR_00005,Arjun Nair,Family,132400.0,101900.0,30,Ahmedabad,Gujarat,0.23,2
+USR_00006,Rahul Verma,Business Owner,431800.0,293600.0,10,Lucknow,Uttar Pradesh,0.32,2
+USR_00007,Aditi Chowdhury,Freelancer,125000.0,81200.0,Irregular,Hyderabad,Telangana,0.35,4
+USR_00008,Rohan Chowdhury,Family,79500.0,64400.0,30,Pune,Maharashtra,0.19,4
+USR_00009,Ananya Rao,Software Engineer,166100.0,116300.0,31,Kolkata,West Bengal,0.3,4
+USR_00010,Pranav Kapoor,Student,11900.0,11300.0,5,Kolkata,West Bengal,0.05,1
+USR_00011,Ishan Bhat,Family,85500.0,68400.0,30,Ahmedabad,Gujarat,0.2,3
+USR_00012,Dev Patel,Business Owner,398800.0,283100.0,15,Kolkata,West Bengal,0.29,3
+USR_00013,Dev Iyer,Retired,28600.0,25500.0,1,Delhi NCR,Delhi,0.11,1
+USR_00014,Riya Rao,Working Professional,56200.0,42700.0,31,Jaipur,Rajasthan,0.24,4
+USR_00015,Aarav Chowdhury,Working Professional,72500.0,55800.0,30,Indore,Madhya Pradesh,0.23,2
+USR_00016,Neha Mehta,Software Engineer,151700.0,85000.0,30,Jaipur,Rajasthan,0.44,3
+USR_00017,Neha Kapoor,Freelancer,56800.0,39800.0,Irregular,Lucknow,Uttar Pradesh,0.3,4
+USR_00018,Aarav Verma,Family,165400.0,127400.0,2,Mumbai,Maharashtra,0.23,2
+USR_00019,Vikram Verma,Working Professional,75300.0,55000.0,2,Delhi NCR,Delhi,0.27,3
+USR_00020,Tanvi Gupta,Business Owner,311100.0,211500.0,5,Jaipur,Rajasthan,0.32,4
+USR_00021,Rahul Chowdhury,Family,112600.0,90100.0,1,Mumbai,Maharashtra,0.2,2
+USR_00022,Pranav Sharma,Freelancer,104700.0,89000.0,Irregular,Mumbai,Maharashtra,0.15,3
+USR_00023,Pranav Verma,Freelancer,70600.0,53000.0,Irregular,Kochi,Kerala,0.25,3
+USR_00024,Siddharth Singhania,Investor,173300.0,100500.0,5,Chennai,Tamil Nadu,0.42,3
+USR_00025,Rohan Kapoor,Student,19400.0,16500.0,1,Bangalore,Karnataka,0.15,3
+USR_00026,Pranav Singhania,Working Professional,48700.0,39900.0,31,Delhi NCR,Delhi,0.18,2
+USR_00027,Manish Joshi,Freelancer,136200.0,113000.0,Irregular,Bangalore,Karnataka,0.17,3
+USR_00028,Kavya Gupta,Investor,256000.0,140800.0,5,Bangalore,Karnataka,0.45,3
+USR_00029,Aarav Mehta,Business Owner,470600.0,301200.0,10,Kolkata,West Bengal,0.36,5
+USR_00030,Dev Patel,Business Owner,187100.0,147800.0,15,Jaipur,Rajasthan,0.21,4
+USR_00031,Aditi Sharma,Retired,45100.0,34700.0,1,Bangalore,Karnataka,0.23,1
+USR_00032,Ananya Rao,Working Professional,72100.0,58400.0,1,Lucknow,Uttar Pradesh,0.19,4
+USR_00033,Yash Sharma,Working Professional,58100.0,44200.0,30,Pune,Maharashtra,0.24,4
+USR_00034,Pranav Patel,Business Owner,258300.0,173100.0,10,Ahmedabad,Gujarat,0.33,2
+USR_00035,Aarav Joshi,Working Professional,39000.0,32000.0,30,Delhi NCR,Delhi,0.18,2
+USR_00036,Kavya Nair,Business Owner,163100.0,102800.0,15,Pune,Maharashtra,0.37,2
+USR_00037,Tanvi Reddy,Working Professional,86600.0,71900.0,1,Hyderabad,Telangana,0.17,4
+USR_00038,Dev Reddy,Business Owner,341900.0,225700.0,5,Chandigarh,Punjab,0.34,5
+USR_00039,Manish Bhat,Student,9600.0,8700.0,5,Bangalore,Karnataka,0.09,2
+USR_00040,Dev Chowdhury,Business Owner,164600.0,116900.0,15,Kolkata,West Bengal,0.29,2
+USR_00041,Arjun Verma,Software Engineer,168200.0,97600.0,2,Kolkata,West Bengal,0.42,3
+USR_00042,Neha Nair,Student,23300.0,21700.0,2,Chandigarh,Punjab,0.07,2
+USR_00043,Tanvi Bhat,Investor,392700.0,161000.0,1,Delhi NCR,Delhi,0.59,2
+USR_00044,Riya Sharma,Software Engineer,202600.0,137800.0,31,Indore,Madhya Pradesh,0.32,5
+USR_00045,Diya Singhania,Working Professional,56000.0,47000.0,31,Mumbai,Maharashtra,0.16,3
+USR_00046,Priya Reddy,Freelancer,64500.0,46400.0,Irregular,Chennai,Tamil Nadu,0.28,3
+USR_00047,Manish Nair,Investor,310300.0,121000.0,5,Bangalore,Karnataka,0.61,3
+USR_00048,Diya Rao,Business Owner,115300.0,78400.0,10,Kochi,Kerala,0.32,5
+USR_00049,Yash Iyer,Working Professional,56200.0,42700.0,30,Bangalore,Karnataka,0.24,2
+USR_00050,Sneha Bhat,Freelancer,80100.0,67300.0,Irregular,Lucknow,Uttar Pradesh,0.16,5
+USR_00051,Arjun Deshmukh,Business Owner,302800.0,202900.0,10,Kolkata,West Bengal,0.33,3
+USR_00052,Ishan Mehta,Investor,309600.0,114600.0,5,Kolkata,West Bengal,0.63,2
+USR_00053,Neha Reddy,Freelancer,87300.0,63700.0,Irregular,Ahmedabad,Gujarat,0.27,4
+USR_00054,Ishan Iyer,Retired,56700.0,43100.0,5,Delhi NCR,Delhi,0.24,1
+USR_00055,Neha Iyer,Family,71200.0,53400.0,1,Chandigarh,Punjab,0.25,2
+USR_00056,Ishan Gupta,Student,8800.0,7500.0,1,Ahmedabad,Gujarat,0.15,3
+USR_00057,Vikram Patel,Investor,258400.0,139500.0,1,Indore,Madhya Pradesh,0.46,3
+USR_00058,Kavya Gupta,Retired,27000.0,23200.0,1,Ahmedabad,Gujarat,0.14,2
+USR_00059,Sneha Iyer,Family,174000.0,132200.0,30,Kochi,Kerala,0.24,4
+USR_00060,Rohan Bhat,Software Engineer,203900.0,134600.0,30,Indore,Madhya Pradesh,0.34,5
+USR_00061,Sneha Joshi,Freelancer,70200.0,58300.0,Irregular,Mumbai,Maharashtra,0.17,4
+USR_00062,Pranav Bhat,Working Professional,42600.0,34900.0,2,Kochi,Kerala,0.18,2
+USR_00063,Riya Mehta,Family,125100.0,101300.0,1,Kolkata,West Bengal,0.19,4
+USR_00064,Aarav Kapoor,Investor,253600.0,91300.0,5,Indore,Madhya Pradesh,0.64,3
+USR_00065,Tanvi Deshmukh,Freelancer,93700.0,75000.0,Irregular,Bangalore,Karnataka,0.2,4
+USR_00066,Rahul Deshmukh,Software Engineer,221300.0,126100.0,1,Kolkata,West Bengal,0.43,3
+USR_00067,Ananya Chowdhury,Investor,158000.0,75800.0,1,Pune,Maharashtra,0.52,3
+USR_00068,Ishan Joshi,Family,100500.0,76400.0,2,Indore,Madhya Pradesh,0.24,3
+USR_00069,Ananya Joshi,Student,20700.0,19500.0,5,Mumbai,Maharashtra,0.06,3
+USR_00070,Aditi Singhania,Student,24100.0,22400.0,1,Lucknow,Uttar Pradesh,0.07,1
+USR_00071,Dev Joshi,Working Professional,66000.0,54100.0,30,Indore,Madhya Pradesh,0.18,2
+USR_00072,Yash Rao,Working Professional,77800.0,64600.0,30,Hyderabad,Telangana,0.17,2
+USR_00073,Neha Rao,Investor,231100.0,97100.0,1,Lucknow,Uttar Pradesh,0.58,2
+USR_00074,Neha Kapoor,Working Professional,78800.0,60700.0,1,Chennai,Tamil Nadu,0.23,3
+USR_00075,Priya Verma,Family,61500.0,49800.0,2,Hyderabad,Telangana,0.19,3
+USR_00076,Rohan Deshmukh,Software Engineer,148400.0,89000.0,30,Lucknow,Uttar Pradesh,0.4,6
+USR_00077,Riya Kapoor,Business Owner,228900.0,171700.0,5,Pune,Maharashtra,0.25,3
+USR_00078,Rohan Rao,Investor,214200.0,102800.0,5,Delhi NCR,Delhi,0.52,2
+USR_00079,Priya Singhania,Business Owner,236100.0,146400.0,15,Pune,Maharashtra,0.38,2
+USR_00080,Sneha Patel,Working Professional,48300.0,38200.0,2,Kochi,Kerala,0.21,4
+USR_00081,Siddharth Joshi,Student,9600.0,8900.0,2,Pune,Maharashtra,0.07,3
+USR_00082,Priya Joshi,Family,111100.0,86700.0,2,Chennai,Tamil Nadu,0.22,3
+USR_00083,Manish Reddy,Business Owner,192200.0,126900.0,10,Hyderabad,Telangana,0.34,3
+USR_00084,Ishan Patel,Retired,36100.0,29200.0,5,Lucknow,Uttar Pradesh,0.19,1
+USR_00085,Ishan Reddy,Freelancer,79700.0,63000.0,Irregular,Pune,Maharashtra,0.21,3
+USR_00086,Tanvi Reddy,Software Engineer,184800.0,110900.0,1,Bangalore,Karnataka,0.4,6
+USR_00087,Siddharth Joshi,Family,82100.0,69000.0,2,Hyderabad,Telangana,0.16,2
+USR_00088,Rahul Joshi,Working Professional,66700.0,50000.0,2,Delhi NCR,Delhi,0.25,4
+USR_00089,Neha Verma,Freelancer,53000.0,37100.0,Irregular,Indore,Madhya Pradesh,0.3,4
+USR_00090,Rohan Reddy,Investor,205500.0,90400.0,1,Indore,Madhya Pradesh,0.56,4
+USR_00091,Ishan Reddy,Working Professional,43600.0,35800.0,1,Delhi NCR,Delhi,0.18,3
+USR_00092,Rohan Deshmukh,Retired,36700.0,31900.0,5,Pune,Maharashtra,0.13,2
+USR_00093,Ananya Chowdhury,Freelancer,141600.0,97700.0,Irregular,Kolkata,West Bengal,0.31,5
+USR_00094,Kavya Chowdhury,Software Engineer,233500.0,135400.0,1,Bangalore,Karnataka,0.42,5
+USR_00095,Yash Deshmukh,Business Owner,275700.0,195700.0,10,Kochi,Kerala,0.29,4
+USR_00096,Sneha Iyer,Retired,42500.0,34400.0,2,Kochi,Kerala,0.19,2
+USR_00097,Aarav Verma,Freelancer,145800.0,99100.0,Irregular,Indore,Madhya Pradesh,0.32,5
+USR_00098,Aditi Singhania,Software Engineer,154700.0,95900.0,30,Delhi NCR,Delhi,0.38,6
+USR_00099,Siddharth Verma,Retired,38900.0,33100.0,5,Hyderabad,Telangana,0.15,1
+USR_00100,Pranav Mehta,Retired,36500.0,27700.0,5,Bangalore,Karnataka,0.24,1
+USR_00101,Pranav Reddy,Family,73900.0,56900.0,30,Bangalore,Karnataka,0.23,3
+USR_00102,Aditi Patel,Family,134700.0,107800.0,2,Indore,Madhya Pradesh,0.2,2
+USR_00103,Manish Iyer,Software Engineer,237000.0,156400.0,31,Hyderabad,Telangana,0.34,4
+USR_00104,Diya Reddy,Student,17400.0,16400.0,1,Ahmedabad,Gujarat,0.06,3
+USR_00105,Dev Joshi,Business Owner,303500.0,227600.0,10,Ahmedabad,Gujarat,0.25,5
+USR_00106,Tanvi Gupta,Investor,173400.0,78000.0,1,Hyderabad,Telangana,0.55,3
+USR_00107,Pranav Bhat,Business Owner,428200.0,316900.0,10,Lucknow,Uttar Pradesh,0.26,3
+USR_00108,Rohan Iyer,Retired,38800.0,31800.0,5,Kolkata,West Bengal,0.18,2
+USR_00109,Ishan Deshmukh,Freelancer,102900.0,82300.0,Irregular,Bangalore,Karnataka,0.2,5
+USR_00110,Siddharth Deshmukh,Investor,228100.0,98100.0,1,Ahmedabad,Gujarat,0.57,2
+USR_00111,Sneha Rao,Family,164400.0,124900.0,2,Hyderabad,Telangana,0.24,3
+USR_00112,Aarav Deshmukh,Software Engineer,143800.0,89200.0,2,Hyderabad,Telangana,0.38,5
+USR_00113,Pranav Rao,Investor,302000.0,117800.0,5,Chennai,Tamil Nadu,0.61,4
+USR_00114,Siddharth Kapoor,Student,18500.0,17200.0,5,Mumbai,Maharashtra,0.07,2
+USR_00115,Arjun Singhania,Working Professional,59400.0,44600.0,1,Bangalore,Karnataka,0.25,2
+USR_00116,Neha Nair,Family,111700.0,92700.0,2,Lucknow,Uttar Pradesh,0.17,2
+USR_00117,Diya Verma,Investor,293500.0,158500.0,1,Mumbai,Maharashtra,0.46,4
+USR_00118,Manish Joshi,Business Owner,366700.0,227400.0,10,Pune,Maharashtra,0.38,3
+USR_00119,Ananya Joshi,Family,178500.0,146400.0,2,Kochi,Kerala,0.18,3
+USR_00120,Neha Patel,Investor,358900.0,204600.0,5,Lucknow,Uttar Pradesh,0.43,4
+USR_00121,Neha Deshmukh,Business Owner,108800.0,68500.0,10,Pune,Maharashtra,0.37,2
+USR_00122,Yash Deshmukh,Retired,58300.0,44300.0,1,Lucknow,Uttar Pradesh,0.24,1
+USR_00123,Ishan Rao,Business Owner,371100.0,244900.0,15,Chandigarh,Punjab,0.34,2
+USR_00124,Aditi Reddy,Retired,26300.0,22400.0,1,Hyderabad,Telangana,0.15,2
+USR_00125,Riya Gupta,Freelancer,54500.0,40300.0,Irregular,Jaipur,Rajasthan,0.26,3
+USR_00126,Manish Bhat,Retired,63700.0,54800.0,2,Indore,Madhya Pradesh,0.14,2
+USR_00127,Ananya Gupta,Freelancer,134600.0,95600.0,Irregular,Indore,Madhya Pradesh,0.29,3
+USR_00128,Rahul Sharma,Business Owner,314600.0,223400.0,15,Kochi,Kerala,0.29,5
+USR_00129,Priya Verma,Freelancer,91900.0,67100.0,Irregular,Lucknow,Uttar Pradesh,0.27,5
+USR_00130,Ananya Chowdhury,Retired,61400.0,52200.0,2,Hyderabad,Telangana,0.15,1
+USR_00131,Aditi Reddy,Retired,29600.0,25500.0,5,Delhi NCR,Delhi,0.14,2
+USR_00132,Priya Chowdhury,Investor,284500.0,119500.0,5,Chandigarh,Punjab,0.58,3
+USR_00133,Yash Mehta,Business Owner,113100.0,82600.0,10,Ahmedabad,Gujarat,0.27,4
+USR_00134,Arjun Chowdhury,Family,125300.0,94000.0,2,Bangalore,Karnataka,0.25,3
+USR_00135,Ishan Verma,Retired,28700.0,25000.0,5,Lucknow,Uttar Pradesh,0.13,1
+USR_00136,Pranav Patel,Software Engineer,211700.0,150300.0,2,Lucknow,Uttar Pradesh,0.29,4
+USR_00137,Pranav Singhania,Software Engineer,212000.0,133600.0,30,Delhi NCR,Delhi,0.37,5
+USR_00138,Diya Verma,Student,10200.0,9300.0,2,Lucknow,Uttar Pradesh,0.09,1
+USR_00139,Diya Reddy,Student,10200.0,9300.0,1,Kochi,Kerala,0.09,2
+USR_00140,Rohan Singhania,Family,121600.0,102100.0,30,Mumbai,Maharashtra,0.16,4
+USR_00141,Sneha Reddy,Retired,50700.0,45600.0,2,Kolkata,West Bengal,0.1,1
+USR_00142,Siddharth Deshmukh,Retired,27900.0,24800.0,5,Delhi NCR,Delhi,0.11,1
+USR_00143,Manish Rao,Family,105700.0,83500.0,2,Ahmedabad,Gujarat,0.21,4
+USR_00144,Riya Verma,Working Professional,81900.0,61400.0,2,Kolkata,West Bengal,0.25,2
+USR_00145,Riya Nair,Retired,40900.0,32300.0,2,Kolkata,West Bengal,0.21,2
+USR_00146,Priya Gupta,Retired,27700.0,21600.0,1,Kolkata,West Bengal,0.22,2
+USR_00147,Dev Iyer,Student,18000.0,16000.0,5,Chandigarh,Punjab,0.11,2
+USR_00148,Priya Kapoor,Investor,363100.0,152500.0,5,Lucknow,Uttar Pradesh,0.58,3
+USR_00149,Arjun Rao,Freelancer,57000.0,42800.0,Irregular,Chennai,Tamil Nadu,0.25,4
+USR_00150,Arjun Singhania,Business Owner,329600.0,210900.0,15,Indore,Madhya Pradesh,0.36,4
+USR_00151,Aarav Gupta,Business Owner,381100.0,282000.0,10,Chennai,Tamil Nadu,0.26,3
+USR_00152,Dev Rao,Investor,139500.0,57200.0,1,Hyderabad,Telangana,0.59,4
+USR_00153,Ishan Mehta,Investor,247000.0,138300.0,5,Kochi,Kerala,0.44,4
+USR_00154,Yash Verma,Student,10600.0,9200.0,1,Chandigarh,Punjab,0.13,2
+USR_00155,Rohan Chowdhury,Investor,256000.0,125400.0,5,Mumbai,Maharashtra,0.51,3
+USR_00156,Riya Verma,Business Owner,371300.0,252500.0,15,Chandigarh,Punjab,0.32,2
+USR_00157,Kavya Mehta,Student,8100.0,7500.0,2,Indore,Madhya Pradesh,0.08,2
+USR_00158,Neha Nair,Working Professional,35400.0,26200.0,2,Delhi NCR,Delhi,0.26,4
+USR_00159,Kavya Iyer,Family,68600.0,52100.0,1,Kolkata,West Bengal,0.24,3
+USR_00160,Ananya Kapoor,Family,129100.0,102000.0,30,Chandigarh,Punjab,0.21,3
+USR_00161,Arjun Mehta,Student,24400.0,22700.0,10,Kochi,Kerala,0.07,1
+USR_00162,Riya Kapoor,Working Professional,48400.0,36800.0,1,Kolkata,West Bengal,0.24,4
+USR_00163,Pranav Patel,Family,153500.0,128900.0,30,Hyderabad,Telangana,0.16,4
+USR_00164,Ishan Bhat,Family,102100.0,76600.0,30,Delhi NCR,Delhi,0.25,2
+USR_00165,Dev Reddy,Freelancer,59100.0,48500.0,Irregular,Delhi NCR,Delhi,0.18,5
+USR_00166,Siddharth Joshi,Retired,52200.0,40200.0,5,Chandigarh,Punjab,0.23,2
+USR_00167,Dev Joshi,Working Professional,60800.0,46200.0,30,Lucknow,Uttar Pradesh,0.24,3
+USR_00168,Sneha Verma,Business Owner,284700.0,224900.0,10,Pune,Maharashtra,0.21,2
+USR_00169,Yash Rao,Investor,249600.0,114800.0,1,Ahmedabad,Gujarat,0.54,4
+USR_00170,Ishan Nair,Retired,45100.0,34300.0,2,Hyderabad,Telangana,0.24,2
+USR_00171,Ananya Iyer,Software Engineer,77000.0,47000.0,31,Jaipur,Rajasthan,0.39,5
+USR_00172,Priya Bhat,Business Owner,255000.0,165800.0,15,Lucknow,Uttar Pradesh,0.35,4
+USR_00173,Ananya Nair,Working Professional,65700.0,51900.0,30,Kochi,Kerala,0.21,3
+USR_00174,Ananya Rao,Software Engineer,235000.0,162200.0,31,Delhi NCR,Delhi,0.31,3
+USR_00175,Neha Iyer,Investor,300200.0,156100.0,1,Chandigarh,Punjab,0.48,4
+USR_00176,Riya Iyer,Family,62200.0,51000.0,1,Chennai,Tamil Nadu,0.18,2
+USR_00177,Kavya Gupta,Software Engineer,83900.0,48700.0,1,Jaipur,Rajasthan,0.42,5
+USR_00178,Yash Gupta,Investor,163200.0,89800.0,1,Kochi,Kerala,0.45,2
+USR_00179,Riya Nair,Freelancer,146700.0,107100.0,Irregular,Mumbai,Maharashtra,0.27,4
+USR_00180,Siddharth Bhat,Freelancer,80500.0,53100.0,Irregular,Ahmedabad,Gujarat,0.34,4
+USR_00181,Sneha Iyer,Investor,390600.0,156200.0,1,Pune,Maharashtra,0.6,4
+USR_00182,Siddharth Kapoor,Family,126500.0,106300.0,30,Hyderabad,Telangana,0.16,2
+USR_00183,Diya Reddy,Retired,61200.0,53900.0,2,Hyderabad,Telangana,0.12,2
+USR_00184,Priya Bhat,Student,15100.0,13700.0,5,Mumbai,Maharashtra,0.09,1
+USR_00185,Priya Patel,Student,13400.0,12600.0,5,Indore,Madhya Pradesh,0.06,1
+USR_00186,Aditi Reddy,Retired,52800.0,46500.0,5,Ahmedabad,Gujarat,0.12,1
+USR_00187,Ananya Sharma,Business Owner,186300.0,143500.0,15,Lucknow,Uttar Pradesh,0.23,2
+USR_00188,Neha Patel,Business Owner,148700.0,111500.0,15,Indore,Madhya Pradesh,0.25,2
+USR_00189,Arjun Kapoor,Retired,48900.0,44000.0,5,Lucknow,Uttar Pradesh,0.1,1
+USR_00190,Neha Mehta,Student,18500.0,17200.0,10,Delhi NCR,Delhi,0.07,3
+USR_00191,Ananya Iyer,Family,68100.0,54500.0,30,Indore,Madhya Pradesh,0.2,3
+USR_00192,Siddharth Sharma,Investor,394700.0,213100.0,1,Chennai,Tamil Nadu,0.46,3
+USR_00193,Kavya Deshmukh,Working Professional,77400.0,57300.0,30,Delhi NCR,Delhi,0.26,3
+USR_00194,Tanvi Nair,Software Engineer,219500.0,133900.0,31,Chandigarh,Punjab,0.39,4
+USR_00195,Ananya Deshmukh,Retired,26500.0,23100.0,1,Bangalore,Karnataka,0.13,2
+USR_00196,Sneha Mehta,Retired,35100.0,27700.0,1,Pune,Maharashtra,0.21,1
+USR_00197,Pranav Reddy,Working Professional,79000.0,61600.0,31,Kochi,Kerala,0.22,3
+USR_00198,Pranav Gupta,Retired,52700.0,44300.0,5,Pune,Maharashtra,0.16,1
+USR_00199,Riya Verma,Investor,288700.0,112600.0,5,Chennai,Tamil Nadu,0.61,2
+USR_00200,Pranav Chowdhury,Business Owner,222600.0,151400.0,10,Delhi NCR,Delhi,0.32,5
+USR_00201,Priya Joshi,Student,20400.0,17500.0,10,Pune,Maharashtra,0.14,1
+USR_00202,Ananya Chowdhury,Investor,221700.0,88700.0,1,Bangalore,Karnataka,0.6,4
+USR_00203,Rohan Sharma,Software Engineer,82100.0,48400.0,30,Chennai,Tamil Nadu,0.41,3
+USR_00204,Yash Gupta,Retired,63000.0,52900.0,1,Lucknow,Uttar Pradesh,0.16,2
+USR_00205,Rahul Nair,Business Owner,199800.0,155800.0,15,Delhi NCR,Delhi,0.22,5
+USR_00206,Tanvi Verma,Business Owner,410000.0,270600.0,5,Lucknow,Uttar Pradesh,0.34,5
+USR_00207,Ishan Verma,Software Engineer,223500.0,147500.0,31,Hyderabad,Telangana,0.34,5
+USR_00208,Priya Deshmukh,Working Professional,65200.0,52800.0,30,Delhi NCR,Delhi,0.19,4
+USR_00209,Diya Singhania,Family,121100.0,101700.0,1,Indore,Madhya Pradesh,0.16,2
+USR_00210,Siddharth Sharma,Family,126500.0,102500.0,30,Delhi NCR,Delhi,0.19,2
+USR_00211,Ananya Reddy,Investor,399900.0,168000.0,5,Indore,Madhya Pradesh,0.58,4
+USR_00212,Ananya Gupta,Family,137100.0,111100.0,30,Jaipur,Rajasthan,0.19,2
+USR_00213,Tanvi Chowdhury,Software Engineer,208200.0,149900.0,1,Hyderabad,Telangana,0.28,4
+USR_00214,Neha Gupta,Software Engineer,128100.0,78100.0,30,Jaipur,Rajasthan,0.39,3
+USR_00215,Manish Patel,Business Owner,150100.0,111100.0,15,Hyderabad,Telangana,0.26,3
+USR_00216,Vikram Rao,Software Engineer,100800.0,63500.0,30,Lucknow,Uttar Pradesh,0.37,3
+USR_00217,Ananya Sharma,Business Owner,360500.0,234300.0,10,Lucknow,Uttar Pradesh,0.35,5
+USR_00218,Tanvi Reddy,Business Owner,293200.0,187600.0,15,Kolkata,West Bengal,0.36,5
+USR_00219,Ananya Deshmukh,Student,10700.0,9700.0,10,Mumbai,Maharashtra,0.09,3
+USR_00220,Dev Nair,Family,148100.0,112600.0,2,Delhi NCR,Delhi,0.24,3
+USR_00221,Sneha Iyer,Working Professional,52600.0,41000.0,30,Ahmedabad,Gujarat,0.22,2
+USR_00222,Arjun Sharma,Business Owner,478200.0,301300.0,10,Mumbai,Maharashtra,0.37,4
+USR_00223,Vikram Deshmukh,Family,82800.0,68700.0,30,Ahmedabad,Gujarat,0.17,3
+USR_00224,Siddharth Sharma,Working Professional,87000.0,67000.0,2,Mumbai,Maharashtra,0.23,2
+USR_00225,Aditi Reddy,Retired,48900.0,37700.0,5,Ahmedabad,Gujarat,0.23,1
+USR_00226,Arjun Mehta,Software Engineer,228800.0,137300.0,31,Chennai,Tamil Nadu,0.4,6
+USR_00227,Aditi Rao,Freelancer,79900.0,63100.0,Irregular,Jaipur,Rajasthan,0.21,5
+USR_00228,Manish Kapoor,Working Professional,42100.0,35400.0,30,Indore,Madhya Pradesh,0.16,4
+USR_00229,Priya Singhania,Software Engineer,105800.0,68800.0,1,Bangalore,Karnataka,0.35,4
+USR_00230,Pranav Singhania,Retired,45800.0,40300.0,5,Delhi NCR,Delhi,0.12,2
+USR_00231,Diya Mehta,Business Owner,337500.0,236200.0,15,Jaipur,Rajasthan,0.3,4
+USR_00232,Siddharth Kapoor,Student,14300.0,12600.0,10,Lucknow,Uttar Pradesh,0.12,3
+USR_00233,Aarav Rao,Retired,35600.0,28500.0,5,Lucknow,Uttar Pradesh,0.2,1
+USR_00234,Vikram Joshi,Software Engineer,164400.0,100300.0,31,Delhi NCR,Delhi,0.39,4
+USR_00235,Aditi Rao,Working Professional,45500.0,35500.0,31,Delhi NCR,Delhi,0.22,4
+USR_00236,Ishan Mehta,Retired,59900.0,47300.0,1,Kochi,Kerala,0.21,1
+USR_00237,Tanvi Nair,Retired,46000.0,39100.0,1,Ahmedabad,Gujarat,0.15,2
+USR_00238,Tanvi Nair,Business Owner,344000.0,261400.0,5,Pune,Maharashtra,0.24,4
+USR_00239,Kavya Reddy,Business Owner,382000.0,252100.0,10,Chennai,Tamil Nadu,0.34,4
+USR_00240,Tanvi Bhat,Business Owner,215100.0,148400.0,15,Kolkata,West Bengal,0.31,4
+USR_00241,Dev Reddy,Student,12900.0,11400.0,5,Ahmedabad,Gujarat,0.12,3
+USR_00242,Siddharth Patel,Freelancer,131100.0,104900.0,Irregular,Delhi NCR,Delhi,0.2,5
+USR_00243,Vikram Patel,Freelancer,45600.0,30600.0,Irregular,Chandigarh,Punjab,0.33,3
+USR_00244,Arjun Mehta,Family,146100.0,122700.0,1,Bangalore,Karnataka,0.16,3
+USR_00245,Siddharth Joshi,Freelancer,123200.0,97300.0,Irregular,Chandigarh,Punjab,0.21,3
+USR_00246,Vikram Patel,Student,23500.0,21900.0,2,Bangalore,Karnataka,0.07,2
+USR_00247,Diya Bhat,Business Owner,450700.0,360600.0,15,Lucknow,Uttar Pradesh,0.2,4
+USR_00248,Neha Joshi,Retired,60600.0,53300.0,5,Ahmedabad,Gujarat,0.12,1
+USR_00249,Arjun Nair,Software Engineer,201600.0,125000.0,2,Bangalore,Karnataka,0.38,5
+USR_00250,Vikram Chowdhury,Freelancer,59300.0,40300.0,Irregular,Kolkata,West Bengal,0.32,4
+USR_00251,Ananya Mehta,Working Professional,45200.0,37500.0,30,Mumbai,Maharashtra,0.17,3
+USR_00252,Rahul Patel,Retired,55200.0,42000.0,2,Lucknow,Uttar Pradesh,0.24,2
+USR_00253,Priya Deshmukh,Freelancer,46800.0,38800.0,Irregular,Delhi NCR,Delhi,0.17,5
+USR_00254,Sneha Bhat,Business Owner,376100.0,252000.0,10,Chennai,Tamil Nadu,0.33,3
+USR_00255,Kavya Gupta,Retired,31100.0,24600.0,5,Chennai,Tamil Nadu,0.21,2
+USR_00256,Tanvi Singhania,Freelancer,123800.0,87900.0,Irregular,Jaipur,Rajasthan,0.29,5
+USR_00257,Priya Verma,Working Professional,38400.0,29600.0,2,Lucknow,Uttar Pradesh,0.23,2
+USR_00258,Pranav Kapoor,Retired,29600.0,25800.0,5,Ahmedabad,Gujarat,0.13,2
+USR_00259,Aditi Joshi,Software Engineer,162400.0,107200.0,1,Jaipur,Rajasthan,0.34,5
+USR_00260,Aarav Mehta,Business Owner,426600.0,277300.0,15,Hyderabad,Telangana,0.35,5
+USR_00261,Priya Deshmukh,Working Professional,64800.0,54400.0,1,Ahmedabad,Gujarat,0.16,3
+USR_00262,Riya Gupta,Software Engineer,207800.0,114300.0,31,Chennai,Tamil Nadu,0.45,6
+USR_00263,Rahul Mehta,Working Professional,72600.0,54400.0,2,Chandigarh,Punjab,0.25,2
+USR_00264,Diya Iyer,Investor,268100.0,112600.0,1,Bangalore,Karnataka,0.58,3
+USR_00265,Rohan Chowdhury,Investor,268900.0,104900.0,1,Ahmedabad,Gujarat,0.61,2
+USR_00266,Manish Patel,Working Professional,36800.0,27600.0,1,Mumbai,Maharashtra,0.25,2
+USR_00267,Arjun Rao,Student,15600.0,13700.0,1,Mumbai,Maharashtra,0.12,2
+USR_00268,Rohan Patel,Freelancer,123000.0,84900.0,Irregular,Jaipur,Rajasthan,0.31,3
+USR_00269,Vikram Nair,Family,88400.0,67200.0,30,Jaipur,Rajasthan,0.24,3
+USR_00270,Neha Reddy,Student,17500.0,15600.0,2,Chandigarh,Punjab,0.11,3
+USR_00271,Siddharth Sharma,Family,173000.0,134900.0,30,Chennai,Tamil Nadu,0.22,3
+USR_00272,Riya Gupta,Business Owner,250600.0,162900.0,10,Mumbai,Maharashtra,0.35,4
+USR_00273,Dev Singhania,Retired,61600.0,50500.0,2,Jaipur,Rajasthan,0.18,2
+USR_00274,Kavya Reddy,Freelancer,76300.0,63300.0,Irregular,Chennai,Tamil Nadu,0.17,5
+USR_00275,Ishan Sharma,Business Owner,250900.0,170600.0,5,Hyderabad,Telangana,0.32,3
+USR_00276,Siddharth Patel,Family,96400.0,73300.0,1,Mumbai,Maharashtra,0.24,4
+USR_00277,Siddharth Bhat,Freelancer,116500.0,82700.0,Irregular,Mumbai,Maharashtra,0.29,4
+USR_00278,Rahul Joshi,Family,97000.0,78600.0,2,Ahmedabad,Gujarat,0.19,4
+USR_00279,Siddharth Singhania,Family,169700.0,137500.0,2,Bangalore,Karnataka,0.19,4
+USR_00280,Dev Sharma,Business Owner,321300.0,218500.0,15,Kolkata,West Bengal,0.32,3
+USR_00281,Ishan Nair,Freelancer,81800.0,55600.0,Irregular,Jaipur,Rajasthan,0.32,4
+USR_00282,Siddharth Deshmukh,Retired,43400.0,34300.0,2,Delhi NCR,Delhi,0.21,2
+USR_00283,Diya Bhat,Student,16900.0,14700.0,1,Chandigarh,Punjab,0.13,1
+USR_00284,Riya Gupta,Freelancer,47500.0,39000.0,Irregular,Jaipur,Rajasthan,0.18,4
+USR_00285,Aditi Rao,Retired,51400.0,46300.0,5,Jaipur,Rajasthan,0.1,1
+USR_00286,Aarav Iyer,Business Owner,314300.0,232600.0,15,Kochi,Kerala,0.26,3
+USR_00287,Arjun Bhat,Working Professional,63800.0,51700.0,30,Chennai,Tamil Nadu,0.19,3
+USR_00288,Ananya Nair,Investor,248500.0,134200.0,1,Pune,Maharashtra,0.46,2
+USR_00289,Aditi Verma,Investor,226200.0,104100.0,1,Chandigarh,Punjab,0.54,4
+USR_00290,Diya Verma,Retired,58800.0,47000.0,2,Lucknow,Uttar Pradesh,0.2,1
+USR_00291,Kavya Patel,Retired,35800.0,27200.0,5,Pune,Maharashtra,0.24,1
+USR_00292,Diya Bhat,Family,61900.0,51400.0,1,Indore,Madhya Pradesh,0.17,2
+USR_00293,Neha Gupta,Freelancer,102300.0,69600.0,Irregular,Kolkata,West Bengal,0.32,5
+USR_00294,Ananya Iyer,Family,66400.0,53800.0,1,Chennai,Tamil Nadu,0.19,4
+USR_00295,Yash Mehta,Family,63600.0,52200.0,2,Ahmedabad,Gujarat,0.18,3
+USR_00296,Tanvi Mehta,Investor,172000.0,77400.0,5,Hyderabad,Telangana,0.55,4
+USR_00297,Neha Singhania,Freelancer,118400.0,98300.0,Irregular,Kolkata,West Bengal,0.17,5
+USR_00298,Rahul Nair,Family,72800.0,61900.0,2,Ahmedabad,Gujarat,0.15,3
+USR_00299,Arjun Gupta,Working Professional,45300.0,35300.0,31,Hyderabad,Telangana,0.22,2
+USR_00300,Priya Iyer,Working Professional,67800.0,49500.0,31,Bangalore,Karnataka,0.27,3
+USR_00301,Rahul Singhania,Working Professional,74900.0,57700.0,2,Lucknow,Uttar Pradesh,0.23,4
+USR_00302,Rahul Gupta,Software Engineer,118400.0,82900.0,2,Hyderabad,Telangana,0.3,6
+USR_00303,Manish Mehta,Business Owner,293700.0,229100.0,10,Mumbai,Maharashtra,0.22,3
+USR_00304,Rohan Verma,Software Engineer,124800.0,69900.0,30,Lucknow,Uttar Pradesh,0.44,5
+USR_00305,Rohan Nair,Investor,348300.0,135800.0,1,Pune,Maharashtra,0.61,4
+USR_00306,Ishan Joshi,Family,81300.0,65900.0,2,Pune,Maharashtra,0.19,4
+USR_00307,Siddharth Rao,Freelancer,75800.0,59900.0,Irregular,Chennai,Tamil Nadu,0.21,5
+USR_00308,Ishan Rao,Software Engineer,192700.0,123300.0,31,Kochi,Kerala,0.36,6
+USR_00309,Neha Kapoor,Working Professional,80000.0,58400.0,31,Chandigarh,Punjab,0.27,2
+USR_00310,Neha Patel,Business Owner,363500.0,239900.0,10,Hyderabad,Telangana,0.34,5
+USR_00311,Vikram Mehta,Investor,272200.0,108900.0,5,Kochi,Kerala,0.6,2
+USR_00312,Kavya Chowdhury,Family,80000.0,63200.0,30,Chandigarh,Punjab,0.21,3
+USR_00313,Riya Verma,Student,9700.0,9000.0,2,Ahmedabad,Gujarat,0.07,2
+USR_00314,Rohan Singhania,Software Engineer,132100.0,99100.0,1,Pune,Maharashtra,0.25,3
+USR_00315,Arjun Kapoor,Software Engineer,132700.0,90200.0,2,Jaipur,Rajasthan,0.32,5
+USR_00316,Siddharth Verma,Retired,53900.0,44700.0,1,Pune,Maharashtra,0.17,1
+USR_00317,Aarav Kapoor,Family,137800.0,107500.0,1,Kochi,Kerala,0.22,4
+USR_00318,Diya Iyer,Software Engineer,129600.0,85500.0,31,Mumbai,Maharashtra,0.34,4
+USR_00319,Diya Chowdhury,Investor,230800.0,96900.0,1,Ahmedabad,Gujarat,0.58,3
+USR_00320,Rahul Sharma,Freelancer,62600.0,43800.0,Irregular,Lucknow,Uttar Pradesh,0.3,5
+USR_00321,Diya Nair,Family,83600.0,70200.0,30,Ahmedabad,Gujarat,0.16,4
+USR_00322,Pranav Rao,Investor,291200.0,131000.0,5,Chennai,Tamil Nadu,0.55,4
+USR_00323,Diya Kapoor,Business Owner,467500.0,317900.0,15,Delhi NCR,Delhi,0.32,2
+USR_00324,Kavya Reddy,Working Professional,45100.0,33800.0,31,Kolkata,West Bengal,0.25,2
+USR_00325,Vikram Mehta,Investor,172000.0,75700.0,1,Jaipur,Rajasthan,0.56,3
+USR_00326,Neha Gupta,Software Engineer,126600.0,83600.0,1,Chennai,Tamil Nadu,0.34,6
+USR_00327,Dev Patel,Investor,389900.0,183300.0,5,Kolkata,West Bengal,0.53,3
+USR_00328,Rohan Joshi,Software Engineer,84900.0,62800.0,2,Pune,Maharashtra,0.26,5
+USR_00329,Kavya Iyer,Business Owner,167300.0,118800.0,15,Indore,Madhya Pradesh,0.29,2
+USR_00330,Vikram Verma,Business Owner,410000.0,262400.0,10,Jaipur,Rajasthan,0.36,5
+USR_00331,Tanvi Patel,Investor,148700.0,58000.0,1,Pune,Maharashtra,0.61,2
+USR_00332,Rohan Reddy,Family,163500.0,137300.0,1,Indore,Madhya Pradesh,0.16,2
+USR_00333,Vikram Deshmukh,Family,163300.0,129000.0,2,Delhi NCR,Delhi,0.21,2
+USR_00334,Ishan Kapoor,Freelancer,128600.0,95200.0,Irregular,Lucknow,Uttar Pradesh,0.26,4
+USR_00335,Neha Reddy,Business Owner,481000.0,336700.0,15,Hyderabad,Telangana,0.3,5
+USR_00336,Aditi Reddy,Software Engineer,196300.0,141300.0,2,Kochi,Kerala,0.28,4
+USR_00337,Rahul Joshi,Software Engineer,173900.0,121700.0,31,Kolkata,West Bengal,0.3,3
+USR_00338,Ananya Mehta,Business Owner,377900.0,234300.0,10,Ahmedabad,Gujarat,0.38,2
+USR_00339,Ananya Deshmukh,Retired,50400.0,40300.0,1,Indore,Madhya Pradesh,0.2,1
+USR_00340,Riya Kapoor,Freelancer,94400.0,74600.0,Irregular,Chennai,Tamil Nadu,0.21,5
+USR_00341,Dev Rao,Retired,56500.0,43500.0,1,Bangalore,Karnataka,0.23,2
+USR_00342,Aarav Verma,Software Engineer,149400.0,112000.0,31,Mumbai,Maharashtra,0.25,5
+USR_00343,Diya Kapoor,Business Owner,137300.0,100200.0,5,Chennai,Tamil Nadu,0.27,3
+USR_00344,Aditi Mehta,Business Owner,390400.0,253800.0,10,Chandigarh,Punjab,0.35,2
+USR_00345,Aarav Patel,Retired,28100.0,22800.0,5,Chandigarh,Punjab,0.19,1
+USR_00346,Aarav Deshmukh,Family,158100.0,118600.0,2,Kochi,Kerala,0.25,3
+USR_00347,Ananya Patel,Investor,145000.0,58000.0,1,Chennai,Tamil Nadu,0.6,3
+USR_00348,Dev Mehta,Software Engineer,185500.0,113200.0,1,Jaipur,Rajasthan,0.39,4
+USR_00349,Rohan Nair,Freelancer,109100.0,89500.0,Irregular,Lucknow,Uttar Pradesh,0.18,3
+USR_00350,Ananya Bhat,Working Professional,42700.0,35400.0,31,Chennai,Tamil Nadu,0.17,3
+USR_00351,Dev Patel,Business Owner,357800.0,268400.0,15,Lucknow,Uttar Pradesh,0.25,2
+USR_00352,Neha Patel,Freelancer,122300.0,96600.0,Irregular,Indore,Madhya Pradesh,0.21,4
+USR_00353,Rahul Verma,Freelancer,95000.0,69400.0,Irregular,Chennai,Tamil Nadu,0.27,3
+USR_00354,Rahul Kapoor,Investor,222300.0,95600.0,5,Indore,Madhya Pradesh,0.57,2
+USR_00355,Vikram Verma,Student,12500.0,11900.0,1,Indore,Madhya Pradesh,0.05,3
+USR_00356,Neha Chowdhury,Investor,238600.0,119300.0,1,Pune,Maharashtra,0.5,3
+USR_00357,Ananya Iyer,Freelancer,147200.0,120700.0,Irregular,Kolkata,West Bengal,0.18,5
+USR_00358,Ananya Reddy,Investor,324400.0,126500.0,1,Mumbai,Maharashtra,0.61,3
+USR_00359,Arjun Joshi,Student,13300.0,11700.0,2,Hyderabad,Telangana,0.12,3
+USR_00360,Dev Deshmukh,Student,10800.0,9200.0,5,Delhi NCR,Delhi,0.15,1
+USR_00361,Manish Deshmukh,Working Professional,77400.0,65800.0,31,Pune,Maharashtra,0.15,2
+USR_00362,Manish Deshmukh,Working Professional,62300.0,48000.0,1,Ahmedabad,Gujarat,0.23,2
+USR_00363,Priya Gupta,Business Owner,409300.0,253800.0,15,Kochi,Kerala,0.38,3
+USR_00364,Sneha Sharma,Student,22600.0,21500.0,1,Ahmedabad,Gujarat,0.05,2
+USR_00365,Dev Gupta,Student,17400.0,15000.0,10,Mumbai,Maharashtra,0.14,1
+USR_00366,Riya Bhat,Family,92600.0,77800.0,2,Hyderabad,Telangana,0.16,4
+USR_00367,Aditi Gupta,Freelancer,128500.0,83500.0,Irregular,Hyderabad,Telangana,0.35,4
+USR_00368,Neha Nair,Working Professional,65400.0,55600.0,2,Pune,Maharashtra,0.15,3
+USR_00369,Yash Patel,Retired,39700.0,29800.0,1,Kochi,Kerala,0.25,1
+USR_00370,Aarav Bhat,Investor,126700.0,58300.0,1,Chennai,Tamil Nadu,0.54,4
+USR_00371,Rahul Kapoor,Business Owner,141600.0,97700.0,5,Kolkata,West Bengal,0.31,2
+USR_00372,Dev Deshmukh,Business Owner,137200.0,85100.0,15,Kolkata,West Bengal,0.38,5
+USR_00373,Ananya Rao,Working Professional,62800.0,47100.0,31,Hyderabad,Telangana,0.25,4
+USR_00374,Aditi Mehta,Software Engineer,112600.0,78800.0,30,Indore,Madhya Pradesh,0.3,5
+USR_00375,Pranav Joshi,Business Owner,193400.0,118000.0,5,Indore,Madhya Pradesh,0.39,3
+USR_00376,Arjun Gupta,Retired,43600.0,36600.0,5,Chennai,Tamil Nadu,0.16,2
+USR_00377,Neha Joshi,Business Owner,441000.0,344000.0,15,Pune,Maharashtra,0.22,2
+USR_00378,Ishan Kapoor,Family,77800.0,60700.0,2,Kolkata,West Bengal,0.22,2
+USR_00379,Neha Reddy,Software Engineer,75600.0,50700.0,31,Jaipur,Rajasthan,0.33,3
+USR_00380,Rohan Verma,Software Engineer,91900.0,68000.0,2,Delhi NCR,Delhi,0.26,6
+USR_00381,Priya Chowdhury,Working Professional,67000.0,54300.0,1,Bangalore,Karnataka,0.19,2
+USR_00382,Rohan Singhania,Software Engineer,86600.0,50200.0,30,Hyderabad,Telangana,0.42,6
+USR_00383,Aditi Gupta,Investor,350100.0,175000.0,1,Kolkata,West Bengal,0.5,2
+USR_00384,Priya Patel,Software Engineer,119500.0,78900.0,2,Bangalore,Karnataka,0.34,5
+USR_00385,Siddharth Mehta,Retired,27400.0,23600.0,1,Kolkata,West Bengal,0.14,1
+USR_00386,Tanvi Singhania,Student,24800.0,21600.0,5,Ahmedabad,Gujarat,0.13,2
+USR_00387,Priya Bhat,Family,106600.0,88500.0,2,Lucknow,Uttar Pradesh,0.17,2
+USR_00388,Manish Sharma,Retired,46200.0,36000.0,1,Delhi NCR,Delhi,0.22,1
+USR_00389,Kavya Reddy,Student,21000.0,18100.0,10,Chennai,Tamil Nadu,0.14,1
+USR_00390,Kavya Rao,Family,156700.0,122200.0,30,Bangalore,Karnataka,0.22,4
+USR_00391,Vikram Gupta,Freelancer,132000.0,91100.0,Irregular,Jaipur,Rajasthan,0.31,3
+USR_00392,Siddharth Sharma,Working Professional,38100.0,29000.0,1,Jaipur,Rajasthan,0.24,2
+USR_00393,Pranav Bhat,Freelancer,128700.0,100400.0,Irregular,Indore,Madhya Pradesh,0.22,3
+USR_00394,Aarav Gupta,Software Engineer,209400.0,121500.0,30,Hyderabad,Telangana,0.42,6
+USR_00395,Vikram Verma,Family,96200.0,80800.0,1,Kochi,Kerala,0.16,4
+USR_00396,Siddharth Chowdhury,Family,80900.0,60700.0,30,Lucknow,Uttar Pradesh,0.25,2
+USR_00397,Vikram Kapoor,Software Engineer,138100.0,82900.0,30,Delhi NCR,Delhi,0.4,3
+USR_00398,Vikram Mehta,Student,11100.0,10200.0,2,Chandigarh,Punjab,0.08,2
+USR_00399,Dev Nair,Working Professional,48100.0,33700.0,2,Chandigarh,Punjab,0.3,4
+USR_00400,Pranav Joshi,Student,12500.0,11600.0,1,Chennai,Tamil Nadu,0.07,1
+USR_00401,Aarav Sharma,Investor,242700.0,121400.0,1,Kolkata,West Bengal,0.5,3
+USR_00402,Priya Iyer,Investor,148400.0,71200.0,1,Delhi NCR,Delhi,0.52,2
+USR_00403,Aditi Reddy,Student,13400.0,11400.0,1,Chennai,Tamil Nadu,0.15,2
+USR_00404,Diya Deshmukh,Working Professional,65100.0,46900.0,1,Chennai,Tamil Nadu,0.28,4
+USR_00405,Siddharth Deshmukh,Student,15300.0,13500.0,10,Delhi NCR,Delhi,0.12,1
+USR_00406,Pranav Patel,Freelancer,85000.0,62900.0,Irregular,Chandigarh,Punjab,0.26,4
+USR_00407,Kavya Verma,Student,14700.0,13200.0,10,Delhi NCR,Delhi,0.1,2
+USR_00408,Aarav Mehta,Working Professional,51200.0,38400.0,31,Mumbai,Maharashtra,0.25,2
+USR_00409,Ishan Gupta,Business Owner,490800.0,348500.0,5,Pune,Maharashtra,0.29,5
+USR_00410,Siddharth Joshi,Business Owner,136500.0,94200.0,5,Chennai,Tamil Nadu,0.31,4
+USR_00411,Diya Joshi,Student,12500.0,11200.0,2,Pune,Maharashtra,0.1,1
+USR_00412,Dev Singhania,Working Professional,39700.0,31800.0,31,Indore,Madhya Pradesh,0.2,4
+USR_00413,Aditi Kapoor,Investor,349200.0,174600.0,5,Lucknow,Uttar Pradesh,0.5,3
+USR_00414,Neha Verma,Investor,372800.0,156600.0,1,Hyderabad,Telangana,0.58,3
+USR_00415,Diya Gupta,Freelancer,128900.0,105700.0,Irregular,Hyderabad,Telangana,0.18,4
+USR_00416,Ishan Kapoor,Software Engineer,220100.0,154100.0,1,Hyderabad,Telangana,0.3,6
+USR_00417,Tanvi Nair,Business Owner,307900.0,190900.0,5,Indore,Madhya Pradesh,0.38,2
+USR_00418,Riya Gupta,Software Engineer,172000.0,108400.0,1,Hyderabad,Telangana,0.37,3
+USR_00419,Neha Kapoor,Family,165300.0,135500.0,30,Ahmedabad,Gujarat,0.18,4
+USR_00420,Siddharth Sharma,Software Engineer,119600.0,86100.0,31,Bangalore,Karnataka,0.28,5
+USR_00421,Kavya Sharma,Retired,61800.0,47600.0,1,Chennai,Tamil Nadu,0.23,2
+USR_00422,Manish Kapoor,Retired,59300.0,47400.0,1,Delhi NCR,Delhi,0.2,2
+USR_00423,Pranav Reddy,Investor,289400.0,167900.0,5,Mumbai,Maharashtra,0.42,4
+USR_00424,Siddharth Singhania,Family,158500.0,126800.0,1,Hyderabad,Telangana,0.2,4
+USR_00425,Sneha Mehta,Software Engineer,210500.0,136800.0,1,Delhi NCR,Delhi,0.35,4
+USR_00426,Aditi Patel,Student,15800.0,13600.0,2,Pune,Maharashtra,0.14,2
+USR_00427,Sneha Mehta,Working Professional,72500.0,58700.0,31,Lucknow,Uttar Pradesh,0.19,2
+USR_00428,Siddharth Rao,Family,101300.0,78000.0,2,Kochi,Kerala,0.23,3
+USR_00429,Aarav Mehta,Student,10800.0,9600.0,2,Mumbai,Maharashtra,0.11,3
+USR_00430,Ishan Reddy,Investor,263700.0,100200.0,1,Ahmedabad,Gujarat,0.62,4
+USR_00431,Diya Rao,Student,11800.0,10500.0,5,Kochi,Kerala,0.11,2
+USR_00432,Rahul Kapoor,Family,115100.0,95500.0,2,Chandigarh,Punjab,0.17,4
+USR_00433,Arjun Sharma,Family,127400.0,100600.0,2,Pune,Maharashtra,0.21,2
+USR_00434,Siddharth Verma,Family,178600.0,141100.0,2,Pune,Maharashtra,0.21,4
+USR_00435,Neha Patel,Software Engineer,163100.0,114200.0,1,Indore,Madhya Pradesh,0.3,5
+USR_00436,Dev Deshmukh,Student,19100.0,16200.0,5,Kolkata,West Bengal,0.15,2
+USR_00437,Aditi Rao,Freelancer,77700.0,55200.0,Irregular,Chandigarh,Punjab,0.29,5
+USR_00438,Neha Kapoor,Software Engineer,221300.0,126100.0,2,Pune,Maharashtra,0.43,6
+USR_00439,Dev Deshmukh,Business Owner,390100.0,269200.0,5,Chandigarh,Punjab,0.31,2
+USR_00440,Kavya Nair,Freelancer,121900.0,96300.0,Irregular,Chennai,Tamil Nadu,0.21,5
+USR_00441,Neha Joshi,Working Professional,60900.0,43800.0,1,Ahmedabad,Gujarat,0.28,4
+USR_00442,Arjun Kapoor,Investor,268400.0,134200.0,1,Delhi NCR,Delhi,0.5,3
+USR_00443,Riya Rao,Retired,30700.0,23600.0,1,Indore,Madhya Pradesh,0.23,2
+USR_00444,Pranav Chowdhury,Software Engineer,126400.0,93500.0,31,Pune,Maharashtra,0.26,4
+USR_00445,Vikram Singhania,Software Engineer,158100.0,94900.0,1,Delhi NCR,Delhi,0.4,6
+USR_00446,Riya Mehta,Investor,390300.0,195200.0,1,Jaipur,Rajasthan,0.5,4
+USR_00447,Priya Sharma,Family,150800.0,120600.0,1,Chandigarh,Punjab,0.2,4
+USR_00448,Kavya Patel,Family,97500.0,81900.0,30,Lucknow,Uttar Pradesh,0.16,2
+USR_00449,Ananya Kapoor,Student,13100.0,12100.0,5,Kolkata,West Bengal,0.08,2
+USR_00450,Siddharth Nair,Freelancer,58100.0,38900.0,Irregular,Bangalore,Karnataka,0.33,3
+USR_00451,Dev Patel,Student,18000.0,16700.0,5,Kochi,Kerala,0.07,2
+USR_00452,Manish Singhania,Student,18100.0,17200.0,1,Chandigarh,Punjab,0.05,1
+USR_00453,Arjun Mehta,Retired,40200.0,33000.0,2,Kochi,Kerala,0.18,1
+USR_00454,Aarav Reddy,Investor,305300.0,131300.0,5,Lucknow,Uttar Pradesh,0.57,3
+USR_00455,Arjun Iyer,Working Professional,50500.0,36900.0,31,Mumbai,Maharashtra,0.27,3
+USR_00456,Sneha Patel,Family,144400.0,118400.0,1,Jaipur,Rajasthan,0.18,2
+USR_00457,Siddharth Nair,Freelancer,40300.0,29000.0,Irregular,Lucknow,Uttar Pradesh,0.28,3
+USR_00458,Ananya Singhania,Working Professional,74800.0,62100.0,30,Chandigarh,Punjab,0.17,3
+USR_00459,Neha Reddy,Retired,27000.0,21100.0,1,Pune,Maharashtra,0.22,2
+USR_00460,Riya Deshmukh,Working Professional,40200.0,29700.0,1,Bangalore,Karnataka,0.26,4
+USR_00461,Diya Nair,Family,167300.0,125500.0,2,Kochi,Kerala,0.25,3
+USR_00462,Pranav Gupta,Working Professional,57000.0,40500.0,30,Kolkata,West Bengal,0.29,3
+USR_00463,Diya Verma,Software Engineer,195300.0,144500.0,2,Hyderabad,Telangana,0.26,6
+USR_00464,Vikram Chowdhury,Retired,32300.0,27100.0,2,Lucknow,Uttar Pradesh,0.16,1
+USR_00465,Siddharth Bhat,Retired,29500.0,24800.0,1,Hyderabad,Telangana,0.16,2
+USR_00466,Aarav Deshmukh,Freelancer,147600.0,106300.0,Irregular,Jaipur,Rajasthan,0.28,4
+USR_00467,Kavya Joshi,Family,139600.0,110300.0,1,Jaipur,Rajasthan,0.21,2
+USR_00468,Diya Iyer,Retired,59100.0,45500.0,1,Indore,Madhya Pradesh,0.23,2
+USR_00469,Kavya Nair,Business Owner,120100.0,91300.0,15,Kolkata,West Bengal,0.24,3
+USR_00470,Ananya Joshi,Retired,57100.0,47400.0,2,Ahmedabad,Gujarat,0.17,1
+USR_00471,Siddharth Deshmukh,Student,9700.0,8800.0,1,Hyderabad,Telangana,0.09,3
+USR_00472,Yash Chowdhury,Business Owner,456000.0,314600.0,15,Chandigarh,Punjab,0.31,4
+USR_00473,Priya Kapoor,Student,21900.0,19100.0,5,Jaipur,Rajasthan,0.13,3
+USR_00474,Priya Deshmukh,Retired,29600.0,23400.0,1,Bangalore,Karnataka,0.21,2
+USR_00475,Neha Iyer,Family,144300.0,122700.0,1,Ahmedabad,Gujarat,0.15,4
+USR_00476,Riya Verma,Business Owner,344300.0,261700.0,10,Mumbai,Maharashtra,0.24,3
+USR_00477,Pranav Verma,Investor,133000.0,58500.0,1,Indore,Madhya Pradesh,0.56,3
+USR_00478,Vikram Iyer,Software Engineer,243500.0,182600.0,1,Jaipur,Rajasthan,0.25,6
+USR_00479,Sneha Singhania,Software Engineer,194500.0,140000.0,2,Hyderabad,Telangana,0.28,5
+USR_00480,Sneha Bhat,Investor,237200.0,106700.0,1,Pune,Maharashtra,0.55,3
+USR_00481,Neha Joshi,Software Engineer,94900.0,59800.0,30,Kochi,Kerala,0.37,4
+USR_00482,Ishan Patel,Business Owner,374600.0,232300.0,5,Kochi,Kerala,0.38,4
+USR_00483,Arjun Singhania,Family,127500.0,100700.0,30,Kochi,Kerala,0.21,4
+USR_00484,Tanvi Reddy,Investor,346300.0,162800.0,1,Kolkata,West Bengal,0.53,2
+USR_00485,Aditi Patel,Business Owner,400100.0,308100.0,10,Chandigarh,Punjab,0.23,3
+USR_00486,Aditi Deshmukh,Business Owner,181600.0,125300.0,10,Ahmedabad,Gujarat,0.31,3
+USR_00487,Tanvi Mehta,Freelancer,96200.0,66400.0,Irregular,Kochi,Kerala,0.31,4
+USR_00488,Rahul Mehta,Family,175900.0,147800.0,30,Pune,Maharashtra,0.16,4
+USR_00489,Rohan Kapoor,Freelancer,140300.0,99600.0,Irregular,Indore,Madhya Pradesh,0.29,5
+USR_00490,Ishan Reddy,Retired,32100.0,25700.0,1,Delhi NCR,Delhi,0.2,1
+USR_00491,Rahul Sharma,Investor,198200.0,105000.0,1,Lucknow,Uttar Pradesh,0.47,2
+USR_00492,Pranav Joshi,Software Engineer,77200.0,43200.0,1,Indore,Madhya Pradesh,0.44,6
+USR_00493,Vikram Iyer,Family,68700.0,53600.0,30,Mumbai,Maharashtra,0.22,4
+USR_00494,Ananya Singhania,Software Engineer,144900.0,92700.0,1,Chennai,Tamil Nadu,0.36,4
+USR_00495,Pranav Nair,Family,95200.0,71400.0,30,Jaipur,Rajasthan,0.25,4
+USR_00496,Aarav Verma,Family,113500.0,86300.0,30,Lucknow,Uttar Pradesh,0.24,2
+USR_00497,Pranav Mehta,Working Professional,56200.0,43300.0,30,Bangalore,Karnataka,0.23,4
+USR_00498,Sneha Joshi,Retired,26800.0,20600.0,1,Chennai,Tamil Nadu,0.23,1
+USR_00499,Arjun Gupta,Student,18700.0,17400.0,2,Chandigarh,Punjab,0.07,1
+USR_00500,Ishan Iyer,Investor,301000.0,111400.0,1,Bangalore,Karnataka,0.63,4

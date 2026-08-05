@@ -172,4 +172,43 @@
   .profile-form-section {
     padding: 2rem;
   }
+}
+
+/* GPU Acceleration & Performance Optimizations for Ultra-Smooth Scrolling and Hovers */
+.profile-content,
+.profile-avatar-section,
+.profile-form-section,
+.form-group,
+.btn {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, opacity;
+}
+
+/* Ensure smooth native momentum scrolling on all layouts */
+.profile-container {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Lenis smooth scrolling core styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 } 

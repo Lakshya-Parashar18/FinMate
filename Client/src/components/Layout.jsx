@@ -1,5 +1,6 @@
 import React from 'react';
 import Sidebar from './Sidebar'; // Import the new Sidebar component
+import AskFinSenseChatbot from './AskFinSenseChatbot';
 import './Layout.css'; // We'll create this CSS file next
 
 const Layout = ({ children }) => {
@@ -8,9 +9,10 @@ const Layout = ({ children }) => {
       <Sidebar />
       <main className="main-content">
         <div className="content-inner">
-          {children} 
+          {children}
         </div>
       </main>
+      <AskFinSenseChatbot />
     </div>
   );
 };

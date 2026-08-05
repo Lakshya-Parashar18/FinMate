@@ -149,13 +149,24 @@
 }
 
 .view-more-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: rgba(16, 185, 129, 0.03);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #10b981;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, opacity;
 }
 
 .view-more-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.view-more-btn:active {
+  transform: translateY(0) scale(1);
 }
 
 .share-feedback-btn {
@@ -225,9 +236,25 @@
 .reviews-header h3 svg { color: #10b981; }
 
 .close-reviews {
-  font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
   cursor: pointer;
+  font-size: 13px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-reviews:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.35);
+  transform: rotate(90deg) scale(1.08);
 }
 
 .reviews-scroll-area {
@@ -240,36 +267,101 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
+  padding-bottom: 5rem;
 }
 
 .mini-review-card {
-  background: rgba(255, 255, 255, 0.03);
-  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 2.2rem 2rem;
   border-radius: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.mini-review-card p {
+.mini-review-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-5px);
+  border-color: rgba(16, 185, 129, 0.18);
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+.mini-quote-icon {
+  position: absolute;
+  top: 1.8rem;
+  right: 1.8rem;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.03);
+}
+
+.mini-review-card p.mini-review-text {
   font-size: 0.95rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.7);
-  margin: 1rem 0;
-  font-style: italic;
+  margin: 1rem 0 1.5rem 0;
+  font-style: normal;
+  flex: 1;
 }
 
 .stars-mini {
   color: #f59e0b;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   display: flex;
   gap: 0.2rem;
 }
 
-.mini-user-info {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.4);
+.mini-user-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: 1rem;
 }
 
-.mini-user-info strong { color: #fff; }
+.mini-avatar-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.25);
+}
+
+.mini-review-card:nth-child(even) .mini-avatar-circle {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.25);
+}
+
+.mini-review-card:nth-child(3n) .mini-avatar-circle {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+  box-shadow: 0 4px 10px rgba(236, 72, 153, 0.25);
+}
+
+.mini-user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.mini-user-details strong {
+  color: #f8fafc;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.mini-user-details span {
+  color: #64748b;
+  font-size: 0.75rem;
+}
 
 /* Custom Scrollbar for Reviews */
 .reviews-scroll-area::-webkit-scrollbar { width: 8px; }
@@ -297,10 +389,13 @@
   position: relative;
   width: 100%;
   max-width: 500px;
-  background: #1e293b;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   padding: 3rem;
   border-radius: 2.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 40px 100px -25px rgba(0, 0, 0, 0.85), inset 0 1px 1px rgba(255, 255, 255, 0.05);
 }
 
 .form-header {
@@ -311,15 +406,33 @@
 }
 
 .form-header h3 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: #fff;
-  font-weight: 800;
+  font-weight: 900;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.02em;
 }
 
 .close-form {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 1.5rem;
+  font-size: 13px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-form:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.35);
+  transform: rotate(90deg) scale(1.08);
 }
 
 .feedback-card form {
@@ -335,27 +448,55 @@
 
 .feedback-card input, .feedback-card select, .feedback-card textarea {
   padding: 1.2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 1.2rem;
   color: #fff;
   outline: none;
   width: 100%;
+  font-size: 0.95rem;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.feedback-card input::placeholder, .feedback-card textarea::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.95rem;
+}
+
+.feedback-card input:focus, .feedback-card textarea:focus {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.12);
 }
 
 .feedback-card textarea {
   height: 120px;
   resize: none;
+  line-height: 1.6;
 }
 
 .submit-feedback-btn {
-  background: #10b981;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: #fff;
   border: none;
   padding: 1.2rem;
-  border-radius: 1rem;
-  font-weight: 700;
+  border-radius: 1.2rem;
+  font-weight: 800;
+  font-size: 1rem;
   cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 10px 25px -10px rgba(16, 185, 129, 0.45);
+}
+
+.submit-feedback-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -8px rgba(16, 185, 129, 0.55);
+}
+
+.submit-feedback-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 15px -8px rgba(16, 185, 129, 0.45);
 }
 
 .submission-success {

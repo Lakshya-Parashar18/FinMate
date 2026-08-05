@@ -25,6 +25,10 @@ import insightRoutes from "./routes/insightRoutes.js";
 import testimonialRoutes from "./routes/testimonialRoutes.js";
 import subscriberRoutes from "./routes/subscriberRoutes.js";
 import supportRoutes from "./routes/supportRoutes.js";
+import goalRoutes from "./routes/goalRoutes.js";
+import circleRoutes from "./routes/circleRoutes.js";
+import aiRoutes from "./routes/aiRoutes.js";
+import anomalyRoutes from "./routes/anomalyRoutes.js";
 console.log("Server loaded Google Client ID:", process.env.GOOGLE_CLIENT_ID);
 
 const app = express();
@@ -44,6 +48,12 @@ app.use(cors({ // Configure CORS if your frontend is on a different origin
 }));
 app.use(express.json());
 app.use(cookieParser()); // Parse cookies
+
+// Serve logo.png directly from Express (used in email preview iframe)
+app.get('/logo.png', (req, res) => {
+  const logoPath = path.join(__dirname, '../Client/public/logo.png');
+  res.sendFile(logoPath);
+});
 
 // Session Middleware Configuration
 app.use(
@@ -76,6 +86,10 @@ app.use("/api/insights", insightRoutes);
 app.use("/api/testimonials", testimonialRoutes);
 app.use("/api/subscribers", subscriberRoutes);
 app.use("/api/support", supportRoutes);
+app.use("/api/goals", goalRoutes);
+app.use("/api/circles", circleRoutes);
+app.use("/api/ai", aiRoutes);
+app.use("/api/ai/anomaly", anomalyRoutes);
 
 // Test Route
 app.get("/", (req, res) => {
@@ -85,9 +99,27 @@ app.get("/", (req, res) => {
 // Export the app for Vercel
 export default app;
 
+const mongoOptions = {
+  serverSelectionTimeoutMS: 10000,   // give up selecting a server after 10s
+  connectTimeoutMS: 10000,           // initial TCP connect timeout
+  socketTimeoutMS: 45000,            // idle socket timeout
+  heartbeatFrequencyMS: 10000,       // how often to ping the server
+};
+
+// Reconnect event handlers — prevents unhandled promise rejection crash
+mongoose.connection.on('disconnected', () => {
+  console.warn('⚠️  MongoDB disconnected — attempting reconnect...');
+});
+mongoose.connection.on('reconnected', () => {
+  console.log('✅ MongoDB reconnected');
+});
+mongoose.connection.on('error', (err) => {
+  console.error('❌ MongoDB connection error:', err.message);
+});
+
 // Start the server ONLY if not in a serverless environment
 if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
-  mongoose.connect(MONGO_URI)
+  mongoose.connect(MONGO_URI, mongoOptions)
     .then(() => {
       console.log("✅ MongoDB connected (Local/Standard Mode)");
       app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
@@ -97,8 +129,8 @@ if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
       process.exit(1);
     });
 } else {
-    // In Vercel, we connect to DB but don't call app.listen()
-    mongoose.connect(MONGO_URI)
-      .then(() => console.log("✅ MongoDB connected (Serverless Mode)"))
-      .catch(err => console.error("❌ MongoDB serverless connection error:", err));
+  // In Vercel, we connect to DB but don't call app.listen()
+  mongoose.connect(MONGO_URI, mongoOptions)
+    .then(() => console.log("✅ MongoDB connected (Serverless Mode)"))
+    .catch(err => console.error("❌ MongoDB serverless connection error:", err));
 }

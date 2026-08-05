@@ -2,9 +2,36 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../config';
+import Lenis from 'lenis';
 import './Profile.css';
 
 const Profile = () => {
+  // Initialize Lenis for smooth scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 0.9,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 2.0,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+
+    let frameId;
+    function raf(time) {
+      lenis.raf(time);
+      frameId = requestAnimationFrame(raf);
+    }
+
+    frameId = requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+      cancelAnimationFrame(frameId);
+    };
+  }, []);
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
     name: '',

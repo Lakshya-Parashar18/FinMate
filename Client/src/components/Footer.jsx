@@ -86,18 +86,23 @@ const Footer = () => {
   };
 
   const scrollToElementSmooth = (el) => {
+    if (window.lenis) {
+      window.lenis.scrollTo(el, { offset: 60, duration: 1.2 });
+      return;
+    }
+
     const parent = getScrollParent(el);
     const rect = el.getBoundingClientRect();
 
     if (!parent) {
-      const targetY = window.scrollY + rect.top - NAV_SCROLL_MARGIN;
+      const targetY = window.scrollY + rect.top + 60;
       scrollWindowTo(targetY);
       return;
     }
 
     const prect = parent.getBoundingClientRect();
     const relativeTop = rect.top - prect.top + parent.scrollTop;
-    const targetTop = relativeTop - NAV_SCROLL_MARGIN;
+    const targetTop = relativeTop + 60;
     scrollElementTo(parent, targetTop);
   };
 
@@ -124,6 +129,10 @@ const Footer = () => {
 
   const scrollToTop = (e) => {
     if (e) e.preventDefault();
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { duration: 1.2 });
+      return;
+    }
     scrollWindowTo(0);
   };
 

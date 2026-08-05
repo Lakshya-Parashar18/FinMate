@@ -1,8 +1,17 @@
 import express from 'express';
-import { register, login, logout, getMe, deleteUser, googleLogin, verifyEmail, resendVerification, changePassword } from '../controllers/authController.js';
+import { register, login, logout, getMe, deleteUser, googleLogin, verifyEmail, resendVerification, changePassword, previewEmail, sendSupportEmail, checkUsername } from '../controllers/authController.js';
 import { protect } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
+
+// GET - Preview Email Template Live
+router.get('/preview-email', previewEmail);
+
+// GET - Check Username Availability
+router.get('/check-username', checkUsername);
+
+// POST - Send Support Email
+router.post('/send-support-email', sendSupportEmail);
 
 // POST - Register User
 router.post('/register', register);

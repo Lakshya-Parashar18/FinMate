@@ -56,9 +56,18 @@
     cursor: pointer !important;
 }
 
-/* Keep native cursor behavior for form fields and embeds */
+/* Keep native text cursor behavior for form input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+textarea,
+.auth-input,
 .landing-page input,
 .landing-page select,
 .landing-page iframe {
-    cursor: auto !important;
+    cursor: text !important;
 }

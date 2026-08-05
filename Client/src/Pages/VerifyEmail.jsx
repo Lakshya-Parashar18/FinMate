@@ -33,6 +33,13 @@ export default function VerifyEmail() {
   return (
     <div className="verify-container">
       <div className="verify-card">
+        <div className="verify-logo-container">
+          <div className="verify-logo-squircle">
+            <img src="/logo.png" alt="FinMate Logo" className="verify-logo" />
+          </div>
+          <span className="verify-brand-name">FinMate</span>
+        </div>
+
         {status === "verifying" && (
           <>
             <div className="verify-spinner"></div>

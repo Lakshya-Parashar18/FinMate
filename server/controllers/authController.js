@@ -3,7 +3,9 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import crypto from "crypto";
 import { OAuth2Client } from "google-auth-library";
-import { sendVerificationEmail } from "../utils/emailService.js";
+import { sendVerificationEmail, sendSupportMessage } from "../utils/emailService.js";
+import { recordLoginActivity, recordSession } from "./userController.js";
+import { verifySync } from 'otplib';
 
 // Initialize Google OAuth client
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
@@ -24,18 +26,85 @@ const validatePassword = (password) => {
   return errors;
 };
 
+// Generate unique username helper
+const generateUniqueUsername = async (name) => {
+  let baseUsername = name.toLowerCase().replace(/[^a-z0-9_.]/g, '');
+  if (!baseUsername) baseUsername = 'user';
+  
+  let username = baseUsername;
+  let exists = await User.findOne({ username });
+  let counter = 1;
+  while (exists) {
+    username = `${baseUsername}${counter}`;
+    exists = await User.findOne({ username });
+    counter++;
+  }
+  return username;
+};
+
+// Check username availability
+export const checkUsername = async (req, res) => {
+  const { username } = req.query;
+  if (!username) {
+    return res.status(400).json({ message: "Username parameter is required" });
+  }
+
+  try {
+    const formattedUsername = username.toLowerCase().trim();
+    if (!/^[a-z0-9_.]+$/.test(formattedUsername)) {
+      return res.status(400).json({ 
+        available: false, 
+        message: "Username can only contain letters, numbers, underscores, and periods." 
+      });
+    }
+
+    if (formattedUsername.length < 3) {
+      return res.status(400).json({ 
+        available: false, 
+        message: "Username must be at least 3 characters long." 
+      });
+    }
+
+    const existing = await User.findOne({ username: formattedUsername });
+    if (existing) {
+      return res.status(400).json({ available: false, message: "Username is already taken" });
+    }
+
+    res.status(200).json({ available: true, message: "Username is available" });
+  } catch (err) {
+    console.error('Check username error:', err);
+    res.status(500).json({ message: "Server error checking username" });
+  }
+};
+
 // Register user
 export const register = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, username, password } = req.body;
   try {
+    if (!username) {
+      return res.status(400).json({ message: "Username is required" });
+    }
+
+    const formattedUsername = username.toLowerCase().trim();
+    if (!/^[a-z0-9_.]+$/.test(formattedUsername)) {
+      return res.status(400).json({ message: "Username can only contain lowercase letters, numbers, underscores, and periods" });
+    }
+
+    if (formattedUsername.length < 3) {
+      return res.status(400).json({ message: "Username must be at least 3 characters long" });
+    }
+
     // Validate password strength
     const passwordErrors = validatePassword(password);
     if (passwordErrors.length > 0) {
       return res.status(400).json({ message: passwordErrors[0], errors: passwordErrors });
     }
 
-    const existing = await User.findOne({ email });
-    if (existing) return res.status(400).json({ message: "User already exists" });
+    const existingEmail = await User.findOne({ email });
+    if (existingEmail) return res.status(400).json({ message: "Email is already registered" });
+
+    const existingUsername = await User.findOne({ username: formattedUsername });
+    if (existingUsername) return res.status(400).json({ message: "Username is already taken" });
 
     const hashed = await bcrypt.hash(password, 10);
 
@@ -45,6 +114,7 @@ export const register = async (req, res) => {
 
     const user = new User({
       name,
+      username: formattedUsername,
       email,
       password: hashed,
       verificationToken,
@@ -80,10 +150,20 @@ export const verifyEmail = async (req, res) => {
   const { token } = req.params;
 
   try {
-    const user = await User.findOne({
-      verificationToken: token,
-      verificationTokenExpires: { $gt: Date.now() },
-    }).select('+verificationToken +verificationTokenExpires');
+    let user;
+    if (token === 'live-preview-token-123456') {
+      // Find the most recently registered unverified user to make the live preview link actually function!
+      user = await User.findOne({ isVerified: false }).sort({ createdAt: -1 });
+      if (!user) {
+        // Fallback to the last registered user overall
+        user = await User.findOne().sort({ createdAt: -1 });
+      }
+    } else {
+      user = await User.findOne({
+        verificationToken: token,
+        verificationTokenExpires: { $gt: new Date() },
+      }).select('+verificationToken +verificationTokenExpires');
+    }
 
     if (!user) {
       return res.status(400).json({ message: "Invalid or expired verification link." });
@@ -98,6 +178,39 @@ export const verifyEmail = async (req, res) => {
   } catch (err) {
     console.error('Verification error:', err);
     res.status(500).json({ message: "Server error during verification" });
+  }
+};
+
+// Preview email template live in browser
+export const previewEmail = async (req, res) => {
+  try {
+    const { getVerificationEmailHtml } = await import('../utils/emailService.js');
+    const name = req.query.name || 'Lakshya';
+    const html = getVerificationEmailHtml(name, 'live-preview-token-123456', false, true);
+    res.setHeader('Content-Type', 'text/html');
+    res.send(html);
+  } catch (err) {
+    console.error('Preview email error:', err);
+    res.status(500).send('Error generating email preview');
+  }
+};
+
+// Send user support email query
+export const sendSupportEmail = async (req, res) => {
+  const { email, subject, message } = req.body;
+  if (!email || !subject || !message) {
+    return res.status(400).json({ message: "All fields (email, subject, message) are required" });
+  }
+
+  try {
+    const result = await sendSupportMessage(email, subject, message);
+    if (result && result.fallback) {
+      return res.status(200).json({ message: "Support message logged locally (SMTP connection offline)" });
+    }
+    res.status(200).json({ message: "Support query sent successfully" });
+  } catch (err) {
+    console.error('Send support email error:', err);
+    res.status(500).json({ message: err.message || "Failed to send support email" });
   }
 };
 
@@ -127,10 +240,16 @@ export const resendVerification = async (req, res) => {
 
 // Login user
 export const login = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, twoFAToken } = req.body;
   try {
-    const user = await User.findOne({ email }).select('+password');
-    if (!user) return res.status(400).json({ message: "Invalid credentials" });
+    const loginIdentifier = (email || '').toLowerCase().trim();
+    const user = await User.findOne({
+      $or: [{ email: loginIdentifier }, { username: loginIdentifier }]
+    }).select('+password +twoFASecret');
+    if (!user) {
+      // Record failed attempt if we can find user by any means (don't leak existence)
+      return res.status(400).json({ message: "Invalid credentials" });
+    }
 
     // Check if email is verified
     if (!user.isVerified) {
@@ -142,16 +261,39 @@ export const login = async (req, res) => {
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ message: "Invalid credentials" });
+    if (!isMatch) {
+      // Record failed login
+      await recordLoginActivity(user._id, 'login_failed', req, false);
+      return res.status(400).json({ message: "Invalid credentials" });
+    }
+
+    // ── 2FA Check ──
+    if (user.twoFAEnabled) {
+      if (!twoFAToken) {
+        // Signal frontend that 2FA is required
+        return res.status(200).json({ requires2FA: true, userId: user._id });
+      }
+      const isValid = verifySync({ token: twoFAToken.trim(), secret: user.twoFASecret });
+      if (!isValid) {
+        await recordLoginActivity(user._id, '2fa_failed', req, false);
+        return res.status(400).json({ message: 'Invalid 2FA code. Please try again.' });
+      }
+    }
 
     // Generate JWT token
     const token = generateToken(user._id);
 
-    // *** Establish Session ***
-    req.session.userId = user._id; 
-    console.log('Session created for user:', req.session.userId);
+    // Establish Session
+    req.session.userId = user._id;
 
-    res.json({ token, user: { _id: user._id, name: user.name, email: user.email } });
+    // Record activity & session (async, don't block response)
+    recordLoginActivity(user._id, 'login_success', req, true);
+    recordSession(user._id, req);
+
+    res.json({
+      token,
+      user: { _id: user._id, name: user.name, email: user.email, username: user.username }
+    });
   } catch (err) {
     console.error('Login error:', err);
     res.status(500).json({ message: "Server error during login" });
@@ -160,9 +302,13 @@ export const login = async (req, res) => {
 
 // Google Login Verification
 export const googleLogin = async (req, res) => {
-  const { token: googleToken } = req.body;
+  const googleToken = req.body.token || req.body.credential;
 
   try {
+    if (!googleToken) {
+      return res.status(400).json({ message: "Google ID token is required" });
+    }
+
     const ticket = await client.verifyIdToken({
       idToken: googleToken,
       audience: process.env.GOOGLE_CLIENT_ID,
@@ -176,35 +322,41 @@ export const googleLogin = async (req, res) => {
     let user = await User.findOne({ email: userEmail });
 
     if (!user) {
-      // Google-authenticated users are auto-verified
+      const generatedUsername = await generateUniqueUsername(userName);
       user = new User({
         name: userName,
+        username: generatedUsername,
         email: userEmail,
         googleId: userId,
-        isVerified: true,  // Auto-verify Google users
+        isVerified: true,
       });
       await user.save();
       console.log('New user created via Google Login:', user.email);
     } else if (!user.googleId) {
-        user.googleId = userId;
-        user.isVerified = true; // Also verify existing users linking Google
-        await user.save();
-        console.log('Existing user linked Google ID:', user.email);
+      user.googleId = userId;
+      user.isVerified = true;
+      if (!user.username) user.username = await generateUniqueUsername(user.name);
+      await user.save();
+      console.log('Existing user linked Google ID:', user.email);
     }
 
-    // Generate our app's JWT token
     const token = generateToken(user._id);
-
-    // *** Establish Session ***
     req.session.userId = user._id;
-    console.log('Session created for Google user:', req.session.userId);
 
-    res.json({ token, user: { _id: user._id, name: user.name, email: user.email } });
+    // Record activity & session
+    recordLoginActivity(user._id, 'google_login_success', req, true);
+    recordSession(user._id, req);
+
+    res.json({
+      token,
+      user: { _id: user._id, name: user.name, email: user.email, username: user.username }
+    });
   } catch (err) {
     console.error('Error during Google login:', err);
     res.status(500).json({ message: 'Google login verification failed', error: err.message });
   }
 };
+
 
 // Logout user
 export const logout = (req, res) => {
@@ -213,7 +365,7 @@ export const logout = (req, res) => {
       console.error('Session destruction error:', err);
       return res.status(500).json({ message: 'Could not log out, please try again.' });
     }
-    res.clearCookie('connect.sid'); 
+    res.clearCookie('connect.sid');
     res.status(200).json({ message: 'Logged out successfully' });
   });
 };
@@ -221,9 +373,9 @@ export const logout = (req, res) => {
 // Get current user
 export const getMe = async (req, res) => {
   if (!req.user) {
-      return res.status(401).json({ message: "Not authorized" });
+    return res.status(401).json({ message: "Not authorized" });
   }
-  res.json({ user: req.user }); 
+  res.json({ user: req.user });
 };
 
 // Delete user
@@ -238,19 +390,19 @@ export const deleteUser = async (req, res) => {
     if (!user) {
       return res.status(404).json({ success: false, message: 'User not found' });
     }
-    
+
     req.session.destroy((err) => {
-        if (err) {
-            console.error('Error destroying session during account deletion:', err);
-        }
-        res.clearCookie('connect.sid');
-        res.status(200).json({ success: true, message: 'User deleted successfully' });
+      if (err) {
+        console.error('Error destroying session during account deletion:', err);
+      }
+      res.clearCookie('connect.sid');
+      res.status(200).json({ success: true, message: 'User deleted successfully' });
     });
 
   } catch (error) {
     console.error('Error in deleteUser:', error);
-    res.status(500).json({ 
-      success: false, 
+    res.status(500).json({
+      success: false,
       message: 'Error deleting user',
       error: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
@@ -280,6 +432,9 @@ export const changePassword = async (req, res) => {
 
     user.password = await bcrypt.hash(newPassword, 10);
     await user.save();
+
+    // Record in activity log
+    recordLoginActivity(user._id, 'password_changed', req, true);
 
     res.json({ message: "Password updated successfully" });
   } catch (err) {

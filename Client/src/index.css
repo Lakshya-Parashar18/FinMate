@@ -1,9 +1,39 @@
+@import './light-mode.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ── Global spinner utility (used on Lucide Loader2 icons) ── */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 0.75s linear infinite;
+}
+
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+/* Enable smooth scrolling globally on all scrollable elements & containers */
+*,
+*::before,
+*::after {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 [id] {
@@ -11,45 +41,50 @@ html {
 }
 
 :root {
-  /* Light theme variables */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f7fafc;
-  --text-primary: #1a202c;
-  --text-secondary: #4a5568;
-  --border-color: #e2e8f0;
+  --sidebar-width: 260px;
+  --content-padding: 2rem;
+  --max-content-width: 1350px;
+  /* Light theme variables - Premium Slate & Emerald Theme */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --border-color: #cbd5e1;
   --card-bg: #ffffff;
-  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --header-bg: rgb(125, 175, 221);
+  --card-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+  --header-bg: rgba(255, 255, 255, 0.85);
   --sidebar-bg: #ffffff;
-  --sidebar-text: #1a202c;
-  --sidebar-hover: #f7fafc;
+  --sidebar-text: #0f172a;
+  --sidebar-hover: #f1f5f9;
   --modal-bg: #ffffff;
-  --modal-text: #1a202c;
+  --modal-text: #0f172a;
   --input-bg: #ffffff;
-  --input-text: #1a202c;
-  --input-border: #e2e8f0;
-  --button-primary-bg: #4299e1;
+  --input-text: #0f172a;
+  --input-border: #cbd5e1;
+  --button-primary-bg: #10b981;
   --button-primary-text: #ffffff;
-  --button-secondary-bg: #e2e8f0;
-  --button-secondary-text: #4a5568;
-  --table-header-bg: #f7fafc;
+  --button-secondary-bg: #f1f5f9;
+  --button-secondary-text: #475569;
+  --table-header-bg: #f1f5f9;
   --table-row-bg: #ffffff;
-  --table-row-hover: #f7fafc;
+  --table-row-hover: #f8fafc;
   --chart-bg: #ffffff;
-  --chart-text: #1a202c;
-  --background-color: #ffffff;
-  --text-color: #1a202c;
-  --primary-color: #3182ce;
-  /* Example blue */
-  --primary-hover-color: #2b6cb0;
-  --secondary-color: #e2e8f0;
-  --secondary-hover-color: #cbd5e0;
-  --secondary-text-color: #4a5568;
+  --chart-text: #0f172a;
+  --background-color: #f8fafc;
+  --text-color: #475569;
+  --primary-color: #10b981;
+  --primary-hover-color: #059669;
+  --secondary-color: #f1f5f9;
+  --secondary-hover-color: #cbd5e1;
+  --secondary-text-color: #64748b;
   --card-background: #ffffff;
   --error-color: #e53e3e;
-  --success-color: #38a169;
+  --success-color: #10b981;
   --error-color-rgb: 229, 62, 62;
-  --success-color-rgb: 56, 161, 105;
+  --success-color-rgb: 16, 185, 129;
+  /* Extra layout/theme vars */
+  --hover-bg: #f1f5f9;
+  --dashboard-bg: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
 }
 
 [data-theme="dark"] {
@@ -94,6 +129,9 @@ html {
   /* Lighter green for dark */
   --error-color-rgb: 252, 129, 129;
   --success-color-rgb: 104, 211, 145;
+  /* Extra layout/theme vars */
+  --hover-bg: #4a5568;
+  --dashboard-bg: linear-gradient(125deg, #1a202c, #2d3748);
 }
 
 html,
@@ -170,6 +208,7 @@ body {
 .settings-header h2,
 .analytics-header .header-banner,
 .transactions-header .header-banner,
+.monthly-budget-header .header-banner,
 .monthly-budget-header h2 {
   width: 100%;
   max-width: 1350px;
@@ -213,6 +252,52 @@ body {
   font-weight: 600;
 }
 
+/* Unified header subtitle & separator layout styles */
+.header-titles {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 0.8rem !important;
+}
+
+.dashboard-header h2,
+.settings-header h2,
+.analytics-header h2,
+.transactions-header h2,
+.monthly-budget-header h2 {
+  width: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.header-separator {
+  width: 1px !important;
+  height: 16px !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  display: inline-block !important;
+  font-size: 0 !important;
+  overflow: hidden !important;
+  margin: 0 0.5rem !important;
+  align-self: center !important;
+  transform: translateY(3px) !important;
+}
+
+.header-subtitle {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  color: #94a3b8 !important;
+  margin: 0 !important;
+  text-align: left !important;
+  opacity: 0.8 !important;
+  line-height: 1.25 !important;
+  white-space: nowrap !important;
+  min-width: max-content !important;
+  transform: translateY(3px) !important;
+}
+
+
+
 .card {
   background-color: var(--card-bg);
   box-shadow: var(--card-shadow);
@@ -235,13 +320,54 @@ body {
 }
 
 /* Modals */
-.modal-overlay {
+.modal-overlay,
+.premium-modal-overlay,
+.goals-modal-overlay {
   background-color: rgba(0, 0, 0, 0.5);
+  overscroll-behavior: contain !important;
 }
 
-.modal-content {
+.modal-content,
+.premium-modal-content,
+.goals-modal-card {
   background-color: var(--modal-bg);
   color: var(--modal-text);
+  overscroll-behavior: contain !important;
+}
+
+/* Hide scrollbar arrow buttons globally */
+::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Light Mode Global Modal Scrollbar Isolation */
+html:not([data-theme="dark"]) .modal-overlay ::-webkit-scrollbar,
+html:not([data-theme="dark"]) .premium-modal-overlay ::-webkit-scrollbar {
+  display: block !important;
+  width: 2px !important;
+  height: 0 !important;
+}
+
+html:not([data-theme="dark"]) .modal-overlay ::-webkit-scrollbar-button,
+html:not([data-theme="dark"]) .premium-modal-overlay ::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+html:not([data-theme="dark"]) .modal-overlay ::-webkit-scrollbar-track,
+html:not([data-theme="dark"]) .premium-modal-overlay ::-webkit-scrollbar-track {
+  background: transparent !important;
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+}
+
+html:not([data-theme="dark"]) .modal-overlay ::-webkit-scrollbar-thumb,
+html:not([data-theme="dark"]) .premium-modal-overlay ::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.35) !important;
+  border-radius: 10px !important;
 }
 
 /* Inputs */
@@ -406,19 +532,48 @@ html, body {
 */
 
 /* REMOVED redundant code rule (Tailwind likely handles) */
-/* Fix browser autofill background in dark mode - Absolute Transparency */
+/* Fix browser autofill background - Theme Aware */
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    -webkit-text-fill-color: white !important;
-    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
-    transition: background-color 5000s ease-in-out 0s;
-    background-color: transparent !important;
-    caret-color: white;
+  -webkit-text-fill-color: var(--text-primary) !important;
+  -webkit-box-shadow: 0 0 0px 1000px var(--input-bg) inset !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
-/* Global Transition for Smooth Theme Interaction */
-* {
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+/* Global Transition - Subtle and Theme Only */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Background Ambient Glows, Noise & Grid for global usage */
+.auth-ambient-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+  background-color: #0b0f19;
+}
+
+.auth-grid-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.45) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.auth-noise-texture {
+  position: absolute;
+  inset: 0;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.auth-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 35%, rgba(9, 13, 22, 0.85) 100%);
 }

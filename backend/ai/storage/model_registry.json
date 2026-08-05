@@ -1,0 +1,19 @@
+{
+  "active_model_id": "merchant_classifier_v1.0.0",
+  "models": [
+    {
+      "model_id": "merchant_classifier_v1.0.0",
+      "version": "1.0.0",
+      "training_date": "2026-08-05T21:23:09.909782",
+      "dataset_version": "dataset_v1",
+      "embedding_version": "sentence-transformers/all-MiniLM-L6-v2",
+      "framework": "scikit-learn/MLP",
+      "accuracy": 1.0,
+      "top3_accuracy": 1.0,
+      "f1_weighted": 1.0,
+      "latency_target_ms": 5.0,
+      "model_path": "storage/models/merchant_classifier.joblib",
+      "deployment_status": "ACTIVE"
+    }
+  ]
+}

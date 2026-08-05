@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../config';
 import {
@@ -14,14 +14,20 @@ import {
   FaArrowDown,
   FaRupeeSign,
   FaExclamationTriangle,
+  FaShieldAlt,
   FaSortAmountDown
 } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
+import { useDisplaySettings } from '../context/DisplaySettingsContext';
 import './Transactions.css';
+import Lenis from 'lenis';
+import Loading from '../components/Loading';
 
 const Transactions = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user } = useAuth();
+  const { formatCurrency } = useDisplaySettings();
 
   const [transactions, setTransactions] = useState([]);
   const [filteredTransactions, setFilteredTransactions] = useState([]);
@@ -46,6 +52,8 @@ const Transactions = () => {
   const [transactionToDelete, setTransactionToDelete] = useState(null);
   const [error, setError] = useState('');
   const [apiError, setApiError] = useState('');
+  const [anomalyScanning, setAnomalyScanning] = useState(false);
+  const [anomalyCheckResult, setAnomalyCheckResult] = useState(null);
 
   const fetchTransactions = useCallback(async () => {
     setLoading(true);
@@ -81,9 +89,80 @@ const Transactions = () => {
     }
   }, []);
 
+  // Initialize Lenis for smooth scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 0.75,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 2.0,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+
+    let frameId;
+    function raf(time) {
+      lenis.raf(time);
+      frameId = requestAnimationFrame(raf);
+    }
+
+    frameId = requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+      cancelAnimationFrame(frameId);
+    };
+  }, []);
+
   useEffect(() => {
     fetchTransactions();
   }, [fetchTransactions]);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    const isModalOpen = showAddModal || showEditModal || showFilterModal || showDeleteModal;
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      document.body.classList.add('lenis-stopped');
+      document.documentElement.classList.add('lenis-stopped');
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      document.body.classList.remove('lenis-stopped');
+      document.documentElement.classList.remove('lenis-stopped');
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      document.body.classList.remove('lenis-stopped');
+      document.documentElement.classList.remove('lenis-stopped');
+    };
+  }, [showAddModal, showEditModal, showFilterModal, showDeleteModal]);
+
+  useEffect(() => {
+    if (location.state?.openAddModal) {
+      setShowAddModal(true);
+      window.history.replaceState({}, document.title);
+    }
+    if (location.state?.openFilterModal) {
+      setShowFilterModal(true);
+      window.history.replaceState({}, document.title);
+    }
+
+    const handleOpenAdd = () => setShowAddModal(true);
+    const handleOpenFilter = () => setShowFilterModal(true);
+
+    window.addEventListener('open_add_transaction_modal', handleOpenAdd);
+    window.addEventListener('open_filter_transactions_modal', handleOpenFilter);
+
+    return () => {
+      window.removeEventListener('open_add_transaction_modal', handleOpenAdd);
+      window.removeEventListener('open_filter_transactions_modal', handleOpenFilter);
+    };
+  }, [location]);
 
   useEffect(() => {
     if (showAddModal || showEditModal) {
@@ -106,7 +185,7 @@ const Transactions = () => {
       filtered = filtered.filter(tx => tx.date.startsWith(filters.date));
     }
     if (filters.type) {
-        filtered = filtered.filter(tx => tx.type === filters.type);
+      filtered = filtered.filter(tx => tx.type === filters.type);
     }
 
     // Sort Logic
@@ -115,7 +194,7 @@ const Transactions = () => {
       if (sortBy === 'date') {
         valA = new Date(a.date);
         valB = new Date(b.date);
-        
+
         // Secondary sort by createdAt for same-day precision
         if (valA.getTime() === valB.getTime()) {
           const createdA = new Date(a.createdAt || a._id);
@@ -171,6 +250,7 @@ const Transactions = () => {
     setShowEditModal(false);
     setCurrentTransaction(null);
     setApiError('');
+    setAnomalyCheckResult(null);
   };
 
   const openFilterModal = () => setShowFilterModal(true);
@@ -200,16 +280,16 @@ const Transactions = () => {
     }
 
     try {
-      const amountValue = formData.type === 'expense' 
-                          ? -Math.abs(parseFloat(formData.amount))
-                          : Math.abs(parseFloat(formData.amount)); 
-                          
+      const amountValue = formData.type === 'expense'
+        ? -Math.abs(parseFloat(formData.amount))
+        : Math.abs(parseFloat(formData.amount));
+
       const payload = {
-          date: formData.date,
-          description: formData.description,
-          category: formData.category,
-          amount: amountValue,
-          type: formData.type,
+        date: formData.date,
+        description: formData.description,
+        category: formData.category,
+        amount: amountValue,
+        type: formData.type,
       };
 
       await axios.post(`${API_URL}/transactions`, payload, { withCredentials: true });
@@ -221,6 +301,41 @@ const Transactions = () => {
     }
   };
 
+  // Live anomaly preview scan: called when amount or category changes in the add form
+  const runLiveAnomalyPreview = useCallback(async (amount, category, type) => {
+    if (!amount || type !== 'expense' || parseFloat(amount) <= 0) {
+      setAnomalyCheckResult(null);
+      return;
+    }
+    setAnomalyScanning(true);
+    try {
+      // Create a temporary transaction to scan, then immediately delete it
+      const amountValue = -Math.abs(parseFloat(amount));
+      const payload = {
+        date: new Date().toISOString().split('T')[0],
+        description: 'FinSense Preview Scan',
+        category: category || 'Miscellaneous',
+        amount: amountValue,
+        type: 'expense',
+      };
+      const createRes = await axios.post(`${API_URL}/transactions`, payload, { withCredentials: true });
+      const txId = createRes.data._id;
+
+      // Fetch anomaly result (backend already scanned it asynchronously)
+      await new Promise(r => setTimeout(r, 2500)); // Wait for Python subprocess
+      const anomalyRes = await axios.get(`${API_URL}/ai/anomaly/${txId}`, { withCredentials: true });
+      setAnomalyCheckResult(anomalyRes.data);
+
+      // Silently delete the preview transaction
+      await axios.delete(`${API_URL}/transactions/${txId}`, { withCredentials: true });
+    } catch (err) {
+      // Silent failure — preview is best-effort only
+      setAnomalyCheckResult(null);
+    } finally {
+      setAnomalyScanning(false);
+    }
+  }, []);
+
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     if (!currentTransaction) return;
@@ -231,18 +346,18 @@ const Transactions = () => {
     }
 
     try {
-       const amountValue = formData.type === 'expense' 
-                          ? -Math.abs(parseFloat(formData.amount))
-                          : Math.abs(parseFloat(formData.amount)); 
-                          
-       const payload = {
-          date: formData.date,
-          description: formData.description,
-          category: formData.category,
-          amount: amountValue,
-          type: formData.type,
+      const amountValue = formData.type === 'expense'
+        ? -Math.abs(parseFloat(formData.amount))
+        : Math.abs(parseFloat(formData.amount));
+
+      const payload = {
+        date: formData.date,
+        description: formData.description,
+        category: formData.category,
+        amount: amountValue,
+        type: formData.type,
       };
-      
+
       await axios.put(`${API_URL}/transactions/${currentTransaction._id}`, payload, { withCredentials: true });
       closeModal();
       fetchTransactions();
@@ -281,7 +396,11 @@ const Transactions = () => {
     <>
       <div className="transactions-header">
         <div className="header-banner">
-          <h2>Transactions</h2>
+          <div className="header-titles">
+            <h2>Transactions</h2>
+            <span className="header-separator">|</span>
+            <p className="header-subtitle">Track and filter your transactions history</p>
+          </div>
           <button className="header-add-btn" onClick={openAddModal}>
             <FaPlus /> Add Transaction
           </button>
@@ -290,21 +409,26 @@ const Transactions = () => {
 
       <div className="transactions-content">
         <div className="transactions-controls">
-          <div className="search-box">
-            <FaSearch className="search-icon" />
-            <input 
-              type="text" 
-              placeholder="Search description or category..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
+          <div className="search-and-filter">
+            <div className="search-box">
+              <FaSearch className="search-icon" />
+              <input
+                type="text"
+                placeholder="Search description or category..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
+            <button className="filter-btn" onClick={openFilterModal}>
+              <FaFilter /> Filter
+            </button>
           </div>
           <div className="action-buttons">
             <div className="sort-container">
               <FaSortAmountDown className="sort-icon" />
-              <select 
+              <select
                 className="sort-select"
-                value={`${sortBy}-${sortOrder}`} 
+                value={`${sortBy}-${sortOrder}`}
                 onChange={(e) => {
                   const [type, order] = e.target.value.split('-');
                   setSortBy(type);
@@ -318,14 +442,11 @@ const Transactions = () => {
                 <option value="category-asc">Category (A-Z)</option>
               </select>
             </div>
-            <button className="filter-btn" onClick={openFilterModal}>
-              <FaFilter /> Filter
-            </button>
           </div>
         </div>
 
-        {loading && <p>Loading transactions...</p>}
-        {!loading && apiError && !transactions.length && <p className="error-message">{apiError}</p>} 
+        {loading && <Loading message="Loading transactions" />}
+        {!loading && apiError && !transactions.length && <p className="error-message">{apiError}</p>}
         {!loading && !apiError && !transactions.length && <p>No transactions found.</p>}
 
         {!loading && transactions.length > 0 && (
@@ -336,22 +457,39 @@ const Transactions = () => {
                   <th>Date</th>
                   <th>Description</th>
                   <th>Category</th>
-                  <th>Amount</th> 
+                  <th>Amount</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredTransactions.map((transaction) => (
-                  <tr key={transaction._id}> 
+                  <tr key={transaction._id}>
                     <td>{formatDate(transaction.date)}</td>
                     <td>{transaction.description}</td>
                     <td>{transaction.category}</td>
                     <td>
                       <span className={`amount ${transaction.type === 'income' ? 'positive' : 'negative'}`}>
                         {transaction.type === 'income' ? '+' : '-'}
-                        <FaRupeeSign size=".8em"/>
-                        {Math.abs(transaction.amount).toFixed(2)}
+                        {formatCurrency(Math.abs(transaction.amount))}
                       </span>
+                      {transaction.anomaly?.isAnomaly && (
+                        <span
+                          className={`anomaly-badge anomaly-badge-${transaction.anomaly.severity}`}
+                          title={transaction.anomaly.reasons?.join(' • ') || 'Unusual transaction detected'}
+                        >
+                          {transaction.anomaly.severity === 'high' ? (
+                            <FaExclamationTriangle />
+                          ) : (
+                            <FaShieldAlt />
+                          )}
+                          <span className="anomaly-tooltip">
+                            <strong>FinSense Alert · {transaction.anomaly.severity?.toUpperCase()}</strong>
+                            {transaction.anomaly.reasons?.map((r, i) => (
+                              <span key={i}>• {r}</span>
+                            ))}
+                          </span>
+                        </span>
+                      )}
                     </td>
                     <td className="action-cell">
                       <button className="action-btn edit" onClick={() => openEditModal(transaction)} title="Edit">
@@ -370,14 +508,14 @@ const Transactions = () => {
       </div>
 
       {showFilterModal && (
-        <div className="modal-overlay">
+        <div className="modal-overlay" data-lenis-prevent>
           <div className="modal-content">
             <div className="modal-header">
               <h3>Filter Transactions</h3>
               <button onClick={closeFilterModal} className="close-btn"><FaTimes /></button>
             </div>
             <form onSubmit={handleFilterSubmit} className="modal-form">
-                {apiError && <p className="error-message">{apiError}</p>} 
+              {apiError && <p className="error-message">{apiError}</p>}
               <div className="form-group">
                 <label>Category</label>
                 <input type="text" name="category" value={filters.category} onChange={handleFilterChange} placeholder="e.g., Food" />
@@ -387,16 +525,16 @@ const Transactions = () => {
                 <input type="date" name="date" value={filters.date} onChange={handleFilterChange} />
               </div>
               <div className="form-group">
-                  <label>Type</label>
-                  <select name="type" value={filters.type} onChange={handleFilterChange}>
-                      <option value="">All Types</option>
-                      <option value="income">Income</option>
-                      <option value="expense">Expense</option>
-                  </select>
+                <label>Type</label>
+                <select name="type" value={filters.type} onChange={handleFilterChange}>
+                  <option value="">All Types</option>
+                  <option value="income">Income</option>
+                  <option value="expense">Expense</option>
+                </select>
               </div>
               <div className="form-actions">
-                 <button type="button" className="btn btn-secondary" onClick={closeFilterModal}>Cancel</button>
-                 <button type="submit" className="btn btn-primary">Apply Filters</button>
+                <button type="button" className="btn btn-secondary" onClick={closeFilterModal}>Cancel</button>
+                <button type="submit" className="btn btn-primary">Apply Filters</button>
               </div>
             </form>
           </div>
@@ -404,38 +542,41 @@ const Transactions = () => {
       )}
 
       {(showAddModal || showEditModal) && (
-        <div className="modal-overlay">
-          <div className="modal-content">
+        <div className="modal-overlay" data-lenis-prevent>
+          <div className="modal-content" data-lenis-prevent>
             <div className="modal-header">
               <h3>{showEditModal ? 'Edit Transaction' : 'Add New Transaction'}</h3>
               <button onClick={closeModal} className="close-btn"><FaTimes /></button>
             </div>
             <form onSubmit={showEditModal ? handleEditSubmit : handleAddSubmit} className="modal-form">
-              {apiError && <p className="error-message">{apiError}</p>} 
-              <div className="form-group">
-                <label>Date *</label>
-                <input type="date" name="date" value={formData.date} onChange={handleInputChange} required />
+              {apiError && <p className="error-message">{apiError}</p>}
+              <div className="form-group form-row">
+                <div style={{ flex: 1 }}>
+                  <label>Date *</label>
+                  <input type="date" name="date" value={formData.date} onChange={handleInputChange} required />
+                </div>
+                <div style={{ flex: 1 }}>
+                  <label>Type *</label>
+                  <select name="type" value={formData.type} onChange={handleInputChange} required>
+                    <option value="expense">Expense</option>
+                    <option value="income">Income</option>
+                  </select>
+                </div>
               </div>
               <div className="form-group">
                 <label>Description *</label>
                 <input type="text" name="description" value={formData.description} onChange={handleInputChange} placeholder="e.g., Coffee" required />
               </div>
-              <div className="form-group">
-                  <label>Type *</label>
-                  <select name="type" value={formData.type} onChange={handleInputChange} required>
-                      <option value="expense">Expense</option>
-                      <option value="income">Income</option>
-                  </select>
-              </div>
-                <div className="form-group">
+              <div className="form-group form-row">
+                <div style={{ flex: 1 }}>
                   <label>Category *</label>
-                  <input 
-                    type="text" 
-                    name="category" 
-                    value={formData.category} 
-                    onChange={handleInputChange} 
-                    placeholder="e.g., Food, Salary" 
-                    required 
+                  <input
+                    type="text"
+                    name="category"
+                    value={formData.category}
+                    onChange={handleInputChange}
+                    placeholder="e.g., Food, Salary"
+                    required
                   />
                   <div className="category-suggestions" style={{ marginTop: '8px' }}>
                     {formData.type === 'expense' ? (
@@ -463,20 +604,35 @@ const Transactions = () => {
                     )}
                   </div>
                 </div>
-              <div className="form-group">
-                <label>Amount *</label>
-                <input type="number" name="amount" value={formData.amount} onChange={handleInputChange} placeholder="e.g., 5.00" step="0.01" min="0" required />
+                <div style={{ flex: 1 }}>
+                  <label>Amount *</label>
+                  <input type="number" name="amount" value={formData.amount} onChange={handleInputChange} placeholder="e.g., 5.00" step="0.01" min="0" required />
+                </div>
               </div>
               <div className="form-actions">
                 <button type="button" className="btn btn-secondary" onClick={closeModal}>Cancel</button>
                 <button type="submit" className="btn btn-primary">{showEditModal ? 'Save Changes' : 'Add Transaction'}</button>
               </div>
+              {anomalyScanning && (
+                <p className="anomaly-scan-hint">🔍 FinSense scanning for unusual spending patterns...</p>
+              )}
+              {!anomalyScanning && anomalyCheckResult?.isAnomaly && (
+                <div className={`anomaly-preview-banner anomaly-preview-${anomalyCheckResult.severity}`}>
+                  <FaExclamationTriangle className="apb-icon" />
+                  <div className="apb-body">
+                    <strong>FinSense Risk Alert · {anomalyCheckResult.severity?.toUpperCase()}</strong>
+                    {anomalyCheckResult.reasons?.map((r, i) => (
+                      <span key={i}>• {r}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </form>
           </div>
         </div>
       )}
       {showDeleteModal && (
-        <div className="modal-overlay">
+        <div className="modal-overlay" data-lenis-prevent>
           <div className="modal-content delete-modal">
             <div className="modal-header">
               <h3 className="delete-title">

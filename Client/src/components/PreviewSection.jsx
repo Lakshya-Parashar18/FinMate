@@ -47,12 +47,22 @@ const PreviewSection = ({ onLaunchDemo }) => {
         >
           <div className="mockup-window">
             <div className="window-header">
-              <div className="window-dots">
-                <span className="dot red"></span>
-                <span className="dot yellow"></span>
-                <span className="dot green"></span>
+              <div className="windows-tab-info">
+                <img src="/logo.png" className="tab-logo-icon" alt="Logo" />
+                <span>FinMate - Dashboard</span>
               </div>
               <div className="window-address">finmate.app/dashboard</div>
+              <div className="windows-controls">
+                <div className="win-btn win-min">
+                  <span className="win-icon-min" />
+                </div>
+                <div className="win-btn win-max">
+                  <span className="win-icon-max" />
+                </div>
+                <div className="win-btn win-close">
+                  <span style={{ fontSize: '0.8rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</span>
+                </div>
+              </div>
             </div>
             <div className="mockup-image-wrapper">
               <img 

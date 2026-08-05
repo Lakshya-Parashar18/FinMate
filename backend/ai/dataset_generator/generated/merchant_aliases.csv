@@ -1,0 +1,1374 @@
+merchant_id,official_name,alias,category
+MERCH_FD_000_0,Swiggy,SWIGGY,Food & Dining
+MERCH_FD_000_0,Swiggy,SWIGGY*PAY,Food & Dining
+MERCH_FD_000_0,Swiggy,Swiggy Instamart,Food & Dining
+MERCH_FD_000_0,Swiggy,Swiggy {city},Food & Dining
+MERCH_FD_000_0,Swiggy,SWIGGY FOODS,Food & Dining
+MERCH_FD_000_1,Swiggy Express,SWIGGY EXPRESS,Food & Dining
+MERCH_FD_000_1,Swiggy Express,SWIGGY*PAY EXPRESS,Food & Dining
+MERCH_FD_000_1,Swiggy Express,Swiggy Instamart EXPRESS,Food & Dining
+MERCH_FD_000_1,Swiggy Express,Swiggy {city} EXPRESS,Food & Dining
+MERCH_FD_000_1,Swiggy Express,SWIGGY FOODS EXPRESS,Food & Dining
+MERCH_FD_000_2,Swiggy Outlet,SWIGGY OUTLET,Food & Dining
+MERCH_FD_000_2,Swiggy Outlet,SWIGGY*PAY OUTLET,Food & Dining
+MERCH_FD_000_2,Swiggy Outlet,Swiggy Instamart OUTLET,Food & Dining
+MERCH_FD_000_2,Swiggy Outlet,Swiggy {city} OUTLET,Food & Dining
+MERCH_FD_000_2,Swiggy Outlet,SWIGGY FOODS OUTLET,Food & Dining
+MERCH_FD_000_3,Swiggy Delivery,SWIGGY DELIVERY,Food & Dining
+MERCH_FD_000_3,Swiggy Delivery,SWIGGY*PAY DELIVERY,Food & Dining
+MERCH_FD_000_3,Swiggy Delivery,Swiggy Instamart DELIVERY,Food & Dining
+MERCH_FD_000_3,Swiggy Delivery,Swiggy {city} DELIVERY,Food & Dining
+MERCH_FD_000_3,Swiggy Delivery,SWIGGY FOODS DELIVERY,Food & Dining
+MERCH_FD_001_4,Zomato,ZOMATO,Food & Dining
+MERCH_FD_001_4,Zomato,ZOMATO*ORDER,Food & Dining
+MERCH_FD_001_4,Zomato,Zomato Ltd,Food & Dining
+MERCH_FD_001_4,Zomato,Zomato Gold,Food & Dining
+MERCH_FD_001_4,Zomato,ZOMATO {city},Food & Dining
+MERCH_FD_001_5,Zomato Express,ZOMATO EXPRESS,Food & Dining
+MERCH_FD_001_5,Zomato Express,ZOMATO*ORDER EXPRESS,Food & Dining
+MERCH_FD_001_5,Zomato Express,Zomato Ltd EXPRESS,Food & Dining
+MERCH_FD_001_5,Zomato Express,Zomato Gold EXPRESS,Food & Dining
+MERCH_FD_001_5,Zomato Express,ZOMATO {city} EXPRESS,Food & Dining
+MERCH_FD_001_6,Zomato Outlet,ZOMATO OUTLET,Food & Dining
+MERCH_FD_001_6,Zomato Outlet,ZOMATO*ORDER OUTLET,Food & Dining
+MERCH_FD_001_6,Zomato Outlet,Zomato Ltd OUTLET,Food & Dining
+MERCH_FD_001_6,Zomato Outlet,Zomato Gold OUTLET,Food & Dining
+MERCH_FD_001_6,Zomato Outlet,ZOMATO {city} OUTLET,Food & Dining
+MERCH_FD_001_7,Zomato Delivery,ZOMATO DELIVERY,Food & Dining
+MERCH_FD_001_7,Zomato Delivery,ZOMATO*ORDER DELIVERY,Food & Dining
+MERCH_FD_001_7,Zomato Delivery,Zomato Ltd DELIVERY,Food & Dining
+MERCH_FD_001_7,Zomato Delivery,Zomato Gold DELIVERY,Food & Dining
+MERCH_FD_001_7,Zomato Delivery,ZOMATO {city} DELIVERY,Food & Dining
+MERCH_FD_002_8,Domino's Pizza,DOMINOS PIZZA,Food & Dining
+MERCH_FD_002_8,Domino's Pizza,DOMINOS,Food & Dining
+MERCH_FD_002_8,Domino's Pizza,JUBILANT FOODWORKS,Food & Dining
+MERCH_FD_002_8,Domino's Pizza,DOMINOS ONLINE,Food & Dining
+MERCH_FD_002_9,Domino's Pizza Express,DOMINOS PIZZA EXPRESS,Food & Dining
+MERCH_FD_002_9,Domino's Pizza Express,DOMINOS EXPRESS,Food & Dining
+MERCH_FD_002_9,Domino's Pizza Express,JUBILANT FOODWORKS EXPRESS,Food & Dining
+MERCH_FD_002_9,Domino's Pizza Express,DOMINOS ONLINE EXPRESS,Food & Dining
+MERCH_FD_002_10,Domino's Pizza Outlet,DOMINOS PIZZA OUTLET,Food & Dining
+MERCH_FD_002_10,Domino's Pizza Outlet,DOMINOS OUTLET,Food & Dining
+MERCH_FD_002_10,Domino's Pizza Outlet,JUBILANT FOODWORKS OUTLET,Food & Dining
+MERCH_FD_002_10,Domino's Pizza Outlet,DOMINOS ONLINE OUTLET,Food & Dining
+MERCH_FD_002_11,Domino's Pizza Delivery,DOMINOS PIZZA DELIVERY,Food & Dining
+MERCH_FD_002_11,Domino's Pizza Delivery,DOMINOS DELIVERY,Food & Dining
+MERCH_FD_002_11,Domino's Pizza Delivery,JUBILANT FOODWORKS DELIVERY,Food & Dining
+MERCH_FD_002_11,Domino's Pizza Delivery,DOMINOS ONLINE DELIVERY,Food & Dining
+MERCH_FD_003_12,McDonald's,MCDONALDS,Food & Dining
+MERCH_FD_003_12,McDonald's,HARDCASTLE RESTAURANTS,Food & Dining
+MERCH_FD_003_12,McDonald's,MCDONALDS {city},Food & Dining
+MERCH_FD_003_12,McDonald's,MCD DELIVERY,Food & Dining
+MERCH_FD_003_13,McDonald's Express,MCDONALDS EXPRESS,Food & Dining
+MERCH_FD_003_13,McDonald's Express,HARDCASTLE RESTAURANTS EXPRESS,Food & Dining
+MERCH_FD_003_13,McDonald's Express,MCDONALDS {city} EXPRESS,Food & Dining
+MERCH_FD_003_13,McDonald's Express,MCD DELIVERY EXPRESS,Food & Dining
+MERCH_FD_003_14,McDonald's Outlet,MCDONALDS OUTLET,Food & Dining
+MERCH_FD_003_14,McDonald's Outlet,HARDCASTLE RESTAURANTS OUTLET,Food & Dining
+MERCH_FD_003_14,McDonald's Outlet,MCDONALDS {city} OUTLET,Food & Dining
+MERCH_FD_003_14,McDonald's Outlet,MCD DELIVERY OUTLET,Food & Dining
+MERCH_FD_003_15,McDonald's Delivery,MCDONALDS DELIVERY,Food & Dining
+MERCH_FD_003_15,McDonald's Delivery,HARDCASTLE RESTAURANTS DELIVERY,Food & Dining
+MERCH_FD_003_15,McDonald's Delivery,MCDONALDS {city} DELIVERY,Food & Dining
+MERCH_FD_003_15,McDonald's Delivery,MCD DELIVERY DELIVERY,Food & Dining
+MERCH_FD_004_16,Starbucks,STARBUCKS,Food & Dining
+MERCH_FD_004_16,Starbucks,TATA STARBUCKS,Food & Dining
+MERCH_FD_004_16,Starbucks,STARBUCKS COFFEE,Food & Dining
+MERCH_FD_004_16,Starbucks,STARBUCKS INDIA,Food & Dining
+MERCH_FD_004_17,Starbucks Express,STARBUCKS EXPRESS,Food & Dining
+MERCH_FD_004_17,Starbucks Express,TATA STARBUCKS EXPRESS,Food & Dining
+MERCH_FD_004_17,Starbucks Express,STARBUCKS COFFEE EXPRESS,Food & Dining
+MERCH_FD_004_17,Starbucks Express,STARBUCKS INDIA EXPRESS,Food & Dining
+MERCH_FD_004_18,Starbucks Outlet,STARBUCKS OUTLET,Food & Dining
+MERCH_FD_004_18,Starbucks Outlet,TATA STARBUCKS OUTLET,Food & Dining
+MERCH_FD_004_18,Starbucks Outlet,STARBUCKS COFFEE OUTLET,Food & Dining
+MERCH_FD_004_18,Starbucks Outlet,STARBUCKS INDIA OUTLET,Food & Dining
+MERCH_FD_004_19,Starbucks Delivery,STARBUCKS DELIVERY,Food & Dining
+MERCH_FD_004_19,Starbucks Delivery,TATA STARBUCKS DELIVERY,Food & Dining
+MERCH_FD_004_19,Starbucks Delivery,STARBUCKS COFFEE DELIVERY,Food & Dining
+MERCH_FD_004_19,Starbucks Delivery,STARBUCKS INDIA DELIVERY,Food & Dining
+MERCH_FD_005_20,KFC,KFC,Food & Dining
+MERCH_FD_005_20,KFC,KFC INDIA,Food & Dining
+MERCH_FD_005_20,KFC,DEVYANI INTERNATIONAL,Food & Dining
+MERCH_FD_005_20,KFC,KFC ONLINE,Food & Dining
+MERCH_FD_005_21,KFC Express,KFC EXPRESS,Food & Dining
+MERCH_FD_005_21,KFC Express,KFC INDIA EXPRESS,Food & Dining
+MERCH_FD_005_21,KFC Express,DEVYANI INTERNATIONAL EXPRESS,Food & Dining
+MERCH_FD_005_21,KFC Express,KFC ONLINE EXPRESS,Food & Dining
+MERCH_FD_005_22,KFC Outlet,KFC OUTLET,Food & Dining
+MERCH_FD_005_22,KFC Outlet,KFC INDIA OUTLET,Food & Dining
+MERCH_FD_005_22,KFC Outlet,DEVYANI INTERNATIONAL OUTLET,Food & Dining
+MERCH_FD_005_22,KFC Outlet,KFC ONLINE OUTLET,Food & Dining
+MERCH_FD_005_23,KFC Delivery,KFC DELIVERY,Food & Dining
+MERCH_FD_005_23,KFC Delivery,KFC INDIA DELIVERY,Food & Dining
+MERCH_FD_005_23,KFC Delivery,DEVYANI INTERNATIONAL DELIVERY,Food & Dining
+MERCH_FD_005_23,KFC Delivery,KFC ONLINE DELIVERY,Food & Dining
+MERCH_FD_006_24,Pizza Hut,PIZZA HUT,Food & Dining
+MERCH_FD_006_24,Pizza Hut,DEVYANI INT PIZZA,Food & Dining
+MERCH_FD_006_24,Pizza Hut,PIZZA HUT ONLINE,Food & Dining
+MERCH_FD_006_25,Pizza Hut Express,PIZZA HUT EXPRESS,Food & Dining
+MERCH_FD_006_25,Pizza Hut Express,DEVYANI INT PIZZA EXPRESS,Food & Dining
+MERCH_FD_006_25,Pizza Hut Express,PIZZA HUT ONLINE EXPRESS,Food & Dining
+MERCH_FD_006_26,Pizza Hut Outlet,PIZZA HUT OUTLET,Food & Dining
+MERCH_FD_006_26,Pizza Hut Outlet,DEVYANI INT PIZZA OUTLET,Food & Dining
+MERCH_FD_006_26,Pizza Hut Outlet,PIZZA HUT ONLINE OUTLET,Food & Dining
+MERCH_FD_006_27,Pizza Hut Delivery,PIZZA HUT DELIVERY,Food & Dining
+MERCH_FD_006_27,Pizza Hut Delivery,DEVYANI INT PIZZA DELIVERY,Food & Dining
+MERCH_FD_006_27,Pizza Hut Delivery,PIZZA HUT ONLINE DELIVERY,Food & Dining
+MERCH_FD_007_28,Burger King,BURGER KING,Food & Dining
+MERCH_FD_007_28,Burger King,BURGER KING INDIA,Food & Dining
+MERCH_FD_007_28,Burger King,BK DELIVERY,Food & Dining
+MERCH_FD_007_29,Burger King Express,BURGER KING EXPRESS,Food & Dining
+MERCH_FD_007_29,Burger King Express,BURGER KING INDIA EXPRESS,Food & Dining
+MERCH_FD_007_29,Burger King Express,BK DELIVERY EXPRESS,Food & Dining
+MERCH_FD_007_30,Burger King Outlet,BURGER KING OUTLET,Food & Dining
+MERCH_FD_007_30,Burger King Outlet,BURGER KING INDIA OUTLET,Food & Dining
+MERCH_FD_007_30,Burger King Outlet,BK DELIVERY OUTLET,Food & Dining
+MERCH_FD_007_31,Burger King Delivery,BURGER KING DELIVERY,Food & Dining
+MERCH_FD_007_31,Burger King Delivery,BURGER KING INDIA DELIVERY,Food & Dining
+MERCH_FD_007_31,Burger King Delivery,BK DELIVERY DELIVERY,Food & Dining
+MERCH_FD_008_32,Subway,SUBWAY,Food & Dining
+MERCH_FD_008_32,Subway,SUBWAY INDIA,Food & Dining
+MERCH_FD_008_32,Subway,SUBWAY {city},Food & Dining
+MERCH_FD_008_33,Subway Express,SUBWAY EXPRESS,Food & Dining
+MERCH_FD_008_33,Subway Express,SUBWAY INDIA EXPRESS,Food & Dining
+MERCH_FD_008_33,Subway Express,SUBWAY {city} EXPRESS,Food & Dining
+MERCH_FD_008_34,Subway Outlet,SUBWAY OUTLET,Food & Dining
+MERCH_FD_008_34,Subway Outlet,SUBWAY INDIA OUTLET,Food & Dining
+MERCH_FD_008_34,Subway Outlet,SUBWAY {city} OUTLET,Food & Dining
+MERCH_FD_008_35,Subway Delivery,SUBWAY DELIVERY,Food & Dining
+MERCH_FD_008_35,Subway Delivery,SUBWAY INDIA DELIVERY,Food & Dining
+MERCH_FD_008_35,Subway Delivery,SUBWAY {city} DELIVERY,Food & Dining
+MERCH_FD_009_36,Haldiram's,HALDIRAMS,Food & Dining
+MERCH_FD_009_36,Haldiram's,HALDIRAMS SWEETS,Food & Dining
+MERCH_FD_009_36,Haldiram's,HALDIRAM RESTAURANT,Food & Dining
+MERCH_FD_009_37,Haldiram's Express,HALDIRAMS EXPRESS,Food & Dining
+MERCH_FD_009_37,Haldiram's Express,HALDIRAMS SWEETS EXPRESS,Food & Dining
+MERCH_FD_009_37,Haldiram's Express,HALDIRAM RESTAURANT EXPRESS,Food & Dining
+MERCH_FD_009_38,Haldiram's Outlet,HALDIRAMS OUTLET,Food & Dining
+MERCH_FD_009_38,Haldiram's Outlet,HALDIRAMS SWEETS OUTLET,Food & Dining
+MERCH_FD_009_38,Haldiram's Outlet,HALDIRAM RESTAURANT OUTLET,Food & Dining
+MERCH_FD_009_39,Haldiram's Delivery,HALDIRAMS DELIVERY,Food & Dining
+MERCH_FD_009_39,Haldiram's Delivery,HALDIRAMS SWEETS DELIVERY,Food & Dining
+MERCH_FD_009_39,Haldiram's Delivery,HALDIRAM RESTAURANT DELIVERY,Food & Dining
+MERCH_FD_010_40,Bikanervala,BIKANERVALA,Food & Dining
+MERCH_FD_010_40,Bikanervala,BIKANERVALA SWEETS,Food & Dining
+MERCH_FD_010_40,Bikanervala,BIKANERVALA FOODS,Food & Dining
+MERCH_FD_010_41,Bikanervala Express,BIKANERVALA EXPRESS,Food & Dining
+MERCH_FD_010_41,Bikanervala Express,BIKANERVALA SWEETS EXPRESS,Food & Dining
+MERCH_FD_010_41,Bikanervala Express,BIKANERVALA FOODS EXPRESS,Food & Dining
+MERCH_FD_010_42,Bikanervala Outlet,BIKANERVALA OUTLET,Food & Dining
+MERCH_FD_010_42,Bikanervala Outlet,BIKANERVALA SWEETS OUTLET,Food & Dining
+MERCH_FD_010_42,Bikanervala Outlet,BIKANERVALA FOODS OUTLET,Food & Dining
+MERCH_FD_010_43,Bikanervala Delivery,BIKANERVALA DELIVERY,Food & Dining
+MERCH_FD_010_43,Bikanervala Delivery,BIKANERVALA SWEETS DELIVERY,Food & Dining
+MERCH_FD_010_43,Bikanervala Delivery,BIKANERVALA FOODS DELIVERY,Food & Dining
+MERCH_FD_011_44,Cafe Coffee Day,CAFE COFFEE DAY,Food & Dining
+MERCH_FD_011_44,Cafe Coffee Day,CCD,Food & Dining
+MERCH_FD_011_44,Cafe Coffee Day,COFFEE DAY GLOBAL,Food & Dining
+MERCH_FD_011_45,Cafe Coffee Day Express,CAFE COFFEE DAY EXPRESS,Food & Dining
+MERCH_FD_011_45,Cafe Coffee Day Express,CCD EXPRESS,Food & Dining
+MERCH_FD_011_45,Cafe Coffee Day Express,COFFEE DAY GLOBAL EXPRESS,Food & Dining
+MERCH_FD_011_46,Cafe Coffee Day Outlet,CAFE COFFEE DAY OUTLET,Food & Dining
+MERCH_FD_011_46,Cafe Coffee Day Outlet,CCD OUTLET,Food & Dining
+MERCH_FD_011_46,Cafe Coffee Day Outlet,COFFEE DAY GLOBAL OUTLET,Food & Dining
+MERCH_FD_011_47,Cafe Coffee Day Delivery,CAFE COFFEE DAY DELIVERY,Food & Dining
+MERCH_FD_011_47,Cafe Coffee Day Delivery,CCD DELIVERY,Food & Dining
+MERCH_FD_011_47,Cafe Coffee Day Delivery,COFFEE DAY GLOBAL DELIVERY,Food & Dining
+MERCH_FD_012_48,Chai Point,CHAI POINT,Food & Dining
+MERCH_FD_012_48,Chai Point,MOUNTAIN TRAIL FOODS,Food & Dining
+MERCH_FD_012_48,Chai Point,CHAI POINT EXPRESS,Food & Dining
+MERCH_FD_012_49,Chai Point Express,CHAI POINT EXPRESS,Food & Dining
+MERCH_FD_012_49,Chai Point Express,MOUNTAIN TRAIL FOODS EXPRESS,Food & Dining
+MERCH_FD_012_49,Chai Point Express,CHAI POINT EXPRESS EXPRESS,Food & Dining
+MERCH_FD_012_50,Chai Point Outlet,CHAI POINT OUTLET,Food & Dining
+MERCH_FD_012_50,Chai Point Outlet,MOUNTAIN TRAIL FOODS OUTLET,Food & Dining
+MERCH_FD_012_50,Chai Point Outlet,CHAI POINT EXPRESS OUTLET,Food & Dining
+MERCH_FD_012_51,Chai Point Delivery,CHAI POINT DELIVERY,Food & Dining
+MERCH_FD_012_51,Chai Point Delivery,MOUNTAIN TRAIL FOODS DELIVERY,Food & Dining
+MERCH_FD_012_51,Chai Point Delivery,CHAI POINT EXPRESS DELIVERY,Food & Dining
+MERCH_FD_013_52,Chaayos,CHAAYOS,Food & Dining
+MERCH_FD_013_52,Chaayos,SUNSHINE TEAHOUSE,Food & Dining
+MERCH_FD_013_52,Chaayos,CHAAYOS CAFE,Food & Dining
+MERCH_FD_013_53,Chaayos Express,CHAAYOS EXPRESS,Food & Dining
+MERCH_FD_013_53,Chaayos Express,SUNSHINE TEAHOUSE EXPRESS,Food & Dining
+MERCH_FD_013_53,Chaayos Express,CHAAYOS CAFE EXPRESS,Food & Dining
+MERCH_FD_013_54,Chaayos Outlet,CHAAYOS OUTLET,Food & Dining
+MERCH_FD_013_54,Chaayos Outlet,SUNSHINE TEAHOUSE OUTLET,Food & Dining
+MERCH_FD_013_54,Chaayos Outlet,CHAAYOS CAFE OUTLET,Food & Dining
+MERCH_FD_013_55,Chaayos Delivery,CHAAYOS DELIVERY,Food & Dining
+MERCH_FD_013_55,Chaayos Delivery,SUNSHINE TEAHOUSE DELIVERY,Food & Dining
+MERCH_FD_013_55,Chaayos Delivery,CHAAYOS CAFE DELIVERY,Food & Dining
+MERCH_FD_014_56,Barbeque Nation,BARBEQUE NATION,Food & Dining
+MERCH_FD_014_56,Barbeque Nation,BBQ NATION,Food & Dining
+MERCH_FD_014_56,Barbeque Nation,BARBEQUE NATION LTD,Food & Dining
+MERCH_FD_014_57,Barbeque Nation Express,BARBEQUE NATION EXPRESS,Food & Dining
+MERCH_FD_014_57,Barbeque Nation Express,BBQ NATION EXPRESS,Food & Dining
+MERCH_FD_014_57,Barbeque Nation Express,BARBEQUE NATION LTD EXPRESS,Food & Dining
+MERCH_FD_014_58,Barbeque Nation Outlet,BARBEQUE NATION OUTLET,Food & Dining
+MERCH_FD_014_58,Barbeque Nation Outlet,BBQ NATION OUTLET,Food & Dining
+MERCH_FD_014_58,Barbeque Nation Outlet,BARBEQUE NATION LTD OUTLET,Food & Dining
+MERCH_FD_014_59,Barbeque Nation Delivery,BARBEQUE NATION DELIVERY,Food & Dining
+MERCH_FD_014_59,Barbeque Nation Delivery,BBQ NATION DELIVERY,Food & Dining
+MERCH_FD_014_59,Barbeque Nation Delivery,BARBEQUE NATION LTD DELIVERY,Food & Dining
+MERCH_FD_015_60,Mainland China,MAINLAND CHINA,Food & Dining
+MERCH_FD_015_60,Mainland China,SPECIALITY RESTAURANTS,Food & Dining
+MERCH_FD_015_61,Mainland China Express,MAINLAND CHINA EXPRESS,Food & Dining
+MERCH_FD_015_61,Mainland China Express,SPECIALITY RESTAURANTS EXPRESS,Food & Dining
+MERCH_FD_015_62,Mainland China Outlet,MAINLAND CHINA OUTLET,Food & Dining
+MERCH_FD_015_62,Mainland China Outlet,SPECIALITY RESTAURANTS OUTLET,Food & Dining
+MERCH_FD_015_63,Mainland China Delivery,MAINLAND CHINA DELIVERY,Food & Dining
+MERCH_FD_015_63,Mainland China Delivery,SPECIALITY RESTAURANTS DELIVERY,Food & Dining
+MERCH_FD_016_64,Wow! Momo,WOW MOMO,Food & Dining
+MERCH_FD_016_64,Wow! Momo,WOW MOMO FOODS,Food & Dining
+MERCH_FD_016_64,Wow! Momo,WOW MOMO EXPRESS,Food & Dining
+MERCH_FD_016_65,Wow! Momo Express,WOW MOMO EXPRESS,Food & Dining
+MERCH_FD_016_65,Wow! Momo Express,WOW MOMO FOODS EXPRESS,Food & Dining
+MERCH_FD_016_65,Wow! Momo Express,WOW MOMO EXPRESS EXPRESS,Food & Dining
+MERCH_FD_016_66,Wow! Momo Outlet,WOW MOMO OUTLET,Food & Dining
+MERCH_FD_016_66,Wow! Momo Outlet,WOW MOMO FOODS OUTLET,Food & Dining
+MERCH_FD_016_66,Wow! Momo Outlet,WOW MOMO EXPRESS OUTLET,Food & Dining
+MERCH_FD_016_67,Wow! Momo Delivery,WOW MOMO DELIVERY,Food & Dining
+MERCH_FD_016_67,Wow! Momo Delivery,WOW MOMO FOODS DELIVERY,Food & Dining
+MERCH_FD_016_67,Wow! Momo Delivery,WOW MOMO EXPRESS DELIVERY,Food & Dining
+MERCH_FD_017_68,Taco Bell,TACO BELL,Food & Dining
+MERCH_FD_017_68,Taco Bell,BURMAN HOSPITALITY TACO,Food & Dining
+MERCH_FD_017_69,Taco Bell Express,TACO BELL EXPRESS,Food & Dining
+MERCH_FD_017_69,Taco Bell Express,BURMAN HOSPITALITY TACO EXPRESS,Food & Dining
+MERCH_FD_017_70,Taco Bell Outlet,TACO BELL OUTLET,Food & Dining
+MERCH_FD_017_70,Taco Bell Outlet,BURMAN HOSPITALITY TACO OUTLET,Food & Dining
+MERCH_FD_017_71,Taco Bell Delivery,TACO BELL DELIVERY,Food & Dining
+MERCH_FD_017_71,Taco Bell Delivery,BURMAN HOSPITALITY TACO DELIVERY,Food & Dining
+MERCH_FD_018_72,Social,SOCIAL,Food & Dining
+MERCH_FD_018_72,Social,IMPRESARIO ENTERTAINMENT,Food & Dining
+MERCH_FD_018_72,Social,INDIRANAGAR SOCIAL,Food & Dining
+MERCH_FD_018_73,Social Express,SOCIAL EXPRESS,Food & Dining
+MERCH_FD_018_73,Social Express,IMPRESARIO ENTERTAINMENT EXPRESS,Food & Dining
+MERCH_FD_018_73,Social Express,INDIRANAGAR SOCIAL EXPRESS,Food & Dining
+MERCH_FD_018_74,Social Outlet,SOCIAL OUTLET,Food & Dining
+MERCH_FD_018_74,Social Outlet,IMPRESARIO ENTERTAINMENT OUTLET,Food & Dining
+MERCH_FD_018_74,Social Outlet,INDIRANAGAR SOCIAL OUTLET,Food & Dining
+MERCH_FD_018_75,Social Delivery,SOCIAL DELIVERY,Food & Dining
+MERCH_FD_018_75,Social Delivery,IMPRESARIO ENTERTAINMENT DELIVERY,Food & Dining
+MERCH_FD_018_75,Social Delivery,INDIRANAGAR SOCIAL DELIVERY,Food & Dining
+MERCH_FD_019_76,Empire Restaurant,HOTEL EMPIRE,Food & Dining
+MERCH_FD_019_76,Empire Restaurant,EMPIRE RESTAURANT {city},Food & Dining
+MERCH_FD_019_77,Empire Restaurant Express,HOTEL EMPIRE EXPRESS,Food & Dining
+MERCH_FD_019_77,Empire Restaurant Express,EMPIRE RESTAURANT {city} EXPRESS,Food & Dining
+MERCH_FD_019_78,Empire Restaurant Outlet,HOTEL EMPIRE OUTLET,Food & Dining
+MERCH_FD_019_78,Empire Restaurant Outlet,EMPIRE RESTAURANT {city} OUTLET,Food & Dining
+MERCH_FD_019_79,Empire Restaurant Delivery,HOTEL EMPIRE DELIVERY,Food & Dining
+MERCH_FD_019_79,Empire Restaurant Delivery,EMPIRE RESTAURANT {city} DELIVERY,Food & Dining
+MERCH_FD_020_80,Paradise Biryani,PARADISE BIRYANI,Food & Dining
+MERCH_FD_020_80,Paradise Biryani,PARADISE FOOD COURT,Food & Dining
+MERCH_FD_020_81,Paradise Biryani Express,PARADISE BIRYANI EXPRESS,Food & Dining
+MERCH_FD_020_81,Paradise Biryani Express,PARADISE FOOD COURT EXPRESS,Food & Dining
+MERCH_FD_020_82,Paradise Biryani Outlet,PARADISE BIRYANI OUTLET,Food & Dining
+MERCH_FD_020_82,Paradise Biryani Outlet,PARADISE FOOD COURT OUTLET,Food & Dining
+MERCH_FD_020_83,Paradise Biryani Delivery,PARADISE BIRYANI DELIVERY,Food & Dining
+MERCH_FD_020_83,Paradise Biryani Delivery,PARADISE FOOD COURT DELIVERY,Food & Dining
+MERCH_FD_021_84,Third Wave Coffee,THIRD WAVE COFFEE,Food & Dining
+MERCH_FD_021_84,Third Wave Coffee,CUSTOMIZED COFFEE PVT,Food & Dining
+MERCH_FD_021_85,Third Wave Coffee Express,THIRD WAVE COFFEE EXPRESS,Food & Dining
+MERCH_FD_021_85,Third Wave Coffee Express,CUSTOMIZED COFFEE PVT EXPRESS,Food & Dining
+MERCH_FD_021_86,Third Wave Coffee Outlet,THIRD WAVE COFFEE OUTLET,Food & Dining
+MERCH_FD_021_86,Third Wave Coffee Outlet,CUSTOMIZED COFFEE PVT OUTLET,Food & Dining
+MERCH_FD_021_87,Third Wave Coffee Delivery,THIRD WAVE COFFEE DELIVERY,Food & Dining
+MERCH_FD_021_87,Third Wave Coffee Delivery,CUSTOMIZED COFFEE PVT DELIVERY,Food & Dining
+MERCH_FD_022_88,Blue Tokai,BLUE TOKAI,Food & Dining
+MERCH_FD_022_88,Blue Tokai,BLUE TOKAI COFFEE ROASTERS,Food & Dining
+MERCH_FD_022_89,Blue Tokai Express,BLUE TOKAI EXPRESS,Food & Dining
+MERCH_FD_022_89,Blue Tokai Express,BLUE TOKAI COFFEE ROASTERS EXPRESS,Food & Dining
+MERCH_FD_022_90,Blue Tokai Outlet,BLUE TOKAI OUTLET,Food & Dining
+MERCH_FD_022_90,Blue Tokai Outlet,BLUE TOKAI COFFEE ROASTERS OUTLET,Food & Dining
+MERCH_FD_022_91,Blue Tokai Delivery,BLUE TOKAI DELIVERY,Food & Dining
+MERCH_FD_022_91,Blue Tokai Delivery,BLUE TOKAI COFFEE ROASTERS DELIVERY,Food & Dining
+MERCH_FD_023_92,Baskin Robbins,BASKIN ROBBINS,Food & Dining
+MERCH_FD_023_92,Baskin Robbins,GRAVISS FOODS,Food & Dining
+MERCH_FD_023_93,Baskin Robbins Express,BASKIN ROBBINS EXPRESS,Food & Dining
+MERCH_FD_023_93,Baskin Robbins Express,GRAVISS FOODS EXPRESS,Food & Dining
+MERCH_FD_023_94,Baskin Robbins Outlet,BASKIN ROBBINS OUTLET,Food & Dining
+MERCH_FD_023_94,Baskin Robbins Outlet,GRAVISS FOODS OUTLET,Food & Dining
+MERCH_FD_023_95,Baskin Robbins Delivery,BASKIN ROBBINS DELIVERY,Food & Dining
+MERCH_FD_023_95,Baskin Robbins Delivery,GRAVISS FOODS DELIVERY,Food & Dining
+MERCH_FD_024_96,Naturals Ice Cream,NATURALS ICE CREAM,Food & Dining
+MERCH_FD_024_96,Naturals Ice Cream,KAMAT HOTELS NATURALS,Food & Dining
+MERCH_FD_024_97,Naturals Ice Cream Express,NATURALS ICE CREAM EXPRESS,Food & Dining
+MERCH_FD_024_97,Naturals Ice Cream Express,KAMAT HOTELS NATURALS EXPRESS,Food & Dining
+MERCH_FD_024_98,Naturals Ice Cream Outlet,NATURALS ICE CREAM OUTLET,Food & Dining
+MERCH_FD_024_98,Naturals Ice Cream Outlet,KAMAT HOTELS NATURALS OUTLET,Food & Dining
+MERCH_FD_024_99,Naturals Ice Cream Delivery,NATURALS ICE CREAM DELIVERY,Food & Dining
+MERCH_FD_024_99,Naturals Ice Cream Delivery,KAMAT HOTELS NATURALS DELIVERY,Food & Dining
+MERCH_GR_000_100,D-Mart,DMART,Groceries
+MERCH_GR_000_100,D-Mart,AVENUE SUPERMARTS,Groceries
+MERCH_GR_000_100,D-Mart,DMART READY,Groceries
+MERCH_GR_000_100,D-Mart,DMART {city},Groceries
+MERCH_GR_000_101,D-Mart Mart,DMART MART,Groceries
+MERCH_GR_000_101,D-Mart Mart,AVENUE SUPERMARTS MART,Groceries
+MERCH_GR_000_101,D-Mart Mart,DMART READY MART,Groceries
+MERCH_GR_000_101,D-Mart Mart,DMART {city} MART,Groceries
+MERCH_GR_000_102,D-Mart Store,DMART STORE,Groceries
+MERCH_GR_000_102,D-Mart Store,AVENUE SUPERMARTS STORE,Groceries
+MERCH_GR_000_102,D-Mart Store,DMART READY STORE,Groceries
+MERCH_GR_000_102,D-Mart Store,DMART {city} STORE,Groceries
+MERCH_GR_000_103,D-Mart Direct,DMART DIRECT,Groceries
+MERCH_GR_000_103,D-Mart Direct,AVENUE SUPERMARTS DIRECT,Groceries
+MERCH_GR_000_103,D-Mart Direct,DMART READY DIRECT,Groceries
+MERCH_GR_000_103,D-Mart Direct,DMART {city} DIRECT,Groceries
+MERCH_GR_001_104,Blinkit,BLINKIT,Groceries
+MERCH_GR_001_104,Blinkit,BLINKIT (GROFERS),Groceries
+MERCH_GR_001_104,Blinkit,HANDS ON TRADES,Groceries
+MERCH_GR_001_105,Blinkit Mart,BLINKIT MART,Groceries
+MERCH_GR_001_105,Blinkit Mart,BLINKIT (GROFERS) MART,Groceries
+MERCH_GR_001_105,Blinkit Mart,HANDS ON TRADES MART,Groceries
+MERCH_GR_001_106,Blinkit Store,BLINKIT STORE,Groceries
+MERCH_GR_001_106,Blinkit Store,BLINKIT (GROFERS) STORE,Groceries
+MERCH_GR_001_106,Blinkit Store,HANDS ON TRADES STORE,Groceries
+MERCH_GR_001_107,Blinkit Direct,BLINKIT DIRECT,Groceries
+MERCH_GR_001_107,Blinkit Direct,BLINKIT (GROFERS) DIRECT,Groceries
+MERCH_GR_001_107,Blinkit Direct,HANDS ON TRADES DIRECT,Groceries
+MERCH_GR_002_108,Zepto,ZEPTO,Groceries
+MERCH_GR_002_108,Zepto,KIRANAKART,Groceries
+MERCH_GR_002_108,Zepto,ZEPTO DAILY,Groceries
+MERCH_GR_002_109,Zepto Mart,ZEPTO MART,Groceries
+MERCH_GR_002_109,Zepto Mart,KIRANAKART MART,Groceries
+MERCH_GR_002_109,Zepto Mart,ZEPTO DAILY MART,Groceries
+MERCH_GR_002_110,Zepto Store,ZEPTO STORE,Groceries
+MERCH_GR_002_110,Zepto Store,KIRANAKART STORE,Groceries
+MERCH_GR_002_110,Zepto Store,ZEPTO DAILY STORE,Groceries
+MERCH_GR_002_111,Zepto Direct,ZEPTO DIRECT,Groceries
+MERCH_GR_002_111,Zepto Direct,KIRANAKART DIRECT,Groceries
+MERCH_GR_002_111,Zepto Direct,ZEPTO DAILY DIRECT,Groceries
+MERCH_GR_003_112,BigBasket,BIGBASKET,Groceries
+MERCH_GR_003_112,BigBasket,SUPERMARKET GROCERY,Groceries
+MERCH_GR_003_112,BigBasket,BB DAILY,Groceries
+MERCH_GR_003_112,BigBasket,BB INSTANT,Groceries
+MERCH_GR_003_113,BigBasket Mart,BIGBASKET MART,Groceries
+MERCH_GR_003_113,BigBasket Mart,SUPERMARKET GROCERY MART,Groceries
+MERCH_GR_003_113,BigBasket Mart,BB DAILY MART,Groceries
+MERCH_GR_003_113,BigBasket Mart,BB INSTANT MART,Groceries
+MERCH_GR_003_114,BigBasket Store,BIGBASKET STORE,Groceries
+MERCH_GR_003_114,BigBasket Store,SUPERMARKET GROCERY STORE,Groceries
+MERCH_GR_003_114,BigBasket Store,BB DAILY STORE,Groceries
+MERCH_GR_003_114,BigBasket Store,BB INSTANT STORE,Groceries
+MERCH_GR_003_115,BigBasket Direct,BIGBASKET DIRECT,Groceries
+MERCH_GR_003_115,BigBasket Direct,SUPERMARKET GROCERY DIRECT,Groceries
+MERCH_GR_003_115,BigBasket Direct,BB DAILY DIRECT,Groceries
+MERCH_GR_003_115,BigBasket Direct,BB INSTANT DIRECT,Groceries
+MERCH_GR_004_116,Swiggy Instamart,INSTAMART,Groceries
+MERCH_GR_004_116,Swiggy Instamart,SWIGGY INSTAMART,Groceries
+MERCH_GR_004_116,Swiggy Instamart,SWIGGY GROCERY,Groceries
+MERCH_GR_004_117,Swiggy Instamart Mart,INSTAMART MART,Groceries
+MERCH_GR_004_117,Swiggy Instamart Mart,SWIGGY INSTAMART MART,Groceries
+MERCH_GR_004_117,Swiggy Instamart Mart,SWIGGY GROCERY MART,Groceries
+MERCH_GR_004_118,Swiggy Instamart Store,INSTAMART STORE,Groceries
+MERCH_GR_004_118,Swiggy Instamart Store,SWIGGY INSTAMART STORE,Groceries
+MERCH_GR_004_118,Swiggy Instamart Store,SWIGGY GROCERY STORE,Groceries
+MERCH_GR_004_119,Swiggy Instamart Direct,INSTAMART DIRECT,Groceries
+MERCH_GR_004_119,Swiggy Instamart Direct,SWIGGY INSTAMART DIRECT,Groceries
+MERCH_GR_004_119,Swiggy Instamart Direct,SWIGGY GROCERY DIRECT,Groceries
+MERCH_GR_005_120,Reliance Fresh,RELIANCE FRESH,Groceries
+MERCH_GR_005_120,Reliance Fresh,RELIANCE RETAIL,Groceries
+MERCH_GR_005_120,Reliance Fresh,RELIANCE SMART,Groceries
+MERCH_GR_005_121,Reliance Fresh Mart,RELIANCE FRESH MART,Groceries
+MERCH_GR_005_121,Reliance Fresh Mart,RELIANCE RETAIL MART,Groceries
+MERCH_GR_005_121,Reliance Fresh Mart,RELIANCE SMART MART,Groceries
+MERCH_GR_005_122,Reliance Fresh Store,RELIANCE FRESH STORE,Groceries
+MERCH_GR_005_122,Reliance Fresh Store,RELIANCE RETAIL STORE,Groceries
+MERCH_GR_005_122,Reliance Fresh Store,RELIANCE SMART STORE,Groceries
+MERCH_GR_005_123,Reliance Fresh Direct,RELIANCE FRESH DIRECT,Groceries
+MERCH_GR_005_123,Reliance Fresh Direct,RELIANCE RETAIL DIRECT,Groceries
+MERCH_GR_005_123,Reliance Fresh Direct,RELIANCE SMART DIRECT,Groceries
+MERCH_GR_006_124,More Megastore,MORE RETAIL,Groceries
+MERCH_GR_006_124,More Megastore,MORE MEGASTORE,Groceries
+MERCH_GR_006_124,More Megastore,MORE SUPERMARKET,Groceries
+MERCH_GR_006_125,More Megastore Mart,MORE RETAIL MART,Groceries
+MERCH_GR_006_125,More Megastore Mart,MORE MEGASTORE MART,Groceries
+MERCH_GR_006_125,More Megastore Mart,MORE SUPERMARKET MART,Groceries
+MERCH_GR_006_126,More Megastore Store,MORE RETAIL STORE,Groceries
+MERCH_GR_006_126,More Megastore Store,MORE MEGASTORE STORE,Groceries
+MERCH_GR_006_126,More Megastore Store,MORE SUPERMARKET STORE,Groceries
+MERCH_GR_006_127,More Megastore Direct,MORE RETAIL DIRECT,Groceries
+MERCH_GR_006_127,More Megastore Direct,MORE MEGASTORE DIRECT,Groceries
+MERCH_GR_006_127,More Megastore Direct,MORE SUPERMARKET DIRECT,Groceries
+MERCH_GR_007_128,Nature's Basket,NATURES BASKET,Groceries
+MERCH_GR_007_128,Nature's Basket,SPENCERS NATURES BASKET,Groceries
+MERCH_GR_007_129,Nature's Basket Mart,NATURES BASKET MART,Groceries
+MERCH_GR_007_129,Nature's Basket Mart,SPENCERS NATURES BASKET MART,Groceries
+MERCH_GR_007_130,Nature's Basket Store,NATURES BASKET STORE,Groceries
+MERCH_GR_007_130,Nature's Basket Store,SPENCERS NATURES BASKET STORE,Groceries
+MERCH_GR_007_131,Nature's Basket Direct,NATURES BASKET DIRECT,Groceries
+MERCH_GR_007_131,Nature's Basket Direct,SPENCERS NATURES BASKET DIRECT,Groceries
+MERCH_GR_008_132,Country Delight,COUNTRY DELIGHT,Groceries
+MERCH_GR_008_132,Country Delight,ORGANICS COUNTRY DELIGHT,Groceries
+MERCH_GR_008_133,Country Delight Mart,COUNTRY DELIGHT MART,Groceries
+MERCH_GR_008_133,Country Delight Mart,ORGANICS COUNTRY DELIGHT MART,Groceries
+MERCH_GR_008_134,Country Delight Store,COUNTRY DELIGHT STORE,Groceries
+MERCH_GR_008_134,Country Delight Store,ORGANICS COUNTRY DELIGHT STORE,Groceries
+MERCH_GR_008_135,Country Delight Direct,COUNTRY DELIGHT DIRECT,Groceries
+MERCH_GR_008_135,Country Delight Direct,ORGANICS COUNTRY DELIGHT DIRECT,Groceries
+MERCH_GR_009_136,Licious,LICIOUS,Groceries
+MERCH_GR_009_136,Licious,DELIGHTFUL GOURMET,Groceries
+MERCH_GR_009_136,Licious,LICIOUS MEAT,Groceries
+MERCH_GR_009_137,Licious Mart,LICIOUS MART,Groceries
+MERCH_GR_009_137,Licious Mart,DELIGHTFUL GOURMET MART,Groceries
+MERCH_GR_009_137,Licious Mart,LICIOUS MEAT MART,Groceries
+MERCH_GR_009_138,Licious Store,LICIOUS STORE,Groceries
+MERCH_GR_009_138,Licious Store,DELIGHTFUL GOURMET STORE,Groceries
+MERCH_GR_009_138,Licious Store,LICIOUS MEAT STORE,Groceries
+MERCH_GR_009_139,Licious Direct,LICIOUS DIRECT,Groceries
+MERCH_GR_009_139,Licious Direct,DELIGHTFUL GOURMET DIRECT,Groceries
+MERCH_GR_009_139,Licious Direct,LICIOUS MEAT DIRECT,Groceries
+MERCH_GR_010_140,FreshToHome,FRESHTOHOME,Groceries
+MERCH_GR_010_140,FreshToHome,FRESHTOHOME FOODS,Groceries
+MERCH_GR_010_141,FreshToHome Mart,FRESHTOHOME MART,Groceries
+MERCH_GR_010_141,FreshToHome Mart,FRESHTOHOME FOODS MART,Groceries
+MERCH_GR_010_142,FreshToHome Store,FRESHTOHOME STORE,Groceries
+MERCH_GR_010_142,FreshToHome Store,FRESHTOHOME FOODS STORE,Groceries
+MERCH_GR_010_143,FreshToHome Direct,FRESHTOHOME DIRECT,Groceries
+MERCH_GR_010_143,FreshToHome Direct,FRESHTOHOME FOODS DIRECT,Groceries
+MERCH_GR_011_144,Local Kirana Store,KIRANA STORE,Groceries
+MERCH_GR_011_144,Local Kirana Store,UPAHAR PROVISIONS,Groceries
+MERCH_GR_011_144,Local Kirana Store,LAKSHMI STORES,Groceries
+MERCH_GR_011_144,Local Kirana Store,CITY SUPERMART,Groceries
+MERCH_GR_011_145,Local Kirana Store Mart,KIRANA STORE MART,Groceries
+MERCH_GR_011_145,Local Kirana Store Mart,UPAHAR PROVISIONS MART,Groceries
+MERCH_GR_011_145,Local Kirana Store Mart,LAKSHMI STORES MART,Groceries
+MERCH_GR_011_145,Local Kirana Store Mart,CITY SUPERMART MART,Groceries
+MERCH_GR_011_146,Local Kirana Store Store,KIRANA STORE STORE,Groceries
+MERCH_GR_011_146,Local Kirana Store Store,UPAHAR PROVISIONS STORE,Groceries
+MERCH_GR_011_146,Local Kirana Store Store,LAKSHMI STORES STORE,Groceries
+MERCH_GR_011_146,Local Kirana Store Store,CITY SUPERMART STORE,Groceries
+MERCH_GR_011_147,Local Kirana Store Direct,KIRANA STORE DIRECT,Groceries
+MERCH_GR_011_147,Local Kirana Store Direct,UPAHAR PROVISIONS DIRECT,Groceries
+MERCH_GR_011_147,Local Kirana Store Direct,LAKSHMI STORES DIRECT,Groceries
+MERCH_GR_011_147,Local Kirana Store Direct,CITY SUPERMART DIRECT,Groceries
+MERCH_TR_000_148,Uber,UBER,Transportation
+MERCH_TR_000_148,Uber,UBER TRIP,Transportation
+MERCH_TR_000_148,Uber,UBER INDIA,Transportation
+MERCH_TR_000_148,Uber,UBER*PAYMENT,Transportation
+MERCH_TR_000_148,Uber,UBER AUTO,Transportation
+MERCH_TR_000_149,Uber Service,UBER SERVICE,Transportation
+MERCH_TR_000_149,Uber Service,UBER TRIP SERVICE,Transportation
+MERCH_TR_000_149,Uber Service,UBER INDIA SERVICE,Transportation
+MERCH_TR_000_149,Uber Service,UBER*PAYMENT SERVICE,Transportation
+MERCH_TR_000_149,Uber Service,UBER AUTO SERVICE,Transportation
+MERCH_TR_000_150,Uber Pay,UBER PAY,Transportation
+MERCH_TR_000_150,Uber Pay,UBER TRIP PAY,Transportation
+MERCH_TR_000_150,Uber Pay,UBER INDIA PAY,Transportation
+MERCH_TR_000_150,Uber Pay,UBER*PAYMENT PAY,Transportation
+MERCH_TR_000_150,Uber Pay,UBER AUTO PAY,Transportation
+MERCH_TR_000_151,Uber Fuel,UBER FUEL,Transportation
+MERCH_TR_000_151,Uber Fuel,UBER TRIP FUEL,Transportation
+MERCH_TR_000_151,Uber Fuel,UBER INDIA FUEL,Transportation
+MERCH_TR_000_151,Uber Fuel,UBER*PAYMENT FUEL,Transportation
+MERCH_TR_000_151,Uber Fuel,UBER AUTO FUEL,Transportation
+MERCH_TR_001_152,Ola Cabs,OLA,Transportation
+MERCH_TR_001_152,Ola Cabs,OLA CABS,Transportation
+MERCH_TR_001_152,Ola Cabs,ANI TECHNOLOGIES,Transportation
+MERCH_TR_001_152,Ola Cabs,OLA AUTO,Transportation
+MERCH_TR_001_152,Ola Cabs,OLA MONEY,Transportation
+MERCH_TR_001_153,Ola Cabs Service,OLA SERVICE,Transportation
+MERCH_TR_001_153,Ola Cabs Service,OLA CABS SERVICE,Transportation
+MERCH_TR_001_153,Ola Cabs Service,ANI TECHNOLOGIES SERVICE,Transportation
+MERCH_TR_001_153,Ola Cabs Service,OLA AUTO SERVICE,Transportation
+MERCH_TR_001_153,Ola Cabs Service,OLA MONEY SERVICE,Transportation
+MERCH_TR_001_154,Ola Cabs Pay,OLA PAY,Transportation
+MERCH_TR_001_154,Ola Cabs Pay,OLA CABS PAY,Transportation
+MERCH_TR_001_154,Ola Cabs Pay,ANI TECHNOLOGIES PAY,Transportation
+MERCH_TR_001_154,Ola Cabs Pay,OLA AUTO PAY,Transportation
+MERCH_TR_001_154,Ola Cabs Pay,OLA MONEY PAY,Transportation
+MERCH_TR_001_155,Ola Cabs Fuel,OLA FUEL,Transportation
+MERCH_TR_001_155,Ola Cabs Fuel,OLA CABS FUEL,Transportation
+MERCH_TR_001_155,Ola Cabs Fuel,ANI TECHNOLOGIES FUEL,Transportation
+MERCH_TR_001_155,Ola Cabs Fuel,OLA AUTO FUEL,Transportation
+MERCH_TR_001_155,Ola Cabs Fuel,OLA MONEY FUEL,Transportation
+MERCH_TR_002_156,Rapido,RAPIDO,Transportation
+MERCH_TR_002_156,Rapido,RAPIDO BIKE,Transportation
+MERCH_TR_002_156,Rapido,ROPPEN TRANSPORTATION,Transportation
+MERCH_TR_002_157,Rapido Service,RAPIDO SERVICE,Transportation
+MERCH_TR_002_157,Rapido Service,RAPIDO BIKE SERVICE,Transportation
+MERCH_TR_002_157,Rapido Service,ROPPEN TRANSPORTATION SERVICE,Transportation
+MERCH_TR_002_158,Rapido Pay,RAPIDO PAY,Transportation
+MERCH_TR_002_158,Rapido Pay,RAPIDO BIKE PAY,Transportation
+MERCH_TR_002_158,Rapido Pay,ROPPEN TRANSPORTATION PAY,Transportation
+MERCH_TR_002_159,Rapido Fuel,RAPIDO FUEL,Transportation
+MERCH_TR_002_159,Rapido Fuel,RAPIDO BIKE FUEL,Transportation
+MERCH_TR_002_159,Rapido Fuel,ROPPEN TRANSPORTATION FUEL,Transportation
+MERCH_TR_003_160,Namma Yatri,NAMMA YATRI,Transportation
+MERCH_TR_003_160,Namma Yatri,MOVING TECH NAMMA,Transportation
+MERCH_TR_003_161,Namma Yatri Service,NAMMA YATRI SERVICE,Transportation
+MERCH_TR_003_161,Namma Yatri Service,MOVING TECH NAMMA SERVICE,Transportation
+MERCH_TR_003_162,Namma Yatri Pay,NAMMA YATRI PAY,Transportation
+MERCH_TR_003_162,Namma Yatri Pay,MOVING TECH NAMMA PAY,Transportation
+MERCH_TR_003_163,Namma Yatri Fuel,NAMMA YATRI FUEL,Transportation
+MERCH_TR_003_163,Namma Yatri Fuel,MOVING TECH NAMMA FUEL,Transportation
+MERCH_TR_004_164,IndiGo,INDIGO,Transportation
+MERCH_TR_004_164,IndiGo,INTERGLOBE AVIATION,Transportation
+MERCH_TR_004_164,IndiGo,INDIGO AIRLINES,Transportation
+MERCH_TR_004_165,IndiGo Service,INDIGO SERVICE,Transportation
+MERCH_TR_004_165,IndiGo Service,INTERGLOBE AVIATION SERVICE,Transportation
+MERCH_TR_004_165,IndiGo Service,INDIGO AIRLINES SERVICE,Transportation
+MERCH_TR_004_166,IndiGo Pay,INDIGO PAY,Transportation
+MERCH_TR_004_166,IndiGo Pay,INTERGLOBE AVIATION PAY,Transportation
+MERCH_TR_004_166,IndiGo Pay,INDIGO AIRLINES PAY,Transportation
+MERCH_TR_004_167,IndiGo Fuel,INDIGO FUEL,Transportation
+MERCH_TR_004_167,IndiGo Fuel,INTERGLOBE AVIATION FUEL,Transportation
+MERCH_TR_004_167,IndiGo Fuel,INDIGO AIRLINES FUEL,Transportation
+MERCH_TR_005_168,Air India,AIR INDIA,Transportation
+MERCH_TR_005_168,Air India,AIR INDIA LTD,Transportation
+MERCH_TR_005_168,Air India,TATA AIR INDIA,Transportation
+MERCH_TR_005_169,Air India Service,AIR INDIA SERVICE,Transportation
+MERCH_TR_005_169,Air India Service,AIR INDIA LTD SERVICE,Transportation
+MERCH_TR_005_169,Air India Service,TATA AIR INDIA SERVICE,Transportation
+MERCH_TR_005_170,Air India Pay,AIR INDIA PAY,Transportation
+MERCH_TR_005_170,Air India Pay,AIR INDIA LTD PAY,Transportation
+MERCH_TR_005_170,Air India Pay,TATA AIR INDIA PAY,Transportation
+MERCH_TR_005_171,Air India Fuel,AIR INDIA FUEL,Transportation
+MERCH_TR_005_171,Air India Fuel,AIR INDIA LTD FUEL,Transportation
+MERCH_TR_005_171,Air India Fuel,TATA AIR INDIA FUEL,Transportation
+MERCH_TR_006_172,SpiceJet,SPICEJET,Transportation
+MERCH_TR_006_172,SpiceJet,SPICEJET AIRLINES,Transportation
+MERCH_TR_006_173,SpiceJet Service,SPICEJET SERVICE,Transportation
+MERCH_TR_006_173,SpiceJet Service,SPICEJET AIRLINES SERVICE,Transportation
+MERCH_TR_006_174,SpiceJet Pay,SPICEJET PAY,Transportation
+MERCH_TR_006_174,SpiceJet Pay,SPICEJET AIRLINES PAY,Transportation
+MERCH_TR_006_175,SpiceJet Fuel,SPICEJET FUEL,Transportation
+MERCH_TR_006_175,SpiceJet Fuel,SPICEJET AIRLINES FUEL,Transportation
+MERCH_TR_007_176,IRCTC,IRCTC,Transportation
+MERCH_TR_007_176,IRCTC,IRCTC TRAIN TICKETING,Transportation
+MERCH_TR_007_176,IRCTC,IRCTC E-TICKETING,Transportation
+MERCH_TR_007_177,IRCTC Service,IRCTC SERVICE,Transportation
+MERCH_TR_007_177,IRCTC Service,IRCTC TRAIN TICKETING SERVICE,Transportation
+MERCH_TR_007_177,IRCTC Service,IRCTC E-TICKETING SERVICE,Transportation
+MERCH_TR_007_178,IRCTC Pay,IRCTC PAY,Transportation
+MERCH_TR_007_178,IRCTC Pay,IRCTC TRAIN TICKETING PAY,Transportation
+MERCH_TR_007_178,IRCTC Pay,IRCTC E-TICKETING PAY,Transportation
+MERCH_TR_007_179,IRCTC Fuel,IRCTC FUEL,Transportation
+MERCH_TR_007_179,IRCTC Fuel,IRCTC TRAIN TICKETING FUEL,Transportation
+MERCH_TR_007_179,IRCTC Fuel,IRCTC E-TICKETING FUEL,Transportation
+MERCH_TR_008_180,Delhi Metro,DMRC,Transportation
+MERCH_TR_008_180,Delhi Metro,DELHI METRO,Transportation
+MERCH_TR_008_180,Delhi Metro,DMRC CARD RECHARGE,Transportation
+MERCH_TR_008_181,Delhi Metro Service,DMRC SERVICE,Transportation
+MERCH_TR_008_181,Delhi Metro Service,DELHI METRO SERVICE,Transportation
+MERCH_TR_008_181,Delhi Metro Service,DMRC CARD RECHARGE SERVICE,Transportation
+MERCH_TR_008_182,Delhi Metro Pay,DMRC PAY,Transportation
+MERCH_TR_008_182,Delhi Metro Pay,DELHI METRO PAY,Transportation
+MERCH_TR_008_182,Delhi Metro Pay,DMRC CARD RECHARGE PAY,Transportation
+MERCH_TR_008_183,Delhi Metro Fuel,DMRC FUEL,Transportation
+MERCH_TR_008_183,Delhi Metro Fuel,DELHI METRO FUEL,Transportation
+MERCH_TR_008_183,Delhi Metro Fuel,DMRC CARD RECHARGE FUEL,Transportation
+MERCH_TR_009_184,Namma Metro,BMRCL,Transportation
+MERCH_TR_009_184,Namma Metro,NAMMA METRO,Transportation
+MERCH_TR_009_184,Namma Metro,BANGALORE METRO,Transportation
+MERCH_TR_009_185,Namma Metro Service,BMRCL SERVICE,Transportation
+MERCH_TR_009_185,Namma Metro Service,NAMMA METRO SERVICE,Transportation
+MERCH_TR_009_185,Namma Metro Service,BANGALORE METRO SERVICE,Transportation
+MERCH_TR_009_186,Namma Metro Pay,BMRCL PAY,Transportation
+MERCH_TR_009_186,Namma Metro Pay,NAMMA METRO PAY,Transportation
+MERCH_TR_009_186,Namma Metro Pay,BANGALORE METRO PAY,Transportation
+MERCH_TR_009_187,Namma Metro Fuel,BMRCL FUEL,Transportation
+MERCH_TR_009_187,Namma Metro Fuel,NAMMA METRO FUEL,Transportation
+MERCH_TR_009_187,Namma Metro Fuel,BANGALORE METRO FUEL,Transportation
+MERCH_TR_010_188,HPCL Fuel,HPCL,Transportation
+MERCH_TR_010_188,HPCL Fuel,HINDUSTAN PETROLEUM,Transportation
+MERCH_TR_010_188,HPCL Fuel,HP PETROL PUMP,Transportation
+MERCH_TR_010_189,HPCL Fuel Service,HPCL SERVICE,Transportation
+MERCH_TR_010_189,HPCL Fuel Service,HINDUSTAN PETROLEUM SERVICE,Transportation
+MERCH_TR_010_189,HPCL Fuel Service,HP PETROL PUMP SERVICE,Transportation
+MERCH_TR_010_190,HPCL Fuel Pay,HPCL PAY,Transportation
+MERCH_TR_010_190,HPCL Fuel Pay,HINDUSTAN PETROLEUM PAY,Transportation
+MERCH_TR_010_190,HPCL Fuel Pay,HP PETROL PUMP PAY,Transportation
+MERCH_TR_010_191,HPCL Fuel Fuel,HPCL FUEL,Transportation
+MERCH_TR_010_191,HPCL Fuel Fuel,HINDUSTAN PETROLEUM FUEL,Transportation
+MERCH_TR_010_191,HPCL Fuel Fuel,HP PETROL PUMP FUEL,Transportation
+MERCH_TR_011_192,BPCL Fuel,BPCL,Transportation
+MERCH_TR_011_192,BPCL Fuel,BHARAT PETROLEUM,Transportation
+MERCH_TR_011_192,BPCL Fuel,BPCL PETROL PUMP,Transportation
+MERCH_TR_011_193,BPCL Fuel Service,BPCL SERVICE,Transportation
+MERCH_TR_011_193,BPCL Fuel Service,BHARAT PETROLEUM SERVICE,Transportation
+MERCH_TR_011_193,BPCL Fuel Service,BPCL PETROL PUMP SERVICE,Transportation
+MERCH_TR_011_194,BPCL Fuel Pay,BPCL PAY,Transportation
+MERCH_TR_011_194,BPCL Fuel Pay,BHARAT PETROLEUM PAY,Transportation
+MERCH_TR_011_194,BPCL Fuel Pay,BPCL PETROL PUMP PAY,Transportation
+MERCH_TR_011_195,BPCL Fuel Fuel,BPCL FUEL,Transportation
+MERCH_TR_011_195,BPCL Fuel Fuel,BHARAT PETROLEUM FUEL,Transportation
+MERCH_TR_011_195,BPCL Fuel Fuel,BPCL PETROL PUMP FUEL,Transportation
+MERCH_TR_012_196,IOCL Fuel,IOCL,Transportation
+MERCH_TR_012_196,IOCL Fuel,INDIAN OIL,Transportation
+MERCH_TR_012_196,IOCL Fuel,INDIANOIL CORP,Transportation
+MERCH_TR_012_197,IOCL Fuel Service,IOCL SERVICE,Transportation
+MERCH_TR_012_197,IOCL Fuel Service,INDIAN OIL SERVICE,Transportation
+MERCH_TR_012_197,IOCL Fuel Service,INDIANOIL CORP SERVICE,Transportation
+MERCH_TR_012_198,IOCL Fuel Pay,IOCL PAY,Transportation
+MERCH_TR_012_198,IOCL Fuel Pay,INDIAN OIL PAY,Transportation
+MERCH_TR_012_198,IOCL Fuel Pay,INDIANOIL CORP PAY,Transportation
+MERCH_TR_012_199,IOCL Fuel Fuel,IOCL FUEL,Transportation
+MERCH_TR_012_199,IOCL Fuel Fuel,INDIAN OIL FUEL,Transportation
+MERCH_TR_012_199,IOCL Fuel Fuel,INDIANOIL CORP FUEL,Transportation
+MERCH_TR_013_200,Shell Petrol Pump,SHELL,Transportation
+MERCH_TR_013_200,Shell Petrol Pump,SHELL INDIA,Transportation
+MERCH_TR_013_200,Shell Petrol Pump,SHELL PETROL,Transportation
+MERCH_TR_013_201,Shell Petrol Pump Service,SHELL SERVICE,Transportation
+MERCH_TR_013_201,Shell Petrol Pump Service,SHELL INDIA SERVICE,Transportation
+MERCH_TR_013_201,Shell Petrol Pump Service,SHELL PETROL SERVICE,Transportation
+MERCH_TR_013_202,Shell Petrol Pump Pay,SHELL PAY,Transportation
+MERCH_TR_013_202,Shell Petrol Pump Pay,SHELL INDIA PAY,Transportation
+MERCH_TR_013_202,Shell Petrol Pump Pay,SHELL PETROL PAY,Transportation
+MERCH_TR_013_203,Shell Petrol Pump Fuel,SHELL FUEL,Transportation
+MERCH_TR_013_203,Shell Petrol Pump Fuel,SHELL INDIA FUEL,Transportation
+MERCH_TR_013_203,Shell Petrol Pump Fuel,SHELL PETROL FUEL,Transportation
+MERCH_TR_014_204,FASTag Recharge,FASTAG,Transportation
+MERCH_TR_014_204,FASTag Recharge,NETC FASTAG,Transportation
+MERCH_TR_014_204,FASTag Recharge,NHAI FASTAG RECHARGE,Transportation
+MERCH_TR_014_205,FASTag Recharge Service,FASTAG SERVICE,Transportation
+MERCH_TR_014_205,FASTag Recharge Service,NETC FASTAG SERVICE,Transportation
+MERCH_TR_014_205,FASTag Recharge Service,NHAI FASTAG RECHARGE SERVICE,Transportation
+MERCH_TR_014_206,FASTag Recharge Pay,FASTAG PAY,Transportation
+MERCH_TR_014_206,FASTag Recharge Pay,NETC FASTAG PAY,Transportation
+MERCH_TR_014_206,FASTag Recharge Pay,NHAI FASTAG RECHARGE PAY,Transportation
+MERCH_TR_014_207,FASTag Recharge Fuel,FASTAG FUEL,Transportation
+MERCH_TR_014_207,FASTag Recharge Fuel,NETC FASTAG FUEL,Transportation
+MERCH_TR_014_207,FASTag Recharge Fuel,NHAI FASTAG RECHARGE FUEL,Transportation
+MERCH_RH_000_208,Landlord Direct Rent,RENT PAYMENT,Rent & Housing
+MERCH_RH_000_208,Landlord Direct Rent,HOUSE RENT UPI,Rent & Housing
+MERCH_RH_000_208,Landlord Direct Rent,LANDLORD RENT TRANSFER,Rent & Housing
+MERCH_RH_000_208,Landlord Direct Rent,MONTHLY RENT,Rent & Housing
+MERCH_RH_000_209,Landlord Direct Rent Online,RENT PAYMENT ONLINE,Rent & Housing
+MERCH_RH_000_209,Landlord Direct Rent Online,HOUSE RENT UPI ONLINE,Rent & Housing
+MERCH_RH_000_209,Landlord Direct Rent Online,LANDLORD RENT TRANSFER ONLINE,Rent & Housing
+MERCH_RH_000_209,Landlord Direct Rent Online,MONTHLY RENT ONLINE,Rent & Housing
+MERCH_RH_000_210,Landlord Direct Rent Pay,RENT PAYMENT PAY,Rent & Housing
+MERCH_RH_000_210,Landlord Direct Rent Pay,HOUSE RENT UPI PAY,Rent & Housing
+MERCH_RH_000_210,Landlord Direct Rent Pay,LANDLORD RENT TRANSFER PAY,Rent & Housing
+MERCH_RH_000_210,Landlord Direct Rent Pay,MONTHLY RENT PAY,Rent & Housing
+MERCH_RH_001_211,Society Maintenance,SOCIETY MAINTENANCE,Rent & Housing
+MERCH_RH_001_211,Society Maintenance,APARTMENT ASSN MAINTENANCE,Rent & Housing
+MERCH_RH_001_211,Society Maintenance,MYGATE MAINTENANCE,Rent & Housing
+MERCH_RH_001_212,Society Maintenance Online,SOCIETY MAINTENANCE ONLINE,Rent & Housing
+MERCH_RH_001_212,Society Maintenance Online,APARTMENT ASSN MAINTENANCE ONLINE,Rent & Housing
+MERCH_RH_001_212,Society Maintenance Online,MYGATE MAINTENANCE ONLINE,Rent & Housing
+MERCH_RH_001_213,Society Maintenance Pay,SOCIETY MAINTENANCE PAY,Rent & Housing
+MERCH_RH_001_213,Society Maintenance Pay,APARTMENT ASSN MAINTENANCE PAY,Rent & Housing
+MERCH_RH_001_213,Society Maintenance Pay,MYGATE MAINTENANCE PAY,Rent & Housing
+MERCH_RH_002_214,CRED RentPay,CRED RENT,Rent & Housing
+MERCH_RH_002_214,CRED RentPay,CRED RENTPAY,Rent & Housing
+MERCH_RH_002_214,CRED RentPay,DREAMPLUG RENT,Rent & Housing
+MERCH_RH_002_215,CRED RentPay Online,CRED RENT ONLINE,Rent & Housing
+MERCH_RH_002_215,CRED RentPay Online,CRED RENTPAY ONLINE,Rent & Housing
+MERCH_RH_002_215,CRED RentPay Online,DREAMPLUG RENT ONLINE,Rent & Housing
+MERCH_RH_002_216,CRED RentPay Pay,CRED RENT PAY,Rent & Housing
+MERCH_RH_002_216,CRED RentPay Pay,CRED RENTPAY PAY,Rent & Housing
+MERCH_RH_002_216,CRED RentPay Pay,DREAMPLUG RENT PAY,Rent & Housing
+MERCH_RH_003_217,NoBroker Rent Pay,NOBROKER RENT,Rent & Housing
+MERCH_RH_003_217,NoBroker Rent Pay,NOBROKER TECHNOLOGIES,Rent & Housing
+MERCH_RH_003_218,NoBroker Rent Pay Online,NOBROKER RENT ONLINE,Rent & Housing
+MERCH_RH_003_218,NoBroker Rent Pay Online,NOBROKER TECHNOLOGIES ONLINE,Rent & Housing
+MERCH_RH_003_219,NoBroker Rent Pay Pay,NOBROKER RENT PAY,Rent & Housing
+MERCH_RH_003_219,NoBroker Rent Pay Pay,NOBROKER TECHNOLOGIES PAY,Rent & Housing
+MERCH_RH_004_220,Housing.com Rent,HOUSING.COM RENT,Rent & Housing
+MERCH_RH_004_220,Housing.com Rent,LOCON SOLUTIONS,Rent & Housing
+MERCH_RH_004_221,Housing.com Rent Online,HOUSING.COM RENT ONLINE,Rent & Housing
+MERCH_RH_004_221,Housing.com Rent Online,LOCON SOLUTIONS ONLINE,Rent & Housing
+MERCH_RH_004_222,Housing.com Rent Pay,HOUSING.COM RENT PAY,Rent & Housing
+MERCH_RH_004_222,Housing.com Rent Pay,LOCON SOLUTIONS PAY,Rent & Housing
+MERCH_EN_000_223,Netflix,NETFLIX,Entertainment
+MERCH_EN_000_223,Netflix,NETFLIX INDIA,Entertainment
+MERCH_EN_000_223,Netflix,NETFLIX.COM,Entertainment
+MERCH_EN_000_224,Netflix Digital,NETFLIX DIGITAL,Entertainment
+MERCH_EN_000_224,Netflix Digital,NETFLIX INDIA DIGITAL,Entertainment
+MERCH_EN_000_224,Netflix Digital,NETFLIX.COM DIGITAL,Entertainment
+MERCH_EN_000_225,Netflix Media,NETFLIX MEDIA,Entertainment
+MERCH_EN_000_225,Netflix Media,NETFLIX INDIA MEDIA,Entertainment
+MERCH_EN_000_225,Netflix Media,NETFLIX.COM MEDIA,Entertainment
+MERCH_EN_000_226,Netflix India,NETFLIX INDIA,Entertainment
+MERCH_EN_000_226,Netflix India,NETFLIX INDIA INDIA,Entertainment
+MERCH_EN_000_226,Netflix India,NETFLIX.COM INDIA,Entertainment
+MERCH_EN_001_227,Spotify,SPOTIFY,Entertainment
+MERCH_EN_001_227,Spotify,SPOTIFY INDIA,Entertainment
+MERCH_EN_001_227,Spotify,SPOTIFY AB,Entertainment
+MERCH_EN_001_228,Spotify Digital,SPOTIFY DIGITAL,Entertainment
+MERCH_EN_001_228,Spotify Digital,SPOTIFY INDIA DIGITAL,Entertainment
+MERCH_EN_001_228,Spotify Digital,SPOTIFY AB DIGITAL,Entertainment
+MERCH_EN_001_229,Spotify Media,SPOTIFY MEDIA,Entertainment
+MERCH_EN_001_229,Spotify Media,SPOTIFY INDIA MEDIA,Entertainment
+MERCH_EN_001_229,Spotify Media,SPOTIFY AB MEDIA,Entertainment
+MERCH_EN_001_230,Spotify India,SPOTIFY INDIA,Entertainment
+MERCH_EN_001_230,Spotify India,SPOTIFY INDIA INDIA,Entertainment
+MERCH_EN_001_230,Spotify India,SPOTIFY AB INDIA,Entertainment
+MERCH_EN_002_231,Prime Video,AMAZON PRIME,Entertainment
+MERCH_EN_002_231,Prime Video,PRIME VIDEO,Entertainment
+MERCH_EN_002_231,Prime Video,AMAZON PRIME SUBSCRIPTION,Entertainment
+MERCH_EN_002_232,Prime Video Digital,AMAZON PRIME DIGITAL,Entertainment
+MERCH_EN_002_232,Prime Video Digital,PRIME VIDEO DIGITAL,Entertainment
+MERCH_EN_002_232,Prime Video Digital,AMAZON PRIME SUBSCRIPTION DIGITAL,Entertainment
+MERCH_EN_002_233,Prime Video Media,AMAZON PRIME MEDIA,Entertainment
+MERCH_EN_002_233,Prime Video Media,PRIME VIDEO MEDIA,Entertainment
+MERCH_EN_002_233,Prime Video Media,AMAZON PRIME SUBSCRIPTION MEDIA,Entertainment
+MERCH_EN_002_234,Prime Video India,AMAZON PRIME INDIA,Entertainment
+MERCH_EN_002_234,Prime Video India,PRIME VIDEO INDIA,Entertainment
+MERCH_EN_002_234,Prime Video India,AMAZON PRIME SUBSCRIPTION INDIA,Entertainment
+MERCH_EN_003_235,Disney+ Hotstar,HOTSTAR,Entertainment
+MERCH_EN_003_235,Disney+ Hotstar,DISNEY+ HOTSTAR,Entertainment
+MERCH_EN_003_235,Disney+ Hotstar,NOVI DIGITAL,Entertainment
+MERCH_EN_003_236,Disney+ Hotstar Digital,HOTSTAR DIGITAL,Entertainment
+MERCH_EN_003_236,Disney+ Hotstar Digital,DISNEY+ HOTSTAR DIGITAL,Entertainment
+MERCH_EN_003_236,Disney+ Hotstar Digital,NOVI DIGITAL DIGITAL,Entertainment
+MERCH_EN_003_237,Disney+ Hotstar Media,HOTSTAR MEDIA,Entertainment
+MERCH_EN_003_237,Disney+ Hotstar Media,DISNEY+ HOTSTAR MEDIA,Entertainment
+MERCH_EN_003_237,Disney+ Hotstar Media,NOVI DIGITAL MEDIA,Entertainment
+MERCH_EN_003_238,Disney+ Hotstar India,HOTSTAR INDIA,Entertainment
+MERCH_EN_003_238,Disney+ Hotstar India,DISNEY+ HOTSTAR INDIA,Entertainment
+MERCH_EN_003_238,Disney+ Hotstar India,NOVI DIGITAL INDIA,Entertainment
+MERCH_EN_004_239,BookMyShow,BOOKMYSHOW,Entertainment
+MERCH_EN_004_239,BookMyShow,BIGTREE ENTERTAINMENT,Entertainment
+MERCH_EN_004_239,BookMyShow,BMS TICKETS,Entertainment
+MERCH_EN_004_240,BookMyShow Digital,BOOKMYSHOW DIGITAL,Entertainment
+MERCH_EN_004_240,BookMyShow Digital,BIGTREE ENTERTAINMENT DIGITAL,Entertainment
+MERCH_EN_004_240,BookMyShow Digital,BMS TICKETS DIGITAL,Entertainment
+MERCH_EN_004_241,BookMyShow Media,BOOKMYSHOW MEDIA,Entertainment
+MERCH_EN_004_241,BookMyShow Media,BIGTREE ENTERTAINMENT MEDIA,Entertainment
+MERCH_EN_004_241,BookMyShow Media,BMS TICKETS MEDIA,Entertainment
+MERCH_EN_004_242,BookMyShow India,BOOKMYSHOW INDIA,Entertainment
+MERCH_EN_004_242,BookMyShow India,BIGTREE ENTERTAINMENT INDIA,Entertainment
+MERCH_EN_004_242,BookMyShow India,BMS TICKETS INDIA,Entertainment
+MERCH_EN_005_243,PVR Cinemas,PVR CINEMAS,Entertainment
+MERCH_EN_005_243,PVR Cinemas,PVR INOX,Entertainment
+MERCH_EN_005_243,PVR Cinemas,PVR LIMITED,Entertainment
+MERCH_EN_005_244,PVR Cinemas Digital,PVR CINEMAS DIGITAL,Entertainment
+MERCH_EN_005_244,PVR Cinemas Digital,PVR INOX DIGITAL,Entertainment
+MERCH_EN_005_244,PVR Cinemas Digital,PVR LIMITED DIGITAL,Entertainment
+MERCH_EN_005_245,PVR Cinemas Media,PVR CINEMAS MEDIA,Entertainment
+MERCH_EN_005_245,PVR Cinemas Media,PVR INOX MEDIA,Entertainment
+MERCH_EN_005_245,PVR Cinemas Media,PVR LIMITED MEDIA,Entertainment
+MERCH_EN_005_246,PVR Cinemas India,PVR CINEMAS INDIA,Entertainment
+MERCH_EN_005_246,PVR Cinemas India,PVR INOX INDIA,Entertainment
+MERCH_EN_005_246,PVR Cinemas India,PVR LIMITED INDIA,Entertainment
+MERCH_EN_006_247,SonyLIV,SONYLIV,Entertainment
+MERCH_EN_006_247,SonyLIV,CULVER MAX ENTERTAINMENT,Entertainment
+MERCH_EN_006_248,SonyLIV Digital,SONYLIV DIGITAL,Entertainment
+MERCH_EN_006_248,SonyLIV Digital,CULVER MAX ENTERTAINMENT DIGITAL,Entertainment
+MERCH_EN_006_249,SonyLIV Media,SONYLIV MEDIA,Entertainment
+MERCH_EN_006_249,SonyLIV Media,CULVER MAX ENTERTAINMENT MEDIA,Entertainment
+MERCH_EN_006_250,SonyLIV India,SONYLIV INDIA,Entertainment
+MERCH_EN_006_250,SonyLIV India,CULVER MAX ENTERTAINMENT INDIA,Entertainment
+MERCH_EN_007_251,YouTube Premium,YOUTUBE PREMIUM,Entertainment
+MERCH_EN_007_251,YouTube Premium,GOOGLE YOUTUBE,Entertainment
+MERCH_EN_007_252,YouTube Premium Digital,YOUTUBE PREMIUM DIGITAL,Entertainment
+MERCH_EN_007_252,YouTube Premium Digital,GOOGLE YOUTUBE DIGITAL,Entertainment
+MERCH_EN_007_253,YouTube Premium Media,YOUTUBE PREMIUM MEDIA,Entertainment
+MERCH_EN_007_253,YouTube Premium Media,GOOGLE YOUTUBE MEDIA,Entertainment
+MERCH_EN_007_254,YouTube Premium India,YOUTUBE PREMIUM INDIA,Entertainment
+MERCH_EN_007_254,YouTube Premium India,GOOGLE YOUTUBE INDIA,Entertainment
+MERCH_EN_008_255,Apple Music,APPLE MUSIC,Entertainment
+MERCH_EN_008_255,Apple Music,APPLE.COM/BILL,Entertainment
+MERCH_EN_008_256,Apple Music Digital,APPLE MUSIC DIGITAL,Entertainment
+MERCH_EN_008_256,Apple Music Digital,APPLE.COM/BILL DIGITAL,Entertainment
+MERCH_EN_008_257,Apple Music Media,APPLE MUSIC MEDIA,Entertainment
+MERCH_EN_008_257,Apple Music Media,APPLE.COM/BILL MEDIA,Entertainment
+MERCH_EN_008_258,Apple Music India,APPLE MUSIC INDIA,Entertainment
+MERCH_EN_008_258,Apple Music India,APPLE.COM/BILL INDIA,Entertainment
+MERCH_EN_009_259,Wonderla,WONDERLA,Entertainment
+MERCH_EN_009_259,Wonderla,WONDERLA AMUSEMENT PARK,Entertainment
+MERCH_EN_009_260,Wonderla Digital,WONDERLA DIGITAL,Entertainment
+MERCH_EN_009_260,Wonderla Digital,WONDERLA AMUSEMENT PARK DIGITAL,Entertainment
+MERCH_EN_009_261,Wonderla Media,WONDERLA MEDIA,Entertainment
+MERCH_EN_009_261,Wonderla Media,WONDERLA AMUSEMENT PARK MEDIA,Entertainment
+MERCH_EN_009_262,Wonderla India,WONDERLA INDIA,Entertainment
+MERCH_EN_009_262,Wonderla India,WONDERLA AMUSEMENT PARK INDIA,Entertainment
+MERCH_HC_000_263,Apollo Pharmacy,APOLLO PHARMACY,Healthcare
+MERCH_HC_000_263,Apollo Pharmacy,APOLLO HOSPITALS PHARMA,Healthcare
+MERCH_HC_000_263,Apollo Pharmacy,APOLLO 247,Healthcare
+MERCH_HC_000_264,Apollo Pharmacy Healthcare,APOLLO PHARMACY HEALTHCARE,Healthcare
+MERCH_HC_000_264,Apollo Pharmacy Healthcare,APOLLO HOSPITALS PHARMA HEALTHCARE,Healthcare
+MERCH_HC_000_264,Apollo Pharmacy Healthcare,APOLLO 247 HEALTHCARE,Healthcare
+MERCH_HC_000_265,Apollo Pharmacy Medical,APOLLO PHARMACY MEDICAL,Healthcare
+MERCH_HC_000_265,Apollo Pharmacy Medical,APOLLO HOSPITALS PHARMA MEDICAL,Healthcare
+MERCH_HC_000_265,Apollo Pharmacy Medical,APOLLO 247 MEDICAL,Healthcare
+MERCH_HC_000_266,Apollo Pharmacy Care,APOLLO PHARMACY CARE,Healthcare
+MERCH_HC_000_266,Apollo Pharmacy Care,APOLLO HOSPITALS PHARMA CARE,Healthcare
+MERCH_HC_000_266,Apollo Pharmacy Care,APOLLO 247 CARE,Healthcare
+MERCH_HC_001_267,PharmEasy,PHARMEASY,Healthcare
+MERCH_HC_001_267,PharmEasy,API HOLDINGS,Healthcare
+MERCH_HC_001_267,PharmEasy,PHARMEASY ONLINE,Healthcare
+MERCH_HC_001_268,PharmEasy Healthcare,PHARMEASY HEALTHCARE,Healthcare
+MERCH_HC_001_268,PharmEasy Healthcare,API HOLDINGS HEALTHCARE,Healthcare
+MERCH_HC_001_268,PharmEasy Healthcare,PHARMEASY ONLINE HEALTHCARE,Healthcare
+MERCH_HC_001_269,PharmEasy Medical,PHARMEASY MEDICAL,Healthcare
+MERCH_HC_001_269,PharmEasy Medical,API HOLDINGS MEDICAL,Healthcare
+MERCH_HC_001_269,PharmEasy Medical,PHARMEASY ONLINE MEDICAL,Healthcare
+MERCH_HC_001_270,PharmEasy Care,PHARMEASY CARE,Healthcare
+MERCH_HC_001_270,PharmEasy Care,API HOLDINGS CARE,Healthcare
+MERCH_HC_001_270,PharmEasy Care,PHARMEASY ONLINE CARE,Healthcare
+MERCH_HC_002_271,Tata 1mg,1MG,Healthcare
+MERCH_HC_002_271,Tata 1mg,TATA 1MG,Healthcare
+MERCH_HC_002_271,Tata 1mg,1MG TECHNOLOGIES,Healthcare
+MERCH_HC_002_272,Tata 1mg Healthcare,1MG HEALTHCARE,Healthcare
+MERCH_HC_002_272,Tata 1mg Healthcare,TATA 1MG HEALTHCARE,Healthcare
+MERCH_HC_002_272,Tata 1mg Healthcare,1MG TECHNOLOGIES HEALTHCARE,Healthcare
+MERCH_HC_002_273,Tata 1mg Medical,1MG MEDICAL,Healthcare
+MERCH_HC_002_273,Tata 1mg Medical,TATA 1MG MEDICAL,Healthcare
+MERCH_HC_002_273,Tata 1mg Medical,1MG TECHNOLOGIES MEDICAL,Healthcare
+MERCH_HC_002_274,Tata 1mg Care,1MG CARE,Healthcare
+MERCH_HC_002_274,Tata 1mg Care,TATA 1MG CARE,Healthcare
+MERCH_HC_002_274,Tata 1mg Care,1MG TECHNOLOGIES CARE,Healthcare
+MERCH_HC_003_275,Practo,PRACTO,Healthcare
+MERCH_HC_003_275,Practo,PRACTO CONSULTATION,Healthcare
+MERCH_HC_003_275,Practo,PRACTO CARE,Healthcare
+MERCH_HC_003_276,Practo Healthcare,PRACTO HEALTHCARE,Healthcare
+MERCH_HC_003_276,Practo Healthcare,PRACTO CONSULTATION HEALTHCARE,Healthcare
+MERCH_HC_003_276,Practo Healthcare,PRACTO CARE HEALTHCARE,Healthcare
+MERCH_HC_003_277,Practo Medical,PRACTO MEDICAL,Healthcare
+MERCH_HC_003_277,Practo Medical,PRACTO CONSULTATION MEDICAL,Healthcare
+MERCH_HC_003_277,Practo Medical,PRACTO CARE MEDICAL,Healthcare
+MERCH_HC_003_278,Practo Care,PRACTO CARE,Healthcare
+MERCH_HC_003_278,Practo Care,PRACTO CONSULTATION CARE,Healthcare
+MERCH_HC_003_278,Practo Care,PRACTO CARE CARE,Healthcare
+MERCH_HC_004_279,Dr Lal PathLabs,DR LAL PATHLABS,Healthcare
+MERCH_HC_004_279,Dr Lal PathLabs,LAL PATHLABS DIAGNOSTICS,Healthcare
+MERCH_HC_004_280,Dr Lal PathLabs Healthcare,DR LAL PATHLABS HEALTHCARE,Healthcare
+MERCH_HC_004_280,Dr Lal PathLabs Healthcare,LAL PATHLABS DIAGNOSTICS HEALTHCARE,Healthcare
+MERCH_HC_004_281,Dr Lal PathLabs Medical,DR LAL PATHLABS MEDICAL,Healthcare
+MERCH_HC_004_281,Dr Lal PathLabs Medical,LAL PATHLABS DIAGNOSTICS MEDICAL,Healthcare
+MERCH_HC_004_282,Dr Lal PathLabs Care,DR LAL PATHLABS CARE,Healthcare
+MERCH_HC_004_282,Dr Lal PathLabs Care,LAL PATHLABS DIAGNOSTICS CARE,Healthcare
+MERCH_HC_005_283,Cult.fit Gym,CULT FIT,Healthcare
+MERCH_HC_005_283,Cult.fit Gym,CUREFIT HEALTHCARE,Healthcare
+MERCH_HC_005_283,Cult.fit Gym,CULTPASS,Healthcare
+MERCH_HC_005_284,Cult.fit Gym Healthcare,CULT FIT HEALTHCARE,Healthcare
+MERCH_HC_005_284,Cult.fit Gym Healthcare,CUREFIT HEALTHCARE HEALTHCARE,Healthcare
+MERCH_HC_005_284,Cult.fit Gym Healthcare,CULTPASS HEALTHCARE,Healthcare
+MERCH_HC_005_285,Cult.fit Gym Medical,CULT FIT MEDICAL,Healthcare
+MERCH_HC_005_285,Cult.fit Gym Medical,CUREFIT HEALTHCARE MEDICAL,Healthcare
+MERCH_HC_005_285,Cult.fit Gym Medical,CULTPASS MEDICAL,Healthcare
+MERCH_HC_005_286,Cult.fit Gym Care,CULT FIT CARE,Healthcare
+MERCH_HC_005_286,Cult.fit Gym Care,CUREFIT HEALTHCARE CARE,Healthcare
+MERCH_HC_005_286,Cult.fit Gym Care,CULTPASS CARE,Healthcare
+MERCH_HC_006_287,Lenskart,LENSKART,Healthcare
+MERCH_HC_006_287,Lenskart,LENSKART SOLUTIONS,Healthcare
+MERCH_HC_006_288,Lenskart Healthcare,LENSKART HEALTHCARE,Healthcare
+MERCH_HC_006_288,Lenskart Healthcare,LENSKART SOLUTIONS HEALTHCARE,Healthcare
+MERCH_HC_006_289,Lenskart Medical,LENSKART MEDICAL,Healthcare
+MERCH_HC_006_289,Lenskart Medical,LENSKART SOLUTIONS MEDICAL,Healthcare
+MERCH_HC_006_290,Lenskart Care,LENSKART CARE,Healthcare
+MERCH_HC_006_290,Lenskart Care,LENSKART SOLUTIONS CARE,Healthcare
+MERCH_ED_000_291,Udemy,UDEMY,Education
+MERCH_ED_000_291,Udemy,UDEMY ONLINE COURSES,Education
+MERCH_ED_000_292,Udemy Learning,UDEMY LEARNING,Education
+MERCH_ED_000_292,Udemy Learning,UDEMY ONLINE COURSES LEARNING,Education
+MERCH_ED_000_293,Udemy Edu,UDEMY EDU,Education
+MERCH_ED_000_293,Udemy Edu,UDEMY ONLINE COURSES EDU,Education
+MERCH_ED_000_294,Udemy Academy,UDEMY ACADEMY,Education
+MERCH_ED_000_294,Udemy Academy,UDEMY ONLINE COURSES ACADEMY,Education
+MERCH_ED_001_295,Coursera,COURSERA,Education
+MERCH_ED_001_295,Coursera,COURSERA INC,Education
+MERCH_ED_001_296,Coursera Learning,COURSERA LEARNING,Education
+MERCH_ED_001_296,Coursera Learning,COURSERA INC LEARNING,Education
+MERCH_ED_001_297,Coursera Edu,COURSERA EDU,Education
+MERCH_ED_001_297,Coursera Edu,COURSERA INC EDU,Education
+MERCH_ED_001_298,Coursera Academy,COURSERA ACADEMY,Education
+MERCH_ED_001_298,Coursera Academy,COURSERA INC ACADEMY,Education
+MERCH_ED_002_299,Unacademy,UNACADEMY,Education
+MERCH_ED_002_299,Unacademy,SORTING HAT TECHNOLOGIES,Education
+MERCH_ED_002_300,Unacademy Learning,UNACADEMY LEARNING,Education
+MERCH_ED_002_300,Unacademy Learning,SORTING HAT TECHNOLOGIES LEARNING,Education
+MERCH_ED_002_301,Unacademy Edu,UNACADEMY EDU,Education
+MERCH_ED_002_301,Unacademy Edu,SORTING HAT TECHNOLOGIES EDU,Education
+MERCH_ED_002_302,Unacademy Academy,UNACADEMY ACADEMY,Education
+MERCH_ED_002_302,Unacademy Academy,SORTING HAT TECHNOLOGIES ACADEMY,Education
+MERCH_ED_003_303,PhysicsWallah,PHYSICSWALLAH,Education
+MERCH_ED_003_303,PhysicsWallah,PW LIVE,Education
+MERCH_ED_003_304,PhysicsWallah Learning,PHYSICSWALLAH LEARNING,Education
+MERCH_ED_003_304,PhysicsWallah Learning,PW LIVE LEARNING,Education
+MERCH_ED_003_305,PhysicsWallah Edu,PHYSICSWALLAH EDU,Education
+MERCH_ED_003_305,PhysicsWallah Edu,PW LIVE EDU,Education
+MERCH_ED_003_306,PhysicsWallah Academy,PHYSICSWALLAH ACADEMY,Education
+MERCH_ED_003_306,PhysicsWallah Academy,PW LIVE ACADEMY,Education
+MERCH_ED_004_307,Scaler Academy,SCALER,Education
+MERCH_ED_004_307,Scaler Academy,SCALER ACADEMY,Education
+MERCH_ED_004_307,Scaler Academy,INTERVIEWBIT,Education
+MERCH_ED_004_308,Scaler Academy Learning,SCALER LEARNING,Education
+MERCH_ED_004_308,Scaler Academy Learning,SCALER ACADEMY LEARNING,Education
+MERCH_ED_004_308,Scaler Academy Learning,INTERVIEWBIT LEARNING,Education
+MERCH_ED_004_309,Scaler Academy Edu,SCALER EDU,Education
+MERCH_ED_004_309,Scaler Academy Edu,SCALER ACADEMY EDU,Education
+MERCH_ED_004_309,Scaler Academy Edu,INTERVIEWBIT EDU,Education
+MERCH_ED_004_310,Scaler Academy Academy,SCALER ACADEMY,Education
+MERCH_ED_004_310,Scaler Academy Academy,SCALER ACADEMY ACADEMY,Education
+MERCH_ED_004_310,Scaler Academy Academy,INTERVIEWBIT ACADEMY,Education
+MERCH_ED_005_311,Crossword Bookstore,CROSSWORD,Education
+MERCH_ED_005_311,Crossword Bookstore,CROSSWORD BOOKSTORES,Education
+MERCH_ED_005_312,Crossword Bookstore Learning,CROSSWORD LEARNING,Education
+MERCH_ED_005_312,Crossword Bookstore Learning,CROSSWORD BOOKSTORES LEARNING,Education
+MERCH_ED_005_313,Crossword Bookstore Edu,CROSSWORD EDU,Education
+MERCH_ED_005_313,Crossword Bookstore Edu,CROSSWORD BOOKSTORES EDU,Education
+MERCH_ED_005_314,Crossword Bookstore Academy,CROSSWORD ACADEMY,Education
+MERCH_ED_005_314,Crossword Bookstore Academy,CROSSWORD BOOKSTORES ACADEMY,Education
+MERCH_ED_006_315,School Tuition Fee,SCHOOL FEE,Education
+MERCH_ED_006_315,School Tuition Fee,DELHI PUBLIC SCHOOL FEE,Education
+MERCH_ED_006_315,School Tuition Fee,RYAN INTL SCHOOL,Education
+MERCH_ED_006_316,School Tuition Fee Learning,SCHOOL FEE LEARNING,Education
+MERCH_ED_006_316,School Tuition Fee Learning,DELHI PUBLIC SCHOOL FEE LEARNING,Education
+MERCH_ED_006_316,School Tuition Fee Learning,RYAN INTL SCHOOL LEARNING,Education
+MERCH_ED_006_317,School Tuition Fee Edu,SCHOOL FEE EDU,Education
+MERCH_ED_006_317,School Tuition Fee Edu,DELHI PUBLIC SCHOOL FEE EDU,Education
+MERCH_ED_006_317,School Tuition Fee Edu,RYAN INTL SCHOOL EDU,Education
+MERCH_ED_006_318,School Tuition Fee Academy,SCHOOL FEE ACADEMY,Education
+MERCH_ED_006_318,School Tuition Fee Academy,DELHI PUBLIC SCHOOL FEE ACADEMY,Education
+MERCH_ED_006_318,School Tuition Fee Academy,RYAN INTL SCHOOL ACADEMY,Education
+MERCH_SH_000_319,Amazon India,AMAZON,Shopping
+MERCH_SH_000_319,Amazon India,AMZN PAY,Shopping
+MERCH_SH_000_319,Amazon India,AMAZON SELLER SERVICES,Shopping
+MERCH_SH_000_319,Amazon India,AMAZON PAY INDIA,Shopping
+MERCH_SH_000_320,Amazon India Retail,AMAZON RETAIL,Shopping
+MERCH_SH_000_320,Amazon India Retail,AMZN PAY RETAIL,Shopping
+MERCH_SH_000_320,Amazon India Retail,AMAZON SELLER SERVICES RETAIL,Shopping
+MERCH_SH_000_320,Amazon India Retail,AMAZON PAY INDIA RETAIL,Shopping
+MERCH_SH_000_321,Amazon India Store,AMAZON STORE,Shopping
+MERCH_SH_000_321,Amazon India Store,AMZN PAY STORE,Shopping
+MERCH_SH_000_321,Amazon India Store,AMAZON SELLER SERVICES STORE,Shopping
+MERCH_SH_000_321,Amazon India Store,AMAZON PAY INDIA STORE,Shopping
+MERCH_SH_000_322,Amazon India Fashion,AMAZON FASHION,Shopping
+MERCH_SH_000_322,Amazon India Fashion,AMZN PAY FASHION,Shopping
+MERCH_SH_000_322,Amazon India Fashion,AMAZON SELLER SERVICES FASHION,Shopping
+MERCH_SH_000_322,Amazon India Fashion,AMAZON PAY INDIA FASHION,Shopping
+MERCH_SH_000_323,Amazon India Digital,AMAZON DIGITAL,Shopping
+MERCH_SH_000_323,Amazon India Digital,AMZN PAY DIGITAL,Shopping
+MERCH_SH_000_323,Amazon India Digital,AMAZON SELLER SERVICES DIGITAL,Shopping
+MERCH_SH_000_323,Amazon India Digital,AMAZON PAY INDIA DIGITAL,Shopping
+MERCH_SH_001_324,Flipkart,FLIPKART,Shopping
+MERCH_SH_001_324,Flipkart,FLIPKART INTERNET,Shopping
+MERCH_SH_001_324,Flipkart,FKMP PAY,Shopping
+MERCH_SH_001_325,Flipkart Retail,FLIPKART RETAIL,Shopping
+MERCH_SH_001_325,Flipkart Retail,FLIPKART INTERNET RETAIL,Shopping
+MERCH_SH_001_325,Flipkart Retail,FKMP PAY RETAIL,Shopping
+MERCH_SH_001_326,Flipkart Store,FLIPKART STORE,Shopping
+MERCH_SH_001_326,Flipkart Store,FLIPKART INTERNET STORE,Shopping
+MERCH_SH_001_326,Flipkart Store,FKMP PAY STORE,Shopping
+MERCH_SH_001_327,Flipkart Fashion,FLIPKART FASHION,Shopping
+MERCH_SH_001_327,Flipkart Fashion,FLIPKART INTERNET FASHION,Shopping
+MERCH_SH_001_327,Flipkart Fashion,FKMP PAY FASHION,Shopping
+MERCH_SH_001_328,Flipkart Digital,FLIPKART DIGITAL,Shopping
+MERCH_SH_001_328,Flipkart Digital,FLIPKART INTERNET DIGITAL,Shopping
+MERCH_SH_001_328,Flipkart Digital,FKMP PAY DIGITAL,Shopping
+MERCH_SH_002_329,Myntra,MYNTRA,Shopping
+MERCH_SH_002_329,Myntra,MYNTRA DESIGNS,Shopping
+MERCH_SH_002_329,Myntra,MYNTRA FASHION,Shopping
+MERCH_SH_002_330,Myntra Retail,MYNTRA RETAIL,Shopping
+MERCH_SH_002_330,Myntra Retail,MYNTRA DESIGNS RETAIL,Shopping
+MERCH_SH_002_330,Myntra Retail,MYNTRA FASHION RETAIL,Shopping
+MERCH_SH_002_331,Myntra Store,MYNTRA STORE,Shopping
+MERCH_SH_002_331,Myntra Store,MYNTRA DESIGNS STORE,Shopping
+MERCH_SH_002_331,Myntra Store,MYNTRA FASHION STORE,Shopping
+MERCH_SH_002_332,Myntra Fashion,MYNTRA FASHION,Shopping
+MERCH_SH_002_332,Myntra Fashion,MYNTRA DESIGNS FASHION,Shopping
+MERCH_SH_002_332,Myntra Fashion,MYNTRA FASHION FASHION,Shopping
+MERCH_SH_002_333,Myntra Digital,MYNTRA DIGITAL,Shopping
+MERCH_SH_002_333,Myntra Digital,MYNTRA DESIGNS DIGITAL,Shopping
+MERCH_SH_002_333,Myntra Digital,MYNTRA FASHION DIGITAL,Shopping
+MERCH_SH_003_334,Nykaa,NYKAA,Shopping
+MERCH_SH_003_334,Nykaa,FSN E-COMMERCE,Shopping
+MERCH_SH_003_334,Nykaa,NYKAA BEAUTY,Shopping
+MERCH_SH_003_335,Nykaa Retail,NYKAA RETAIL,Shopping
+MERCH_SH_003_335,Nykaa Retail,FSN E-COMMERCE RETAIL,Shopping
+MERCH_SH_003_335,Nykaa Retail,NYKAA BEAUTY RETAIL,Shopping
+MERCH_SH_003_336,Nykaa Store,NYKAA STORE,Shopping
+MERCH_SH_003_336,Nykaa Store,FSN E-COMMERCE STORE,Shopping
+MERCH_SH_003_336,Nykaa Store,NYKAA BEAUTY STORE,Shopping
+MERCH_SH_003_337,Nykaa Fashion,NYKAA FASHION,Shopping
+MERCH_SH_003_337,Nykaa Fashion,FSN E-COMMERCE FASHION,Shopping
+MERCH_SH_003_337,Nykaa Fashion,NYKAA BEAUTY FASHION,Shopping
+MERCH_SH_003_338,Nykaa Digital,NYKAA DIGITAL,Shopping
+MERCH_SH_003_338,Nykaa Digital,FSN E-COMMERCE DIGITAL,Shopping
+MERCH_SH_003_338,Nykaa Digital,NYKAA BEAUTY DIGITAL,Shopping
+MERCH_SH_004_339,Zudio,ZUDIO,Shopping
+MERCH_SH_004_339,Zudio,TRENT LTD ZUDIO,Shopping
+MERCH_SH_004_340,Zudio Retail,ZUDIO RETAIL,Shopping
+MERCH_SH_004_340,Zudio Retail,TRENT LTD ZUDIO RETAIL,Shopping
+MERCH_SH_004_341,Zudio Store,ZUDIO STORE,Shopping
+MERCH_SH_004_341,Zudio Store,TRENT LTD ZUDIO STORE,Shopping
+MERCH_SH_004_342,Zudio Fashion,ZUDIO FASHION,Shopping
+MERCH_SH_004_342,Zudio Fashion,TRENT LTD ZUDIO FASHION,Shopping
+MERCH_SH_004_343,Zudio Digital,ZUDIO DIGITAL,Shopping
+MERCH_SH_004_343,Zudio Digital,TRENT LTD ZUDIO DIGITAL,Shopping
+MERCH_SH_005_344,Westside,WESTSIDE,Shopping
+MERCH_SH_005_344,Westside,TRENT LIMITED WESTSIDE,Shopping
+MERCH_SH_005_345,Westside Retail,WESTSIDE RETAIL,Shopping
+MERCH_SH_005_345,Westside Retail,TRENT LIMITED WESTSIDE RETAIL,Shopping
+MERCH_SH_005_346,Westside Store,WESTSIDE STORE,Shopping
+MERCH_SH_005_346,Westside Store,TRENT LIMITED WESTSIDE STORE,Shopping
+MERCH_SH_005_347,Westside Fashion,WESTSIDE FASHION,Shopping
+MERCH_SH_005_347,Westside Fashion,TRENT LIMITED WESTSIDE FASHION,Shopping
+MERCH_SH_005_348,Westside Digital,WESTSIDE DIGITAL,Shopping
+MERCH_SH_005_348,Westside Digital,TRENT LIMITED WESTSIDE DIGITAL,Shopping
+MERCH_SH_006_349,Zara India,ZARA,Shopping
+MERCH_SH_006_349,Zara India,INDITEX ZARA,Shopping
+MERCH_SH_006_350,Zara India Retail,ZARA RETAIL,Shopping
+MERCH_SH_006_350,Zara India Retail,INDITEX ZARA RETAIL,Shopping
+MERCH_SH_006_351,Zara India Store,ZARA STORE,Shopping
+MERCH_SH_006_351,Zara India Store,INDITEX ZARA STORE,Shopping
+MERCH_SH_006_352,Zara India Fashion,ZARA FASHION,Shopping
+MERCH_SH_006_352,Zara India Fashion,INDITEX ZARA FASHION,Shopping
+MERCH_SH_006_353,Zara India Digital,ZARA DIGITAL,Shopping
+MERCH_SH_006_353,Zara India Digital,INDITEX ZARA DIGITAL,Shopping
+MERCH_SH_007_354,H&M India,H&M,Shopping
+MERCH_SH_007_354,H&M India,H&M RETAIL INDIA,Shopping
+MERCH_SH_007_355,H&M India Retail,H&M RETAIL,Shopping
+MERCH_SH_007_355,H&M India Retail,H&M RETAIL INDIA RETAIL,Shopping
+MERCH_SH_007_356,H&M India Store,H&M STORE,Shopping
+MERCH_SH_007_356,H&M India Store,H&M RETAIL INDIA STORE,Shopping
+MERCH_SH_007_357,H&M India Fashion,H&M FASHION,Shopping
+MERCH_SH_007_357,H&M India Fashion,H&M RETAIL INDIA FASHION,Shopping
+MERCH_SH_007_358,H&M India Digital,H&M DIGITAL,Shopping
+MERCH_SH_007_358,H&M India Digital,H&M RETAIL INDIA DIGITAL,Shopping
+MERCH_SH_008_359,Ajio,AJIO,Shopping
+MERCH_SH_008_359,Ajio,RELIANCE RETAIL AJIO,Shopping
+MERCH_SH_008_360,Ajio Retail,AJIO RETAIL,Shopping
+MERCH_SH_008_360,Ajio Retail,RELIANCE RETAIL AJIO RETAIL,Shopping
+MERCH_SH_008_361,Ajio Store,AJIO STORE,Shopping
+MERCH_SH_008_361,Ajio Store,RELIANCE RETAIL AJIO STORE,Shopping
+MERCH_SH_008_362,Ajio Fashion,AJIO FASHION,Shopping
+MERCH_SH_008_362,Ajio Fashion,RELIANCE RETAIL AJIO FASHION,Shopping
+MERCH_SH_008_363,Ajio Digital,AJIO DIGITAL,Shopping
+MERCH_SH_008_363,Ajio Digital,RELIANCE RETAIL AJIO DIGITAL,Shopping
+MERCH_SH_009_364,Decathlon,DECATHLON,Shopping
+MERCH_SH_009_364,Decathlon,DECATHLON SPORTS INDIA,Shopping
+MERCH_SH_009_365,Decathlon Retail,DECATHLON RETAIL,Shopping
+MERCH_SH_009_365,Decathlon Retail,DECATHLON SPORTS INDIA RETAIL,Shopping
+MERCH_SH_009_366,Decathlon Store,DECATHLON STORE,Shopping
+MERCH_SH_009_366,Decathlon Store,DECATHLON SPORTS INDIA STORE,Shopping
+MERCH_SH_009_367,Decathlon Fashion,DECATHLON FASHION,Shopping
+MERCH_SH_009_367,Decathlon Fashion,DECATHLON SPORTS INDIA FASHION,Shopping
+MERCH_SH_009_368,Decathlon Digital,DECATHLON DIGITAL,Shopping
+MERCH_SH_009_368,Decathlon Digital,DECATHLON SPORTS INDIA DIGITAL,Shopping
+MERCH_SH_010_369,Croma,CROMA,Shopping
+MERCH_SH_010_369,Croma,INFINITI RETAIL CROMA,Shopping
+MERCH_SH_010_370,Croma Retail,CROMA RETAIL,Shopping
+MERCH_SH_010_370,Croma Retail,INFINITI RETAIL CROMA RETAIL,Shopping
+MERCH_SH_010_371,Croma Store,CROMA STORE,Shopping
+MERCH_SH_010_371,Croma Store,INFINITI RETAIL CROMA STORE,Shopping
+MERCH_SH_010_372,Croma Fashion,CROMA FASHION,Shopping
+MERCH_SH_010_372,Croma Fashion,INFINITI RETAIL CROMA FASHION,Shopping
+MERCH_SH_010_373,Croma Digital,CROMA DIGITAL,Shopping
+MERCH_SH_010_373,Croma Digital,INFINITI RETAIL CROMA DIGITAL,Shopping
+MERCH_SH_011_374,Vijay Sales,VIJAY SALES,Shopping
+MERCH_SH_011_374,Vijay Sales,VIJAY SALES RETAIL,Shopping
+MERCH_SH_011_375,Vijay Sales Retail,VIJAY SALES RETAIL,Shopping
+MERCH_SH_011_375,Vijay Sales Retail,VIJAY SALES RETAIL RETAIL,Shopping
+MERCH_SH_011_376,Vijay Sales Store,VIJAY SALES STORE,Shopping
+MERCH_SH_011_376,Vijay Sales Store,VIJAY SALES RETAIL STORE,Shopping
+MERCH_SH_011_377,Vijay Sales Fashion,VIJAY SALES FASHION,Shopping
+MERCH_SH_011_377,Vijay Sales Fashion,VIJAY SALES RETAIL FASHION,Shopping
+MERCH_SH_011_378,Vijay Sales Digital,VIJAY SALES DIGITAL,Shopping
+MERCH_SH_011_378,Vijay Sales Digital,VIJAY SALES RETAIL DIGITAL,Shopping
+MERCH_SH_012_379,Apple Store,APPLE STORE,Shopping
+MERCH_SH_012_379,Apple Store,IMAGINE APPLE PREMIUM,Shopping
+MERCH_SH_012_379,Apple Store,UNICORN APPLE,Shopping
+MERCH_SH_012_380,Apple Store Retail,APPLE STORE RETAIL,Shopping
+MERCH_SH_012_380,Apple Store Retail,IMAGINE APPLE PREMIUM RETAIL,Shopping
+MERCH_SH_012_380,Apple Store Retail,UNICORN APPLE RETAIL,Shopping
+MERCH_SH_012_381,Apple Store Store,APPLE STORE STORE,Shopping
+MERCH_SH_012_381,Apple Store Store,IMAGINE APPLE PREMIUM STORE,Shopping
+MERCH_SH_012_381,Apple Store Store,UNICORN APPLE STORE,Shopping
+MERCH_SH_012_382,Apple Store Fashion,APPLE STORE FASHION,Shopping
+MERCH_SH_012_382,Apple Store Fashion,IMAGINE APPLE PREMIUM FASHION,Shopping
+MERCH_SH_012_382,Apple Store Fashion,UNICORN APPLE FASHION,Shopping
+MERCH_SH_012_383,Apple Store Digital,APPLE STORE DIGITAL,Shopping
+MERCH_SH_012_383,Apple Store Digital,IMAGINE APPLE PREMIUM DIGITAL,Shopping
+MERCH_SH_012_383,Apple Store Digital,UNICORN APPLE DIGITAL,Shopping
+MERCH_UT_000_384,BESCOM Electricity,BESCOM,Utilities
+MERCH_UT_000_384,BESCOM Electricity,BANGALORE ELECTRICITY,Utilities
+MERCH_UT_000_384,BESCOM Electricity,BESCOM BILL PAY,Utilities
+MERCH_UT_000_385,BESCOM Electricity Bill,BESCOM BILL,Utilities
+MERCH_UT_000_385,BESCOM Electricity Bill,BANGALORE ELECTRICITY BILL,Utilities
+MERCH_UT_000_385,BESCOM Electricity Bill,BESCOM BILL PAY BILL,Utilities
+MERCH_UT_000_386,BESCOM Electricity Utility,BESCOM UTILITY,Utilities
+MERCH_UT_000_386,BESCOM Electricity Utility,BANGALORE ELECTRICITY UTILITY,Utilities
+MERCH_UT_000_386,BESCOM Electricity Utility,BESCOM BILL PAY UTILITY,Utilities
+MERCH_UT_001_387,MSEDCL Power,MSEDCL,Utilities
+MERCH_UT_001_387,MSEDCL Power,MAHADISCOM,Utilities
+MERCH_UT_001_387,MSEDCL Power,MAHARASHTRA ELECTRICITY,Utilities
+MERCH_UT_001_388,MSEDCL Power Bill,MSEDCL BILL,Utilities
+MERCH_UT_001_388,MSEDCL Power Bill,MAHADISCOM BILL,Utilities
+MERCH_UT_001_388,MSEDCL Power Bill,MAHARASHTRA ELECTRICITY BILL,Utilities
+MERCH_UT_001_389,MSEDCL Power Utility,MSEDCL UTILITY,Utilities
+MERCH_UT_001_389,MSEDCL Power Utility,MAHADISCOM UTILITY,Utilities
+MERCH_UT_001_389,MSEDCL Power Utility,MAHARASHTRA ELECTRICITY UTILITY,Utilities
+MERCH_UT_002_390,Tata Power,TATA POWER,Utilities
+MERCH_UT_002_390,Tata Power,TATA POWER DELHI,Utilities
+MERCH_UT_002_391,Tata Power Bill,TATA POWER BILL,Utilities
+MERCH_UT_002_391,Tata Power Bill,TATA POWER DELHI BILL,Utilities
+MERCH_UT_002_392,Tata Power Utility,TATA POWER UTILITY,Utilities
+MERCH_UT_002_392,Tata Power Utility,TATA POWER DELHI UTILITY,Utilities
+MERCH_UT_003_393,Adani Electricity,ADANI ELECTRICITY,Utilities
+MERCH_UT_003_393,Adani Electricity,ADANI POWER MUMBAI,Utilities
+MERCH_UT_003_394,Adani Electricity Bill,ADANI ELECTRICITY BILL,Utilities
+MERCH_UT_003_394,Adani Electricity Bill,ADANI POWER MUMBAI BILL,Utilities
+MERCH_UT_003_395,Adani Electricity Utility,ADANI ELECTRICITY UTILITY,Utilities
+MERCH_UT_003_395,Adani Electricity Utility,ADANI POWER MUMBAI UTILITY,Utilities
+MERCH_UT_004_396,Airtel Broadband,AIRTEL BROADBAND,Utilities
+MERCH_UT_004_396,Airtel Broadband,AIRTEL XSTREAM,Utilities
+MERCH_UT_004_396,Airtel Broadband,BHARTI AIRTEL,Utilities
+MERCH_UT_004_397,Airtel Broadband Bill,AIRTEL BROADBAND BILL,Utilities
+MERCH_UT_004_397,Airtel Broadband Bill,AIRTEL XSTREAM BILL,Utilities
+MERCH_UT_004_397,Airtel Broadband Bill,BHARTI AIRTEL BILL,Utilities
+MERCH_UT_004_398,Airtel Broadband Utility,AIRTEL BROADBAND UTILITY,Utilities
+MERCH_UT_004_398,Airtel Broadband Utility,AIRTEL XSTREAM UTILITY,Utilities
+MERCH_UT_004_398,Airtel Broadband Utility,BHARTI AIRTEL UTILITY,Utilities
+MERCH_UT_005_399,JioFiber,JIOFIBER,Utilities
+MERCH_UT_005_399,JioFiber,RELIANCE JIO INFOCOMM,Utilities
+MERCH_UT_005_399,JioFiber,JIO BROADBAND,Utilities
+MERCH_UT_005_400,JioFiber Bill,JIOFIBER BILL,Utilities
+MERCH_UT_005_400,JioFiber Bill,RELIANCE JIO INFOCOMM BILL,Utilities
+MERCH_UT_005_400,JioFiber Bill,JIO BROADBAND BILL,Utilities
+MERCH_UT_005_401,JioFiber Utility,JIOFIBER UTILITY,Utilities
+MERCH_UT_005_401,JioFiber Utility,RELIANCE JIO INFOCOMM UTILITY,Utilities
+MERCH_UT_005_401,JioFiber Utility,JIO BROADBAND UTILITY,Utilities
+MERCH_UT_006_402,Vi Postpaid,VI POSTPAID,Utilities
+MERCH_UT_006_402,Vi Postpaid,VODAFONE IDEA LTD,Utilities
+MERCH_UT_006_403,Vi Postpaid Bill,VI POSTPAID BILL,Utilities
+MERCH_UT_006_403,Vi Postpaid Bill,VODAFONE IDEA LTD BILL,Utilities
+MERCH_UT_006_404,Vi Postpaid Utility,VI POSTPAID UTILITY,Utilities
+MERCH_UT_006_404,Vi Postpaid Utility,VODAFONE IDEA LTD UTILITY,Utilities
+MERCH_UT_007_405,Tata Play DTH,TATA PLAY,Utilities
+MERCH_UT_007_405,Tata Play DTH,TATA SKY DTH,Utilities
+MERCH_UT_007_406,Tata Play DTH Bill,TATA PLAY BILL,Utilities
+MERCH_UT_007_406,Tata Play DTH Bill,TATA SKY DTH BILL,Utilities
+MERCH_UT_007_407,Tata Play DTH Utility,TATA PLAY UTILITY,Utilities
+MERCH_UT_007_407,Tata Play DTH Utility,TATA SKY DTH UTILITY,Utilities
+MERCH_UT_008_408,Indane LPG Gas,INDANE GAS,Utilities
+MERCH_UT_008_408,Indane LPG Gas,INDIAN OIL LPG,Utilities
+MERCH_UT_008_409,Indane LPG Gas Bill,INDANE GAS BILL,Utilities
+MERCH_UT_008_409,Indane LPG Gas Bill,INDIAN OIL LPG BILL,Utilities
+MERCH_UT_008_410,Indane LPG Gas Utility,INDANE GAS UTILITY,Utilities
+MERCH_UT_008_410,Indane LPG Gas Utility,INDIAN OIL LPG UTILITY,Utilities
+MERCH_UT_009_411,HP Gas,HP GAS,Utilities
+MERCH_UT_009_411,HP Gas,HINDUSTAN PETROLEUM LPG,Utilities
+MERCH_UT_009_412,HP Gas Bill,HP GAS BILL,Utilities
+MERCH_UT_009_412,HP Gas Bill,HINDUSTAN PETROLEUM LPG BILL,Utilities
+MERCH_UT_009_413,HP Gas Utility,HP GAS UTILITY,Utilities
+MERCH_UT_009_413,HP Gas Utility,HINDUSTAN PETROLEUM LPG UTILITY,Utilities
+MERCH_IV_000_414,Zerodha,ZERODHA,Investments
+MERCH_IV_000_414,Zerodha,ZERODHA BROKING,Investments
+MERCH_IV_000_414,Zerodha,ZERODHA COIN,Investments
+MERCH_IV_000_415,Zerodha Investments,ZERODHA INVESTMENTS,Investments
+MERCH_IV_000_415,Zerodha Investments,ZERODHA BROKING INVESTMENTS,Investments
+MERCH_IV_000_415,Zerodha Investments,ZERODHA COIN INVESTMENTS,Investments
+MERCH_IV_000_416,Zerodha Capital,ZERODHA CAPITAL,Investments
+MERCH_IV_000_416,Zerodha Capital,ZERODHA BROKING CAPITAL,Investments
+MERCH_IV_000_416,Zerodha Capital,ZERODHA COIN CAPITAL,Investments
+MERCH_IV_001_417,Groww,GROWW,Investments
+MERCH_IV_001_417,Groww,NEXTBILLION TECHNOLOGY,Investments
+MERCH_IV_001_417,Groww,GROWW SIP,Investments
+MERCH_IV_001_418,Groww Investments,GROWW INVESTMENTS,Investments
+MERCH_IV_001_418,Groww Investments,NEXTBILLION TECHNOLOGY INVESTMENTS,Investments
+MERCH_IV_001_418,Groww Investments,GROWW SIP INVESTMENTS,Investments
+MERCH_IV_001_419,Groww Capital,GROWW CAPITAL,Investments
+MERCH_IV_001_419,Groww Capital,NEXTBILLION TECHNOLOGY CAPITAL,Investments
+MERCH_IV_001_419,Groww Capital,GROWW SIP CAPITAL,Investments
+MERCH_IV_002_420,Upstox,UPSTOX,Investments
+MERCH_IV_002_420,Upstox,RKSV SECURITIES,Investments
+MERCH_IV_002_421,Upstox Investments,UPSTOX INVESTMENTS,Investments
+MERCH_IV_002_421,Upstox Investments,RKSV SECURITIES INVESTMENTS,Investments
+MERCH_IV_002_422,Upstox Capital,UPSTOX CAPITAL,Investments
+MERCH_IV_002_422,Upstox Capital,RKSV SECURITIES CAPITAL,Investments
+MERCH_IV_003_423,Paytm Money,PAYTM MONEY,Investments
+MERCH_IV_003_423,Paytm Money,PAYTM CAPITAL,Investments
+MERCH_IV_003_424,Paytm Money Investments,PAYTM MONEY INVESTMENTS,Investments
+MERCH_IV_003_424,Paytm Money Investments,PAYTM CAPITAL INVESTMENTS,Investments
+MERCH_IV_003_425,Paytm Money Capital,PAYTM MONEY CAPITAL,Investments
+MERCH_IV_003_425,Paytm Money Capital,PAYTM CAPITAL CAPITAL,Investments
+MERCH_IV_004_426,ICICI Direct,ICICI DIRECT,Investments
+MERCH_IV_004_426,ICICI Direct,ICICI SECURITIES,Investments
+MERCH_IV_004_427,ICICI Direct Investments,ICICI DIRECT INVESTMENTS,Investments
+MERCH_IV_004_427,ICICI Direct Investments,ICICI SECURITIES INVESTMENTS,Investments
+MERCH_IV_004_428,ICICI Direct Capital,ICICI DIRECT CAPITAL,Investments
+MERCH_IV_004_428,ICICI Direct Capital,ICICI SECURITIES CAPITAL,Investments
+MERCH_IV_005_429,NPS Contribution,NPS TRUST,Investments
+MERCH_IV_005_429,NPS Contribution,CRA NSDL NPS,Investments
+MERCH_IV_005_429,NPS Contribution,NATIONAL PENSION SYSTEM,Investments
+MERCH_IV_005_430,NPS Contribution Investments,NPS TRUST INVESTMENTS,Investments
+MERCH_IV_005_430,NPS Contribution Investments,CRA NSDL NPS INVESTMENTS,Investments
+MERCH_IV_005_430,NPS Contribution Investments,NATIONAL PENSION SYSTEM INVESTMENTS,Investments
+MERCH_IV_005_431,NPS Contribution Capital,NPS TRUST CAPITAL,Investments
+MERCH_IV_005_431,NPS Contribution Capital,CRA NSDL NPS CAPITAL,Investments
+MERCH_IV_005_431,NPS Contribution Capital,NATIONAL PENSION SYSTEM CAPITAL,Investments
+MERCH_IV_006_432,PPF Deposit,PPF DEPOSIT,Investments
+MERCH_IV_006_432,PPF Deposit,PUBLIC PROVIDENT FUND,Investments
+MERCH_IV_006_432,PPF Deposit,SBI PPF ACCOUNT,Investments
+MERCH_IV_006_433,PPF Deposit Investments,PPF DEPOSIT INVESTMENTS,Investments
+MERCH_IV_006_433,PPF Deposit Investments,PUBLIC PROVIDENT FUND INVESTMENTS,Investments
+MERCH_IV_006_433,PPF Deposit Investments,SBI PPF ACCOUNT INVESTMENTS,Investments
+MERCH_IV_006_434,PPF Deposit Capital,PPF DEPOSIT CAPITAL,Investments
+MERCH_IV_006_434,PPF Deposit Capital,PUBLIC PROVIDENT FUND CAPITAL,Investments
+MERCH_IV_006_434,PPF Deposit Capital,SBI PPF ACCOUNT CAPITAL,Investments
+MERCH_VA_000_435,MakeMyTrip,MAKEMYTRIP,Vacation
+MERCH_VA_000_435,MakeMyTrip,MMT INDIA,Vacation
+MERCH_VA_000_435,MakeMyTrip,MAKEMYTRIP INDIA,Vacation
+MERCH_VA_000_436,MakeMyTrip Travels,MAKEMYTRIP TRAVELS,Vacation
+MERCH_VA_000_436,MakeMyTrip Travels,MMT INDIA TRAVELS,Vacation
+MERCH_VA_000_436,MakeMyTrip Travels,MAKEMYTRIP INDIA TRAVELS,Vacation
+MERCH_VA_000_437,MakeMyTrip Stays,MAKEMYTRIP STAYS,Vacation
+MERCH_VA_000_437,MakeMyTrip Stays,MMT INDIA STAYS,Vacation
+MERCH_VA_000_437,MakeMyTrip Stays,MAKEMYTRIP INDIA STAYS,Vacation
+MERCH_VA_000_438,MakeMyTrip Holidays,MAKEMYTRIP HOLIDAYS,Vacation
+MERCH_VA_000_438,MakeMyTrip Holidays,MMT INDIA HOLIDAYS,Vacation
+MERCH_VA_000_438,MakeMyTrip Holidays,MAKEMYTRIP INDIA HOLIDAYS,Vacation
+MERCH_VA_001_439,Goibibo,GOIBIBO,Vacation
+MERCH_VA_001_439,Goibibo,IBIBO GROUP,Vacation
+MERCH_VA_001_440,Goibibo Travels,GOIBIBO TRAVELS,Vacation
+MERCH_VA_001_440,Goibibo Travels,IBIBO GROUP TRAVELS,Vacation
+MERCH_VA_001_441,Goibibo Stays,GOIBIBO STAYS,Vacation
+MERCH_VA_001_441,Goibibo Stays,IBIBO GROUP STAYS,Vacation
+MERCH_VA_001_442,Goibibo Holidays,GOIBIBO HOLIDAYS,Vacation
+MERCH_VA_001_442,Goibibo Holidays,IBIBO GROUP HOLIDAYS,Vacation
+MERCH_VA_002_443,Booking.com,BOOKING.COM,Vacation
+MERCH_VA_002_443,Booking.com,BOOKING.COM INDIA,Vacation
+MERCH_VA_002_444,Booking.com Travels,BOOKING.COM TRAVELS,Vacation
+MERCH_VA_002_444,Booking.com Travels,BOOKING.COM INDIA TRAVELS,Vacation
+MERCH_VA_002_445,Booking.com Stays,BOOKING.COM STAYS,Vacation
+MERCH_VA_002_445,Booking.com Stays,BOOKING.COM INDIA STAYS,Vacation
+MERCH_VA_002_446,Booking.com Holidays,BOOKING.COM HOLIDAYS,Vacation
+MERCH_VA_002_446,Booking.com Holidays,BOOKING.COM INDIA HOLIDAYS,Vacation
+MERCH_VA_003_447,Airbnb India,AIRBNB,Vacation
+MERCH_VA_003_447,Airbnb India,AIRBNB PAYMENTS,Vacation
+MERCH_VA_003_448,Airbnb India Travels,AIRBNB TRAVELS,Vacation
+MERCH_VA_003_448,Airbnb India Travels,AIRBNB PAYMENTS TRAVELS,Vacation
+MERCH_VA_003_449,Airbnb India Stays,AIRBNB STAYS,Vacation
+MERCH_VA_003_449,Airbnb India Stays,AIRBNB PAYMENTS STAYS,Vacation
+MERCH_VA_003_450,Airbnb India Holidays,AIRBNB HOLIDAYS,Vacation
+MERCH_VA_003_450,Airbnb India Holidays,AIRBNB PAYMENTS HOLIDAYS,Vacation
+MERCH_VA_004_451,Taj Hotels,TAJ HOTELS,Vacation
+MERCH_VA_004_451,Taj Hotels,INDIAN HOTELS CO LTD,Vacation
+MERCH_VA_004_451,Taj Hotels,TAJ RESORTS,Vacation
+MERCH_VA_004_452,Taj Hotels Travels,TAJ HOTELS TRAVELS,Vacation
+MERCH_VA_004_452,Taj Hotels Travels,INDIAN HOTELS CO LTD TRAVELS,Vacation
+MERCH_VA_004_452,Taj Hotels Travels,TAJ RESORTS TRAVELS,Vacation
+MERCH_VA_004_453,Taj Hotels Stays,TAJ HOTELS STAYS,Vacation
+MERCH_VA_004_453,Taj Hotels Stays,INDIAN HOTELS CO LTD STAYS,Vacation
+MERCH_VA_004_453,Taj Hotels Stays,TAJ RESORTS STAYS,Vacation
+MERCH_VA_004_454,Taj Hotels Holidays,TAJ HOTELS HOLIDAYS,Vacation
+MERCH_VA_004_454,Taj Hotels Holidays,INDIAN HOTELS CO LTD HOLIDAYS,Vacation
+MERCH_VA_004_454,Taj Hotels Holidays,TAJ RESORTS HOLIDAYS,Vacation
+MERCH_VA_005_455,Oyo Rooms,OYO,Vacation
+MERCH_VA_005_455,Oyo Rooms,OYO ROOMS,Vacation
+MERCH_VA_005_455,Oyo Rooms,ORAVEL STAYS,Vacation
+MERCH_VA_005_456,Oyo Rooms Travels,OYO TRAVELS,Vacation
+MERCH_VA_005_456,Oyo Rooms Travels,OYO ROOMS TRAVELS,Vacation
+MERCH_VA_005_456,Oyo Rooms Travels,ORAVEL STAYS TRAVELS,Vacation
+MERCH_VA_005_457,Oyo Rooms Stays,OYO STAYS,Vacation
+MERCH_VA_005_457,Oyo Rooms Stays,OYO ROOMS STAYS,Vacation
+MERCH_VA_005_457,Oyo Rooms Stays,ORAVEL STAYS STAYS,Vacation
+MERCH_VA_005_458,Oyo Rooms Holidays,OYO HOLIDAYS,Vacation
+MERCH_VA_005_458,Oyo Rooms Holidays,OYO ROOMS HOLIDAYS,Vacation
+MERCH_VA_005_458,Oyo Rooms Holidays,ORAVEL STAYS HOLIDAYS,Vacation
+MERCH_GM_000_459,Urban Company,URBAN CLAP,Grooming
+MERCH_GM_000_459,Urban Company,URBAN COMPANY,Grooming
+MERCH_GM_000_459,Urban Company,URBANIC TECH,Grooming
+MERCH_GM_000_460,Urban Company Salon,URBAN CLAP SALON,Grooming
+MERCH_GM_000_460,Urban Company Salon,URBAN COMPANY SALON,Grooming
+MERCH_GM_000_460,Urban Company Salon,URBANIC TECH SALON,Grooming
+MERCH_GM_000_461,Urban Company Spa,URBAN CLAP SPA,Grooming
+MERCH_GM_000_461,Urban Company Spa,URBAN COMPANY SPA,Grooming
+MERCH_GM_000_461,Urban Company Spa,URBANIC TECH SPA,Grooming
+MERCH_GM_000_462,Urban Company Care,URBAN CLAP CARE,Grooming
+MERCH_GM_000_462,Urban Company Care,URBAN COMPANY CARE,Grooming
+MERCH_GM_000_462,Urban Company Care,URBANIC TECH CARE,Grooming
+MERCH_GM_001_463,Jawed Habib Salon,JAWED HABIB,Grooming
+MERCH_GM_001_463,Jawed Habib Salon,JAWED HABIB HAIR & BEAUTY,Grooming
+MERCH_GM_001_464,Jawed Habib Salon Salon,JAWED HABIB SALON,Grooming
+MERCH_GM_001_464,Jawed Habib Salon Salon,JAWED HABIB HAIR & BEAUTY SALON,Grooming
+MERCH_GM_001_465,Jawed Habib Salon Spa,JAWED HABIB SPA,Grooming
+MERCH_GM_001_465,Jawed Habib Salon Spa,JAWED HABIB HAIR & BEAUTY SPA,Grooming
+MERCH_GM_001_466,Jawed Habib Salon Care,JAWED HABIB CARE,Grooming
+MERCH_GM_001_466,Jawed Habib Salon Care,JAWED HABIB HAIR & BEAUTY CARE,Grooming
+MERCH_GM_002_467,Naturals Salon,NATURALS SALON,Grooming
+MERCH_GM_002_467,Naturals Salon,NATURALS BEAUTY CARE,Grooming
+MERCH_GM_002_468,Naturals Salon Salon,NATURALS SALON SALON,Grooming
+MERCH_GM_002_468,Naturals Salon Salon,NATURALS BEAUTY CARE SALON,Grooming
+MERCH_GM_002_469,Naturals Salon Spa,NATURALS SALON SPA,Grooming
+MERCH_GM_002_469,Naturals Salon Spa,NATURALS BEAUTY CARE SPA,Grooming
+MERCH_GM_002_470,Naturals Salon Care,NATURALS SALON CARE,Grooming
+MERCH_GM_002_470,Naturals Salon Care,NATURALS BEAUTY CARE CARE,Grooming
+MERCH_GM_003_471,Bodycraft Salon,BODYCRAFT,Grooming
+MERCH_GM_003_471,Bodycraft Salon,BODYCRAFT SALON & SPA,Grooming
+MERCH_GM_003_472,Bodycraft Salon Salon,BODYCRAFT SALON,Grooming
+MERCH_GM_003_472,Bodycraft Salon Salon,BODYCRAFT SALON & SPA SALON,Grooming
+MERCH_GM_003_473,Bodycraft Salon Spa,BODYCRAFT SPA,Grooming
+MERCH_GM_003_473,Bodycraft Salon Spa,BODYCRAFT SALON & SPA SPA,Grooming
+MERCH_GM_003_474,Bodycraft Salon Care,BODYCRAFT CARE,Grooming
+MERCH_GM_003_474,Bodycraft Salon Care,BODYCRAFT SALON & SPA CARE,Grooming
+MERCH_GM_004_475,Beardo,BEARDO,Grooming
+MERCH_GM_004_475,Beardo,ZED BLACK BEARDO,Grooming
+MERCH_GM_004_476,Beardo Salon,BEARDO SALON,Grooming
+MERCH_GM_004_476,Beardo Salon,ZED BLACK BEARDO SALON,Grooming
+MERCH_GM_004_477,Beardo Spa,BEARDO SPA,Grooming
+MERCH_GM_004_477,Beardo Spa,ZED BLACK BEARDO SPA,Grooming
+MERCH_GM_004_478,Beardo Care,BEARDO CARE,Grooming
+MERCH_GM_004_478,Beardo Care,ZED BLACK BEARDO CARE,Grooming
+MERCH_GM_005_479,Kama Ayurveda,KAMA AYURVEDA,Grooming
+MERCH_GM_005_479,Kama Ayurveda,KAMA AYURVEDA RETAIL,Grooming
+MERCH_GM_005_480,Kama Ayurveda Salon,KAMA AYURVEDA SALON,Grooming
+MERCH_GM_005_480,Kama Ayurveda Salon,KAMA AYURVEDA RETAIL SALON,Grooming
+MERCH_GM_005_481,Kama Ayurveda Spa,KAMA AYURVEDA SPA,Grooming
+MERCH_GM_005_481,Kama Ayurveda Spa,KAMA AYURVEDA RETAIL SPA,Grooming
+MERCH_GM_005_482,Kama Ayurveda Care,KAMA AYURVEDA CARE,Grooming
+MERCH_GM_005_482,Kama Ayurveda Care,KAMA AYURVEDA RETAIL CARE,Grooming
+MERCH_MS_000_483,Local ATM Cash Withdrawal,ATM CASH,Miscellaneous
+MERCH_MS_000_483,Local ATM Cash Withdrawal,SBI ATM,Miscellaneous
+MERCH_MS_000_483,Local ATM Cash Withdrawal,HDFC BANK ATM,Miscellaneous
+MERCH_MS_000_483,Local ATM Cash Withdrawal,ICICI ATM CASH,Miscellaneous
+MERCH_MS_000_484,Local ATM Cash Withdrawal Services,ATM CASH SERVICES,Miscellaneous
+MERCH_MS_000_484,Local ATM Cash Withdrawal Services,SBI ATM SERVICES,Miscellaneous
+MERCH_MS_000_484,Local ATM Cash Withdrawal Services,HDFC BANK ATM SERVICES,Miscellaneous
+MERCH_MS_000_484,Local ATM Cash Withdrawal Services,ICICI ATM CASH SERVICES,Miscellaneous
+MERCH_MS_000_485,Local ATM Cash Withdrawal Direct,ATM CASH DIRECT,Miscellaneous
+MERCH_MS_000_485,Local ATM Cash Withdrawal Direct,SBI ATM DIRECT,Miscellaneous
+MERCH_MS_000_485,Local ATM Cash Withdrawal Direct,HDFC BANK ATM DIRECT,Miscellaneous
+MERCH_MS_000_485,Local ATM Cash Withdrawal Direct,ICICI ATM CASH DIRECT,Miscellaneous
+MERCH_MS_001_486,India Post,INDIA POST,Miscellaneous
+MERCH_MS_001_486,India Post,SPEED POST,Miscellaneous
+MERCH_MS_001_486,India Post,POST OFFICE PAY,Miscellaneous
+MERCH_MS_001_487,India Post Services,INDIA POST SERVICES,Miscellaneous
+MERCH_MS_001_487,India Post Services,SPEED POST SERVICES,Miscellaneous
+MERCH_MS_001_487,India Post Services,POST OFFICE PAY SERVICES,Miscellaneous
+MERCH_MS_001_488,India Post Direct,INDIA POST DIRECT,Miscellaneous
+MERCH_MS_001_488,India Post Direct,SPEED POST DIRECT,Miscellaneous
+MERCH_MS_001_488,India Post Direct,POST OFFICE PAY DIRECT,Miscellaneous
+MERCH_MS_002_489,DTDC Express,DTDC,Miscellaneous
+MERCH_MS_002_489,DTDC Express,DTDC COURIER,Miscellaneous
+MERCH_MS_002_489,DTDC Express,DTDC EXPRESS LTD,Miscellaneous
+MERCH_MS_002_490,DTDC Express Services,DTDC SERVICES,Miscellaneous
+MERCH_MS_002_490,DTDC Express Services,DTDC COURIER SERVICES,Miscellaneous
+MERCH_MS_002_490,DTDC Express Services,DTDC EXPRESS LTD SERVICES,Miscellaneous
+MERCH_MS_002_491,DTDC Express Direct,DTDC DIRECT,Miscellaneous
+MERCH_MS_002_491,DTDC Express Direct,DTDC COURIER DIRECT,Miscellaneous
+MERCH_MS_002_491,DTDC Express Direct,DTDC EXPRESS LTD DIRECT,Miscellaneous
+MERCH_MS_003_492,BlueDart,BLUEDART,Miscellaneous
+MERCH_MS_003_492,BlueDart,BLUE DART EXPRESS,Miscellaneous
+MERCH_MS_003_493,BlueDart Services,BLUEDART SERVICES,Miscellaneous
+MERCH_MS_003_493,BlueDart Services,BLUE DART EXPRESS SERVICES,Miscellaneous
+MERCH_MS_003_494,BlueDart Direct,BLUEDART DIRECT,Miscellaneous
+MERCH_MS_003_494,BlueDart Direct,BLUE DART EXPRESS DIRECT,Miscellaneous
+MERCH_MS_004_495,Local Tailor & Repairs,LOCAL TAILOR,Miscellaneous
+MERCH_MS_004_495,Local Tailor & Repairs,BOUTIQUE ALTERATIONS,Miscellaneous
+MERCH_MS_004_496,Local Tailor & Repairs Services,LOCAL TAILOR SERVICES,Miscellaneous
+MERCH_MS_004_496,Local Tailor & Repairs Services,BOUTIQUE ALTERATIONS SERVICES,Miscellaneous
+MERCH_MS_004_497,Local Tailor & Repairs Direct,LOCAL TAILOR DIRECT,Miscellaneous
+MERCH_MS_004_497,Local Tailor & Repairs Direct,BOUTIQUE ALTERATIONS DIRECT,Miscellaneous
+MERCH_MS_005_498,Pet Care Clinic,PET CARE CLINIC,Miscellaneous
+MERCH_MS_005_498,Pet Care Clinic,VET HOSPITALS,Miscellaneous
+MERCH_MS_005_499,Pet Care Clinic Services,PET CARE CLINIC SERVICES,Miscellaneous
+MERCH_MS_005_499,Pet Care Clinic Services,VET HOSPITALS SERVICES,Miscellaneous
+MERCH_MS_005_500,Pet Care Clinic Direct,PET CARE CLINIC DIRECT,Miscellaneous
+MERCH_MS_005_500,Pet Care Clinic Direct,VET HOSPITALS DIRECT,Miscellaneous
+MERCH_MS_006_501,General Miscellaneous UPI,UPI TRANSFER,Miscellaneous
+MERCH_MS_006_501,General Miscellaneous UPI,PERSON TO PERSON UPI,Miscellaneous
+MERCH_MS_006_501,General Miscellaneous UPI,MISC MERCHANT,Miscellaneous
+MERCH_MS_006_502,General Miscellaneous UPI Services,UPI TRANSFER SERVICES,Miscellaneous
+MERCH_MS_006_502,General Miscellaneous UPI Services,PERSON TO PERSON UPI SERVICES,Miscellaneous
+MERCH_MS_006_502,General Miscellaneous UPI Services,MISC MERCHANT SERVICES,Miscellaneous
+MERCH_MS_006_503,General Miscellaneous UPI Direct,UPI TRANSFER DIRECT,Miscellaneous
+MERCH_MS_006_503,General Miscellaneous UPI Direct,PERSON TO PERSON UPI DIRECT,Miscellaneous
+MERCH_MS_006_503,General Miscellaneous UPI Direct,MISC MERCHANT DIRECT,Miscellaneous

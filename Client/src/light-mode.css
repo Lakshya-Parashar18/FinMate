@@ -1,0 +1,2729 @@
+/* ==========================================================================
+   LIGHT MODE ONLY OVERRIDES (Strictly isolated to data-theme="light")
+   ========================================================================== */
+
+/* 1. Reset base index.css card header styles from H2 elements in light mode */
+html:not([data-theme="dark"]) .dashboard-header h2,
+html:not([data-theme="dark"]) .settings-header h2,
+html:not([data-theme="dark"]) .analytics-header h2,
+html:not([data-theme="dark"]) .transactions-header h2,
+html:not([data-theme="dark"]) .monthly-budget-header h2,
+html:not([data-theme="dark"]) .circles-header h2 {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  width: auto !important;
+  margin: 0 !important;
+  pointer-events: auto !important;
+}
+
+/* 2. Light mode layout adjustments for dashboard header container to match dark mode card banner */
+html:not([data-theme="dark"]) .dashboard-header {
+  position: fixed !important;
+  top: 1.5rem !important;
+  z-index: 2010 !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  left: calc(var(--sidebar-width) + 2rem + max(0px, (100vw - var(--sidebar-width) - 4rem - var(--max-content-width)) / 2)) !important;
+  width: calc(100vw - var(--sidebar-width) - 4rem) !important;
+  max-width: var(--max-content-width) !important;
+  padding: 1.6rem 2rem !important;
+  border-radius: 12px !important;
+}
+
+/* 2b. Light mode layout adjustments for .circles-header and .settings-header outer wrappers */
+html:not([data-theme="dark"]) .circles-header,
+html:not([data-theme="dark"]) .settings-header {
+  position: fixed !important;
+  top: 1.5rem !important;
+  z-index: 2010 !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  left: calc(var(--sidebar-width) + 2rem + max(0px, (100vw - var(--sidebar-width) - 4rem - var(--max-content-width)) / 2)) !important;
+  width: calc(100vw - var(--sidebar-width) - 4rem) !important;
+  max-width: var(--max-content-width) !important;
+}
+
+/* 3. Light mode card banner background & border formatting (Dashboard and inner header-banners) */
+html:not([data-theme="dark"]) .dashboard-header,
+html:not([data-theme="dark"]) .settings-header .header-banner,
+html:not([data-theme="dark"]) .analytics-header .header-banner,
+html:not([data-theme="dark"]) .transactions-header .header-banner,
+html:not([data-theme="dark"]) .monthly-budget-header .header-banner,
+html:not([data-theme="dark"]) .circles-header .header-banner {
+  background: rgba(209, 250, 229, 0.7) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+  color: #0f172a !important;
+  padding: 1.6rem 2rem !important;
+  pointer-events: auto !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+/* 4. Subtitle and Separator styles in light mode */
+html:not([data-theme="dark"]) .header-separator {
+  background: rgba(15, 23, 42, 0.15) !important;
+}
+
+html:not([data-theme="dark"]) .header-subtitle {
+  color: #64748b !important;
+}
+
+/* 5. Light mode typography gradients with Outfit font and matching sizing */
+html:not([data-theme="dark"]) .dashboard-header h2,
+html:not([data-theme="dark"]) .analytics-header .header-banner h2,
+html:not([data-theme="dark"]) .transactions-header .header-banner h2,
+html:not([data-theme="dark"]) .monthly-budget-header .header-banner h2,
+html:not([data-theme="dark"]) .circles-header .header-banner h2 {
+  background: linear-gradient(135deg, #0f172a 0%, #10b981 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 2.6rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -1px !important;
+}
+
+html:not([data-theme="dark"]) .settings-header .header-banner h2 {
+  background: linear-gradient(135deg, #0f172a 0%, #34d399 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 2.6rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -1px !important;
+}
+
+/* 6. Light mode header buttons — higher contrast against mint banner */
+html:not([data-theme="dark"]) .circles-header .verify-action-trigger-btn,
+html:not([data-theme="dark"]) .settings-header .verify-action-trigger-btn,
+html:not([data-theme="dark"]) .dashboard-header .verify-action-trigger-btn {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border: 1.5px solid rgba(16, 185, 129, 0.55) !important;
+  color: #059669 !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  padding: 6px 14px !important;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+}
+
+html:not([data-theme="dark"]) .circles-header .verify-action-trigger-btn:hover,
+html:not([data-theme="dark"]) .settings-header .verify-action-trigger-btn:hover,
+html:not([data-theme="dark"]) .dashboard-header .verify-action-trigger-btn:hover {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important;
+}
+
+/* 6b. Recent Transactions Section (Light Mode Redesign to match Dark Mode Structure) */
+html:not([data-theme="dark"]) .transactions-section {
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+  border-radius: 20px !important;
+  padding: 0 !important;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+  overflow: hidden !important;
+  margin-top: 2rem !important;
+  transition: all 0.3s ease !important;
+}
+
+html:not([data-theme="dark"]) .transactions-section:hover {
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  box-shadow: 0 15px 35px rgba(16, 185, 129, 0.08) !important;
+}
+
+html:not([data-theme="dark"]) .dashboard-transactions-header {
+  background-color: rgba(248, 250, 252, 0.8) !important;
+  padding: 1.5rem 2rem !important;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+html:not([data-theme="dark"]) .dashboard-transactions-header .title-group {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html:not([data-theme="dark"]) .dashboard-transactions-header h2 {
+  font-size: 1.5rem !important;
+  color: #0f172a !important;
+  font-weight: 700 !important;
+  font-family: 'Outfit', sans-serif !important;
+  letter-spacing: -0.5px !important;
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+  margin: 0 0 2px 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+html:not([data-theme="dark"]) .dashboard-transactions-header .section-subtitle {
+  color: #64748b !important;
+  font-size: 0.85rem !important;
+  font-family: 'Inter', sans-serif !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+/* Header Action Buttons */
+html:not([data-theme="dark"]) .dashboard-transactions-header .btn-filter {
+  background: rgba(16, 185, 129, 0.06) !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  color: #059669 !important;
+  border-radius: 12px !important;
+  padding: 0.65rem 1.3rem !important;
+  font-weight: 600 !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 0.875rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: all 0.25s ease !important;
+}
+
+html:not([data-theme="dark"]) .dashboard-transactions-header .btn-filter:hover {
+  background: rgba(16, 185, 129, 0.12) !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15) !important;
+  transform: translateY(-1px) !important;
+}
+
+html:not([data-theme="dark"]) .dashboard-transactions-header .btn-add {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+  border: none !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 0.875rem !important;
+  border-radius: 12px !important;
+  padding: 0.65rem 1.5rem !important;
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.25) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: all 0.25s ease !important;
+}
+
+html:not([data-theme="dark"]) .dashboard-transactions-header .btn-add:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.35) !important;
+}
+
+html:not([data-theme="dark"]) .dashboard-transactions-header .view-all-link {
+  color: #4f46e5 !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  font-family: 'Outfit', sans-serif !important;
+  border: 1px solid rgba(79, 70, 229, 0.2) !important;
+  background: rgba(79, 70, 229, 0.05) !important;
+  border-radius: 12px !important;
+  padding: 0.6rem 1.2rem !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+}
+
+html:not([data-theme="dark"]) .dashboard-transactions-header .view-all-link:hover {
+  color: #4338ca !important;
+  background: rgba(79, 70, 229, 0.12) !important;
+  border-color: rgba(79, 70, 229, 0.35) !important;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.12) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Light Mode Table Layout */
+html:not([data-theme="dark"]) .dashboard-transactions-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+
+html:not([data-theme="dark"]) .dashboard-transactions-table th {
+  background-color: rgba(248, 250, 252, 0.6) !important;
+  color: #64748b !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  font-family: 'Outfit', sans-serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  padding: 1.1rem 2rem !important;
+  text-align: left !important;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .dashboard-transactions-table td {
+  padding: 1.1rem 2rem !important;
+  color: #334155 !important;
+  font-size: 0.9rem !important;
+  font-family: 'Inter', sans-serif !important;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.04) !important;
+  background: transparent !important;
+  transition: background-color 0.2s ease !important;
+}
+
+html:not([data-theme="dark"]) .dashboard-transactions-table tr:hover td {
+  background-color: rgba(248, 250, 252, 0.9) !important;
+}
+
+/* Category column accent matching dark mode teal/emerald */
+html:not([data-theme="dark"]) .dashboard-transactions-table td:nth-child(3) {
+  color: #059669 !important;
+  font-weight: 600 !important;
+}
+
+html:not([data-theme="dark"]) .dashboard-transactions-table td:nth-child(4) {
+  font-weight: 700 !important;
+}
+
+/* Table Action Buttons in Light Mode */
+html:not([data-theme="dark"]) .dashboard-transactions-table .table-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+html:not([data-theme="dark"]) .dashboard-transactions-table .action-btn {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+  background: rgba(15, 23, 42, 0.03) !important;
+  color: #64748b !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  font-size: 0.85rem !important;
+}
+
+html:not([data-theme="dark"]) .dashboard-transactions-table .edit-btn:hover {
+  background: rgba(59, 130, 246, 0.1) !important;
+  color: #2563eb !important;
+  border-color: rgba(59, 130, 246, 0.25) !important;
+}
+
+html:not([data-theme="dark"]) .dashboard-transactions-table .delete-btn:hover {
+  background: rgba(239, 68, 68, 0.1) !important;
+  color: #dc2626 !important;
+  border-color: rgba(239, 68, 68, 0.25) !important;
+}
+
+/* Light mode empty placeholders for budget cards */
+html:not([data-theme="dark"]) .budget-empty-placeholder {
+  background: rgba(248, 250, 252, 0.8) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+html:not([data-theme="dark"]) .empty-placeholder-title,
+html:not([data-theme="dark"]) .empty-pie-placeholder h4 {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .empty-placeholder-text,
+html:not([data-theme="dark"]) .empty-pie-placeholder p {
+  color: #64748b !important;
+}
+
+html:not([data-theme="dark"]) .empty-pie-ring {
+  background: rgba(16, 185, 129, 0.08) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+/* ============================================================
+   7. CIRCLES PAGE — Light mode content overrides
+   ============================================================ */
+
+/* Stat cards */
+html:not([data-theme="dark"]) .circles-stat-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 253, 244, 0.85) 100%) !important;
+  border: 1px solid rgba(16, 185, 129, 0.18) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .circles-stat-val {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .circles-stat-lbl {
+  color: #475569 !important;
+}
+
+/* Section header title */
+html:not([data-theme="dark"]) .circles-section-header h3 {
+  color: #0f172a !important;
+}
+
+/* Tab nav pill container */
+html:not([data-theme="dark"]) .circle-tab-nav {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Tab buttons */
+html:not([data-theme="dark"]) .circle-tab-btn {
+  color: #475569 !important;
+}
+
+html:not([data-theme="dark"]) .circle-tab-btn:hover {
+  color: #0f172a !important;
+  background: rgba(16, 185, 129, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .circle-tab-btn.active {
+  color: #059669 !important;
+  background: rgba(16, 185, 129, 0.12) !important;
+  box-shadow: inset 0 0 10px rgba(16, 185, 129, 0.08) !important;
+}
+
+/* Search input */
+html:not([data-theme="dark"]) .search-input-box {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .search-input-box:focus {
+  background: #ffffff !important;
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12) !important;
+}
+
+html:not([data-theme="dark"]) .search-input-box::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Circle cards */
+html:not([data-theme="dark"]) .circle-card {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .circle-card:hover {
+  background: #ffffff !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+html:not([data-theme="dark"]) .circle-card-title {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .circle-card-members-badge {
+  color: #475569 !important;
+  background: rgba(16, 185, 129, 0.06) !important;
+  border-color: rgba(16, 185, 129, 0.12) !important;
+}
+
+html:not([data-theme="dark"]) .circle-card-budget-lbl-row {
+  color: #64748b !important;
+}
+
+html:not([data-theme="dark"]) .circle-card-budget-amount {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .circle-card-progress-bar-bg {
+  background: rgba(16, 185, 129, 0.12) !important;
+}
+
+html:not([data-theme="dark"]) .circle-card-recent-activity {
+  color: #64748b !important;
+  border-top-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .circle-card-last-active {
+  color: #94a3b8 !important;
+}
+
+/* Balance / summary cards */
+html:not([data-theme="dark"]) .balances-summary-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 253, 244, 0.85) 100%) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .balances-total-row {
+  border-bottom-color: rgba(0, 0, 0, 0.07) !important;
+}
+
+html:not([data-theme="dark"]) .balance-item-lbl {
+  color: #64748b !important;
+}
+
+/* Friend request cards */
+html:not([data-theme="dark"]) .friend-request-card {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 8. CIRCLE DETAILS & INNER LOG CONTENT — Light mode overrides */
+
+/* Detail Banner Container */
+html:not([data-theme="dark"]) .circle-detail-banner {
+  background: rgba(209, 250, 229, 0.75) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Detail Title (e.g. Tokyo) and Desc */
+html:not([data-theme="dark"]) .circle-detail-name {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .circle-detail-desc {
+  color: #475569 !important;
+}
+
+/* Empty States text, titles and icons */
+html:not([data-theme="dark"]) .circles-empty-state {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border: 1px dashed rgba(16, 185, 129, 0.3) !important;
+}
+
+html:not([data-theme="dark"]) .circles-empty-title {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .circles-empty-desc {
+  color: #475569 !important;
+}
+
+html:not([data-theme="dark"]) .circles-empty-icon {
+  color: #059669 !important;
+}
+
+/* Balances Summary Card Title & Inner Text */
+html:not([data-theme="dark"]) .balances-summary-card h4,
+html:not([data-theme="dark"]) .balances-summary-card h4[style*="color"] {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .balances-member-name {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .balances-member-avatar {
+  background: rgba(16, 185, 129, 0.1) !important;
+  color: #059669 !important;
+}
+
+html:not([data-theme="dark"]) .balances-member-net.zero {
+  color: #475569 !important;
+}
+
+/* 9. GLOBAL LIGHT MODE HEADER BUTTON OVERRIDES */
+html:not([data-theme="dark"]) .dashboard-header button,
+html:not([data-theme="dark"]) .settings-header button,
+html:not([data-theme="dark"]) .analytics-header button,
+html:not([data-theme="dark"]) .transactions-header button,
+html:not([data-theme="dark"]) .monthly-budget-header button,
+html:not([data-theme="dark"]) .circles-header button,
+html:not([data-theme="dark"]) .circle-detail-banner button {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1.5px solid rgba(16, 185, 129, 0.55) !important;
+  color: #059669 !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  padding: 6px 14px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+html:not([data-theme="dark"]) .dashboard-header button:hover,
+html:not([data-theme="dark"]) .settings-header button:hover,
+html:not([data-theme="dark"]) .analytics-header button:hover,
+html:not([data-theme="dark"]) .transactions-header button:hover,
+html:not([data-theme="dark"]) .monthly-budget-header button:hover,
+html:not([data-theme="dark"]) .circles-header button:hover,
+html:not([data-theme="dark"]) .circle-detail-banner button:hover {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important;
+}
+
+/* Specific inline style selector overrides for buttons inside banners */
+html:not([data-theme="dark"]) .dashboard-header button[style*="color"],
+html:not([data-theme="dark"]) .settings-header button[style*="color"],
+html:not([data-theme="dark"]) .analytics-header button[style*="color"],
+html:not([data-theme="dark"]) .transactions-header button[style*="color"],
+html:not([data-theme="dark"]) .monthly-budget-header button[style*="color"],
+html:not([data-theme="dark"]) .circles-header button[style*="color"],
+html:not([data-theme="dark"]) .circle-detail-banner button[style*="color"] {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1.5px solid rgba(16, 185, 129, 0.55) !important;
+  color: #059669 !important;
+}
+
+html:not([data-theme="dark"]) .dashboard-header button[style*="color"]:hover,
+html:not([data-theme="dark"]) .settings-header button[style*="color"]:hover,
+html:not([data-theme="dark"]) .analytics-header button[style*="color"]:hover,
+html:not([data-theme="dark"]) .transactions-header button[style*="color"]:hover,
+html:not([data-theme="dark"]) .monthly-budget-header button[style*="color"]:hover,
+html:not([data-theme="dark"]) .circles-header button[style*="color"]:hover,
+html:not([data-theme="dark"]) .circle-detail-banner button[style*="color"]:hover {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  border-color: #10b981 !important;
+}
+
+/* ============================================================
+   10. LIGHT MODE TABS CONTENT — Budgets, Savings, Challenges, Activity, AI Insights
+   ============================================================ */
+
+/* Budgets Tab - Premium Cards */
+html:not([data-theme="dark"]) .budget-stat-premium-card {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(16, 185, 129, 0.18) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .budget-stat-premium-card:hover {
+  background: #ffffff !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+html:not([data-theme="dark"]) .budget-stat-lbl {
+  color: #475569 !important;
+}
+
+html:not([data-theme="dark"]) .budget-stat-val {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .budget-edit-btn-premium {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+  color: #059669 !important;
+}
+
+html:not([data-theme="dark"]) .budget-edit-btn-premium:hover {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  border-color: #10b981 !important;
+}
+
+/* Progress Box & Meta */
+html:not([data-theme="dark"]) .budget-premium-progress-box {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(16, 185, 129, 0.18) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .budget-progress-meta-lbl {
+  color: #475569 !important;
+}
+
+html:not([data-theme="dark"]) .budget-progress-percentage-badge {
+  background: rgba(16, 185, 129, 0.08) !important;
+  border-color: rgba(16, 185, 129, 0.15) !important;
+  color: #059669 !important;
+}
+
+/* Category Breakdown Items */
+html:not([data-theme="dark"]) .category-breakdown-item {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border: 1px solid rgba(16, 185, 129, 0.12) !important;
+}
+
+html:not([data-theme="dark"]) .category-breakdown-item:hover {
+  background: #ffffff !important;
+  border-color: rgba(16, 185, 129, 0.25) !important;
+}
+
+html:not([data-theme="dark"]) .category-name-txt {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .category-value-txt {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .category-mini-progress-bg {
+  background: rgba(16, 185, 129, 0.12) !important;
+}
+
+/* Category Empty State */
+html:not([data-theme="dark"]) .category-breakdown-empty-card {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border: 1px dashed rgba(16, 185, 129, 0.25) !important;
+}
+
+html:not([data-theme="dark"]) .category-empty-title {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .category-empty-desc {
+  color: #475569 !important;
+}
+
+
+/* Savings Goals Tab */
+html:not([data-theme="dark"]) .goal-card-premium {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(16, 185, 129, 0.18) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .goal-card-premium:hover {
+  background: #ffffff !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+html:not([data-theme="dark"]) .goal-title-txt {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .goal-amt-lbl {
+  color: #475569 !important;
+}
+
+html:not([data-theme="dark"]) .goal-amt-val {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .goal-contribute-btn {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1.5px solid rgba(16, 185, 129, 0.55) !important;
+  color: #059669 !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15) !important;
+}
+
+html:not([data-theme="dark"]) .goal-contribute-btn:hover {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important;
+}
+
+
+/* Challenges Tab */
+html:not([data-theme="dark"]) .challenge-details-card {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(16, 185, 129, 0.18) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .challenge-title-txt {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .challenge-desc-txt {
+  color: #475569 !important;
+}
+
+html:not([data-theme="dark"]) .ranking-member-row {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not([data-theme="dark"]) .ranking-name {
+  color: #0f172a !important;
+}
+
+
+/* Activity Timeline Tab */
+html:not([data-theme="dark"]) .activity-timeline::before {
+  background: rgba(16, 185, 129, 0.15) !important;
+}
+
+html:not([data-theme="dark"]) .activity-dot-indicator {
+  border-color: #f8fafc !important;
+}
+
+html:not([data-theme="dark"]) .activity-msg {
+  color: #0f172a !important;
+}
+
+
+/* AI Insights Tab */
+html:not([data-theme="dark"]) .ai-insights-panel {
+  background: linear-gradient(135deg, rgba(209, 250, 229, 0.3) 0%, rgba(240, 253, 244, 0.15) 100%) !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not([data-theme="dark"]) .ai-insight-card {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+}
+
+html:not([data-theme="dark"]) .ai-insight-card:hover {
+  background: #ffffff !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+html:not([data-theme="dark"]) .ai-insight-title {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .ai-insight-desc {
+  color: #475569 !important;
+}
+
+/* 11. Overrides for hardcoded/inline styles inside .balances-summary-card in light mode */
+html:not([data-theme="dark"]) .balances-summary-card h4[style*="color"] {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .balances-summary-card p[style*="color"] {
+  color: #475569 !important;
+}
+
+html:not([data-theme="dark"]) .balances-summary-card div[style*="background"] {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(16, 185, 129, 0.15) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02) !important;
+}
+
+html:not([data-theme="dark"]) .balances-summary-card span[style*="color"] {
+  color: #0f172a !important;
+}
+
+/* Area Chart & Pie Chart Tooltip styling in light mode */
+html:not([data-theme="dark"]) .balances-summary-card div[style*="background: rgba(15, 23, 42, 0.92)"],
+html:not([data-theme="dark"]) .balances-summary-card div[style*="background:rgba(15, 23, 42, 0.92)"] {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border-color: rgba(16, 185, 129, 0.25) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Activity Log Timeline class overrides in light mode */
+html:not([data-theme="dark"]) .circle-activity-timeline-container {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(16, 185, 129, 0.15) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not([data-theme="dark"]) .circle-activity-item-row {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not([data-theme="dark"]) .circle-activity-msg {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .circle-activity-time-chip {
+  background: rgba(148, 163, 184, 0.08) !important;
+  border-color: rgba(148, 163, 184, 0.2) !important;
+  color: #475569 !important;
+}
+
+/* Group Achievements card class overrides in light mode */
+html:not([data-theme="dark"]) .achievement-badge-card {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border-color: rgba(16, 185, 129, 0.18) !important;
+}
+
+html:not([data-theme="dark"]) .achievement-badge-title {
+  color: #0f172a !important;
+}
+
+/* 12. CIRCLE SETTINGS TAB — Form input, select, and textarea overrides in light mode */
+html:not([data-theme="dark"]) .settings-field input,
+html:not([data-theme="dark"]) .settings-field select,
+html:not([data-theme="dark"]) .settings-field textarea {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .settings-field input:focus,
+html:not([data-theme="dark"]) .settings-field select:focus,
+html:not([data-theme="dark"]) .settings-field textarea:focus {
+  background: #ffffff !important;
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12) !important;
+}
+
+html:not([data-theme="dark"]) .settings-field select[style*="background"],
+html:not([data-theme="dark"]) .settings-field select[style*="color"] {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .settings-field select option {
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Premium toggle switch styling in light mode */
+html:not([data-theme="dark"]) .premium-slider {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+
+html:not([data-theme="dark"]) .premium-switch input:checked+.premium-slider {
+  background-color: #10b981 !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+/* ── Circles Header Action Buttons in Light Mode ── */
+html:not([data-theme="dark"]) .circles-header-btn {
+  background: rgba(16, 185, 129, 0.08) !important;
+  border: 1px solid rgba(16, 185, 129, 0.35) !important;
+  color: #059669 !important;
+  font-size: 0.85rem !important;
+  padding: 0.55rem 1.1rem !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.08) !important;
+}
+
+html:not([data-theme="dark"]) .circles-header-btn:hover {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3) !important;
+}
+
+html:not([data-theme="dark"]) .circles-header-btn.secondary {
+  background: rgba(148, 163, 184, 0.1) !important;
+  border: 1px solid rgba(148, 163, 184, 0.25) !important;
+  color: #475569 !important;
+  box-shadow: none !important;
+}
+
+html:not([data-theme="dark"]) .circles-header-btn.secondary:hover {
+  background: rgba(148, 163, 184, 0.2) !important;
+  color: #0f172a !important;
+  border-color: rgba(148, 163, 184, 0.4) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* ── Info button in Light Mode ── */
+html:not([data-theme="dark"]) .circles-header-btn.info {
+  background: rgba(59, 130, 246, 0.08) !important;
+  border: 1px solid rgba(59, 130, 246, 0.35) !important;
+  color: #2563eb !important;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.08) !important;
+}
+
+html:not([data-theme="dark"]) .circles-header-btn.info:hover {
+  background: #3b82f6 !important;
+  color: #ffffff !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* 13. SETTINGS PAGE — Light Mode Styling Overrides */
+html:not([data-theme="dark"]) .settings-panel {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+}
+
+html:not([data-theme="dark"]) .settings-panel h3,
+html:not([data-theme="dark"]) .panel-header h3,
+html:not([data-theme="dark"]) .profile-overview-title-group h3,
+html:not([data-theme="dark"]) .profile-hero-name-row h4,
+html:not([data-theme="dark"]) .account-row-title,
+html:not([data-theme="dark"]) .security-card-title,
+html:not([data-theme="dark"]) .data-action-title,
+html:not([data-theme="dark"]) .settings-user-name {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .panel-subtitle,
+html:not([data-theme="dark"]) .profile-overview-title-group p.panel-subtitle,
+html:not([data-theme="dark"]) .info-label,
+html:not([data-theme="dark"]) .security-section-header {
+  color: #64748b !important;
+}
+
+html:not([data-theme="dark"]) .info-value {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .profile-hero-card {
+  background: rgba(16, 185, 129, 0.04) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+}
+
+html:not([data-theme="dark"]) .profile-bio-container {
+  background: rgba(16, 185, 129, 0.04) !important;
+  border: 1px solid rgba(16, 185, 129, 0.1) !important;
+}
+
+html:not([data-theme="dark"]) .profile-bio-text {
+  color: #334155 !important;
+}
+
+html:not([data-theme="dark"]) .info-icon-wrapper {
+  background: rgba(0, 0, 0, 0.02) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .info-row {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .security-section {
+  background: rgba(16, 185, 129, 0.03) !important;
+  border: 1px solid rgba(16, 185, 129, 0.12) !important;
+}
+
+html:not([data-theme="dark"]) .session-card {
+  background: rgba(0, 0, 0, 0.02) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .session-card:hover {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+html:not([data-theme="dark"]) .session-card.session-current {
+  border-color: rgba(16, 185, 129, 0.25) !important;
+  background: rgba(16, 185, 129, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .session-device-name {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .settings-outline-btn {
+  background: rgba(16, 185, 129, 0.08) !important;
+  color: #059669 !important;
+  border-color: rgba(16, 185, 129, 0.25) !important;
+}
+
+html:not([data-theme="dark"]) .settings-outline-btn:hover {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  border-color: #10b981 !important;
+}
+
+html:not([data-theme="dark"]) .settings-profile-card {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* ── Settings Page Achievements & Milestones in Light Mode ── */
+html:not([data-theme="dark"]) .profile-progress-bar-track {
+  background: rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .profile-achievement-card {
+  background: rgba(16, 185, 129, 0.04) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+}
+
+html:not([data-theme="dark"]) .profile-achievement-title {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .profile-milestone-badge {
+  background: rgba(16, 185, 129, 0.04) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .profile-milestone-badge[style*="rgba(255, 255, 255, 0.01)"],
+html:not([data-theme="dark"]) .profile-milestone-badge[style*="rgba(255,255,255,0.01)"] {
+  background: rgba(0, 0, 0, 0.02) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  color: #64748b !important;
+}
+
+/* ── Recent Login Activity & Privacy Controls in Light Mode ── */
+html:not([data-theme="dark"]) .activity-event {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .activity-event--fail {
+  color: #ef4444 !important;
+}
+
+html:not([data-theme="dark"]) .privacy-row-title {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .privacy-select {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  color: #0f172a !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not([data-theme="dark"]) .privacy-select:hover,
+html:not([data-theme="dark"]) .privacy-select:focus {
+  border-color: #10b981 !important;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.1) !important;
+}
+
+html:not([data-theme="dark"]) .privacy-select option {
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* ── Settings Data Management in Light Mode ── */
+html:not([data-theme="dark"]) .data-action-card {
+  background: rgba(0, 0, 0, 0.02) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .data-action-card:hover {
+  background: rgba(59, 130, 246, 0.05) !important;
+  border-color: rgba(59, 130, 246, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.05) !important;
+}
+
+html:not([data-theme="dark"]) .data-action-card--danger:hover {
+  background: rgba(239, 68, 68, 0.05) !important;
+  border-color: rgba(239, 68, 68, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.05) !important;
+}
+
+html:not([data-theme="dark"]) .data-action-icon--blue {
+  background: rgba(59, 130, 246, 0.12) !important;
+  color: #2563eb !important;
+}
+
+html:not([data-theme="dark"]) .data-action-icon--red {
+  background: rgba(239, 68, 68, 0.12) !important;
+  color: #dc2626 !important;
+}
+
+
+/* ── Settings Notification Tab in Light Mode ── */
+html:not([data-theme="dark"]) .notif-row-card {
+  background: rgba(0, 0, 0, 0.015) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not([data-theme="dark"]) .notif-row-card:hover {
+  background: rgba(16, 185, 129, 0.04) !important;
+  border-color: rgba(16, 185, 129, 0.25) !important;
+}
+
+html:not([data-theme="dark"]) .notif-row-title {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .notif-row-desc {
+  color: #475569 !important;
+}
+
+html:not([data-theme="dark"]) .notif-row-limit-container {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+html:not([data-theme="dark"]) .notif-row-limit-container span {
+  color: #475569 !important;
+}
+
+html:not([data-theme="dark"]) .notif-row-limit-input {
+  color: #0f172a !important;
+}
+
+/* ── Settings Display Tab in Light Mode ── */
+html:not([data-theme="dark"]) .display-row-card {
+  background: rgba(0, 0, 0, 0.015) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not([data-theme="dark"]) .display-row-card:hover {
+  background: rgba(16, 185, 129, 0.04) !important;
+  border-color: rgba(16, 185, 129, 0.25) !important;
+}
+
+html:not([data-theme="dark"]) .display-row-title {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .display-row-desc {
+  color: #475569 !important;
+}
+
+/* ── Settings Privacy Tab in Light Mode ── */
+html:not([data-theme="dark"]) .privacy-section-card-wrapper {
+  background: rgba(0, 0, 0, 0.02) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .privacy-switch-row {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .privacy-switch-desc {
+  color: #475569 !important;
+}
+
+html:not([data-theme="dark"]) .privacy-info-banner {
+  background: rgba(99, 102, 241, 0.08) !important;
+  border: 1px solid rgba(99, 102, 241, 0.22) !important;
+}
+
+html:not([data-theme="dark"]) .privacy-info-banner-text {
+  color: #312e81 !important;
+}
+
+html:not([data-theme="dark"]) .privacy-info-banner-highlight {
+  color: #4f46e5 !important;
+}
+
+/* ── Settings Help & Support Tab in Light Mode ── */
+html:not([data-theme="dark"]) .premium-btn:disabled {
+  background: rgba(0, 0, 0, 0.03) !important;
+  color: #94a3b8 !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+html:not([data-theme="dark"]) .support-reply-highlight {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .faq-item-card {
+  background: rgba(0, 0, 0, 0.015) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not([data-theme="dark"]) .faq-item-card:hover {
+  background: rgba(99, 102, 241, 0.03) !important;
+  border-color: rgba(99, 102, 241, 0.15) !important;
+}
+
+html:not([data-theme="dark"]) .faq-item-card--open {
+  background: rgba(99, 102, 241, 0.05) !important;
+  border-color: rgba(99, 102, 241, 0.25) !important;
+}
+
+html:not([data-theme="dark"]) .faq-item-question {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .faq-item-card--open .faq-item-question {
+  color: #4f46e5 !important;
+}
+
+html:not([data-theme="dark"]) .faq-item-answer {
+  color: #475569 !important;
+  border-top: 1px solid rgba(99, 102, 241, 0.08) !important;
+}
+
+/* ── Keyboard Shortcuts & App Info in Light Mode ── */
+html:not([data-theme="dark"]) .shortcut-row {
+  border-bottom-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not([data-theme="dark"]) .shortcut-action {
+  color: #334155 !important;
+}
+
+html:not([data-theme="dark"]) .shortcut-key {
+  background: rgba(99, 102, 241, 0.08) !important;
+  border: 1px solid rgba(99, 102, 241, 0.25) !important;
+  color: #4f46e5 !important;
+}
+
+html:not([data-theme="dark"]) .app-info-version {
+  color: #475569 !important;
+}
+
+html:not([data-theme="dark"]) .support-btn-bug {
+  background: rgba(244, 63, 94, 0.06) !important;
+  border: 1px solid rgba(244, 63, 94, 0.2) !important;
+  color: #e11d48 !important;
+}
+
+html:not([data-theme="dark"]) .support-btn-bug:hover {
+  background: rgba(244, 63, 94, 0.12) !important;
+}
+
+html:not([data-theme="dark"]) .support-btn-feature {
+  background: rgba(16, 185, 129, 0.06) !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+  color: #059669 !important;
+}
+
+html:not([data-theme="dark"]) .support-btn-feature:hover {
+  background: rgba(16, 185, 129, 0.12) !important;
+}
+
+/* ── Settings Sidebar Navigation in Light Mode ── */
+html:not([data-theme="dark"]) .settings-nav-item:hover:not(.active) {
+  background: rgba(0, 0, 0, 0.03) !important;
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .settings-nav-item:hover.active {
+  background: rgba(16, 185, 129, 0.16) !important;
+  color: #10b981 !important;
+}
+
+/* ── Main Sidebar Navigation in Light Mode ── */
+html:not([data-theme="dark"]) .sidebar {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.9) 100%) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  border-right: 1px solid rgba(16, 185, 129, 0.25) !important;
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.05), inset 1px 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+html:not([data-theme="dark"]) .sidebar h2::after {
+  background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.04) 0%, transparent 70%) !important;
+}
+
+html:not([data-theme="dark"]) .sidebar a {
+  color: #475569 !important;
+}
+
+html:not([data-theme="dark"]) .sidebar a:hover:not(.active) {
+  background-color: rgba(16, 185, 129, 0.04) !important;
+  border-color: rgba(16, 185, 129, 0.08) !important;
+  color: #059669 !important;
+}
+
+html:not([data-theme="dark"]) .sidebar a:hover:not(.active) .icon {
+  color: #10b981 !important;
+  filter: drop-shadow(0 0 4px rgba(16, 185, 129, 0.2)) !important;
+}
+
+html:not([data-theme="dark"]) .sidebar a.active {
+  background: rgba(16, 185, 129, 0.08) !important;
+  border: 1px solid rgba(16, 185, 129, 0.18) !important;
+  color: #059669 !important;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.04), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
+}
+
+html:not([data-theme="dark"]) .sidebar a .nav-hint {
+  color: #64748b !important;
+}
+
+html:not([data-theme="dark"]) .sidebar a:hover .nav-hint {
+  color: #059669 !important;
+}
+
+html:not([data-theme="dark"]) .sidebar a.active .nav-hint {
+  color: #047857 !important;
+}
+
+/* ── FinSense AI Widget in Light Mode ── */
+html:not([data-theme="dark"]) .sidebar-status-card.ai-widget {
+  background: rgba(16, 185, 129, 0.03) !important;
+  border: 1px solid rgba(16, 185, 129, 0.12) !important;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.02) !important;
+}
+
+html:not([data-theme="dark"]) .sidebar-status-card.ai-widget:hover {
+  background: rgba(16, 185, 129, 0.06) !important;
+  border-color: rgba(16, 185, 129, 0.22) !important;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.05) !important;
+}
+
+html:not([data-theme="dark"]) .status-tag {
+  background: rgba(16, 185, 129, 0.08) !important;
+  color: #059669 !important;
+}
+
+/* ── Profile Section in Light Mode ── */
+html:not([data-theme="dark"]) .profile-section {
+  background: rgba(16, 185, 129, 0.03) !important;
+  border: 1px solid rgba(16, 185, 129, 0.1) !important;
+}
+
+html:not([data-theme="dark"]) .profile-section:hover {
+  background: rgba(16, 185, 129, 0.06) !important;
+  border-color: rgba(16, 185, 129, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.05) !important;
+}
+
+html:not([data-theme="dark"]) .profile-dropdown {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+}
+
+html:not([data-theme="dark"]) .dropdown-option {
+  color: #475569 !important;
+}
+
+html:not([data-theme="dark"]) .dropdown-option:hover {
+  background-color: rgba(16, 185, 129, 0.06) !important;
+  color: #059669 !important;
+}
+
+html:not([data-theme="dark"]) .dropdown-option .option-icon {
+  color: #64748b !important;
+}
+
+html:not([data-theme="dark"]) .dropdown-option:hover .option-icon {
+  color: #10b981 !important;
+}
+
+html:not([data-theme="dark"]) .dropdown-option.logout:hover {
+  background-color: rgba(239, 68, 68, 0.08) !important;
+  color: #ef4444 !important;
+}
+
+/* ============================================================
+   14. TRANSACTIONS PAGE — Light mode overrides
+   ============================================================ */
+
+/* Layout and positioning for light mode transactions-header container outer wrapper */
+html:not([data-theme="dark"]) .transactions-header {
+  position: fixed !important;
+  top: 1.5rem !important;
+  z-index: 2010 !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  padding: 0 !important;
+  border: none !important;
+  border-bottom: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+
+  left: calc(var(--sidebar-width) + 2rem + max(0px, (100vw - var(--sidebar-width) - 4rem - var(--max-content-width)) / 2)) !important;
+  width: calc(100vw - var(--sidebar-width) - 4rem) !important;
+  max-width: var(--max-content-width) !important;
+}
+
+/* Light mode transactions header title override to match dark mode size */
+html:not([data-theme="dark"]) .transactions-header .header-banner h2 {
+  font-size: 2.4rem !important;
+}
+
+/* Light mode transactions header banner padding */
+html:not([data-theme="dark"]) .transactions-header .header-banner {
+  padding: 1.9rem 2rem !important;
+}
+
+/* Light mode header button matching dark mode proportions */
+html:not([data-theme="dark"]) .header-add-btn {
+  background: rgba(16, 185, 129, 0.08) !important;
+  color: #059669 !important;
+  border: 1.5px solid rgba(16, 185, 129, 0.35) !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 600 !important;
+  padding: 0.6rem 1.2rem !important;
+  font-size: 0.9rem !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.08) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+}
+
+html:not([data-theme="dark"]) .header-add-btn:hover {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Premium Light Mode styling for filters button */
+html:not([data-theme="dark"]) .transactions-controls .filter-btn {
+  background: rgba(16, 185, 129, 0.08) !important;
+  color: #059669 !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 600 !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+html:not([data-theme="dark"]) .transactions-controls .filter-btn:hover {
+  background: rgba(16, 185, 129, 0.16) !important;
+  border-color: rgba(16, 185, 129, 0.45) !important;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.15) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Search input design matching the premium search look */
+html:not([data-theme="dark"]) .search-box input {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02) !important;
+  transition: all 0.3s ease !important;
+}
+
+html:not([data-theme="dark"]) .search-box input:focus {
+  background: #ffffff !important;
+  border-color: rgba(16, 185, 129, 0.45) !important;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.12), 0 0 0 3px rgba(16, 185, 129, 0.05) !important;
+}
+
+/* Sort Select Container styling */
+html:not([data-theme="dark"]) .sort-container {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  border-radius: 18px !important;
+  padding: 6px 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 15px !important;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not([data-theme="dark"]) .sort-container:focus-within,
+html:not([data-theme="dark"]) .sort-container:hover {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.15), 0 0 0 3px rgba(16, 185, 129, 0.05) !important;
+}
+
+html:not([data-theme="dark"]) .sort-select {
+  color: #0f172a !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 600 !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+}
+
+html:not([data-theme="dark"]) .sort-icon {
+  color: #10b981 !important;
+}
+
+html:not([data-theme="dark"]) .sort-select option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  font-family: 'Outfit', sans-serif !important;
+}
+
+/* Light Mode specific table padding overrides to match dark mode spaciousness */
+html:not([data-theme="dark"]) .transactions-content .transactions-table thead th {
+  padding: 25px 40px !important;
+}
+
+html:not([data-theme="dark"]) .transactions-content .transactions-table tbody td {
+  padding: 20px 40px !important;
+}
+
+/* Action buttons and icons styling in light mode */
+html:not([data-theme="dark"]) .transactions-content .action-btn {
+  background: rgba(15, 23, 42, 0.05) !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+  color: #64748b !important;
+}
+
+html:not([data-theme="dark"]) .transactions-content .transactions-table td.action-cell {
+  white-space: nowrap !important;
+  text-align: center !important;
+}
+
+/* ============================================================
+   15. MONTHLY BUDGET PAGE — Light mode overrides
+   ============================================================ */
+
+/* Aligns the main progress bar container in light mode (replaces dark near-black background) */
+html:not([data-theme="dark"]) .progress-container {
+  background: #f1f5f9 !important;
+  border-color: rgba(16, 185, 129, 0.18) !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Aligns the progress fill bar to use a vibrant emerald gradient instead of dark forest green */
+html:not([data-theme="dark"]) .progress-bar {
+  background: linear-gradient(180deg, #10b981 0%, #059669 100%) !important;
+}
+
+/* Soft light-gray background for category progress bar tracks instead of thick dark gray */
+html:not([data-theme="dark"]) .category-progress-container {
+  background-color: #f1f5f9 !important;
+}
+
+/* Sunken/recessed child category item boxes matching dark mode structure */
+html:not([data-theme="dark"]) .category-item {
+  background-color: #f8fafc !important;
+  border-color: rgba(16, 185, 129, 0.12) !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.01) !important;
+}
+
+/* Month-over-Month Comparison component light mode styling */
+html:not([data-theme="dark"]) .mom-comparison {
+  background: rgba(16, 185, 129, 0.02) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+}
+
+html:not([data-theme="dark"]) .mom-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(16, 185, 129, 0.12) !important;
+}
+
+html:not([data-theme="dark"]) .mom-card:hover {
+  border-color: rgba(16, 185, 129, 0.25) !important;
+}
+
+/* ============================================================
+   16. ANALYTICS PAGE — Light mode overrides
+   ============================================================ */
+
+/* Main Containers, Card Backgrounds & Borders */
+html:not([data-theme="dark"]) .overview-card,
+html:not([data-theme="dark"]) .chart-container,
+html:not([data-theme="dark"]) .heatmap-card,
+html:not([data-theme="dark"]) .comp-kpi-card,
+html:not([data-theme="dark"]) .comp-insight-summary-card,
+html:not([data-theme="dark"]) .category-comparison-card,
+html:not([data-theme="dark"]) .category-chart-box,
+html:not([data-theme="dark"]) .goals-section-card,
+html:not([data-theme="dark"]) .goal-card-item,
+html:not([data-theme="dark"]) .goal-adherence-container,
+html:not([data-theme="dark"]) .fm-item,
+html:not([data-theme="dark"]) .spend-analysis-card,
+html:not([data-theme="dark"]) .forecast-card,
+html:not([data-theme="dark"]) .premium-flow-card,
+html:not([data-theme="dark"]) .flow-canvas-wrapper,
+html:not([data-theme="dark"]) .redesign-flow-card,
+html:not([data-theme="dark"]) .insight-panel-card,
+html:not([data-theme="dark"]) .sankey-empty-state {
+  background: #ffffff !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+  color: #0f172a !important;
+}
+
+/* Sunken / Recessed Child Cards & Containers */
+html:not([data-theme="dark"]) .fm-item,
+html:not([data-theme="dark"]) .category-chart-box,
+html:not([data-theme="dark"]) .comp-insight-summary-card,
+html:not([data-theme="dark"]) .goal-adherence-container,
+html:not([data-theme="dark"]) .flow-canvas-wrapper,
+html:not([data-theme="dark"]) .insight-recommendation-box,
+html:not([data-theme="dark"]) .goal-financial-metrics,
+html:not([data-theme="dark"]) .spend-baseline-notice,
+html:not([data-theme="dark"]) .sankey-empty-state {
+  background: #f8fafc !important;
+  border: 1px solid rgba(16, 185, 129, 0.1) !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.01) !important;
+}
+
+/* Primary Text Overrides (Titles, Amounts, Headers) */
+html:not([data-theme="dark"]) .date-input-group label,
+html:not([data-theme="dark"]) .comp-title-block h3,
+html:not([data-theme="dark"]) .fm-val,
+html:not([data-theme="dark"]) .ckc-current,
+html:not([data-theme="dark"]) .goal-card-name,
+html:not([data-theme="dark"]) .goal-financial-metrics .target-amount,
+html:not([data-theme="dark"]) .cisc-hl,
+html:not([data-theme="dark"]) .sir-name,
+html:not([data-theme="dark"]) .fc-name,
+html:not([data-theme="dark"]) .ai-summary-title,
+html:not([data-theme="dark"]) .summary-headline-text,
+html:not([data-theme="dark"]) .category-header-title-text h3,
+html:not([data-theme="dark"]) .panel-header-title,
+html:not([data-theme="dark"]) .insight-headline-text,
+html:not([data-theme="dark"]) .cat-title-name,
+html:not([data-theme="dark"]) .cat-value-right,
+html:not([data-theme="dark"]) .card-value-display {
+  color: #0f172a !important;
+}
+
+/* Secondary & Muted Text Overrides */
+html:not([data-theme="dark"]) .comp-title-block p,
+html:not([data-theme="dark"]) .pill-title,
+html:not([data-theme="dark"]) .pill-cat,
+html:not([data-theme="dark"]) .fm-label,
+html:not([data-theme="dark"]) .fab-message,
+html:not([data-theme="dark"]) .fp-labels,
+html:not([data-theme="dark"]) .fp-legend-label,
+html:not([data-theme="dark"]) .forecast-categories h4,
+html:not([data-theme="dark"]) .fc-vals,
+html:not([data-theme="dark"]) .fc-proj,
+html:not([data-theme="dark"]) .legend-lbl,
+html:not([data-theme="dark"]) .ls-label,
+html:not([data-theme="dark"]) .heatmap-col-header,
+html:not([data-theme="dark"]) .heatmap-row-label,
+html:not([data-theme="dark"]) .ckc-title,
+html:not([data-theme="dark"]) .ckc-previous,
+html:not([data-theme="dark"]) .cisc-title,
+html:not([data-theme="dark"]) .cisc-text,
+html:not([data-theme="dark"]) .category-subtitle-text,
+html:not([data-theme="dark"]) .chart-box-title,
+html:not([data-theme="dark"]) .goal-financial-metrics .m-label,
+html:not([data-theme="dark"]) .goal-progress-percentage,
+html:not([data-theme="dark"]) .goal-remaining-label,
+html:not([data-theme="dark"]) .sir-amount,
+html:not([data-theme="dark"]) .sir-rec,
+html:not([data-theme="dark"]) .empty-subtext,
+html:not([data-theme="dark"]) .goals-empty-state .empty-message,
+html:not([data-theme="dark"]) .goal-projection-info,
+html:not([data-theme="dark"]) .form-group-item label,
+html:not([data-theme="dark"]) .ai-summary-subtitle,
+html:not([data-theme="dark"]) .section-label,
+html:not([data-theme="dark"]) .section-text,
+html:not([data-theme="dark"]) .recommendation-item,
+html:not([data-theme="dark"]) .card-meta-title,
+html:not([data-theme="dark"]) .card-sub-info,
+html:not([data-theme="dark"]) .cat-pct-share,
+html:not([data-theme="dark"]) .insight-desc-body,
+html:not([data-theme="dark"]) .rec-header,
+html:not([data-theme="dark"]) .rec-body,
+html:not([data-theme="dark"]) .r-label,
+html:not([data-theme="dark"]) .panel-footer-tip,
+html:not([data-theme="dark"]) .insight-empty-loader,
+html:not([data-theme="dark"]) .forecast-loading,
+html:not([data-theme="dark"]) .spend-chart-legend,
+html:not([data-theme="dark"]) .column-label-tag {
+  color: #334155 !important;
+}
+
+/* Recessed Tracks, Grids, and Borders */
+html:not([data-theme="dark"]) .forecast-progress-bar-bg,
+html:not([data-theme="dark"]) .ckc-track-bg,
+html:not([data-theme="dark"]) .goal-progress-track,
+html:not([data-theme="dark"]) .fc-row,
+html:not([data-theme="dark"]) .spend-insight-row,
+html:not([data-theme="dark"]) .heatmap-row-label,
+html:not([data-theme="dark"]) .ls-box.intensity-0,
+html:not([data-theme="dark"]) .intensity-0,
+html:not([data-theme="dark"]) .forecast-progress-fill-projected {
+  background: #f1f5f9 !important;
+  border-color: rgba(16, 185, 129, 0.12) !important;
+}
+
+/* Recharts grid lines inside light mode */
+html:not([data-theme="dark"]) .recharts-cartesian-grid-horizontal line,
+html:not([data-theme="dark"]) .recharts-cartesian-grid-vertical line {
+  stroke: rgba(16, 185, 129, 0.12) !important;
+}
+
+/* Recharts labels inside light mode */
+html:not([data-theme="dark"]) .recharts-text {
+  fill: #475569 !important;
+}
+
+/* Interactive Elements, Buttons, Tags, Form Fields */
+html:not([data-theme="dark"]) .date-input-group input {
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .forecast-refresh-btn,
+html:not([data-theme="dark"]) .ai-summary-refresh-btn,
+html:not([data-theme="dark"]) .empty-cta-btn,
+html:not([data-theme="dark"]) .modal-close-btn {
+  background: #ffffff !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  color: #059669 !important;
+}
+
+html:not([data-theme="dark"]) .forecast-refresh-btn:hover:not(:disabled),
+html:not([data-theme="dark"]) .ai-summary-refresh-btn:hover:not(:disabled),
+html:not([data-theme="dark"]) .empty-cta-btn:hover,
+html:not([data-theme="dark"]) .modal-close-btn:hover {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  border-color: #10b981 !important;
+}
+
+html:not([data-theme="dark"]) .form-group-item input,
+html:not([data-theme="dark"]) .form-group-item select {
+  background: #ffffff !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .form-group-item input:focus,
+html:not([data-theme="dark"]) .form-group-item select:focus {
+  border-color: #10b981 !important;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.15) !important;
+}
+
+html:not([data-theme="dark"]) .goal-action-icon-btn {
+  color: #64748b !important;
+}
+
+html:not([data-theme="dark"]) .goal-action-icon-btn:hover {
+  background: rgba(16, 185, 129, 0.06) !important;
+  color: #059669 !important;
+}
+
+/* Outer layout adjustments to center the banner properly in light mode */
+html:not([data-theme="dark"]) .analytics-header {
+  position: fixed !important;
+  top: 1.5rem !important;
+  z-index: 2010 !important;
+  box-sizing: border-box !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+
+  left: calc(var(--sidebar-width) + 2rem + max(0px, (100vw - var(--sidebar-width) - 4rem - var(--max-content-width)) / 2)) !important;
+  width: calc(100vw - var(--sidebar-width) - 4rem) !important;
+  max-width: var(--max-content-width) !important;
+  pointer-events: none !important;
+  transform: translateX(0px) !important;
+}
+
+/* Flow Connectors Overlay Background line color */
+html:not([data-theme="dark"]) .conn-bg-path {
+  stroke: rgba(16, 185, 129, 0.04) !important;
+}
+
+/* Ambient glow & cards hover highlights */
+html:not([data-theme="dark"]) .redesign-flow-card:hover {
+  background: rgba(16, 185, 129, 0.04) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+html:not([data-theme="dark"]) .redesign-flow-card.selected {
+  background: rgba(16, 185, 129, 0.08) !important;
+  border-color: #10b981 !important;
+}
+
+html:not([data-theme="dark"]) .fc-row:hover,
+html:not([data-theme="dark"]) .spend-insight-row:hover,
+html:not([data-theme="dark"]) .intensity-0:hover {
+  background: rgba(16, 185, 129, 0.04) !important;
+  border-color: rgba(16, 185, 129, 0.25) !important;
+}
+
+html:not([data-theme="dark"]) .heatmap-cell.active:hover {
+  border-color: rgba(16, 185, 129, 0.45) !important;
+}
+
+html:not([data-theme="dark"]) .goals-modal-content {
+  background: #ffffff !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+}
+
+html:not([data-theme="dark"]) .modal-header-row {
+  border-bottom-color: rgba(16, 185, 129, 0.15) !important;
+}
+
+html:not([data-theme="dark"]) .modal-header-row h3 {
+  color: #0f172a !important;
+}
+
+/* FinSense Summary Card (AI features) custom purple/indigo theme in light mode */
+html:not([data-theme="dark"]) .ai-summary-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(99, 102, 241, 0.15) !important;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+}
+
+html:not([data-theme="dark"]) .summary-headline {
+  background: rgba(99, 102, 241, 0.05) !important;
+  border-color: rgba(99, 102, 241, 0.15) !important;
+}
+
+html:not([data-theme="dark"]) .summary-headline-bar {
+  background: linear-gradient(180deg, #6366f1, #8b5cf6) !important;
+}
+
+html:not([data-theme="dark"]) .summary-headline-text {
+  color: #1e1b4b !important;
+}
+
+/* Individual accents for the three sub-section cards */
+html:not([data-theme="dark"]) .trends-section {
+  background: rgba(99, 102, 241, 0.02) !important;
+  border: 1px solid rgba(99, 102, 241, 0.1) !important;
+  border-left: 3px solid rgba(99, 102, 241, 0.6) !important;
+}
+
+html:not([data-theme="dark"]) .achievements-section {
+  background: rgba(16, 185, 129, 0.02) !important;
+  border: 1px solid rgba(16, 185, 129, 0.1) !important;
+  border-left: 3px solid rgba(16, 185, 129, 0.6) !important;
+}
+
+html:not([data-theme="dark"]) .risks-section {
+  background: rgba(245, 158, 11, 0.02) !important;
+  border: 1px solid rgba(245, 158, 11, 0.1) !important;
+  border-left: 3px solid rgba(245, 158, 11, 0.6) !important;
+}
+
+html:not([data-theme="dark"]) .summary-recommendations {
+  background: rgba(99, 102, 241, 0.015) !important;
+  border: 1px solid rgba(99, 102, 241, 0.08) !important;
+}
+
+/* Refresh button */
+html:not([data-theme="dark"]) .ai-summary-refresh-btn {
+  background: #ffffff !important;
+  border: 1px solid rgba(99, 102, 241, 0.25) !important;
+  color: #4f46e5 !important;
+}
+
+html:not([data-theme="dark"]) .ai-summary-refresh-btn:hover:not(:disabled) {
+  background: rgba(99, 102, 241, 0.08) !important;
+  border-color: #6366f1 !important;
+  color: #6366f1 !important;
+}
+
+/* Recommendations bullet icons and text visibility */
+html:not([data-theme="dark"]) .rec-bullet {
+  background: rgba(99, 102, 241, 0.08) !important;
+  border: 1px solid rgba(99, 102, 241, 0.2) !important;
+  color: #4f46e5 !important;
+}
+
+html:not([data-theme="dark"]) .section-text,
+html:not([data-theme="dark"]) .recommendation-item {
+  color: #1e293b !important;
+  font-weight: 500 !important;
+}
+
+/* --- Spending Timeline Chart Tooltips (Light Theme overrides) --- */
+html:not([data-theme="dark"]) .custom-tooltip-premium {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border: 1px solid rgba(16, 185, 129, 0.22) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+html:not([data-theme="dark"]) .tooltip-date {
+  color: #64748b !important;
+}
+
+html:not([data-theme="dark"]) .tooltip-label {
+  color: #334155 !important;
+}
+
+html:not([data-theme="dark"]) .tooltip-events-section {
+  border-top: 1px dashed rgba(16, 185, 129, 0.18) !important;
+}
+
+/* Event annotations labels and description contrast */
+html:not([data-theme="dark"]) .event-label {
+  color: #1e293b !important;
+}
+
+html:not([data-theme="dark"]) .event-desc {
+  color: #475569 !important;
+}
+
+/* Non-inverted dark filters for dynamic annotation icons in tooltips */
+html:not([data-theme="dark"]) .event-icon-img {
+  filter: sepia(1) saturate(10) hue-rotate(90deg) brightness(0.65) contrast(1.4) !important;
+}
+
+html:not([data-theme="dark"]) .event-icon-img-budget {
+  filter: sepia(1) saturate(8) hue-rotate(15deg) brightness(0.55) contrast(1.3) !important;
+}
+
+html:not([data-theme="dark"]) .event-icon-img-recurring {
+  filter: sepia(1) saturate(6) hue-rotate(180deg) brightness(0.6) contrast(1.3) !important;
+}
+
+/* --- Overview Cards Layout & Icon Wrappers (Aligning structure to dark mode) --- */
+html:not([data-theme="dark"]) .analytics-overview {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 25px !important;
+  margin-bottom: 40px !important;
+}
+
+html:not([data-theme="dark"]) .overview-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  border-radius: 20px !important;
+  padding: 24px 28px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+html:not([data-theme="dark"]) .overview-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08) !important;
+  border-color: rgba(16, 185, 129, 0.25) !important;
+}
+
+html:not([data-theme="dark"]) .card-info {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  text-align: left !important;
+}
+
+html:not([data-theme="dark"]) .overview-card h3 {
+  color: #64748b !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  margin: 0 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+html:not([data-theme="dark"]) .overview-card .amount {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 1.65rem !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+  letter-spacing: -0.5px !important;
+  display: block !important;
+}
+
+html:not([data-theme="dark"]) .overview-card .amount.positive {
+  color: #10b981 !important;
+}
+
+html:not([data-theme="dark"]) .overview-card .amount.negative {
+  color: #f43f5e !important;
+}
+
+html:not([data-theme="dark"]) .card-icon-wrapper {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.1rem !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05) !important;
+  transition: transform 0.3s ease !important;
+}
+
+html:not([data-theme="dark"]) .overview-card:hover .card-icon-wrapper {
+  transform: scale(1.1) rotate(5deg) !important;
+}
+
+html:not([data-theme="dark"]) .card-icon-wrapper.income-icon {
+  background: rgba(16, 185, 129, 0.08) !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+  color: #10b981 !important;
+  box-shadow: inset 0 2px 4px rgba(16, 185, 129, 0.05) !important;
+}
+
+html:not([data-theme="dark"]) .card-icon-wrapper.expenses-icon {
+  background: rgba(244, 63, 94, 0.08) !important;
+  border: 1px solid rgba(244, 63, 94, 0.2) !important;
+  color: #f43f5e !important;
+  box-shadow: inset 0 2px 4px rgba(244, 63, 94, 0.05) !important;
+}
+
+html:not([data-theme="dark"]) .card-icon-wrapper.savings-icon {
+  background: rgba(45, 212, 191, 0.08) !important;
+  border: 1px solid rgba(45, 212, 191, 0.2) !important;
+  color: #0d9488 !important;
+  box-shadow: inset 0 2px 4px rgba(45, 212, 191, 0.05) !important;
+}
+
+/* --- Timeline Chart Header Badges & Icons (Aligning structure to dark mode) --- */
+html:not([data-theme="dark"]) .chart-title-icon {
+  width: 32px !important;
+  height: 32px !important;
+  background: rgba(16, 185, 129, 0.08) !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #10b981 !important;
+  font-size: 0.95rem !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+}
+
+html:not([data-theme="dark"]) .chart-stats-badge {
+  background: rgba(244, 63, 94, 0.05) !important;
+  border: 1px solid rgba(244, 63, 94, 0.15) !important;
+  padding: 6px 14px !important;
+  border-radius: 30px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+}
+
+html:not([data-theme="dark"]) .chart-stats-badge .stats-label {
+  color: #64748b !important;
+  font-size: 0.65rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+html:not([data-theme="dark"]) .chart-stats-badge .stats-value {
+  color: #f43f5e !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+}
+
+/* --- Chart Card Wrapper Containers (Aligning background card boxes to dark mode) --- */
+html:not([data-theme="dark"]) .chart-card,
+html:not([data-theme="dark"]) .analytics-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  border-radius: 28px !important;
+  padding: 30px !important;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.03) !important;
+}
+
+html:not([data-theme="dark"]) .chart-card h3 {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+  font-size: 1.1rem !important;
+  margin: 0 !important;
+  letter-spacing: -0.3px !important;
+}
+
+/* Close heading/subheading gap override */
+html:not([data-theme="dark"]) .category-header-title-text h3 {
+  margin-bottom: 2px !important;
+}
+
+/* --- Donut Chart Inner Hole Labels (Light Mode Contrast fixes) --- */
+html:not([data-theme="dark"]) .donut-hole-label {
+  fill: #64748b !important;
+}
+
+html:not([data-theme="dark"]) .donut-hole-value {
+  fill: #0f172a !important;
+}
+
+/* --- Radar Chart Grid and Outer Text Labels (Light Mode Contrast fixes) --- */
+html:not([data-theme="dark"]) .radar-angle-tick {
+  fill: #475569 !important;
+  font-size: 11px !important;
+}
+
+html:not([data-theme="dark"]) .radar-angle-tick.is-largest {
+  fill: #0f172a !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+}
+
+html:not([data-theme="dark"]) .radar-angle-tick.is-hovered {
+  fill: #10b981 !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+
+/* Radar concentric grid lines */
+html:not([data-theme="dark"]) .recharts-polar-grid-concentric-path {
+  stroke: rgba(15, 23, 42, 0.16) !important;
+}
+
+html:not([data-theme="dark"]) .recharts-polar-grid-angle line {
+  stroke: rgba(15, 23, 42, 0.16) !important;
+}
+
+/* --- Category Tooltip Share Percentage (Light Mode color fix) --- */
+html:not([data-theme="dark"]) .tooltip-share-value {
+  color: #334155 !important;
+}
+
+/* --- Spending Analysis Baseline Notice Banner (Light Mode contrast overrides) --- */
+html:not([data-theme="dark"]) .spend-baseline-notice {
+  background: rgba(99, 102, 241, 0.05) !important;
+  border: 1px solid rgba(99, 102, 241, 0.12) !important;
+  color: #334155 !important;
+}
+
+html:not([data-theme="dark"]) .spend-baseline-notice .notice-icon {
+  color: #6366f1 !important;
+}
+
+/* ==========================================================================
+   Financial Health Score Widget (Light Mode Layout & Contrast Alignment)
+   ========================================================================== */
+html:not([data-theme="dark"]) .health-score-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 420px !important;
+}
+
+html:not([data-theme="dark"]) .health-score-body {
+  display: flex !important;
+  align-items: center !important;
+  gap: 30px !important;
+  margin-top: 15px !important;
+  margin-bottom: 20px !important;
+  flex-wrap: wrap !important;
+}
+
+html:not([data-theme="dark"]) .health-score-ring-wrapper {
+  flex-shrink: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  width: 110px !important;
+  height: 110px !important;
+}
+
+html:not([data-theme="dark"]) .health-ring-ambient-glow {
+  position: absolute !important;
+  width: 120px !important;
+  height: 120px !important;
+  border-radius: 50% !important;
+  filter: blur(15px) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  transition: all 0.5s ease !important;
+}
+
+html:not([data-theme="dark"]) .health-score-svg {
+  transform: rotate(-90deg) !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+html:not([data-theme="dark"]) .score-ring-bg {
+  fill: none !important;
+  stroke: rgba(15, 23, 42, 0.05) !important;
+  stroke-width: 6 !important;
+}
+
+html:not([data-theme="dark"]) .score-ring-fill {
+  fill: none !important;
+  stroke-width: 7 !important;
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+html:not([data-theme="dark"]) .health-score-center-text {
+  position: absolute !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  z-index: 2 !important;
+}
+
+html:not([data-theme="dark"]) .health-score-num {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 2.3rem !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  display: inline-block !important;
+  animation: textGlowBreathing 4s ease-in-out infinite !important;
+}
+
+html:not([data-theme="dark"]) .health-score-tier {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 0.54rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  margin-top: 2px !important;
+  max-width: 80px !important;
+  text-align: center !important;
+  line-height: 1.1 !important;
+}
+
+html:not([data-theme="dark"]) .health-factors-list {
+  flex-grow: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  min-width: 220px !important;
+}
+
+html:not([data-theme="dark"]) .health-factor-row {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  padding: 8px 12px !important;
+  background: #f8fafc !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(15, 23, 42, 0.04) !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+html:not([data-theme="dark"]) .health-factor-row:hover {
+  background: #f1f5f9 !important;
+  border-color: rgba(16, 185, 129, 0.15) !important;
+  transform: translateX(5px) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+}
+
+html:not([data-theme="dark"]) .health-factor-info {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  font-size: 0.8rem !important;
+}
+
+html:not([data-theme="dark"]) .health-factor-label {
+  color: #475569 !important;
+  font-weight: 500 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+html:not([data-theme="dark"]) .health-factor-badge {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  padding: 2px 8px !important;
+  border-radius: 30px !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02) !important;
+  transition: all 0.3s ease !important;
+}
+
+html:not([data-theme="dark"]) .health-factor-bar-bg {
+  height: 5px !important;
+  background: #e2e8f0 !important;
+  border-radius: 99px !important;
+  overflow: hidden !important;
+}
+
+html:not([data-theme="dark"]) .health-factor-bar-fill {
+  height: 100% !important;
+  border-radius: 99px !important;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+html:not([data-theme="dark"]) .health-insight-pill {
+  background: #f8fafc !important;
+  border: 1px solid rgba(16, 185, 129, 0.1) !important;
+  border-left: 4px solid !important;
+  padding: 12px 18px !important;
+  border-radius: 12px !important;
+  font-size: 0.8rem !important;
+  color: #475569 !important;
+  line-height: 1.45 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-top: auto !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02) !important;
+  transition: all 0.3s ease !important;
+}
+
+html:not([data-theme="dark"]) .health-insight-pill:hover {
+  background: #f1f5f9 !important;
+  border-color: rgba(16, 185, 129, 0.2) !important;
+}
+
+html:not([data-theme="dark"]) .insight-icon {
+  font-size: 1rem !important;
+  filter: drop-shadow(0 0 4px rgba(16, 185, 129, 0.2)) !important;
+}
+
+html:not([data-theme="dark"]) .health-factor-label-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+html:not([data-theme="dark"]) .factor-info-btn {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
+}
+
+html:not([data-theme="dark"]) .factor-info-icon {
+  width: 14px !important;
+  height: 14px !important;
+  opacity: 0.75 !important;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+  display: block !important;
+}
+
+html:not([data-theme="dark"]) .factor-info-btn:hover .factor-info-icon {
+  opacity: 0.9 !important;
+  transform: scale(1.15) !important;
+}
+
+html:not([data-theme="dark"]) .factor-info-tooltip {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  left: calc(100% + 10px) !important;
+  top: 50% !important;
+  transform: translateY(-50%) translateX(-4px) !important;
+  z-index: 9999 !important;
+  width: 270px !important;
+  background: #ffffff !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  border-left: 3px solid rgba(16, 185, 129, 0.55) !important;
+  border-radius: 10px !important;
+  padding: 10px 13px !important;
+  font-size: 0.72rem !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 400 !important;
+  color: #475569 !important;
+  line-height: 1.55 !important;
+  pointer-events: none !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05) !important;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+}
+
+html:not([data-theme="dark"]) .factor-info-btn:hover .factor-info-tooltip {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateY(-50%) translateX(0) !important;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0s !important;
+}
+
+/* --- Neutral Risk Badge override --- */
+html:not([data-theme="dark"]) .r-badge.bg-neutral {
+  background: rgba(100, 116, 139, 0.08) !important;
+  color: #475569 !important;
+  border: 1px solid rgba(100, 116, 139, 0.15) !important;
+}
+
+/* --- Floating chatbot launcher overrides --- */
+html:not([data-theme="dark"]) .chat-launcher {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow:
+    0 10px 30px rgba(99, 102, 241, 0.3),
+    0 0 20px rgba(168, 85, 247, 0.2) !important;
+}
+
+html:not([data-theme="dark"]) .chat-launcher:hover {
+  background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%) !important;
+  box-shadow:
+    0 15px 40px rgba(99, 102, 241, 0.4),
+    0 0 30px rgba(168, 85, 247, 0.3) !important;
+  transform: scale(1.12) translateY(-4px) !important;
+}
+
+html:not([data-theme="dark"]) .chat-launcher svg,
+html:not([data-theme="dark"]) .chat-launcher .ai-button-animation-container svg {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.95)) brightness(1.6) contrast(1.1) !important;
+}
+
+/* ── Light Mode: Anomaly Badge ───────────────────────────────── */
+html:not([data-theme="dark"]) .anomaly-badge-high {
+  color: #dc2626;
+  filter: drop-shadow(0 0 4px rgba(220, 38, 38, 0.4));
+}
+
+html:not([data-theme="dark"]) .anomaly-badge-medium {
+  color: #d97706;
+  filter: drop-shadow(0 0 3px rgba(217, 119, 6, 0.35));
+}
+
+html:not([data-theme="dark"]) .anomaly-badge-low {
+  color: #94a3b8;
+}
+
+/* ── Light Mode: Anomaly Tooltip ─────────────────────────────── */
+html:not([data-theme="dark"]) .anomaly-tooltip {
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+
+html:not([data-theme="dark"]) .anomaly-tooltip strong {
+  color: #dc2626;
+}
+
+html:not([data-theme="dark"]) .anomaly-tooltip span {
+  color: rgba(15, 23, 42, 0.75);
+}
+
+/* ── Light Mode: Modal Warning Banner ────────────────────────── */
+html:not([data-theme="dark"]) .anomaly-preview-high {
+  background: rgba(220, 38, 38, 0.05);
+  border-color: rgba(220, 38, 38, 0.2);
+}
+
+html:not([data-theme="dark"]) .anomaly-preview-medium {
+  background: rgba(217, 119, 6, 0.05);
+  border-color: rgba(217, 119, 6, 0.2);
+}
+
+html:not([data-theme="dark"]) .apb-icon {
+  color: #dc2626;
+}
+
+html:not([data-theme="dark"]) .apb-body strong {
+  color: #dc2626;
+}
+
+html:not([data-theme="dark"]) .apb-body span {
+  color: rgba(15, 23, 42, 0.65);
+}
+
+html:not([data-theme="dark"]) .anomaly-scan-hint {
+  color: rgba(15, 23, 42, 0.45);
+}
+
+/* ── Light Mode: AI Risk Watch Card (Analytics) ──────────────── */
+html:not([data-theme="dark"]) .anomaly-all-clear {
+  color: rgba(15, 23, 42, 0.55);
+}
+
+html:not([data-theme="dark"]) .anomaly-all-clear p {
+  color: rgba(15, 23, 42, 0.5);
+}
+
+html:not([data-theme="dark"]) .anomaly-flagged-item {
+  background: rgba(15, 23, 42, 0.02);
+}
+
+html:not([data-theme="dark"]) .anomaly-flagged-item:hover {
+  background: rgba(15, 23, 42, 0.05);
+}
+
+html:not([data-theme="dark"]) .afi-desc {
+  color: rgba(15, 23, 42, 0.88);
+}
+
+html:not([data-theme="dark"]) .afi-category {
+  color: rgba(15, 23, 42, 0.4);
+}
+
+html:not([data-theme="dark"]) .afi-reason {
+  color: rgba(15, 23, 42, 0.4);
+}
+
+html:not([data-theme="dark"]) .afi-amount {
+  color: #dc2626;
+}
+
+/* ── Light Mode Modal Overlay & Dialog Styling (Matching Dark Mode Aesthetic) ───────────── */
+html:not([data-theme="dark"]) .modal-overlay,
+html:not([data-theme="dark"]) .premium-modal-overlay,
+html:not([data-theme="dark"]) .goals-modal-overlay {
+  z-index: 10000 !important;
+  background-color: rgba(15, 23, 42, 0.45) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  overscroll-behavior: contain !important;
+  touch-action: none !important;
+}
+
+/* ── Light Mode Custom Inset Line Modal Scrollbar ───────────── */
+html:not([data-theme="dark"]) ::-webkit-scrollbar {
+  display: block !important;
+  width: 3px !important;
+  height: 0 !important;
+}
+
+html:not([data-theme="dark"]) ::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+html:not([data-theme="dark"]) ::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+html:not([data-theme="dark"]) ::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.4) !important;
+  border-radius: 10px !important;
+  transition: background 0.2s ease !important;
+}
+
+html:not([data-theme="dark"]) ::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.8) !important;
+}
+
+html:not([data-theme="dark"]) * {
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(16, 185, 129, 0.4) transparent !important;
+}
+
+html:not([data-theme="dark"]) .modal-content {
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.18), 0 0 0 1px rgba(15, 23, 42, 0.05) !important;
+  color: #0f172a !important;
+  padding: 0 !important;
+  max-width: 500px !important;
+  width: 90% !important;
+  max-height: 85vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  position: relative !important;
+  overscroll-behavior: contain !important;
+}
+
+html:not([data-theme="dark"]) .modal-header {
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+  padding: 1.4rem 1.8rem 1rem 1.8rem !important;
+  margin-bottom: 0 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+html:not([data-theme="dark"]) .modal-body,
+html:not([data-theme="dark"]) .modal-form {
+  padding: 1.4rem 1.8rem !important;
+  overflow-y: auto !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+html:not([data-theme="dark"]) .form-actions,
+html:not([data-theme="dark"]) .modal-footer {
+  padding: 1rem 1.8rem !important;
+  border-top: 1px solid rgba(15, 23, 42, 0.08) !important;
+  background: rgba(248, 250, 252, 0.6) !important;
+  margin-top: auto !important;
+}
+
+html:not([data-theme="dark"]) .modal-header h3,
+html:not([data-theme="dark"]) .modal-header h2 {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.3px !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: initial !important;
+  color: #0f172a !important;
+  margin: 0 !important;
+}
+
+html:not([data-theme="dark"]) .close-btn {
+  background: rgba(15, 23, 42, 0.05) !important;
+  border-radius: 50% !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #64748b !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  cursor: pointer;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+}
+
+html:not([data-theme="dark"]) .close-btn:hover {
+  background: rgba(239, 68, 68, 0.15) !important;
+  color: #ef4444 !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+  transform: rotate(90deg) scale(1.1);
+}
+
+html:not([data-theme="dark"]) .form-group {
+  margin-bottom: 22px !important;
+}
+
+html:not([data-theme="dark"]) .form-group label {
+  color: #059669 !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  margin-bottom: 10px !important;
+  display: block !important;
+  text-align: center !important;
+  font-family: 'Outfit', sans-serif !important;
+}
+
+html:not([data-theme="dark"]) .form-group input,
+html:not([data-theme="dark"]) .form-group select,
+html:not([data-theme="dark"]) .form-group textarea {
+  width: 100% !important;
+  background: #f8fafc !important;
+  border: 1.5px solid rgba(15, 23, 42, 0.1) !important;
+  border-radius: 14px !important;
+  color: #0f172a !important;
+  padding: 14px 18px !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  font-family: 'Inter', sans-serif !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+html:not([data-theme="dark"]) .form-group input:focus,
+html:not([data-theme="dark"]) .form-group select:focus,
+html:not([data-theme="dark"]) .form-group textarea:focus {
+  background: #ffffff !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15) !important;
+  outline: none !important;
+  transform: translateY(-1px);
+}
+
+html:not([data-theme="dark"]) .form-actions,
+html:not([data-theme="dark"]) .modal-actions {
+  display: flex !important;
+  gap: 15px !important;
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
+}
+
+html:not([data-theme="dark"]) .form-actions button,
+html:not([data-theme="dark"]) .modal-actions button {
+  flex: 1 !important;
+  padding: 14px !important;
+  border-radius: 14px !important;
+  font-weight: 700 !important;
+  font-family: 'Outfit', sans-serif !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+html:not([data-theme="dark"]) .btn-secondary,
+html:not([data-theme="dark"]) .cancel-btn {
+  background: rgba(15, 23, 42, 0.05) !important;
+  color: #64748b !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+}
+
+html:not([data-theme="dark"]) .btn-secondary:hover,
+html:not([data-theme="dark"]) .cancel-btn:hover {
+  background: rgba(15, 23, 42, 0.1) !important;
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.2) !important;
+}
+
+html:not([data-theme="dark"]) .btn-primary {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important;
+}
+
+html:not([data-theme="dark"]) .btn-primary:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45) !important;
+  transform: translateY(-1px);
+}

@@ -32,14 +32,14 @@ const getDashboardSummary = asyncHandler(async (req, res) => {
 
     // --- Fetch Transactions for the current month --- 
     // Filter from allTransactions to avoid second DB call
-    const currentMonthTransactions = allTransactions.filter(tx => 
+    const currentMonthTransactions = allTransactions.filter(tx =>
         tx.date >= startOfCurrentMonth && tx.date <= endOfCurrentMonth
     );
 
     // --- Calculate Income & Expenses for the current month --- 
     let monthlyIncome = 0;
     let monthlyExpenses = 0;
-    const expenseBreakdown = {}; 
+    const expenseBreakdown = {};
 
     // Aggregate specifically for current month to ensure consistency with Budget/Insights
     const currentMonthData = await Transaction.aggregate([
@@ -82,15 +82,10 @@ const getDashboardSummary = asyncHandler(async (req, res) => {
         totalBudgetLimit = budget.totalLimit || budget.categories.reduce((sum, cat) => sum + cat.limit, 0);
         budgetLeft = totalBudgetLimit - monthlyExpenses;
     } else {
-        budgetLeft = -monthlyExpenses; 
+        budgetLeft = -monthlyExpenses;
     }
 
-    console.log(`[Dashboard] Sync: Expenses=₹${monthlyExpenses}, Limit=₹${totalBudgetLimit}, Utilization=${((monthlyExpenses/totalBudgetLimit)*100).toFixed(1)}%`);
-
-    // --- Format Expense Breakdown for Chart --- 
-    const expenseBreakdownChartData = Object.entries(expenseBreakdown)
-        .map(([name, value]) => ({ name, value }))
-        .sort((a, b) => b.value - a.value); // Sort descending
+    console.log(`[Dashboard] Sync: Expenses=₹${monthlyExpenses}, Limit=₹${totalBudgetLimit}, Utilization=${((monthlyExpenses / totalBudgetLimit) * 100).toFixed(1)}%`);
 
     // --- Aggregate Monthly Comparison Data (using aggregation pipeline) ---
     const monthlyComparisonData = await Transaction.aggregate([
@@ -119,7 +114,7 @@ const getDashboardSummary = asyncHandler(async (req, res) => {
             $sort: { "_id.year": 1, "_id.month": 1 } // Sort chronologically
         },
         {
-             $limit: numberOfMonthsForChart // Limit to the last N months
+            $limit: numberOfMonthsForChart // Limit to the last N months
         },
         {
             $project: {
@@ -155,14 +150,36 @@ const getDashboardSummary = asyncHandler(async (req, res) => {
         }
     ]);
 
+    // --- Aggregate Expense Breakdown by Category (timezone-safe) ---
+    const categoryBreakdownData = await Transaction.aggregate([
+        {
+            $match: {
+                user: new mongoose.Types.ObjectId(userId),
+                date: { $gte: startOfCurrentMonth, $lte: endOfCurrentMonth },
+                amount: { $lt: 0 }
+            }
+        },
+        {
+            $group: {
+                _id: { $ifNull: ['$category', 'Uncategorized'] },
+                total: { $sum: { $abs: '$amount' } }
+            }
+        },
+        { $sort: { total: -1 } }
+    ]);
+
+    const topCategory = categoryBreakdownData.length > 0 ? categoryBreakdownData[0]._id : null;
+    const expenseBreakdownChartData = categoryBreakdownData.map(c => ({ name: c._id, value: c.total }));
+
     res.json({
-        totalBalance: totalBalance, // Now calculated
+        totalBalance: totalBalance,
         income: monthlyIncome,
         expenses: monthlyExpenses,
         budgetLimit: totalBudgetLimit,
         budgetLeft: budgetLeft,
-        expenseBreakdown: expenseBreakdownChartData, 
-        monthlyComparison: monthlyComparisonData, // Now calculated via aggregation
+        expenseBreakdown: expenseBreakdownChartData,
+        topCategory: topCategory,
+        monthlyComparison: monthlyComparisonData,
     });
 });
 

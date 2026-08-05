@@ -1,0 +1,505 @@
+merchant_id,official_name,category,typical_min_amount,typical_max_amount,is_subscription_eligible,subscription_frequency,alias_count
+MERCH_FD_000_0,Swiggy,Food & Dining,120,1500,False,N/A,5
+MERCH_FD_000_1,Swiggy Express,Food & Dining,120,1500,False,N/A,5
+MERCH_FD_000_2,Swiggy Outlet,Food & Dining,120,1500,False,N/A,5
+MERCH_FD_000_3,Swiggy Delivery,Food & Dining,120,1500,False,N/A,5
+MERCH_FD_001_4,Zomato,Food & Dining,150,1800,False,N/A,5
+MERCH_FD_001_5,Zomato Express,Food & Dining,150,1800,False,N/A,5
+MERCH_FD_001_6,Zomato Outlet,Food & Dining,150,1800,False,N/A,5
+MERCH_FD_001_7,Zomato Delivery,Food & Dining,150,1800,False,N/A,5
+MERCH_FD_002_8,Domino's Pizza,Food & Dining,250,2200,False,N/A,4
+MERCH_FD_002_9,Domino's Pizza Express,Food & Dining,250,2200,False,N/A,4
+MERCH_FD_002_10,Domino's Pizza Outlet,Food & Dining,250,2200,False,N/A,4
+MERCH_FD_002_11,Domino's Pizza Delivery,Food & Dining,250,2200,False,N/A,4
+MERCH_FD_003_12,McDonald's,Food & Dining,120,1200,False,N/A,4
+MERCH_FD_003_13,McDonald's Express,Food & Dining,120,1200,False,N/A,4
+MERCH_FD_003_14,McDonald's Outlet,Food & Dining,120,1200,False,N/A,4
+MERCH_FD_003_15,McDonald's Delivery,Food & Dining,120,1200,False,N/A,4
+MERCH_FD_004_16,Starbucks,Food & Dining,300,1600,False,N/A,4
+MERCH_FD_004_17,Starbucks Express,Food & Dining,300,1600,False,N/A,4
+MERCH_FD_004_18,Starbucks Outlet,Food & Dining,300,1600,False,N/A,4
+MERCH_FD_004_19,Starbucks Delivery,Food & Dining,300,1600,False,N/A,4
+MERCH_FD_005_20,KFC,Food & Dining,200,1800,False,N/A,4
+MERCH_FD_005_21,KFC Express,Food & Dining,200,1800,False,N/A,4
+MERCH_FD_005_22,KFC Outlet,Food & Dining,200,1800,False,N/A,4
+MERCH_FD_005_23,KFC Delivery,Food & Dining,200,1800,False,N/A,4
+MERCH_FD_006_24,Pizza Hut,Food & Dining,250,1900,False,N/A,3
+MERCH_FD_006_25,Pizza Hut Express,Food & Dining,250,1900,False,N/A,3
+MERCH_FD_006_26,Pizza Hut Outlet,Food & Dining,250,1900,False,N/A,3
+MERCH_FD_006_27,Pizza Hut Delivery,Food & Dining,250,1900,False,N/A,3
+MERCH_FD_007_28,Burger King,Food & Dining,150,1100,False,N/A,3
+MERCH_FD_007_29,Burger King Express,Food & Dining,150,1100,False,N/A,3
+MERCH_FD_007_30,Burger King Outlet,Food & Dining,150,1100,False,N/A,3
+MERCH_FD_007_31,Burger King Delivery,Food & Dining,150,1100,False,N/A,3
+MERCH_FD_008_32,Subway,Food & Dining,180,1200,False,N/A,3
+MERCH_FD_008_33,Subway Express,Food & Dining,180,1200,False,N/A,3
+MERCH_FD_008_34,Subway Outlet,Food & Dining,180,1200,False,N/A,3
+MERCH_FD_008_35,Subway Delivery,Food & Dining,180,1200,False,N/A,3
+MERCH_FD_009_36,Haldiram's,Food & Dining,100,1500,False,N/A,3
+MERCH_FD_009_37,Haldiram's Express,Food & Dining,100,1500,False,N/A,3
+MERCH_FD_009_38,Haldiram's Outlet,Food & Dining,100,1500,False,N/A,3
+MERCH_FD_009_39,Haldiram's Delivery,Food & Dining,100,1500,False,N/A,3
+MERCH_FD_010_40,Bikanervala,Food & Dining,120,1400,False,N/A,3
+MERCH_FD_010_41,Bikanervala Express,Food & Dining,120,1400,False,N/A,3
+MERCH_FD_010_42,Bikanervala Outlet,Food & Dining,120,1400,False,N/A,3
+MERCH_FD_010_43,Bikanervala Delivery,Food & Dining,120,1400,False,N/A,3
+MERCH_FD_011_44,Cafe Coffee Day,Food & Dining,150,800,False,N/A,3
+MERCH_FD_011_45,Cafe Coffee Day Express,Food & Dining,150,800,False,N/A,3
+MERCH_FD_011_46,Cafe Coffee Day Outlet,Food & Dining,150,800,False,N/A,3
+MERCH_FD_011_47,Cafe Coffee Day Delivery,Food & Dining,150,800,False,N/A,3
+MERCH_FD_012_48,Chai Point,Food & Dining,80,600,False,N/A,3
+MERCH_FD_012_49,Chai Point Express,Food & Dining,80,600,False,N/A,3
+MERCH_FD_012_50,Chai Point Outlet,Food & Dining,80,600,False,N/A,3
+MERCH_FD_012_51,Chai Point Delivery,Food & Dining,80,600,False,N/A,3
+MERCH_FD_013_52,Chaayos,Food & Dining,90,700,False,N/A,3
+MERCH_FD_013_53,Chaayos Express,Food & Dining,90,700,False,N/A,3
+MERCH_FD_013_54,Chaayos Outlet,Food & Dining,90,700,False,N/A,3
+MERCH_FD_013_55,Chaayos Delivery,Food & Dining,90,700,False,N/A,3
+MERCH_FD_014_56,Barbeque Nation,Food & Dining,800,5000,False,N/A,3
+MERCH_FD_014_57,Barbeque Nation Express,Food & Dining,800,5000,False,N/A,3
+MERCH_FD_014_58,Barbeque Nation Outlet,Food & Dining,800,5000,False,N/A,3
+MERCH_FD_014_59,Barbeque Nation Delivery,Food & Dining,800,5000,False,N/A,3
+MERCH_FD_015_60,Mainland China,Food & Dining,900,4500,False,N/A,2
+MERCH_FD_015_61,Mainland China Express,Food & Dining,900,4500,False,N/A,2
+MERCH_FD_015_62,Mainland China Outlet,Food & Dining,900,4500,False,N/A,2
+MERCH_FD_015_63,Mainland China Delivery,Food & Dining,900,4500,False,N/A,2
+MERCH_FD_016_64,Wow! Momo,Food & Dining,120,850,False,N/A,3
+MERCH_FD_016_65,Wow! Momo Express,Food & Dining,120,850,False,N/A,3
+MERCH_FD_016_66,Wow! Momo Outlet,Food & Dining,120,850,False,N/A,3
+MERCH_FD_016_67,Wow! Momo Delivery,Food & Dining,120,850,False,N/A,3
+MERCH_FD_017_68,Taco Bell,Food & Dining,180,1100,False,N/A,2
+MERCH_FD_017_69,Taco Bell Express,Food & Dining,180,1100,False,N/A,2
+MERCH_FD_017_70,Taco Bell Outlet,Food & Dining,180,1100,False,N/A,2
+MERCH_FD_017_71,Taco Bell Delivery,Food & Dining,180,1100,False,N/A,2
+MERCH_FD_018_72,Social,Food & Dining,600,4000,False,N/A,3
+MERCH_FD_018_73,Social Express,Food & Dining,600,4000,False,N/A,3
+MERCH_FD_018_74,Social Outlet,Food & Dining,600,4000,False,N/A,3
+MERCH_FD_018_75,Social Delivery,Food & Dining,600,4000,False,N/A,3
+MERCH_FD_019_76,Empire Restaurant,Food & Dining,200,1600,False,N/A,2
+MERCH_FD_019_77,Empire Restaurant Express,Food & Dining,200,1600,False,N/A,2
+MERCH_FD_019_78,Empire Restaurant Outlet,Food & Dining,200,1600,False,N/A,2
+MERCH_FD_019_79,Empire Restaurant Delivery,Food & Dining,200,1600,False,N/A,2
+MERCH_FD_020_80,Paradise Biryani,Food & Dining,250,1800,False,N/A,2
+MERCH_FD_020_81,Paradise Biryani Express,Food & Dining,250,1800,False,N/A,2
+MERCH_FD_020_82,Paradise Biryani Outlet,Food & Dining,250,1800,False,N/A,2
+MERCH_FD_020_83,Paradise Biryani Delivery,Food & Dining,250,1800,False,N/A,2
+MERCH_FD_021_84,Third Wave Coffee,Food & Dining,220,1200,False,N/A,2
+MERCH_FD_021_85,Third Wave Coffee Express,Food & Dining,220,1200,False,N/A,2
+MERCH_FD_021_86,Third Wave Coffee Outlet,Food & Dining,220,1200,False,N/A,2
+MERCH_FD_021_87,Third Wave Coffee Delivery,Food & Dining,220,1200,False,N/A,2
+MERCH_FD_022_88,Blue Tokai,Food & Dining,240,1300,False,N/A,2
+MERCH_FD_022_89,Blue Tokai Express,Food & Dining,240,1300,False,N/A,2
+MERCH_FD_022_90,Blue Tokai Outlet,Food & Dining,240,1300,False,N/A,2
+MERCH_FD_022_91,Blue Tokai Delivery,Food & Dining,240,1300,False,N/A,2
+MERCH_FD_023_92,Baskin Robbins,Food & Dining,150,900,False,N/A,2
+MERCH_FD_023_93,Baskin Robbins Express,Food & Dining,150,900,False,N/A,2
+MERCH_FD_023_94,Baskin Robbins Outlet,Food & Dining,150,900,False,N/A,2
+MERCH_FD_023_95,Baskin Robbins Delivery,Food & Dining,150,900,False,N/A,2
+MERCH_FD_024_96,Naturals Ice Cream,Food & Dining,100,750,False,N/A,2
+MERCH_FD_024_97,Naturals Ice Cream Express,Food & Dining,100,750,False,N/A,2
+MERCH_FD_024_98,Naturals Ice Cream Outlet,Food & Dining,100,750,False,N/A,2
+MERCH_FD_024_99,Naturals Ice Cream Delivery,Food & Dining,100,750,False,N/A,2
+MERCH_GR_000_100,D-Mart,Groceries,400,8000,False,N/A,4
+MERCH_GR_000_101,D-Mart Mart,Groceries,400,8000,False,N/A,4
+MERCH_GR_000_102,D-Mart Store,Groceries,400,8000,False,N/A,4
+MERCH_GR_000_103,D-Mart Direct,Groceries,400,8000,False,N/A,4
+MERCH_GR_001_104,Blinkit,Groceries,150,3500,False,N/A,3
+MERCH_GR_001_105,Blinkit Mart,Groceries,150,3500,False,N/A,3
+MERCH_GR_001_106,Blinkit Store,Groceries,150,3500,False,N/A,3
+MERCH_GR_001_107,Blinkit Direct,Groceries,150,3500,False,N/A,3
+MERCH_GR_002_108,Zepto,Groceries,120,3000,False,N/A,3
+MERCH_GR_002_109,Zepto Mart,Groceries,120,3000,False,N/A,3
+MERCH_GR_002_110,Zepto Store,Groceries,120,3000,False,N/A,3
+MERCH_GR_002_111,Zepto Direct,Groceries,120,3000,False,N/A,3
+MERCH_GR_003_112,BigBasket,Groceries,300,6500,False,N/A,4
+MERCH_GR_003_113,BigBasket Mart,Groceries,300,6500,False,N/A,4
+MERCH_GR_003_114,BigBasket Store,Groceries,300,6500,False,N/A,4
+MERCH_GR_003_115,BigBasket Direct,Groceries,300,6500,False,N/A,4
+MERCH_GR_004_116,Swiggy Instamart,Groceries,150,4000,False,N/A,3
+MERCH_GR_004_117,Swiggy Instamart Mart,Groceries,150,4000,False,N/A,3
+MERCH_GR_004_118,Swiggy Instamart Store,Groceries,150,4000,False,N/A,3
+MERCH_GR_004_119,Swiggy Instamart Direct,Groceries,150,4000,False,N/A,3
+MERCH_GR_005_120,Reliance Fresh,Groceries,250,5500,False,N/A,3
+MERCH_GR_005_121,Reliance Fresh Mart,Groceries,250,5500,False,N/A,3
+MERCH_GR_005_122,Reliance Fresh Store,Groceries,250,5500,False,N/A,3
+MERCH_GR_005_123,Reliance Fresh Direct,Groceries,250,5500,False,N/A,3
+MERCH_GR_006_124,More Megastore,Groceries,300,6000,False,N/A,3
+MERCH_GR_006_125,More Megastore Mart,Groceries,300,6000,False,N/A,3
+MERCH_GR_006_126,More Megastore Store,Groceries,300,6000,False,N/A,3
+MERCH_GR_006_127,More Megastore Direct,Groceries,300,6000,False,N/A,3
+MERCH_GR_007_128,Nature's Basket,Groceries,400,7500,False,N/A,2
+MERCH_GR_007_129,Nature's Basket Mart,Groceries,400,7500,False,N/A,2
+MERCH_GR_007_130,Nature's Basket Store,Groceries,400,7500,False,N/A,2
+MERCH_GR_007_131,Nature's Basket Direct,Groceries,400,7500,False,N/A,2
+MERCH_GR_008_132,Country Delight,Groceries,100,2500,True,Monthly,2
+MERCH_GR_008_133,Country Delight Mart,Groceries,100,2500,True,Monthly,2
+MERCH_GR_008_134,Country Delight Store,Groceries,100,2500,True,Monthly,2
+MERCH_GR_008_135,Country Delight Direct,Groceries,100,2500,True,Monthly,2
+MERCH_GR_009_136,Licious,Groceries,250,2500,False,N/A,3
+MERCH_GR_009_137,Licious Mart,Groceries,250,2500,False,N/A,3
+MERCH_GR_009_138,Licious Store,Groceries,250,2500,False,N/A,3
+MERCH_GR_009_139,Licious Direct,Groceries,250,2500,False,N/A,3
+MERCH_GR_010_140,FreshToHome,Groceries,200,2200,False,N/A,2
+MERCH_GR_010_141,FreshToHome Mart,Groceries,200,2200,False,N/A,2
+MERCH_GR_010_142,FreshToHome Store,Groceries,200,2200,False,N/A,2
+MERCH_GR_010_143,FreshToHome Direct,Groceries,200,2200,False,N/A,2
+MERCH_GR_011_144,Local Kirana Store,Groceries,50,2000,False,N/A,4
+MERCH_GR_011_145,Local Kirana Store Mart,Groceries,50,2000,False,N/A,4
+MERCH_GR_011_146,Local Kirana Store Store,Groceries,50,2000,False,N/A,4
+MERCH_GR_011_147,Local Kirana Store Direct,Groceries,50,2000,False,N/A,4
+MERCH_TR_000_148,Uber,Transportation,80,2500,False,N/A,5
+MERCH_TR_000_149,Uber Service,Transportation,80,2500,False,N/A,5
+MERCH_TR_000_150,Uber Pay,Transportation,80,2500,False,N/A,5
+MERCH_TR_000_151,Uber Fuel,Transportation,80,2500,False,N/A,5
+MERCH_TR_001_152,Ola Cabs,Transportation,70,2200,False,N/A,5
+MERCH_TR_001_153,Ola Cabs Service,Transportation,70,2200,False,N/A,5
+MERCH_TR_001_154,Ola Cabs Pay,Transportation,70,2200,False,N/A,5
+MERCH_TR_001_155,Ola Cabs Fuel,Transportation,70,2200,False,N/A,5
+MERCH_TR_002_156,Rapido,Transportation,30,450,False,N/A,3
+MERCH_TR_002_157,Rapido Service,Transportation,30,450,False,N/A,3
+MERCH_TR_002_158,Rapido Pay,Transportation,30,450,False,N/A,3
+MERCH_TR_002_159,Rapido Fuel,Transportation,30,450,False,N/A,3
+MERCH_TR_003_160,Namma Yatri,Transportation,50,600,False,N/A,2
+MERCH_TR_003_161,Namma Yatri Service,Transportation,50,600,False,N/A,2
+MERCH_TR_003_162,Namma Yatri Pay,Transportation,50,600,False,N/A,2
+MERCH_TR_003_163,Namma Yatri Fuel,Transportation,50,600,False,N/A,2
+MERCH_TR_004_164,IndiGo,Transportation,3000,25000,False,N/A,3
+MERCH_TR_004_165,IndiGo Service,Transportation,3000,25000,False,N/A,3
+MERCH_TR_004_166,IndiGo Pay,Transportation,3000,25000,False,N/A,3
+MERCH_TR_004_167,IndiGo Fuel,Transportation,3000,25000,False,N/A,3
+MERCH_TR_005_168,Air India,Transportation,3500,30000,False,N/A,3
+MERCH_TR_005_169,Air India Service,Transportation,3500,30000,False,N/A,3
+MERCH_TR_005_170,Air India Pay,Transportation,3500,30000,False,N/A,3
+MERCH_TR_005_171,Air India Fuel,Transportation,3500,30000,False,N/A,3
+MERCH_TR_006_172,SpiceJet,Transportation,2800,18000,False,N/A,2
+MERCH_TR_006_173,SpiceJet Service,Transportation,2800,18000,False,N/A,2
+MERCH_TR_006_174,SpiceJet Pay,Transportation,2800,18000,False,N/A,2
+MERCH_TR_006_175,SpiceJet Fuel,Transportation,2800,18000,False,N/A,2
+MERCH_TR_007_176,IRCTC,Transportation,150,4500,False,N/A,3
+MERCH_TR_007_177,IRCTC Service,Transportation,150,4500,False,N/A,3
+MERCH_TR_007_178,IRCTC Pay,Transportation,150,4500,False,N/A,3
+MERCH_TR_007_179,IRCTC Fuel,Transportation,150,4500,False,N/A,3
+MERCH_TR_008_180,Delhi Metro,Transportation,50,1000,False,N/A,3
+MERCH_TR_008_181,Delhi Metro Service,Transportation,50,1000,False,N/A,3
+MERCH_TR_008_182,Delhi Metro Pay,Transportation,50,1000,False,N/A,3
+MERCH_TR_008_183,Delhi Metro Fuel,Transportation,50,1000,False,N/A,3
+MERCH_TR_009_184,Namma Metro,Transportation,50,1000,False,N/A,3
+MERCH_TR_009_185,Namma Metro Service,Transportation,50,1000,False,N/A,3
+MERCH_TR_009_186,Namma Metro Pay,Transportation,50,1000,False,N/A,3
+MERCH_TR_009_187,Namma Metro Fuel,Transportation,50,1000,False,N/A,3
+MERCH_TR_010_188,HPCL Fuel,Transportation,200,5000,False,N/A,3
+MERCH_TR_010_189,HPCL Fuel Service,Transportation,200,5000,False,N/A,3
+MERCH_TR_010_190,HPCL Fuel Pay,Transportation,200,5000,False,N/A,3
+MERCH_TR_010_191,HPCL Fuel Fuel,Transportation,200,5000,False,N/A,3
+MERCH_TR_011_192,BPCL Fuel,Transportation,200,5000,False,N/A,3
+MERCH_TR_011_193,BPCL Fuel Service,Transportation,200,5000,False,N/A,3
+MERCH_TR_011_194,BPCL Fuel Pay,Transportation,200,5000,False,N/A,3
+MERCH_TR_011_195,BPCL Fuel Fuel,Transportation,200,5000,False,N/A,3
+MERCH_TR_012_196,IOCL Fuel,Transportation,200,5000,False,N/A,3
+MERCH_TR_012_197,IOCL Fuel Service,Transportation,200,5000,False,N/A,3
+MERCH_TR_012_198,IOCL Fuel Pay,Transportation,200,5000,False,N/A,3
+MERCH_TR_012_199,IOCL Fuel Fuel,Transportation,200,5000,False,N/A,3
+MERCH_TR_013_200,Shell Petrol Pump,Transportation,300,6000,False,N/A,3
+MERCH_TR_013_201,Shell Petrol Pump Service,Transportation,300,6000,False,N/A,3
+MERCH_TR_013_202,Shell Petrol Pump Pay,Transportation,300,6000,False,N/A,3
+MERCH_TR_013_203,Shell Petrol Pump Fuel,Transportation,300,6000,False,N/A,3
+MERCH_TR_014_204,FASTag Recharge,Transportation,200,3000,True,Monthly,3
+MERCH_TR_014_205,FASTag Recharge Service,Transportation,200,3000,True,Monthly,3
+MERCH_TR_014_206,FASTag Recharge Pay,Transportation,200,3000,True,Monthly,3
+MERCH_TR_014_207,FASTag Recharge Fuel,Transportation,200,3000,True,Monthly,3
+MERCH_RH_000_208,Landlord Direct Rent,Rent & Housing,6000,65000,True,Monthly,4
+MERCH_RH_000_209,Landlord Direct Rent Online,Rent & Housing,6000,65000,True,Monthly,4
+MERCH_RH_000_210,Landlord Direct Rent Pay,Rent & Housing,6000,65000,True,Monthly,4
+MERCH_RH_001_211,Society Maintenance,Rent & Housing,1000,8000,True,Monthly,3
+MERCH_RH_001_212,Society Maintenance Online,Rent & Housing,1000,8000,True,Monthly,3
+MERCH_RH_001_213,Society Maintenance Pay,Rent & Housing,1000,8000,True,Monthly,3
+MERCH_RH_002_214,CRED RentPay,Rent & Housing,8000,70000,True,Monthly,3
+MERCH_RH_002_215,CRED RentPay Online,Rent & Housing,8000,70000,True,Monthly,3
+MERCH_RH_002_216,CRED RentPay Pay,Rent & Housing,8000,70000,True,Monthly,3
+MERCH_RH_003_217,NoBroker Rent Pay,Rent & Housing,7000,60000,True,Monthly,2
+MERCH_RH_003_218,NoBroker Rent Pay Online,Rent & Housing,7000,60000,True,Monthly,2
+MERCH_RH_003_219,NoBroker Rent Pay Pay,Rent & Housing,7000,60000,True,Monthly,2
+MERCH_RH_004_220,Housing.com Rent,Rent & Housing,7000,60000,True,Monthly,2
+MERCH_RH_004_221,Housing.com Rent Online,Rent & Housing,7000,60000,True,Monthly,2
+MERCH_RH_004_222,Housing.com Rent Pay,Rent & Housing,7000,60000,True,Monthly,2
+MERCH_EN_000_223,Netflix,Entertainment,199,649,True,Monthly,3
+MERCH_EN_000_224,Netflix Digital,Entertainment,199,649,True,Monthly,3
+MERCH_EN_000_225,Netflix Media,Entertainment,199,649,True,Monthly,3
+MERCH_EN_000_226,Netflix India,Entertainment,199,649,True,Monthly,3
+MERCH_EN_001_227,Spotify,Entertainment,119,179,True,Monthly,3
+MERCH_EN_001_228,Spotify Digital,Entertainment,119,179,True,Monthly,3
+MERCH_EN_001_229,Spotify Media,Entertainment,119,179,True,Monthly,3
+MERCH_EN_001_230,Spotify India,Entertainment,119,179,True,Monthly,3
+MERCH_EN_002_231,Prime Video,Entertainment,299,1499,True,Annual,3
+MERCH_EN_002_232,Prime Video Digital,Entertainment,299,1499,True,Annual,3
+MERCH_EN_002_233,Prime Video Media,Entertainment,299,1499,True,Annual,3
+MERCH_EN_002_234,Prime Video India,Entertainment,299,1499,True,Annual,3
+MERCH_EN_003_235,Disney+ Hotstar,Entertainment,149,1499,True,Annual,3
+MERCH_EN_003_236,Disney+ Hotstar Digital,Entertainment,149,1499,True,Annual,3
+MERCH_EN_003_237,Disney+ Hotstar Media,Entertainment,149,1499,True,Annual,3
+MERCH_EN_003_238,Disney+ Hotstar India,Entertainment,149,1499,True,Annual,3
+MERCH_EN_004_239,BookMyShow,Entertainment,200,2500,False,N/A,3
+MERCH_EN_004_240,BookMyShow Digital,Entertainment,200,2500,False,N/A,3
+MERCH_EN_004_241,BookMyShow Media,Entertainment,200,2500,False,N/A,3
+MERCH_EN_004_242,BookMyShow India,Entertainment,200,2500,False,N/A,3
+MERCH_EN_005_243,PVR Cinemas,Entertainment,300,3000,False,N/A,3
+MERCH_EN_005_244,PVR Cinemas Digital,Entertainment,300,3000,False,N/A,3
+MERCH_EN_005_245,PVR Cinemas Media,Entertainment,300,3000,False,N/A,3
+MERCH_EN_005_246,PVR Cinemas India,Entertainment,300,3000,False,N/A,3
+MERCH_EN_006_247,SonyLIV,Entertainment,299,999,True,Annual,2
+MERCH_EN_006_248,SonyLIV Digital,Entertainment,299,999,True,Annual,2
+MERCH_EN_006_249,SonyLIV Media,Entertainment,299,999,True,Annual,2
+MERCH_EN_006_250,SonyLIV India,Entertainment,299,999,True,Annual,2
+MERCH_EN_007_251,YouTube Premium,Entertainment,129,189,True,Monthly,2
+MERCH_EN_007_252,YouTube Premium Digital,Entertainment,129,189,True,Monthly,2
+MERCH_EN_007_253,YouTube Premium Media,Entertainment,129,189,True,Monthly,2
+MERCH_EN_007_254,YouTube Premium India,Entertainment,129,189,True,Monthly,2
+MERCH_EN_008_255,Apple Music,Entertainment,99,149,True,Monthly,2
+MERCH_EN_008_256,Apple Music Digital,Entertainment,99,149,True,Monthly,2
+MERCH_EN_008_257,Apple Music Media,Entertainment,99,149,True,Monthly,2
+MERCH_EN_008_258,Apple Music India,Entertainment,99,149,True,Monthly,2
+MERCH_EN_009_259,Wonderla,Entertainment,1200,6000,False,N/A,2
+MERCH_EN_009_260,Wonderla Digital,Entertainment,1200,6000,False,N/A,2
+MERCH_EN_009_261,Wonderla Media,Entertainment,1200,6000,False,N/A,2
+MERCH_EN_009_262,Wonderla India,Entertainment,1200,6000,False,N/A,2
+MERCH_HC_000_263,Apollo Pharmacy,Healthcare,100,3500,False,N/A,3
+MERCH_HC_000_264,Apollo Pharmacy Healthcare,Healthcare,100,3500,False,N/A,3
+MERCH_HC_000_265,Apollo Pharmacy Medical,Healthcare,100,3500,False,N/A,3
+MERCH_HC_000_266,Apollo Pharmacy Care,Healthcare,100,3500,False,N/A,3
+MERCH_HC_001_267,PharmEasy,Healthcare,150,4000,False,N/A,3
+MERCH_HC_001_268,PharmEasy Healthcare,Healthcare,150,4000,False,N/A,3
+MERCH_HC_001_269,PharmEasy Medical,Healthcare,150,4000,False,N/A,3
+MERCH_HC_001_270,PharmEasy Care,Healthcare,150,4000,False,N/A,3
+MERCH_HC_002_271,Tata 1mg,Healthcare,150,4500,False,N/A,3
+MERCH_HC_002_272,Tata 1mg Healthcare,Healthcare,150,4500,False,N/A,3
+MERCH_HC_002_273,Tata 1mg Medical,Healthcare,150,4500,False,N/A,3
+MERCH_HC_002_274,Tata 1mg Care,Healthcare,150,4500,False,N/A,3
+MERCH_HC_003_275,Practo,Healthcare,300,2000,False,N/A,3
+MERCH_HC_003_276,Practo Healthcare,Healthcare,300,2000,False,N/A,3
+MERCH_HC_003_277,Practo Medical,Healthcare,300,2000,False,N/A,3
+MERCH_HC_003_278,Practo Care,Healthcare,300,2000,False,N/A,3
+MERCH_HC_004_279,Dr Lal PathLabs,Healthcare,400,3500,False,N/A,2
+MERCH_HC_004_280,Dr Lal PathLabs Healthcare,Healthcare,400,3500,False,N/A,2
+MERCH_HC_004_281,Dr Lal PathLabs Medical,Healthcare,400,3500,False,N/A,2
+MERCH_HC_004_282,Dr Lal PathLabs Care,Healthcare,400,3500,False,N/A,2
+MERCH_HC_005_283,Cult.fit Gym,Healthcare,1500,18000,True,Annual,3
+MERCH_HC_005_284,Cult.fit Gym Healthcare,Healthcare,1500,18000,True,Annual,3
+MERCH_HC_005_285,Cult.fit Gym Medical,Healthcare,1500,18000,True,Annual,3
+MERCH_HC_005_286,Cult.fit Gym Care,Healthcare,1500,18000,True,Annual,3
+MERCH_HC_006_287,Lenskart,Healthcare,800,6000,False,N/A,2
+MERCH_HC_006_288,Lenskart Healthcare,Healthcare,800,6000,False,N/A,2
+MERCH_HC_006_289,Lenskart Medical,Healthcare,800,6000,False,N/A,2
+MERCH_HC_006_290,Lenskart Care,Healthcare,800,6000,False,N/A,2
+MERCH_ED_000_291,Udemy,Education,499,3499,False,N/A,2
+MERCH_ED_000_292,Udemy Learning,Education,499,3499,False,N/A,2
+MERCH_ED_000_293,Udemy Edu,Education,499,3499,False,N/A,2
+MERCH_ED_000_294,Udemy Academy,Education,499,3499,False,N/A,2
+MERCH_ED_001_295,Coursera,Education,1499,4999,True,Monthly,2
+MERCH_ED_001_296,Coursera Learning,Education,1499,4999,True,Monthly,2
+MERCH_ED_001_297,Coursera Edu,Education,1499,4999,True,Monthly,2
+MERCH_ED_001_298,Coursera Academy,Education,1499,4999,True,Monthly,2
+MERCH_ED_002_299,Unacademy,Education,2000,25000,True,Annual,2
+MERCH_ED_002_300,Unacademy Learning,Education,2000,25000,True,Annual,2
+MERCH_ED_002_301,Unacademy Edu,Education,2000,25000,True,Annual,2
+MERCH_ED_002_302,Unacademy Academy,Education,2000,25000,True,Annual,2
+MERCH_ED_003_303,PhysicsWallah,Education,1000,12000,False,N/A,2
+MERCH_ED_003_304,PhysicsWallah Learning,Education,1000,12000,False,N/A,2
+MERCH_ED_003_305,PhysicsWallah Edu,Education,1000,12000,False,N/A,2
+MERCH_ED_003_306,PhysicsWallah Academy,Education,1000,12000,False,N/A,2
+MERCH_ED_004_307,Scaler Academy,Education,5000,50000,True,Monthly,3
+MERCH_ED_004_308,Scaler Academy Learning,Education,5000,50000,True,Monthly,3
+MERCH_ED_004_309,Scaler Academy Edu,Education,5000,50000,True,Monthly,3
+MERCH_ED_004_310,Scaler Academy Academy,Education,5000,50000,True,Monthly,3
+MERCH_ED_005_311,Crossword Bookstore,Education,300,2500,False,N/A,2
+MERCH_ED_005_312,Crossword Bookstore Learning,Education,300,2500,False,N/A,2
+MERCH_ED_005_313,Crossword Bookstore Edu,Education,300,2500,False,N/A,2
+MERCH_ED_005_314,Crossword Bookstore Academy,Education,300,2500,False,N/A,2
+MERCH_ED_006_315,School Tuition Fee,Education,5000,45000,True,Quarterly,3
+MERCH_ED_006_316,School Tuition Fee Learning,Education,5000,45000,True,Quarterly,3
+MERCH_ED_006_317,School Tuition Fee Edu,Education,5000,45000,True,Quarterly,3
+MERCH_ED_006_318,School Tuition Fee Academy,Education,5000,45000,True,Quarterly,3
+MERCH_SH_000_319,Amazon India,Shopping,250,45000,False,N/A,4
+MERCH_SH_000_320,Amazon India Retail,Shopping,250,45000,False,N/A,4
+MERCH_SH_000_321,Amazon India Store,Shopping,250,45000,False,N/A,4
+MERCH_SH_000_322,Amazon India Fashion,Shopping,250,45000,False,N/A,4
+MERCH_SH_000_323,Amazon India Digital,Shopping,250,45000,False,N/A,4
+MERCH_SH_001_324,Flipkart,Shopping,250,50000,False,N/A,3
+MERCH_SH_001_325,Flipkart Retail,Shopping,250,50000,False,N/A,3
+MERCH_SH_001_326,Flipkart Store,Shopping,250,50000,False,N/A,3
+MERCH_SH_001_327,Flipkart Fashion,Shopping,250,50000,False,N/A,3
+MERCH_SH_001_328,Flipkart Digital,Shopping,250,50000,False,N/A,3
+MERCH_SH_002_329,Myntra,Shopping,500,8000,False,N/A,3
+MERCH_SH_002_330,Myntra Retail,Shopping,500,8000,False,N/A,3
+MERCH_SH_002_331,Myntra Store,Shopping,500,8000,False,N/A,3
+MERCH_SH_002_332,Myntra Fashion,Shopping,500,8000,False,N/A,3
+MERCH_SH_002_333,Myntra Digital,Shopping,500,8000,False,N/A,3
+MERCH_SH_003_334,Nykaa,Shopping,400,6500,False,N/A,3
+MERCH_SH_003_335,Nykaa Retail,Shopping,400,6500,False,N/A,3
+MERCH_SH_003_336,Nykaa Store,Shopping,400,6500,False,N/A,3
+MERCH_SH_003_337,Nykaa Fashion,Shopping,400,6500,False,N/A,3
+MERCH_SH_003_338,Nykaa Digital,Shopping,400,6500,False,N/A,3
+MERCH_SH_004_339,Zudio,Shopping,300,3500,False,N/A,2
+MERCH_SH_004_340,Zudio Retail,Shopping,300,3500,False,N/A,2
+MERCH_SH_004_341,Zudio Store,Shopping,300,3500,False,N/A,2
+MERCH_SH_004_342,Zudio Fashion,Shopping,300,3500,False,N/A,2
+MERCH_SH_004_343,Zudio Digital,Shopping,300,3500,False,N/A,2
+MERCH_SH_005_344,Westside,Shopping,800,10000,False,N/A,2
+MERCH_SH_005_345,Westside Retail,Shopping,800,10000,False,N/A,2
+MERCH_SH_005_346,Westside Store,Shopping,800,10000,False,N/A,2
+MERCH_SH_005_347,Westside Fashion,Shopping,800,10000,False,N/A,2
+MERCH_SH_005_348,Westside Digital,Shopping,800,10000,False,N/A,2
+MERCH_SH_006_349,Zara India,Shopping,1500,18000,False,N/A,2
+MERCH_SH_006_350,Zara India Retail,Shopping,1500,18000,False,N/A,2
+MERCH_SH_006_351,Zara India Store,Shopping,1500,18000,False,N/A,2
+MERCH_SH_006_352,Zara India Fashion,Shopping,1500,18000,False,N/A,2
+MERCH_SH_006_353,Zara India Digital,Shopping,1500,18000,False,N/A,2
+MERCH_SH_007_354,H&M India,Shopping,900,12000,False,N/A,2
+MERCH_SH_007_355,H&M India Retail,Shopping,900,12000,False,N/A,2
+MERCH_SH_007_356,H&M India Store,Shopping,900,12000,False,N/A,2
+MERCH_SH_007_357,H&M India Fashion,Shopping,900,12000,False,N/A,2
+MERCH_SH_007_358,H&M India Digital,Shopping,900,12000,False,N/A,2
+MERCH_SH_008_359,Ajio,Shopping,400,7500,False,N/A,2
+MERCH_SH_008_360,Ajio Retail,Shopping,400,7500,False,N/A,2
+MERCH_SH_008_361,Ajio Store,Shopping,400,7500,False,N/A,2
+MERCH_SH_008_362,Ajio Fashion,Shopping,400,7500,False,N/A,2
+MERCH_SH_008_363,Ajio Digital,Shopping,400,7500,False,N/A,2
+MERCH_SH_009_364,Decathlon,Shopping,300,15000,False,N/A,2
+MERCH_SH_009_365,Decathlon Retail,Shopping,300,15000,False,N/A,2
+MERCH_SH_009_366,Decathlon Store,Shopping,300,15000,False,N/A,2
+MERCH_SH_009_367,Decathlon Fashion,Shopping,300,15000,False,N/A,2
+MERCH_SH_009_368,Decathlon Digital,Shopping,300,15000,False,N/A,2
+MERCH_SH_010_369,Croma,Shopping,1000,85000,False,N/A,2
+MERCH_SH_010_370,Croma Retail,Shopping,1000,85000,False,N/A,2
+MERCH_SH_010_371,Croma Store,Shopping,1000,85000,False,N/A,2
+MERCH_SH_010_372,Croma Fashion,Shopping,1000,85000,False,N/A,2
+MERCH_SH_010_373,Croma Digital,Shopping,1000,85000,False,N/A,2
+MERCH_SH_011_374,Vijay Sales,Shopping,1000,75000,False,N/A,2
+MERCH_SH_011_375,Vijay Sales Retail,Shopping,1000,75000,False,N/A,2
+MERCH_SH_011_376,Vijay Sales Store,Shopping,1000,75000,False,N/A,2
+MERCH_SH_011_377,Vijay Sales Fashion,Shopping,1000,75000,False,N/A,2
+MERCH_SH_011_378,Vijay Sales Digital,Shopping,1000,75000,False,N/A,2
+MERCH_SH_012_379,Apple Store,Shopping,5000,150000,False,N/A,3
+MERCH_SH_012_380,Apple Store Retail,Shopping,5000,150000,False,N/A,3
+MERCH_SH_012_381,Apple Store Store,Shopping,5000,150000,False,N/A,3
+MERCH_SH_012_382,Apple Store Fashion,Shopping,5000,150000,False,N/A,3
+MERCH_SH_012_383,Apple Store Digital,Shopping,5000,150000,False,N/A,3
+MERCH_UT_000_384,BESCOM Electricity,Utilities,500,6000,True,Monthly,3
+MERCH_UT_000_385,BESCOM Electricity Bill,Utilities,500,6000,True,Monthly,3
+MERCH_UT_000_386,BESCOM Electricity Utility,Utilities,500,6000,True,Monthly,3
+MERCH_UT_001_387,MSEDCL Power,Utilities,600,7500,True,Monthly,3
+MERCH_UT_001_388,MSEDCL Power Bill,Utilities,600,7500,True,Monthly,3
+MERCH_UT_001_389,MSEDCL Power Utility,Utilities,600,7500,True,Monthly,3
+MERCH_UT_002_390,Tata Power,Utilities,500,7000,True,Monthly,2
+MERCH_UT_002_391,Tata Power Bill,Utilities,500,7000,True,Monthly,2
+MERCH_UT_002_392,Tata Power Utility,Utilities,500,7000,True,Monthly,2
+MERCH_UT_003_393,Adani Electricity,Utilities,600,8000,True,Monthly,2
+MERCH_UT_003_394,Adani Electricity Bill,Utilities,600,8000,True,Monthly,2
+MERCH_UT_003_395,Adani Electricity Utility,Utilities,600,8000,True,Monthly,2
+MERCH_UT_004_396,Airtel Broadband,Utilities,799,1799,True,Monthly,3
+MERCH_UT_004_397,Airtel Broadband Bill,Utilities,799,1799,True,Monthly,3
+MERCH_UT_004_398,Airtel Broadband Utility,Utilities,799,1799,True,Monthly,3
+MERCH_UT_005_399,JioFiber,Utilities,699,1499,True,Monthly,3
+MERCH_UT_005_400,JioFiber Bill,Utilities,699,1499,True,Monthly,3
+MERCH_UT_005_401,JioFiber Utility,Utilities,699,1499,True,Monthly,3
+MERCH_UT_006_402,Vi Postpaid,Utilities,399,1199,True,Monthly,2
+MERCH_UT_006_403,Vi Postpaid Bill,Utilities,399,1199,True,Monthly,2
+MERCH_UT_006_404,Vi Postpaid Utility,Utilities,399,1199,True,Monthly,2
+MERCH_UT_007_405,Tata Play DTH,Utilities,300,900,True,Monthly,2
+MERCH_UT_007_406,Tata Play DTH Bill,Utilities,300,900,True,Monthly,2
+MERCH_UT_007_407,Tata Play DTH Utility,Utilities,300,900,True,Monthly,2
+MERCH_UT_008_408,Indane LPG Gas,Utilities,850,1200,True,Monthly,2
+MERCH_UT_008_409,Indane LPG Gas Bill,Utilities,850,1200,True,Monthly,2
+MERCH_UT_008_410,Indane LPG Gas Utility,Utilities,850,1200,True,Monthly,2
+MERCH_UT_009_411,HP Gas,Utilities,850,1200,True,Monthly,2
+MERCH_UT_009_412,HP Gas Bill,Utilities,850,1200,True,Monthly,2
+MERCH_UT_009_413,HP Gas Utility,Utilities,850,1200,True,Monthly,2
+MERCH_IV_000_414,Zerodha,Investments,1000,50000,True,Monthly,3
+MERCH_IV_000_415,Zerodha Investments,Investments,1000,50000,True,Monthly,3
+MERCH_IV_000_416,Zerodha Capital,Investments,1000,50000,True,Monthly,3
+MERCH_IV_001_417,Groww,Investments,500,35000,True,Monthly,3
+MERCH_IV_001_418,Groww Investments,Investments,500,35000,True,Monthly,3
+MERCH_IV_001_419,Groww Capital,Investments,500,35000,True,Monthly,3
+MERCH_IV_002_420,Upstox,Investments,1000,40000,False,N/A,2
+MERCH_IV_002_421,Upstox Investments,Investments,1000,40000,False,N/A,2
+MERCH_IV_002_422,Upstox Capital,Investments,1000,40000,False,N/A,2
+MERCH_IV_003_423,Paytm Money,Investments,500,25000,True,Monthly,2
+MERCH_IV_003_424,Paytm Money Investments,Investments,500,25000,True,Monthly,2
+MERCH_IV_003_425,Paytm Money Capital,Investments,500,25000,True,Monthly,2
+MERCH_IV_004_426,ICICI Direct,Investments,2000,60000,False,N/A,2
+MERCH_IV_004_427,ICICI Direct Investments,Investments,2000,60000,False,N/A,2
+MERCH_IV_004_428,ICICI Direct Capital,Investments,2000,60000,False,N/A,2
+MERCH_IV_005_429,NPS Contribution,Investments,1000,50000,True,Monthly,3
+MERCH_IV_005_430,NPS Contribution Investments,Investments,1000,50000,True,Monthly,3
+MERCH_IV_005_431,NPS Contribution Capital,Investments,1000,50000,True,Monthly,3
+MERCH_IV_006_432,PPF Deposit,Investments,1000,150000,True,Annual,3
+MERCH_IV_006_433,PPF Deposit Investments,Investments,1000,150000,True,Annual,3
+MERCH_IV_006_434,PPF Deposit Capital,Investments,1000,150000,True,Annual,3
+MERCH_VA_000_435,MakeMyTrip,Vacation,2500,45000,False,N/A,3
+MERCH_VA_000_436,MakeMyTrip Travels,Vacation,2500,45000,False,N/A,3
+MERCH_VA_000_437,MakeMyTrip Stays,Vacation,2500,45000,False,N/A,3
+MERCH_VA_000_438,MakeMyTrip Holidays,Vacation,2500,45000,False,N/A,3
+MERCH_VA_001_439,Goibibo,Vacation,1500,25000,False,N/A,2
+MERCH_VA_001_440,Goibibo Travels,Vacation,1500,25000,False,N/A,2
+MERCH_VA_001_441,Goibibo Stays,Vacation,1500,25000,False,N/A,2
+MERCH_VA_001_442,Goibibo Holidays,Vacation,1500,25000,False,N/A,2
+MERCH_VA_002_443,Booking.com,Vacation,2000,55000,False,N/A,2
+MERCH_VA_002_444,Booking.com Travels,Vacation,2000,55000,False,N/A,2
+MERCH_VA_002_445,Booking.com Stays,Vacation,2000,55000,False,N/A,2
+MERCH_VA_002_446,Booking.com Holidays,Vacation,2000,55000,False,N/A,2
+MERCH_VA_003_447,Airbnb India,Vacation,2500,35000,False,N/A,2
+MERCH_VA_003_448,Airbnb India Travels,Vacation,2500,35000,False,N/A,2
+MERCH_VA_003_449,Airbnb India Stays,Vacation,2500,35000,False,N/A,2
+MERCH_VA_003_450,Airbnb India Holidays,Vacation,2500,35000,False,N/A,2
+MERCH_VA_004_451,Taj Hotels,Vacation,8000,80000,False,N/A,3
+MERCH_VA_004_452,Taj Hotels Travels,Vacation,8000,80000,False,N/A,3
+MERCH_VA_004_453,Taj Hotels Stays,Vacation,8000,80000,False,N/A,3
+MERCH_VA_004_454,Taj Hotels Holidays,Vacation,8000,80000,False,N/A,3
+MERCH_VA_005_455,Oyo Rooms,Vacation,800,4000,False,N/A,3
+MERCH_VA_005_456,Oyo Rooms Travels,Vacation,800,4000,False,N/A,3
+MERCH_VA_005_457,Oyo Rooms Stays,Vacation,800,4000,False,N/A,3
+MERCH_VA_005_458,Oyo Rooms Holidays,Vacation,800,4000,False,N/A,3
+MERCH_GM_000_459,Urban Company,Grooming,350,2500,False,N/A,3
+MERCH_GM_000_460,Urban Company Salon,Grooming,350,2500,False,N/A,3
+MERCH_GM_000_461,Urban Company Spa,Grooming,350,2500,False,N/A,3
+MERCH_GM_000_462,Urban Company Care,Grooming,350,2500,False,N/A,3
+MERCH_GM_001_463,Jawed Habib Salon,Grooming,300,1800,False,N/A,2
+MERCH_GM_001_464,Jawed Habib Salon Salon,Grooming,300,1800,False,N/A,2
+MERCH_GM_001_465,Jawed Habib Salon Spa,Grooming,300,1800,False,N/A,2
+MERCH_GM_001_466,Jawed Habib Salon Care,Grooming,300,1800,False,N/A,2
+MERCH_GM_002_467,Naturals Salon,Grooming,400,3000,False,N/A,2
+MERCH_GM_002_468,Naturals Salon Salon,Grooming,400,3000,False,N/A,2
+MERCH_GM_002_469,Naturals Salon Spa,Grooming,400,3000,False,N/A,2
+MERCH_GM_002_470,Naturals Salon Care,Grooming,400,3000,False,N/A,2
+MERCH_GM_003_471,Bodycraft Salon,Grooming,800,6000,False,N/A,2
+MERCH_GM_003_472,Bodycraft Salon Salon,Grooming,800,6000,False,N/A,2
+MERCH_GM_003_473,Bodycraft Salon Spa,Grooming,800,6000,False,N/A,2
+MERCH_GM_003_474,Bodycraft Salon Care,Grooming,800,6000,False,N/A,2
+MERCH_GM_004_475,Beardo,Grooming,250,1500,False,N/A,2
+MERCH_GM_004_476,Beardo Salon,Grooming,250,1500,False,N/A,2
+MERCH_GM_004_477,Beardo Spa,Grooming,250,1500,False,N/A,2
+MERCH_GM_004_478,Beardo Care,Grooming,250,1500,False,N/A,2
+MERCH_GM_005_479,Kama Ayurveda,Grooming,900,5500,False,N/A,2
+MERCH_GM_005_480,Kama Ayurveda Salon,Grooming,900,5500,False,N/A,2
+MERCH_GM_005_481,Kama Ayurveda Spa,Grooming,900,5500,False,N/A,2
+MERCH_GM_005_482,Kama Ayurveda Care,Grooming,900,5500,False,N/A,2
+MERCH_MS_000_483,Local ATM Cash Withdrawal,Miscellaneous,500,10000,False,N/A,4
+MERCH_MS_000_484,Local ATM Cash Withdrawal Services,Miscellaneous,500,10000,False,N/A,4
+MERCH_MS_000_485,Local ATM Cash Withdrawal Direct,Miscellaneous,500,10000,False,N/A,4
+MERCH_MS_001_486,India Post,Miscellaneous,50,500,False,N/A,3
+MERCH_MS_001_487,India Post Services,Miscellaneous,50,500,False,N/A,3
+MERCH_MS_001_488,India Post Direct,Miscellaneous,50,500,False,N/A,3
+MERCH_MS_002_489,DTDC Express,Miscellaneous,100,1200,False,N/A,3
+MERCH_MS_002_490,DTDC Express Services,Miscellaneous,100,1200,False,N/A,3
+MERCH_MS_002_491,DTDC Express Direct,Miscellaneous,100,1200,False,N/A,3
+MERCH_MS_003_492,BlueDart,Miscellaneous,150,1800,False,N/A,2
+MERCH_MS_003_493,BlueDart Services,Miscellaneous,150,1800,False,N/A,2
+MERCH_MS_003_494,BlueDart Direct,Miscellaneous,150,1800,False,N/A,2
+MERCH_MS_004_495,Local Tailor & Repairs,Miscellaneous,100,1500,False,N/A,2
+MERCH_MS_004_496,Local Tailor & Repairs Services,Miscellaneous,100,1500,False,N/A,2
+MERCH_MS_004_497,Local Tailor & Repairs Direct,Miscellaneous,100,1500,False,N/A,2
+MERCH_MS_005_498,Pet Care Clinic,Miscellaneous,300,4500,False,N/A,2
+MERCH_MS_005_499,Pet Care Clinic Services,Miscellaneous,300,4500,False,N/A,2
+MERCH_MS_005_500,Pet Care Clinic Direct,Miscellaneous,300,4500,False,N/A,2
+MERCH_MS_006_501,General Miscellaneous UPI,Miscellaneous,50,2000,False,N/A,3
+MERCH_MS_006_502,General Miscellaneous UPI Services,Miscellaneous,50,2000,False,N/A,3
+MERCH_MS_006_503,General Miscellaneous UPI Direct,Miscellaneous,50,2000,False,N/A,3

@@ -1,13 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaHeadset, FaQuestionCircle, FaPaperPlane } from 'react-icons/fa';
 import axios from 'axios';
 import { API_URL } from '../config';
 import CustomCursor from '../components/CustomCursor';
 import Footer from '../components/Footer';
+import Lenis from 'lenis';
 import './ContactPage.css';
 
 const ContactPage = () => {
+  // Initialize Lenis for smooth scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 0.9,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 2.0,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+    window.lenis = lenis;
+
+    let frameId;
+    function raf(time) {
+      lenis.raf(time);
+      frameId = requestAnimationFrame(raf);
+    }
+
+    frameId = requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+      window.lenis = null;
+      cancelAnimationFrame(frameId);
+    };
+  }, []);
   const [formData, setFormData] = useState({
     name: '',
     email: '',

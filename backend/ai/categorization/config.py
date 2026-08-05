@@ -1,0 +1,22 @@
+"""
+Root config module redirecting to engine_utils/config.py
+"""
+
+from engine_utils.config import (
+    BASE_DIR,
+    DATASET_CSV_PATH,
+    MERCHANT_METADATA_PATH,
+    MERCHANT_ALIASES_PATH,
+    TRAINED_MODELS_DIR,
+    TRAINING_LOGS_DIR,
+    MODEL_FILE_PATH,
+    METADATA_FILE_PATH,
+    CACHE_DB_PATH,
+    DEFAULT_EMBEDDING_MODEL,
+    EMBEDDING_DIMENSION,
+    DEFAULT_CLASSIFIER,
+    TEST_SIZE,
+    RANDOM_STATE,
+    CONFIDENCE_THRESHOLDS,
+    SUPPORTED_CATEGORIES
+)

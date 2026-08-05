@@ -8,6 +8,9 @@ node_modules/
 dist/
 build/
 .gemini/
+.agents/
+.antigravity/
+.antigravityignore
 .DS_Store
 *.log
 npm-debug.log*
@@ -15,3 +18,10 @@ yarn-debug.log*
 yarn-error.log*
 .vscode/
 .idea/
+
+__pycache__/
+*.pyc
+.pytest_cache/
+*.sqlite3
+*.db
+backend/ai/storage/*.db

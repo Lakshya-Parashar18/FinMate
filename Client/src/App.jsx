@@ -3,10 +3,12 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { DisplaySettingsProvider } from './context/DisplaySettingsContext';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Layout from "./components/Layout";
+import Loading from "./components/Loading";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Dashboard from "./Pages/Dashboard";
 import Settings from "./Pages/Settings";
+import Circles from "./Pages/Circles";
 import LandingPage from "./Pages/LandingPage";
 import Profile from "./Pages/Profile";
 import Transactions from "./Pages/Transactions";
@@ -23,7 +25,11 @@ const PrivateRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', width: '100vw', background: 'var(--bg-primary, #1a202c)' }}>
+        <Loading message="Authenticating" />
+      </div>
+    );
   }
 
   return isAuthenticated ? <Layout>{children}</Layout> : <Navigate to="/login" replace />;
@@ -43,29 +49,34 @@ export default function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/verify/:token" element={<VerifyEmail />} />
-              <Route 
-                path="/settings" 
+              <Route path="/email-preview" element={<iframe src="/api/auth/preview-email" style={{ width: '100vw', height: '100vh', border: 'none', background: '#0b0f19' }} title="Email Preview" />} />
+              <Route
+                path="/settings"
                 element={<PrivateRoute><Settings /></PrivateRoute>}
               />
-              <Route 
-                path="/dashboard" 
+              <Route
+                path="/circles"
+                element={<PrivateRoute><Circles /></PrivateRoute>}
+              />
+              <Route
+                path="/dashboard"
                 element={<PrivateRoute><Dashboard /></PrivateRoute>}
               />
-              <Route 
-                path="/profile" 
+              <Route
+                path="/profile"
                 element={<PrivateRoute><Profile /></PrivateRoute>}
               />
-              <Route 
-                path="/transactions" 
+              <Route
+                path="/transactions"
                 element={<PrivateRoute><Transactions /></PrivateRoute>}
               />
-              <Route 
-                path="/budget" 
+              <Route
+                path="/budget"
                 element={<PrivateRoute><Budget /></PrivateRoute>}
               />
-               <Route path="/analytics" 
-                 element={<PrivateRoute><Analytics /></PrivateRoute>}
-               />
+              <Route path="/analytics"
+                element={<PrivateRoute><Analytics /></PrivateRoute>}
+              />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/terms" element={<TermsPage />} />

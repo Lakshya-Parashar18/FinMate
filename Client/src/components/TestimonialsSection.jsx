@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaStar, FaQuoteLeft, FaPlus, FaCheckCircle, FaTimes, FaUsers } from 'react-icons/fa';
 import axios from 'axios';
 import { API_URL } from '../config';
+import Lenis from 'lenis';
 import './TestimonialsSection.css';
 
 const INITIAL_TESTIMONIALS = [
@@ -21,6 +22,61 @@ const TestimonialsSection = () => {
   const [showForm, setShowForm] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', role: '', text: '', rating: 0 });
+
+  const scrollAreaRef = useRef(null);
+
+  // Initialize a container-based Lenis instance for the modal scroll area
+  useEffect(() => {
+    if (!showReviewsModal || !scrollAreaRef.current) return;
+
+    const modalLenis = new Lenis({
+      wrapper: scrollAreaRef.current,
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1.8,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+
+    let frameId;
+    function raf(time) {
+      modalLenis.raf(time);
+      frameId = requestAnimationFrame(raf);
+    }
+
+    frameId = requestAnimationFrame(raf);
+
+    return () => {
+      modalLenis.destroy();
+      cancelAnimationFrame(frameId);
+    };
+  }, [showReviewsModal]);
+
+  // Lock background scroll when modals are open
+  useEffect(() => {
+    if (showReviewsModal || showForm) {
+      window.lenis?.stop();
+      document.body.style.overflow = 'hidden';
+    } else {
+      window.lenis?.start();
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      window.lenis?.start();
+      document.body.style.overflow = '';
+    };
+  }, [showReviewsModal, showForm]);
+
+  // Reset form data when the feedback modal is closed
+  useEffect(() => {
+    if (!showForm) {
+      setFormData({ name: '', role: '', text: '', rating: 0 });
+    }
+  }, [showForm]);
 
   // Fetch from backend and merge with Seeds
   useEffect(() => {
@@ -134,19 +190,29 @@ const TestimonialsSection = () => {
               <motion.div className="reviews-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setShowReviewsModal(false)} />
               <motion.div 
                 className="reviews-window glass"
+                data-lenis-prevent
                 initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 50, opacity: 0 }}
               >
                 <div className="reviews-header">
                   <h3><FaUsers /> Wall of Trust</h3>
-                  <FaTimes className="close-reviews" onClick={() => setShowReviewsModal(false)} />
+                  <button className="close-reviews" onClick={() => setShowReviewsModal(false)}>
+                    <FaTimes />
+                  </button>
                 </div>
-                <div className="reviews-scroll-area">
+                <div className="reviews-scroll-area" data-lenis-prevent ref={scrollAreaRef}>
                   <div className="all-reviews-grid">
                     {chronologicalTestimonials.map((item) => (
-                      <div key={item.id} className="mini-review-card">
+                      <div key={item.id} className="mini-review-card glass">
+                        <div className="mini-quote-icon"><FaQuoteLeft /></div>
                         <div className="stars-mini">{[...Array(item.rating)].map((_, i) => <FaStar key={i} />)}</div>
-                        <p>"{item.text}"</p>
-                        <div className="mini-user-info"><strong>{item.name}</strong> • <span>{item.role}</span></div>
+                        <p className="mini-review-text">"{item.text}"</p>
+                        <div className="mini-user-profile">
+                          <div className="mini-avatar-circle">{item.avatar || (item.name ? item.name.charAt(0).toUpperCase() : 'U')}</div>
+                          <div className="mini-user-details">
+                            <strong>{item.name}</strong>
+                            <span>{item.role}</span>
+                          </div>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -161,7 +227,13 @@ const TestimonialsSection = () => {
           {showForm && (
             <div className="feedback-modal-root">
               <motion.div className="feedback-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setShowForm(false)} />
-              <motion.div className="feedback-card" initial={{ scale: 0.9, opacity: 0, y: 20 }} animate={{ scale: 1, opacity: 1, y: 0 }} exit={{ scale: 0.9, opacity: 0, y: 20 }}>
+              <motion.div 
+                className="feedback-card" 
+                data-lenis-prevent
+                initial={{ scale: 0.9, opacity: 0, y: 20 }} 
+                animate={{ scale: 1, opacity: 1, y: 0 }} 
+                exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              >
                 {submitted ? (
                   <div className="submission-success">
                     <FaCheckCircle className="success-icon" />
@@ -172,7 +244,9 @@ const TestimonialsSection = () => {
                   <>
                     <div className="form-header">
                       <h3>Share Your Experience</h3>
-                      <FaTimes className="close-form" onClick={() => setShowForm(false)} />
+                      <button type="button" className="close-form" onClick={() => setShowForm(false)}>
+                        <FaTimes />
+                      </button>
                     </div>
                     <form onSubmit={handleSubmit}>
                       <div className="form-row">

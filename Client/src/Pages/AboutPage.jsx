@@ -1,11 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaUsers, FaLightbulb, FaShieldAlt, FaRocket } from 'react-icons/fa';
 import CustomCursor from '../components/CustomCursor';
 import Footer from '../components/Footer';
+import Lenis from 'lenis';
 import './AboutPage.css';
 
 const AboutPage = () => {
+  // Initialize Lenis for smooth scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 0.9,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 2.0,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+    window.lenis = lenis;
+
+    let frameId;
+    function raf(time) {
+      lenis.raf(time);
+      frameId = requestAnimationFrame(raf);
+    }
+
+    frameId = requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+      window.lenis = null;
+      cancelAnimationFrame(frameId);
+    };
+  }, []);
   return (
     <div className="about-page">
       <CustomCursor />

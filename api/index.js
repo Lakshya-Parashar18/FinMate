@@ -27,6 +27,10 @@ import insightRoutes from "../server/routes/insightRoutes.js";
 import testimonialRoutes from "../server/routes/testimonialRoutes.js";
 import subscriberRoutes from "../server/routes/subscriberRoutes.js";
 import supportRoutes from "../server/routes/supportRoutes.js";
+import goalRoutes from "../server/routes/goalRoutes.js";
+import circleRoutes from "../server/routes/circleRoutes.js";
+import aiRoutes from "../server/routes/aiRoutes.js";
+import anomalyRoutes from "../server/routes/anomalyRoutes.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -76,6 +80,10 @@ app.use("/api/insights", insightRoutes);
 app.use("/api/testimonials", testimonialRoutes);
 app.use("/api/subscribers", subscriberRoutes);
 app.use("/api/support", supportRoutes);
+app.use("/api/goals", goalRoutes);
+app.use("/api/circles", circleRoutes);
+app.use("/api/ai", aiRoutes);
+app.use("/api/ai/anomaly", anomalyRoutes);
 
 app.get("/", (req, res) => {
   res.send("✅ FinMate API is alive and kicking!");

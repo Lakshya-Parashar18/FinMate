@@ -19,9 +19,9 @@ const protect = async (req, res, next) => {
         return; // Stop further processing
       }
     } catch (error) {
-        console.error('Error verifying session user:', error);
-         // Fall through to JWT check in case of DB error during session check?
-         // Or return error? Let's fall through for now.
+      console.error('Error verifying session user:', error);
+      // Fall through to JWT check in case of DB error during session check?
+      // Or return error? Let's fall through for now.
     }
   }
 
@@ -37,13 +37,13 @@ const protect = async (req, res, next) => {
       req.user = await User.findById(decoded.id).select('-password');
 
       if (!req.user) {
-          // If JWT user not found, maybe they were deleted? Deny access.
-          return res.status(401).json({ message: 'Not authorized, token user not found' });
+        // If JWT user not found, maybe they were deleted? Deny access.
+        return res.status(401).json({ message: 'Not authorized, token user not found' });
       }
-       // If user found via JWT, also establish session for subsequent requests
+      // If user found via JWT, also establish session for subsequent requests
       req.session.userId = req.user._id;
       console.log('Session established via JWT for user:', req.session.userId);
-      
+
       return next(); // User authenticated via JWT, proceed
     } catch (error) {
       console.error('Token verification failed:', error);
@@ -54,7 +54,7 @@ const protect = async (req, res, next) => {
 
   // 3. If no session and no token (or token check failed earlier)
   if (!req.user) { // Check if user was attached either by session or JWT
-      res.status(401).json({ message: 'Not authorized, no session or token' });
+    res.status(401).json({ message: 'Not authorized, no session or token' });
   }
   // Note: removed the redundant 'if (!token)' check from the original logic as it's covered above
 };

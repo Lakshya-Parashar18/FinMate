@@ -20,22 +20,138 @@ import {
   FaStar,
   FaEdit,
   FaEllipsisH,
-  FaExclamationTriangle
+  FaExclamationTriangle,
+  FaChartPie
 } from 'react-icons/fa';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
-  PieChart, Pie, Cell
+  PieChart, Pie, Cell, Sector
 } from 'recharts';
 import './Dashboard.css';
 import axios from 'axios';
+import Loading from '../components/Loading';
+import lottie from 'lottie-web';
+import aiIconAnimation from '../assets/ai-icon.json';
 import { API_URL } from '../config';
 import { useAuth } from '../context/AuthContext';
 import { useDisplaySettings } from '../context/DisplaySettingsContext';
+import Lenis from 'lenis';
+
+const GRADIENTS = [
+  { id: 'dash-grad-teal', start: '#06b6d4', end: '#2dd4bf' },
+  { id: 'dash-grad-rose', start: '#e11d48', end: '#fb7185' },
+  { id: 'dash-grad-pink', start: '#db2777', end: '#fbcfe8' },
+  { id: 'dash-grad-amber', start: '#d97706', end: '#fbbf24' },
+  { id: 'dash-grad-indigo', start: '#4f46e5', end: '#818cf8' },
+  { id: 'dash-grad-blue', start: '#2563eb', end: '#60a5fa' },
+  { id: 'dash-grad-fuchsia', start: '#9333ea', end: '#c084fc' }
+];
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
-  const { displaySettings, updateDisplaySettings } = useDisplaySettings();
+  const { displaySettings, currency, updateDisplaySettings, formatCurrency, formatCurrencyRaw, chartStyle } = useDisplaySettings();
+
+  const [activePieIndex, setActivePieIndex] = useState(null);
+  const [activeBarIndex, setActiveBarIndex] = useState(null);
+  const [alertDismissed, setAlertDismissed] = useState(false);
+
+  const renderActiveShape = (props) => {
+    const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill, stroke } = props;
+    return (
+      <g>
+        <Sector
+          cx={cx}
+          cy={cy}
+          innerRadius={innerRadius - 6}
+          outerRadius={outerRadius + 12}
+          startAngle={startAngle}
+          endAngle={endAngle}
+          fill={fill}
+          stroke={stroke}
+          strokeWidth={2}
+          style={{
+            outline: 'none',
+            cursor: 'pointer',
+            filter: 'url(#pie-shadow-active)',
+            transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)'
+          }}
+        />
+      </g>
+    );
+  };
+
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length && activePieIndex !== null) {
+      const data = payload[0].payload;
+      const value = payload[0].value;
+      // Calculate total breakdown sum for percentage
+      const total = dashboardData?.expenseBreakdown?.reduce((sum, item) => sum + item.value, 0) || 1;
+      const percentage = ((value / total) * 100).toFixed(1);
+
+      const categoryIndex = dashboardData?.expenseBreakdown?.findIndex(c => c.name === data.name) ?? 0;
+      const grad = GRADIENTS[categoryIndex % GRADIENTS.length] || GRADIENTS[0];
+
+      return (
+        <div className="custom-chart-tooltip">
+          <div className="tooltip-header">
+            <span
+              className="tooltip-dot"
+              style={{
+                background: grad.start,
+                boxShadow: `0 0 6px ${grad.start}cc`
+              }}
+            ></span>
+            <span className="tooltip-title">{data.name}</span>
+          </div>
+          <div className="tooltip-divider"></div>
+          <div className="tooltip-body">
+            <div className="tooltip-row">
+              <span className="tooltip-label">Amount:</span>
+              <span className="tooltip-value">{formatCurrency(value)}</span>
+            </div>
+            <div className="tooltip-row">
+              <span className="tooltip-label">Share:</span>
+              <span className="tooltip-value highlight-percentage">{percentage}%</span>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    return null;
+  };
+
+  const CustomBarTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      const income = payload.find(p => p.name === 'Income')?.value || 0;
+      const expenses = payload.find(p => p.name === 'Expenses')?.value || 0;
+      return (
+        <div className="custom-chart-tooltip">
+          <div className="tooltip-header">
+            <span className="tooltip-title">{label}</span>
+          </div>
+          <div className="tooltip-divider"></div>
+          <div className="tooltip-body">
+            <div className="tooltip-row">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span className="tooltip-dot" style={{ background: 'linear-gradient(135deg, #6366f1, #4f46e5)', boxShadow: '0 0 6px rgba(99,102,241,0.5)' }}></span>
+                <span className="tooltip-label">Income:</span>
+              </div>
+              <span className="tooltip-value" style={{ color: '#818cf8' }}>{formatCurrency(income)}</span>
+            </div>
+            <div className="tooltip-row">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span className="tooltip-dot" style={{ background: 'linear-gradient(135deg, #f87171, #ef4444)', boxShadow: '0 0 6px rgba(239,68,68,0.5)' }}></span>
+                <span className="tooltip-label">Expenses:</span>
+              </div>
+              <span className="tooltip-value" style={{ color: '#f87171' }}>{formatCurrency(expenses)}</span>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    return null;
+  };
 
   const [dashboardData, setDashboardData] = useState({
     totalBalance: 0,
@@ -47,15 +163,11 @@ const Dashboard = () => {
   });
   const [recentTransactions, setRecentTransactions] = useState([]);
   const [insights, setInsights] = useState([]);
-  const [chatInput, setChatInput] = useState('');
-  const [chatHistory, setChatHistory] = useState([
-    { role: 'assistant', message: 'Hello! I am your FinMate AI. How can I help you today?' }
-  ]);
-  const [isTyping, setIsTyping] = useState(false);
+
 
   const [loading, setLoading] = useState(true);
   const [apiError, setApiError] = useState('');
-  const [currency, setCurrency] = useState(displaySettings.currency || 'INR');
+
   const [filterCategory, setFilterCategory] = useState('');
   const [filterDate, setFilterDate] = useState('');
   const [selectedTransaction, setSelectedTransaction] = useState(null);
@@ -76,8 +188,77 @@ const Dashboard = () => {
   });
   const [formError, setFormError] = useState('');
   const [formLoading, setFormLoading] = useState(false);
-  const [isChatOpen, setIsChatOpen] = useState(false);
-  const chatEndRef = useRef(null);
+
+
+  // Initialize Lenis for smooth scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 0.75,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 2.0,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+
+    let frameId;
+    function raf(time) {
+      lenis.raf(time);
+      frameId = requestAnimationFrame(raf);
+    }
+
+    frameId = requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+      cancelAnimationFrame(frameId);
+    };
+  }, []);
+
+  // Prevent background scrolling when modal is open
+  useEffect(() => {
+    const isModalOpen = showAddModal || showEditModal || showFilterModal || showDeleteModal;
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      document.body.classList.add('lenis-stopped');
+      document.documentElement.classList.add('lenis-stopped');
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      document.body.classList.remove('lenis-stopped');
+      document.documentElement.classList.remove('lenis-stopped');
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      document.body.classList.remove('lenis-stopped');
+      document.documentElement.classList.remove('lenis-stopped');
+    };
+  }, [showAddModal, showEditModal, showFilterModal, showDeleteModal]);
+
+
+
+  const aiHeaderIconRef = useRef(null);
+  const aiChatIconRef = useRef(null);
+
+  useEffect(() => {
+    if (!aiHeaderIconRef.current) return;
+    const anim = lottie.loadAnimation({
+      container: aiHeaderIconRef.current,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      animationData: aiIconAnimation,
+    });
+    return () => {
+      anim.destroy();
+    };
+  }, [loading]);
+
+
 
   const fetchDashboardData = useCallback(async () => {
     setLoading(true);
@@ -88,7 +269,7 @@ const Dashboard = () => {
 
       const transactionsResponse = await axios.get(`${API_URL}/transactions?limit=4`, { withCredentials: true });
       const recentTxs = transactionsResponse.data.transactions || [];
-      
+
       setDashboardData({
         totalBalance: summary.totalBalance || 0,
         income: summary.income || 0,
@@ -137,7 +318,7 @@ const Dashboard = () => {
 
   const fetchInsights = useCallback(async () => {
     // Optional: setInsights([]) to show the shimmer during reload
-    setInsights([]); 
+    setInsights([]);
     try {
       const response = await axios.get(`${API_URL}/insights`, { withCredentials: true });
       setInsights(response.data);
@@ -146,37 +327,9 @@ const Dashboard = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (isChatOpen && chatEndRef.current) {
-      chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [chatHistory, isTyping, isChatOpen]);
 
-  const handleChat = async (e, suggestedMessage = null) => {
-    if (e) e.preventDefault();
-    const msg = suggestedMessage || chatInput;
-    if (!msg.trim()) return;
 
-    // Add user message to history
-    const userMsg = { role: 'user', message: msg };
-    setChatHistory(prev => [...prev, userMsg]);
-    setChatInput('');
-    setIsTyping(true);
 
-    try {
-      const response = await axios.post(`${API_URL}/insights/chat`, { message: msg }, { withCredentials: true });
-      setChatHistory(prev => [...prev, { role: 'assistant', message: response.data.response }]);
-    } catch (err) {
-      console.error('Chat error:', err);
-      setChatHistory(prev => [...prev, { role: 'assistant', message: "Sorry, I'm having trouble connecting right now." }]);
-    } finally {
-      setIsTyping(false);
-    }
-  };
-
-  useEffect(() => {
-    setCurrency(displaySettings.currency || 'INR');
-  }, [displaySettings.currency]);
 
   useEffect(() => {
     if (user) {
@@ -194,20 +347,12 @@ const Dashboard = () => {
 
   const toggleCurrency = () => {
     const newCurrency = currency === 'INR' ? 'USD' : 'INR';
-    setCurrency(newCurrency);
     updateDisplaySettings({ currency: newCurrency });
   };
 
   const userAvatar = user?.name?.split(' ').map(n => n[0]).join('').toUpperCase() || '?';
   const userName = user?.name || 'User';
   const userEmail = user?.email || '';
-
-  const conversionRate = 0.012;
-  const convertCurrency = (amount, targetCurrency) => {
-    return targetCurrency === 'INR'
-      ? amount / conversionRate
-      : amount * conversionRate;
-  };
 
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
@@ -304,7 +449,7 @@ const Dashboard = () => {
       };
 
       await axios.post(`${API_URL}/transactions`, transactionData, { withCredentials: true });
-      
+
       fetchDashboardData();
       fetchInsights(); // Re-calculate AI insights after new transaction
       closeAddModal();
@@ -341,7 +486,7 @@ const Dashboard = () => {
       };
 
       await axios.put(`${API_URL}/transactions/${editingTransaction._id}`, transactionData, { withCredentials: true });
-      
+
       fetchDashboardData();
       fetchInsights(); // Re-calculate AI insights after edit
       closeEditModal();
@@ -390,7 +535,7 @@ const Dashboard = () => {
   if (loading && recentTransactions.length === 0) {
     return (
       <main className="dashboard-content loading-message">
-        <p>Loading Dashboard...</p>
+        <Loading message="Loading Dashboard" />
       </main>
     );
   }
@@ -407,97 +552,199 @@ const Dashboard = () => {
   return (
     <>
       <main className="dashboard-content">
-      <div className="dashboard-header">
-        <h2>Dashboard</h2>
-      </div>
+        <div className="dashboard-header">
+          <div className="header-titles">
+            <h2>Dashboard</h2>
+            <span className="header-separator">|</span>
+            <p className="header-subtitle">Welcome back to your financial control center</p>
+          </div>
+          <div className="currency-pill-toggle" onClick={toggleCurrency}>
+            <span className={`currency-option ${currency === 'INR' ? 'active' : ''}`}>₹ INR</span>
+            <span className={`currency-option ${currency === 'USD' ? 'active' : ''}`}>$ USD</span>
+          </div>
+        </div>
 
-        {loading && <p>Updating data...</p>}
+        {loading && <Loading message="Updating data" />}
 
         {/* Threshold Alerts */}
-        {dashboardData.budgetLimit > 0 && (dashboardData.expenses / dashboardData.budgetLimit) >= 0.5 && (
+        {!alertDismissed && dashboardData.budgetLimit > 0 && (dashboardData.expenses / dashboardData.budgetLimit) >= 0.5 && (
           <div className={`urgency-alert ${(dashboardData.expenses / dashboardData.budgetLimit) >= 0.7 ? 'critical' : 'warning'}`}>
-             <FaMagic /> 
-             <span>
-               { (dashboardData.expenses / dashboardData.budgetLimit) >= 0.7 
-                 ? `CRITICAL ALERT: You have exhausted ${((dashboardData.expenses / dashboardData.budgetLimit) * 100).toFixed(0)}% of your budget!` 
-                 : `Warning: You have utilized ${((dashboardData.expenses / dashboardData.budgetLimit) * 100).toFixed(0)}% of your monthly limit.`
-               }
-             </span>
-             <Link to="/budget" className="alert-action-btn">Adjust Budget</Link>
+            <div className="alert-icon-badge">
+              {(dashboardData.expenses / dashboardData.budgetLimit) >= 0.7 ? (
+                <img
+                  src="https://img.icons8.com/comic/100/error.png"
+                  alt="Critical Alert"
+                  style={{ width: '36px', height: '36px', objectFit: 'contain' }}
+                />
+              ) : '⚠️'}
+            </div>
+            <div className="alert-body">
+              <span className="alert-type-label">
+                {(dashboardData.expenses / dashboardData.budgetLimit) >= 0.7 ? 'Critical Alert' : 'Budget Warning'}
+              </span>
+              <span className="alert-message">
+                {(dashboardData.expenses / dashboardData.budgetLimit) >= 0.7
+                  ? `You have exhausted ${((dashboardData.expenses / dashboardData.budgetLimit) * 100).toFixed(0)}% of your monthly budget.`
+                  : `You have utilised ${((dashboardData.expenses / dashboardData.budgetLimit) * 100).toFixed(0)}% of your monthly limit.`
+                }
+              </span>
+            </div>
+            <Link to="/budget" className="alert-action-btn">Adjust Budget</Link>
+            <button
+              className="alert-close-btn"
+              onClick={() => setAlertDismissed(true)}
+              aria-label="Dismiss alert"
+              type="button"
+            >
+              <FaTimes />
+            </button>
           </div>
         )}
-        
+
         <div className="insights-section">
           <div className="insights-header">
-            <h3><FaMagic className="ai-sparkle" /> FinMate AI Assistant <span className="ai-badge">ALPHA</span></h3>
+            <h3>
+              <div ref={aiHeaderIconRef} className="ai-header-lottie-container" />
+              <span className="insights-title-text">FinSense</span>
+              <span className="ai-badge">ALPHA</span>
+            </h3>
           </div>
-          <div className={`insights-grid ${insights.length === 1 ? 'single-insight' : ''}`}>
+          <div className={`ai-insights-list ${insights.length === 1 ? 'single-insight' : ''}`}>
             {insights.length > 0 ? (
               insights.map((insight, idx) => (
-                <div key={idx} className={`insight-card ${insight.type} priority-${insight.priority || 1}`}>
-                  <div className="insight-icon-container">
-                    {insight.icon}
+                <div key={idx} className={`ai-insight-row ${insight.type} priority-${insight.priority || 1}`}>
+                  <div className="ai-insight-icon-wrapper">
+                    {insight.type === 'critical' ? (
+                      <img
+                        src="https://img.icons8.com/doodle/48/error.png"
+                        alt="Critical Warning"
+                        style={{ width: '40px', height: '40px', objectFit: 'contain' }}
+                      />
+                    ) : insight.type === 'warning' ? (
+                      <img
+                        src="https://img.icons8.com/pulsar-gradient/48/warning-shield.png"
+                        alt="Warning"
+                        style={{ width: '40px', height: '40px', objectFit: 'contain' }}
+                      />
+                    ) : insight.type === 'success' ? (
+                      <img
+                        src="https://img.icons8.com/deco-color/144/ok.png"
+                        alt="Success"
+                        className="success-icon-img"
+                        style={{ width: '40px', height: '40px', objectFit: 'contain' }}
+                      />
+                    ) : insight.type === 'info' ? (
+                      <img
+                        src="https://img.icons8.com/arcade/64/info.png"
+                        alt="Info"
+                        style={{ width: '40px', height: '40px', objectFit: 'contain' }}
+                      />
+                    ) : (
+                      insight.icon
+                    )}
                   </div>
-                  <div className="insight-content">
+                  <div className="ai-insight-body">
                     <h4>{insight.type.charAt(0).toUpperCase() + insight.type.slice(1)} Insight</h4>
                     <p>{insight.message}</p>
                   </div>
                 </div>
               ))
             ) : (
-                <div className="insight-card info loading-shimmer">
-                  <div className="insight-icon-container">🧠</div>
-                  <div className="insight-content">
-                    <h4>Neural Core Activating...</h4>
-                    <p>FinMate AI is analyzing your transactions to find your next money moves.</p>
-                  </div>
+              <div className="ai-insight-row info loading-shimmer">
+                <div className="ai-insight-icon-wrapper">🧠</div>
+                <div className="ai-insight-body">
+                  <h4>Neural Core Activating...</h4>
+                  <p>FinSense is analyzing your transactions to find your next money moves.</p>
                 </div>
+              </div>
             )}
           </div>
         </div>
 
         <div className="dashboard-grid">
-          <div className="dashboard-card-section">
-            <h2>
-              Total Balance {' '}
-              {currency === 'INR'
-                ? <FaRupeeSign onClick={toggleCurrency} className="currency-icon" />
-                : <FaDollarSign onClick={toggleCurrency} className="currency-icon" />}
-            </h2>
-            <p>
-              {currency === 'INR'
-                ? `₹ ${dashboardData.totalBalance.toLocaleString()}`
-                : `$ ${convertCurrency(dashboardData.totalBalance, 'USD').toLocaleString()}`}
+          {/* Card 1: Total Balance */}
+          <div className="dashboard-card-section balance-card-glow">
+            <div className="card-left-tag blue-tag"></div>
+            <div className="card-header-row">
+              <h2>Total Balance</h2>
+              <div className="card-icon-badge blue-badge">
+                <FaWallet />
+              </div>
+            </div>
+            <p className="card-value-display">
+              {formatCurrency(dashboardData.totalBalance)}
             </p>
+            <div className="card-footer-row">
+              <span className="card-footer-status">Available assets</span>
+            </div>
           </div>
 
-          <div className="dashboard-card-section">
-            <h2>Income (This Month)</h2>
-            <p>₹ {dashboardData.income.toLocaleString()}</p>
+          {/* Card 2: Income */}
+          <div className="dashboard-card-section income-card-glow">
+            <div className="card-left-tag purple-tag"></div>
+            <div className="card-header-row">
+              <h2>Income (This Month)</h2>
+              <div className="card-icon-badge purple-badge">
+                <FaArrowUp />
+              </div>
+            </div>
+            <p className="card-value-display">
+              {formatCurrency(dashboardData.income)}
+            </p>
+            <div className="card-footer-row">
+              <span className="card-footer-status">Deposited this month</span>
+            </div>
           </div>
 
-          <div className="dashboard-card-section">
-            <h2>Expenses (This Month)</h2>
-            <p>₹ {dashboardData.expenses.toLocaleString()}</p>
+          {/* Card 3: Expenses */}
+          <div className="dashboard-card-section expense-card-glow">
+            <div className="card-left-tag red-tag"></div>
+            <div className="card-header-row">
+              <h2>Expenses (This Month)</h2>
+              <div className="card-icon-badge red-badge">
+                <FaArrowDown />
+              </div>
+            </div>
+            <p className="card-value-display">
+              {formatCurrency(dashboardData.expenses)}
+            </p>
+            <div className="card-footer-row">
+              <span className="card-footer-status">Withdrawn this month</span>
+            </div>
           </div>
 
-          <div className="dashboard-card-section">
-            <h2>
-              Budget Left {' '}
-              {currency === 'INR'
-                ? <FaRupeeSign className="currency-icon static" />
-                : <FaDollarSign className="currency-icon static" />}
-            </h2>
-            <p style={{ color: dashboardData.budgetLeft < 0 ? 'var(--error-color)' : 'inherit' }}>
-              ₹ {dashboardData.budgetLeft.toLocaleString()}
+          {/* Card 4: Budget Left */}
+          <div className="dashboard-card-section budget-card-glow">
+            <div className="card-left-tag green-tag"></div>
+            <div className="card-header-row">
+              <h2>Budget Left</h2>
+              <div className="card-icon-badge green-badge">
+                <FaChartBar />
+              </div>
+            </div>
+            <p className="card-value-display" style={{ color: dashboardData.budgetLeft < 0 ? 'var(--error-color)' : 'inherit' }}>
+              {formatCurrency(dashboardData.budgetLeft)}
+            </p>
+            <div className="card-footer-row">
               {dashboardData.budgetLimit > 0 ? (
-                  <small style={{ display: 'block', fontSize: '0.8em', marginTop: '4px'}}>
-                      ({((dashboardData.expenses / dashboardData.budgetLimit) * 100).toFixed(0)}% of ₹{dashboardData.budgetLimit.toLocaleString()} used)
-                  </small>
+                <div className="budget-progress-info">
+                  <div className="budget-mini-track">
+                    <div
+                      className="budget-mini-fill"
+                      style={{
+                        width: `${Math.min((dashboardData.expenses / dashboardData.budgetLimit) * 100, 100)}%`,
+                        backgroundColor: (dashboardData.expenses / dashboardData.budgetLimit) >= 0.85 ? '#ef4444' : '#10b981'
+                      }}
+                    />
+                  </div>
+                  <span className="budget-percentage">
+                    {((dashboardData.expenses / dashboardData.budgetLimit) * 100).toFixed(0)}% of {formatCurrency(dashboardData.budgetLimit)} used
+                  </span>
+                </div>
               ) : (
                 <Link to="/budget" className="set-budget-link">Set a budget</Link>
               )}
-            </p>
+            </div>
           </div>
         </div>
 
@@ -506,44 +753,238 @@ const Dashboard = () => {
             <h2>Income vs Expenses</h2>
             <p className="chart-subtitle">Monthly comparison</p>
             <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={dashboardData.monthlyComparison} margin={{ top: 5, right: 0, left: 0, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" fontSize={12}/>
-                <YAxis fontSize={12} tickFormatter={(value) => `₹${value/1000}k`}/>
-                <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
-                <Legend wrapperStyle={{ fontSize: '14px' }}/>
-                <Bar dataKey="Income" fill="#4c51bf" radius={[4, 4, 0, 0]} />
-                <Bar dataKey="Expenses" fill="#f56565" radius={[4, 4, 0, 0]} />
+              <BarChart
+                data={dashboardData.monthlyComparison}
+                margin={{ top: 15, right: 0, left: 0, bottom: 5 }}
+                onMouseMove={(state) => {
+                  if (state && state.activeTooltipIndex !== undefined) {
+                    setActiveBarIndex(state.activeTooltipIndex);
+                  }
+                }}
+                onMouseLeave={() => setActiveBarIndex(null)}
+              >
+                <defs>
+                  {/* Income bar gradient */}
+                  <linearGradient id="bar-grad-income" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#6366f1" stopOpacity={1} />
+                    <stop offset="100%" stopColor="#4f46e5" stopOpacity={0.8} />
+                  </linearGradient>
+                  {/* Expense bar gradient */}
+                  <linearGradient id="bar-grad-expense" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#f87171" stopOpacity={1} />
+                    <stop offset="100%" stopColor="#ef4444" stopOpacity={0.8} />
+                  </linearGradient>
+
+                  {/* Glowing shadow filters for hovered bars */}
+                  <filter id="bar-shadow-active" x="-10%" y="-10%" width="120%" height="120%">
+                    <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#000000" floodOpacity="0.4" />
+                  </filter>
+                </defs>
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.05)" />
+                <XAxis dataKey="name" fontSize={11} tickLine={false} axisLine={false} />
+                 <YAxis 
+                   fontSize={11} 
+                   tickFormatter={(value) => {
+                     const converted = formatCurrencyRaw(value);
+                     const symbol = currency === 'INR' ? '₹' : '$';
+                     return `${symbol}${(converted / 1000).toFixed(converted / 1000 >= 1 ? 0 : 1)}k`;
+                   }} 
+                   tickLine={false} 
+                   axisLine={false} 
+                 />
+                <Tooltip
+                  content={<CustomBarTooltip />}
+                  cursor={false} // Disable the white hover background overlay
+                  wrapperStyle={{ pointerEvents: 'none' }}
+                />
+
+                <Bar dataKey="Income" radius={[6, 6, 0, 0]}>
+                  {dashboardData.monthlyComparison.map((entry, index) => {
+                    const isHovered = activeBarIndex === index;
+                    const isAnyHovered = activeBarIndex !== null;
+                    const opacity = isAnyHovered ? (isHovered ? 1.0 : 0.35) : 1.0;
+                    const isOutline = chartStyle === 'outline';
+                    return (
+                      <Cell
+                        key={`cell-income-${index}`}
+                        fill={isOutline ? 'transparent' : 'url(#bar-grad-income)'}
+                        stroke={isOutline ? '#6366f1' : 'none'}
+                        strokeWidth={isOutline ? 2 : 0}
+                        fillOpacity={isOutline ? 0.08 : opacity}
+                        style={{
+                          filter: isHovered ? 'url(#bar-shadow-active)' : 'none',
+                          transition: 'opacity 0.25s ease, filter 0.25s ease',
+                          cursor: 'pointer'
+                        }}
+                      />
+                    );
+                  })}
+                </Bar>
+
+                <Bar dataKey="Expenses" radius={[6, 6, 0, 0]}>
+                  {dashboardData.monthlyComparison.map((entry, index) => {
+                    const isHovered = activeBarIndex === index;
+                    const isAnyHovered = activeBarIndex !== null;
+                    const opacity = isAnyHovered ? (isHovered ? 1.0 : 0.35) : 1.0;
+                    const isOutline = chartStyle === 'outline';
+                    return (
+                      <Cell
+                        key={`cell-expense-${index}`}
+                        fill={isOutline ? 'transparent' : 'url(#bar-grad-expense)'}
+                        stroke={isOutline ? '#f87171' : 'none'}
+                        strokeWidth={isOutline ? 2 : 0}
+                        fillOpacity={isOutline ? 0.08 : opacity}
+                        style={{
+                          filter: isHovered ? 'url(#bar-shadow-active)' : 'none',
+                          transition: 'opacity 0.25s ease, filter 0.25s ease',
+                          cursor: 'pointer'
+                        }}
+                      />
+                    );
+                  })}
+                </Bar>
               </BarChart>
             </ResponsiveContainer>
+
+            {/* Custom styled legend replacing default Recharts legend */}
+            <div className="bar-legend" style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginTop: '16px' }}>
+              <div className="legend-item" style={{ background: 'none', border: 'none', padding: 0 }}>
+                <span
+                  className="legend-color"
+                  style={{
+                    background: 'linear-gradient(135deg, #6366f1, #4f46e5)',
+                    boxShadow: '0 2px 8px rgba(99,102,241,0.4)',
+                    borderRadius: '4px',
+                    width: '14px',
+                    height: '14px',
+                    display: 'inline-block'
+                  }}
+                ></span>
+                <span className="legend-label" style={{ color: 'var(--text-primary)', fontSize: '0.85rem', fontWeight: 500 }}>Income</span>
+              </div>
+              <div className="legend-item" style={{ background: 'none', border: 'none', padding: 0 }}>
+                <span
+                  className="legend-color"
+                  style={{
+                    background: 'linear-gradient(135deg, #f87171, #ef4444)',
+                    boxShadow: '0 2px 8px rgba(239,68,68,0.4)',
+                    borderRadius: '4px',
+                    width: '14px',
+                    height: '14px',
+                    display: 'inline-block'
+                  }}
+                ></span>
+                <span className="legend-label" style={{ color: 'var(--text-primary)', fontSize: '0.85rem', fontWeight: 500 }}>Expenses</span>
+              </div>
+            </div>
           </div>
 
           <div className="chart-container" style={{ flex: 1 }}>
             <h2>Expense Breakdown</h2>
             <p className="chart-subtitle">Spending by category</p>
-            <ResponsiveContainer width="100%" height={300}>
-              <PieChart>
-                <Pie
-                  data={dashboardData.expenseBreakdown}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={50}
-                  outerRadius={80}
-                  fill="#8884d8"
-                  paddingAngle={5}
-                  dataKey="value"
-                  labelLine={false}
-                  label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                  fontSize={12}
-                >
-                  {dashboardData.expenseBreakdown.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
-                <Legend layout="horizontal" verticalAlign="bottom" align="center" wrapperStyle={{ fontSize: '12px', paddingTop: '20px' }} />
-              </PieChart>
-            </ResponsiveContainer>
+            <div
+              className="pie-chart-container"
+              style={{ minHeight: '440px', marginTop: '16px' }}
+              onMouseLeave={() => setActivePieIndex(null)}
+            >
+              {dashboardData.expenseBreakdown && dashboardData.expenseBreakdown.length > 0 ? (
+                <>
+                  <ResponsiveContainer width="100%" height={440}>
+                    <PieChart onMouseLeave={() => setActivePieIndex(null)}>
+                      <defs>
+                        {GRADIENTS.map((g) => (
+                          <linearGradient key={g.id} id={g.id} x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor={g.start} stopOpacity={1} />
+                            <stop offset="100%" stopColor={g.end} stopOpacity={0.8} />
+                          </linearGradient>
+                        ))}
+                        <filter id="pie-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                          <feDropShadow dx="0" dy="8" stdDeviation="6" floodColor="#000000" floodOpacity="0.5" />
+                        </filter>
+                        <filter id="pie-shadow-active" x="-30%" y="-30%" width="160%" height="160%">
+                          <feDropShadow dx="0" dy="14" stdDeviation="10" floodColor="#000000" floodOpacity="0.65" />
+                        </filter>
+                      </defs>
+                      <Pie
+                        data={dashboardData.expenseBreakdown}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={110}
+                        outerRadius={148}
+                        paddingAngle={4}
+                        dataKey="value"
+                        activeIndex={activePieIndex !== null ? activePieIndex : undefined}
+                        activeShape={renderActiveShape}
+                        onMouseEnter={(data, index) => setActivePieIndex(index)}
+                        onMouseLeave={() => setActivePieIndex(null)}
+                        isAnimationActive={true}
+                        animationDuration={600}
+                        animationEasing="ease-out"
+                      >
+                        {dashboardData.expenseBreakdown.map((entry, index) => {
+                          const grad = GRADIENTS[index % GRADIENTS.length];
+                          const isHovered = activePieIndex === index;
+                          const isAnyHovered = activePieIndex !== null;
+                          const opacity = isAnyHovered ? (isHovered ? 1.0 : 0.3) : 1.0;
+                          return (
+                            <Cell
+                              key={`cell-${index}`}
+                              fill={grad.start}
+                              stroke={grad.start}
+                              strokeWidth={1.5}
+                              style={{
+                                outline: 'none',
+                                cursor: 'pointer',
+                                opacity,
+                                filter: isHovered ? 'url(#pie-shadow-active)' : 'url(#pie-shadow)',
+                                transition: 'opacity 0.3s ease, filter 0.3s ease'
+                              }}
+                            />
+                          );
+                        })}
+                      </Pie>
+                      <Tooltip
+                        content={<CustomTooltip />}
+                        wrapperStyle={{ pointerEvents: 'none' }}
+                        active={activePieIndex !== null}
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                  <div className="pie-legend">
+                    {dashboardData.expenseBreakdown.map((entry, index) => {
+                      const grad = GRADIENTS[index % GRADIENTS.length];
+                      const total = dashboardData.expenseBreakdown.reduce((sum, item) => sum + item.value, 0) || 1;
+                      const percent = ((entry.value / total) * 100).toFixed(1);
+                      return (
+                        <div key={index} className={`legend-item ${activePieIndex === index ? 'active' : ''}`}>
+                          <span
+                            className="legend-color"
+                            style={{
+                              background: grad.start,
+                              boxShadow: `0 2px 8px ${grad.start}66`,
+                              borderRadius: '4px',
+                              width: '14px',
+                              height: '14px'
+                            }}
+                          ></span>
+                          <span className="legend-label">
+                            {entry.name}: {percent}%
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </>
+              ) : (
+                <div className="empty-pie-placeholder">
+                  <div className="empty-pie-ring">
+                    <FaChartPie className="empty-pie-icon" />
+                  </div>
+                  <h4>No Expense Data</h4>
+                  <p>Add transactions to view your category expense breakdown pie chart.</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
@@ -583,8 +1024,8 @@ const Dashboard = () => {
                     <td>{transaction.category}</td>
                     <td>
                       <span style={{ color: transaction.amount >= 0 ? 'var(--success-color)' : 'var(--error-color)' }}>
-                        {transaction.amount >= 0 ? '+' : '-'} 
-                        ₹{Math.abs(transaction.amount).toLocaleString()}
+                        {transaction.amount >= 0 ? '+' : '-'}
+                        {formatCurrency(Math.abs(transaction.amount))}
                       </span>
                     </td>
                     <td>
@@ -622,17 +1063,17 @@ const Dashboard = () => {
               <p><strong>Date:</strong> {selectedTransaction.date}</p>
               <p><strong>Description:</strong> {selectedTransaction.description}</p>
               <p><strong>Category:</strong> {selectedTransaction.category}</p>
-              <p><strong>Base Amount:</strong> ₹{Math.abs(selectedTransaction.amount).toLocaleString()}</p>
-              <p><strong>Tax:</strong> ₹{(Math.abs(selectedTransaction.amount) * 0.18).toLocaleString()}</p>
-              <p><strong>Total Amount:</strong> ₹{(Math.abs(selectedTransaction.amount) * 1.18).toLocaleString()}</p>
+              <p><strong>Base Amount:</strong> {formatCurrency(Math.abs(selectedTransaction.amount))}</p>
+              <p><strong>Tax (18%):</strong> {formatCurrency(Math.abs(selectedTransaction.amount) * 0.18)}</p>
+              <p><strong>Total Amount:</strong> {formatCurrency(Math.abs(selectedTransaction.amount) * 1.18)}</p>
             </div>
           </div>
         </div>
       )}
 
       {showFilterModal && (
-        <div className="modal-overlay">
-          <div className="modal-content">
+        <div className="modal-overlay" data-lenis-prevent>
+          <div className="modal-content" data-lenis-prevent>
             <div className="modal-header">
               <h3>Filter Transactions</h3>
               <button onClick={closeFilterModal} className="close-btn"><FaTimes /></button>
@@ -664,8 +1105,8 @@ const Dashboard = () => {
       )}
 
       {showAddModal && (
-        <div className="modal-overlay">
-          <div className="modal-content">
+        <div className="modal-overlay" data-lenis-prevent>
+          <div className="modal-content" data-lenis-prevent>
             <div className="modal-header">
               <h3>Add New Transaction</h3>
               <button onClick={closeAddModal} className="close-btn"><FaTimes /></button>
@@ -721,7 +1162,7 @@ const Dashboard = () => {
                 </div>
                 <div style={{ flex: 1 }}>
                   <label>Amount</label>
-                  <input type="number" name="amount" value={formData.amount} onChange={handleInputChange} placeholder="Enter positive amount" required min="0.01" step="0.01"/>
+                  <input type="number" name="amount" value={formData.amount} onChange={handleInputChange} placeholder="Enter positive amount" required min="0.01" step="0.01" />
                 </div>
               </div>
               <div className="modal-actions">
@@ -736,8 +1177,8 @@ const Dashboard = () => {
       )}
 
       {showEditModal && (
-        <div className="modal-overlay">
-          <div className="modal-content">
+        <div className="modal-overlay" data-lenis-prevent>
+          <div className="modal-content" data-lenis-prevent>
             <div className="modal-header">
               <h3>Edit Transaction</h3>
               <button onClick={closeEditModal} className="close-btn"><FaTimes /></button>
@@ -767,20 +1208,20 @@ const Dashboard = () => {
                   <input type="text" name="category" value={formData.category} onChange={handleInputChange} placeholder="e.g., Food, Income" required />
                   <div className="category-suggestions" style={{ marginTop: '8px' }}>
                     {[...new Set([...budgetCategories, 'Miscellaneous', 'Income', 'Salary', 'Investment'])].map(cat => (
-                       <button
-                         key={cat}
-                         type="button"
-                         className={`suggestion-btn ${formData.category === cat ? 'active' : ''}`}
-                         onClick={() => setFormData(prev => ({ ...prev, category: cat }))}
-                       >
-                         {cat}
-                       </button>
+                      <button
+                        key={cat}
+                        type="button"
+                        className={`suggestion-btn ${formData.category === cat ? 'active' : ''}`}
+                        onClick={() => setFormData(prev => ({ ...prev, category: cat }))}
+                      >
+                        {cat}
+                      </button>
                     ))}
                   </div>
                 </div>
                 <div style={{ flex: 1 }}>
                   <label>Amount</label>
-                  <input type="number" name="amount" value={formData.amount} onChange={handleInputChange} placeholder="Enter positive amount" required min="0.01" step="0.01"/>
+                  <input type="number" name="amount" value={formData.amount} onChange={handleInputChange} placeholder="Enter positive amount" required min="0.01" step="0.01" />
                 </div>
               </div>
               <div className="modal-actions">
@@ -794,7 +1235,7 @@ const Dashboard = () => {
         </div>
       )}
       {showDeleteModal && (
-        <div className="modal-overlay">
+        <div className="modal-overlay" data-lenis-prevent>
           <div className="modal-content delete-modal">
             <div className="modal-header">
               <h3 className="delete-title">
@@ -815,44 +1256,7 @@ const Dashboard = () => {
         </div>
       )}
 
-      {/* Modern Floating AI Chat */}
-      <button className="chat-launcher" onClick={() => setIsChatOpen(!isChatOpen)}>
-        <FaMagic /> AI help
-      </button>
 
-      {isChatOpen && (
-        <div className="floating-chat-window">
-          <div className="chat-window-header">
-            <h3><FaMagic /> FinMate AI</h3>
-            <button onClick={() => setIsChatOpen(false)} className="close-chat-btn"><FaTimes /></button>
-          </div>
-          <div className="ai-chat-container">
-            <div className="chat-history">
-              {chatHistory.map((chat, idx) => (
-                <div key={idx} className={`chat-bubble ${chat.role}`}>
-                  <p>{chat.message}</p>
-                </div>
-              ))}
-              {isTyping && <div className="chat-bubble assistant typing">Thinking...</div>}
-              <div ref={chatEndRef} />
-            </div>
-            <div className="chat-suggestions">
-                <button onClick={() => handleChat(null, "Where did I overspend?")} className="suggestion-pill">Where did I overspend?</button>
-                <button onClick={() => handleChat(null, "How much budget is left?")} className="suggestion-pill">How much is left?</button>
-                <button onClick={() => handleChat(null, "Reduce Swiggy spending")} className="suggestion-pill">Saving tips</button>
-            </div>
-            <form onSubmit={handleChat} className="chat-input-row">
-              <input 
-                type="text" 
-                placeholder="Ask your Finance GPT..." 
-                value={chatInput}
-                onChange={(e) => setChatInput(e.target.value)}
-              />
-              <button type="submit" className="chat-send-btn">Send</button>
-            </form>
-          </div>
-        </div>
-      )}
     </>
   );
 };

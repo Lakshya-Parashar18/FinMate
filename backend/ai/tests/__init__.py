@@ -1,0 +1,3 @@
+"""
+AI Platform Tests Package
+"""

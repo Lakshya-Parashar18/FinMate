@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "model_type": "ExtraTrees",
+  "r2_score": 0.9626842578691437,
+  "training_samples": 1000,
+  "feature_names": [
+    "monthly_income",
+    "savings_rate",
+    "budget_utilization",
+    "investment_ratio",
+    "emergency_savings_ratio",
+    "non_essential_spending_ratio",
+    "expense_volatility"
+  ],
+  "feature_importances": {
+    "monthly_income": 0.010630474694576139,
+    "savings_rate": 0.46243512760513733,
+    "budget_utilization": 0.06448214562861444,
+    "investment_ratio": 0.27859498660129906,
+    "emergency_savings_ratio": 0.15592807567178643,
+    "non_essential_spending_ratio": 0.017470543650311882,
+    "expense_volatility": 0.010458646148274822
+  }
+}
