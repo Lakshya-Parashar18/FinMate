@@ -7,10 +7,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.join(__dirname, '.env') });
 
-const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://FinMate:Lucky123@cluster0.5iqrf.mongodb.net/?appName=Cluster0";
+const MONGO_URI = process.env.MONGO_URI;
 
 async function run() {
-  console.log("Connecting to", MONGO_URI);
+  if (!MONGO_URI) {
+    console.error("❌ Error: MONGO_URI environment variable is missing.");
+    process.exit(1);
+  }
+
+  console.log("Connecting to MongoDB...");
   await mongoose.connect(MONGO_URI);
   console.log("Connected!");
 
