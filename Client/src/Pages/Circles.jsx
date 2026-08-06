@@ -57,7 +57,6 @@ import {
   Pie,
   Cell
 } from 'recharts';
-import Lenis from 'lenis';
 import Loading from '../components/Loading';
 import './Circles.css';
 
@@ -531,31 +530,8 @@ const Circles = () => {
     };
   }, [friends, circles, requests]);
 
-  // Initialize smooth scroll (Lenis) matching the layout patterns
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 0.9,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 2.0,
-      touchMultiplier: 2,
-      infinite: false,
-    });
 
-    let frameId;
-    function raf(time) {
-      lenis.raf(time);
-      frameId = requestAnimationFrame(raf);
-    }
-    frameId = requestAnimationFrame(raf);
 
-    return () => {
-      lenis.destroy();
-      cancelAnimationFrame(frameId);
-    };
-  }, [activeCircleId, dashboardTab, circleTab]);
 
   // Confetti particles loop
   useEffect(() => {

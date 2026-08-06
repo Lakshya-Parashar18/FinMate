@@ -39,7 +39,6 @@ import groomingIcon from '../assets/grooming.png';
 import { useAuth } from '../context/AuthContext';
 import { useDisplaySettings } from '../context/DisplaySettingsContext';
 import './Budget.css';
-import Lenis from 'lenis';
 
 const GRADIENTS = [
   { id: 'grad-teal', start: '#06b6d4', end: '#2dd4bf' },
@@ -235,32 +234,8 @@ const Budget = () => {
     return null;
   };
 
-  // Initialize Lenis for smooth scrolling
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 0.9,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 2.0,
-      touchMultiplier: 2,
-      infinite: false,
-    });
 
-    let frameId;
-    function raf(time) {
-      lenis.raf(time);
-      frameId = requestAnimationFrame(raf);
-    }
 
-    frameId = requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-      cancelAnimationFrame(frameId);
-    };
-  }, []);
 
   const isAnyModalOpen = showAddCategoryModal || showEditCategoryModal || showBudgetExceededModal || showSetBudgetModal || showDeleteModal;
 

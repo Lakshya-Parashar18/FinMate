@@ -51,7 +51,6 @@ import { API_URL } from '../config';
 import { useDisplaySettings } from '../context/DisplaySettingsContext';
 import { useAuth } from '../context/AuthContext';
 import './Settings.css';
-import Lenis from 'lenis';
 import Loading from '../components/Loading';
 import dayjs from 'dayjs';
 
@@ -272,50 +271,23 @@ const Settings = () => {
     }
   };
 
-  /* ── Lenis smooth scroll ───────────────────────────── */
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 0.9,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 2.0,
-      touchMultiplier: 2,
-      infinite: false,
-    });
-    lenisRef.current = lenis;
-    let frameId;
-    function raf(time) { lenis.raf(time); frameId = requestAnimationFrame(raf); }
-    frameId = requestAnimationFrame(raf);
-    return () => { 
-      lenis.destroy(); 
-      lenisRef.current = null;
-      cancelAnimationFrame(frameId); 
-    };
-  }, []);
+
 
   useEffect(() => {
     const isAnyModalOpen = showEditModal || showDeleteModal || showPhoneVerifyModal || showPasswordModal || showZoomedAvatar || show2FASetupModal || show2FADisableModal;
     if (isAnyModalOpen) {
-      if (lenisRef.current) {
-        lenisRef.current.stop();
-      }
+      window.lenis?.stop();
       document.body.style.overflow = 'hidden';
       document.documentElement.style.overflow = 'hidden';
       document.documentElement.classList.add('lenis-stopped');
     } else {
-      if (lenisRef.current) {
-        lenisRef.current.start();
-      }
+      window.lenis?.start();
       document.body.style.overflow = '';
       document.documentElement.style.overflow = '';
       document.documentElement.classList.remove('lenis-stopped');
     }
     return () => {
-      if (lenisRef.current) {
-        lenisRef.current.start();
-      }
+      window.lenis?.start();
       document.body.style.overflow = '';
       document.documentElement.style.overflow = '';
       document.documentElement.classList.remove('lenis-stopped');
@@ -720,8 +692,8 @@ const Settings = () => {
     setSupportSent(false);
     setSupportForm({ subject: subjectText, message: '' });
     setTimeout(() => {
-      if (lenisRef.current && supportFormRef.current) {
-        lenisRef.current.scrollTo(supportFormRef.current, {
+      if (window.lenis && supportFormRef.current) {
+        window.lenis.scrollTo(supportFormRef.current, {
           offset: -150,
           duration: 1.2,
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

@@ -23,12 +23,40 @@ html {
   scrollbar-gutter: stable;
 }
 
-/* Enable smooth scrolling globally on all scrollable elements & containers */
-*,
-*::before,
-*::after {
-  scroll-behavior: smooth;
+/* Lenis smooth scrolling rules */
+html.lenis, html.lenis body {
+  height: auto;
 }
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* GPU performance composition layers */
+.gpu-card, .gpu-chart, .gpu-btn,
+.card-selector, .chart-selector, .btn-selector,
+button, .btn, .auth-submit-btn, .auth-demo-btn,
+.stat-card, .balance-card, .dashboard-card, .glass-card,
+.chart-container, .chart-wrapper, .recharts-responsive-container, .recharts-wrapper {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, opacity;
+}
+
+
 
 body {
   text-rendering: optimizeLegibility;

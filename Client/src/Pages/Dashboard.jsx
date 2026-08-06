@@ -35,7 +35,7 @@ import aiIconAnimation from '../assets/ai-icon.json';
 import { API_URL } from '../config';
 import { useAuth } from '../context/AuthContext';
 import { useDisplaySettings } from '../context/DisplaySettingsContext';
-import Lenis from 'lenis';
+
 
 const GRADIENTS = [
   { id: 'dash-grad-teal', start: '#06b6d4', end: '#2dd4bf' },
@@ -189,33 +189,6 @@ const Dashboard = () => {
   const [formError, setFormError] = useState('');
   const [formLoading, setFormLoading] = useState(false);
 
-
-  // Initialize Lenis for smooth scrolling
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 0.75,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 2.0,
-      touchMultiplier: 2,
-      infinite: false,
-    });
-
-    let frameId;
-    function raf(time) {
-      lenis.raf(time);
-      frameId = requestAnimationFrame(raf);
-    }
-
-    frameId = requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-      cancelAnimationFrame(frameId);
-    };
-  }, []);
 
   // Prevent background scrolling when modal is open
   useEffect(() => {
@@ -782,16 +755,16 @@ const Dashboard = () => {
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.05)" />
                 <XAxis dataKey="name" fontSize={11} tickLine={false} axisLine={false} />
-                 <YAxis 
-                   fontSize={11} 
-                   tickFormatter={(value) => {
-                     const converted = formatCurrencyRaw(value);
-                     const symbol = currency === 'INR' ? '₹' : '$';
-                     return `${symbol}${(converted / 1000).toFixed(converted / 1000 >= 1 ? 0 : 1)}k`;
-                   }} 
-                   tickLine={false} 
-                   axisLine={false} 
-                 />
+                <YAxis
+                  fontSize={11}
+                  tickFormatter={(value) => {
+                    const converted = formatCurrencyRaw(value);
+                    const symbol = currency === 'INR' ? '₹' : '$';
+                    return `${symbol}${(converted / 1000).toFixed(converted / 1000 >= 1 ? 0 : 1)}k`;
+                  }}
+                  tickLine={false}
+                  axisLine={false}
+                />
                 <Tooltip
                   content={<CustomBarTooltip />}
                   cursor={false} // Disable the white hover background overlay

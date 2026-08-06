@@ -20,6 +20,7 @@ import PrivacyPage from "./Pages/PrivacyPage";
 import TermsPage from "./Pages/TermsPage";
 import ContactPage from "./Pages/ContactPage";
 import ScrollToTop from "./utils/ScrollToTop";
+import LenisProvider from "./components/LenisProvider";
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
@@ -42,48 +43,50 @@ export default function App() {
     <GoogleOAuthProvider clientId={googleClientId}>
       <AuthProvider>
         <DisplaySettingsProvider>
-          <Router>
-            <ScrollToTop />
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/verify/:token" element={<VerifyEmail />} />
-              <Route path="/email-preview" element={<iframe src="/api/auth/preview-email" style={{ width: '100vw', height: '100vh', border: 'none', background: '#0b0f19' }} title="Email Preview" />} />
-              <Route
-                path="/settings"
-                element={<PrivateRoute><Settings /></PrivateRoute>}
-              />
-              <Route
-                path="/circles"
-                element={<PrivateRoute><Circles /></PrivateRoute>}
-              />
-              <Route
-                path="/dashboard"
-                element={<PrivateRoute><Dashboard /></PrivateRoute>}
-              />
-              <Route
-                path="/profile"
-                element={<PrivateRoute><Profile /></PrivateRoute>}
-              />
-              <Route
-                path="/transactions"
-                element={<PrivateRoute><Transactions /></PrivateRoute>}
-              />
-              <Route
-                path="/budget"
-                element={<PrivateRoute><Budget /></PrivateRoute>}
-              />
-              <Route path="/analytics"
-                element={<PrivateRoute><Analytics /></PrivateRoute>}
-              />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/privacy" element={<PrivacyPage />} />
-              <Route path="/terms" element={<TermsPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="*" element={<Navigate to="/dashboard" replace />} />
-            </Routes>
-          </Router>
+          <LenisProvider>
+            <Router>
+              <ScrollToTop />
+              <Routes>
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/verify/:token" element={<VerifyEmail />} />
+                <Route path="/email-preview" element={<iframe src="/api/auth/preview-email" style={{ width: '100vw', height: '100vh', border: 'none', background: '#0b0f19' }} title="Email Preview" />} />
+                <Route
+                  path="/settings"
+                  element={<PrivateRoute><Settings /></PrivateRoute>}
+                />
+                <Route
+                  path="/circles"
+                  element={<PrivateRoute><Circles /></PrivateRoute>}
+                />
+                <Route
+                  path="/dashboard"
+                  element={<PrivateRoute><Dashboard /></PrivateRoute>}
+                />
+                <Route
+                  path="/profile"
+                  element={<PrivateRoute><Profile /></PrivateRoute>}
+                />
+                <Route
+                  path="/transactions"
+                  element={<PrivateRoute><Transactions /></PrivateRoute>}
+                />
+                <Route
+                  path="/budget"
+                  element={<PrivateRoute><Budget /></PrivateRoute>}
+                />
+                <Route path="/analytics"
+                  element={<PrivateRoute><Analytics /></PrivateRoute>}
+                />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/privacy" element={<PrivacyPage />} />
+                <Route path="/terms" element={<TermsPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="*" element={<Navigate to="/dashboard" replace />} />
+              </Routes>
+            </Router>
+          </LenisProvider>
         </DisplaySettingsProvider>
       </AuthProvider>
     </GoogleOAuthProvider>

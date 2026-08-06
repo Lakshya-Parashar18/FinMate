@@ -26,7 +26,7 @@ import AuthLayout from "../components/AuthLayout";
 import FloatingDemo from "../components/FloatingDemo";
 import "./Login.css";
 import "./Signup.css";
-import Lenis from 'lenis';
+
 
 const passwordRules = [
   { id: "length", label: "At least 8 characters", test: (p) => p.length >= 8 },
@@ -150,32 +150,8 @@ export default function Signup() {
     setIsCheckingUsername(false);
   };
 
-  // Initialize Lenis for smooth scrolling
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 0.9,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 2.0,
-      touchMultiplier: 2,
-      infinite: false,
-    });
 
-    let frameId;
-    function raf(time) {
-      lenis.raf(time);
-      frameId = requestAnimationFrame(raf);
-    }
 
-    frameId = requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-      cancelAnimationFrame(frameId);
-    };
-  }, []);
 
   const passwordStrength = useMemo(() => {
     if (!password) return { score: 0, label: "", color: "" };

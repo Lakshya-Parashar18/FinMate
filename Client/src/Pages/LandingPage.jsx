@@ -13,7 +13,6 @@ import FloatingDemo from "../components/FloatingDemo";
 import TestimonialsSection from "../components/TestimonialsSection";
 import Footer from "../components/Footer";
 import "./LandingPage.css";
-import Lenis from 'lenis';
 
 export default function LandingPage() {
   const [isDemoOpen, setIsDemoOpen] = useState(false);
@@ -23,35 +22,6 @@ export default function LandingPage() {
   const location = useLocation();
   const { login } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
-
-  // Initialize Lenis for smooth scrolling
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 0.9,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 2.0,
-      touchMultiplier: 2,
-      infinite: false,
-    });
-    window.lenis = lenis;
-
-    let frameId;
-    function raf(time) {
-      lenis.raf(time);
-      frameId = requestAnimationFrame(raf);
-    }
-
-    frameId = requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-      window.lenis = null;
-      cancelAnimationFrame(frameId);
-    };
-  }, []);
 
   // Handle scrolling to URL hash sections on load (e.g. from footer links on other pages)
   useEffect(() => {

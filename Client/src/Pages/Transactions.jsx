@@ -20,7 +20,6 @@ import {
 import { useAuth } from '../context/AuthContext';
 import { useDisplaySettings } from '../context/DisplaySettingsContext';
 import './Transactions.css';
-import Lenis from 'lenis';
 import Loading from '../components/Loading';
 
 const Transactions = () => {
@@ -89,32 +88,8 @@ const Transactions = () => {
     }
   }, []);
 
-  // Initialize Lenis for smooth scrolling
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 0.75,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 2.0,
-      touchMultiplier: 2,
-      infinite: false,
-    });
 
-    let frameId;
-    function raf(time) {
-      lenis.raf(time);
-      frameId = requestAnimationFrame(raf);
-    }
 
-    frameId = requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-      cancelAnimationFrame(frameId);
-    };
-  }, []);
 
   useEffect(() => {
     fetchTransactions();
