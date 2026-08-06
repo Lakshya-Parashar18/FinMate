@@ -2796,7 +2796,7 @@ html {
 }
 
 [data-theme="dark"] .no-categories-message,
-[data-theme="dark"] .categories-list > p {
+[data-theme="dark"] .categories-list>p {
   grid-column: 1 / -1 !important;
   text-align: center !important;
   width: 100% !important;
