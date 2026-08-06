@@ -5,18 +5,17 @@ import datetime
 from bson import ObjectId
 from pymongo import MongoClient
 from dotenv import load_dotenv
+from pathlib import Path
 
-# Find and load the environment variables from the server/.env file
-current_dir = os.path.dirname(os.path.abspath(__file__))
-project_root = os.path.abspath(os.path.join(current_dir, "..", "..", ".."))
-dotenv_path = os.path.join(project_root, "server", ".env")
-
-if os.path.exists(dotenv_path):
-    load_dotenv(dotenv_path)
-else:
-    load_dotenv()
+# Load from backend/.env (one level up from backend/ai/anomaly/).
+# Falls back gracefully to OS environment variables — the correct behaviour
+# in Docker/Railway where no .env file is present on disk.
+_env_path = Path(__file__).resolve().parent.parent.parent / ".env"
+load_dotenv(dotenv_path=_env_path, override=False)
+load_dotenv(override=False)  # final fallback to process environment
 
 MONGO_URI = os.getenv("MONGO_URI")
+
 
 def get_db_client():
     """Establish a connection to the MongoDB database."""
