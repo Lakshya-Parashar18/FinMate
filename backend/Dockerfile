@@ -20,13 +20,14 @@ COPY ai/ ./ai/
 COPY VERSION ./VERSION
 
 # Runtime environment variables
+# PORT=7860 is the Hugging Face Spaces default. Override locally with PORT=8000.
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
-    PORT=8000 \
+    PORT=7860 \
     ENVIRONMENT=production
 
-# Expose the service port
-EXPOSE 8000
+# Expose the service port (7860 = Hugging Face Spaces default)
+EXPOSE 7860
 
 # Health check — waits 30s for models to load, then polls every 30s
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
