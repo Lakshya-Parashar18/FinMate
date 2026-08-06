@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import helmet from "helmet";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -10,6 +11,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Load environment variables IMMEDIATELY
+dotenv.config({ path: path.join(__dirname, "..", "server", ".env") });
 dotenv.config();
 
 import session from "express-session";
@@ -27,6 +29,10 @@ import insightRoutes from "../server/routes/insightRoutes.js";
 import testimonialRoutes from "../server/routes/testimonialRoutes.js";
 import subscriberRoutes from "../server/routes/subscriberRoutes.js";
 import supportRoutes from "../server/routes/supportRoutes.js";
+import goalRoutes from "../server/routes/goalRoutes.js";
+import circleRoutes from "../server/routes/circleRoutes.js";
+import aiRoutes from "../server/routes/aiRoutes.js";
+import anomalyRoutes from "../server/routes/anomalyRoutes.js";
 
 const app = express();
 
@@ -38,8 +44,9 @@ const MONGO_URI = process.env.MONGO_URI;
 const SESSION_SECRET = process.env.SESSION_SECRET;
 
 // Middleware
+app.use(helmet());
 app.use(cors({
-  origin: true, 
+  origin: process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(',') : true,
   credentials: true
 }));
 app.use(express.json());
@@ -77,6 +84,41 @@ app.use("/api/insights", insightRoutes);
 app.use("/api/testimonials", testimonialRoutes);
 app.use("/api/subscribers", subscriberRoutes);
 app.use("/api/support", supportRoutes);
+app.use("/api/goals", goalRoutes);
+app.use("/api/circles", circleRoutes);
+app.use("/api/ai", aiRoutes);
+app.use("/api/ai/anomaly", anomalyRoutes);
+
+app.get("/api/health", async (req, res) => {
+  const dbConnected = mongoose.connection.readyState === 1;
+  let aiStatus = "NOT_CONFIGURED";
+  let aiHealthDetails = null;
+
+  if (process.env.AI_SERVICE_URL) {
+    try {
+      const response = await fetch(`${process.env.AI_SERVICE_URL}/api/ai/health`);
+      if (response.ok) {
+        aiHealthDetails = await response.json();
+        aiStatus = aiHealthDetails.status === "healthy" ? "CONNECTED" : "DEGRADED";
+      } else {
+        aiStatus = "UNHEALTHY";
+      }
+    } catch (err) {
+      aiStatus = "ERROR";
+    }
+  }
+
+  res.json({
+    status: (dbConnected && (aiStatus === "CONNECTED" || aiStatus === "NOT_CONFIGURED")) ? "healthy" : "unhealthy",
+    uptime: process.uptime(),
+    database: dbConnected ? "CONNECTED" : "DISCONNECTED",
+    aiService: {
+      status: aiStatus,
+      details: aiHealthDetails
+    },
+    timestamp: new Date().toISOString()
+  });
+});
 
 app.get("/", (req, res) => {
   res.send("✅ FinMate API is alive and kicking (MJS Mode)!");

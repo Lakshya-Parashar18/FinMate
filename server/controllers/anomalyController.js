@@ -1,59 +1,35 @@
 import Anomaly from '../models/Anomaly.js';
 import Transaction from '../models/Transaction.js';
-import { spawn } from 'child_process';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import asyncHandler from 'express-async-handler';
+import * as aiService from '../utils/aiService.js';
+import logger from '../utils/logger.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Helper function to run detect.py subprocess and upsert Anomaly record in database
-const detectAndSaveAnomaly = (userId, transactionId) => {
-    return new Promise((resolve, reject) => {
-        const scriptPath = path.join(__dirname, '../../backend/ai/anomaly/detect.py');
-        const pythonProcess = spawn('python', [scriptPath, userId.toString(), transactionId.toString()]);
+// Helper function to run detect and upsert Anomaly record in database
+const detectAndSaveAnomaly = async (userId, transactionId) => {
+    try {
+        const result = await aiService.checkAnomaly(userId, transactionId);
+        if (result.error) {
+            throw new Error(result.error);
+        }
         
-        let stdoutData = '';
-        let stderrData = '';
+        // Save/update anomaly record in database
+        const anomalyRecord = await Anomaly.findOneAndUpdate(
+            { transaction: transactionId },
+            {
+                user: userId,
+                isAnomaly: result.isAnomaly,
+                anomalyScore: result.anomalyScore,
+                severity: result.severity,
+                reasons: result.reasons
+            },
+            { upsert: true, new: true }
+        );
         
-        pythonProcess.stdout.on('data', (data) => {
-            stdoutData += data.toString();
-        });
-        
-        pythonProcess.stderr.on('data', (data) => {
-            stderrData += data.toString();
-        });
-        
-        pythonProcess.on('close', async (code) => {
-            if (code !== 0) {
-                return reject(new Error(`detect.py process exited with code ${code}. Error: ${stderrData}`));
-            }
-            try {
-                const result = JSON.parse(stdoutData.trim());
-                if (result.error) {
-                    return reject(new Error(result.error));
-                }
-                
-                // Save/update anomaly record in database
-                const anomalyRecord = await Anomaly.findOneAndUpdate(
-                    { transaction: transactionId },
-                    {
-                        user: userId,
-                        isAnomaly: result.isAnomaly,
-                        anomalyScore: result.anomalyScore,
-                        severity: result.severity,
-                        reasons: result.reasons
-                    },
-                    { upsert: true, new: true }
-                );
-                
-                resolve(anomalyRecord);
-            } catch (err) {
-                reject(err);
-            }
-        });
-    });
+        return anomalyRecord;
+    } catch (err) {
+        logger.error(`Anomaly detection execution failed for transaction ${transactionId}:`, err);
+        throw err;
+    }
 };
 
 // @desc    Perform live anomaly check on a transaction
@@ -81,7 +57,7 @@ const checkAnomaly = asyncHandler(async (req, res) => {
         const anomalyRecord = await detectAndSaveAnomaly(userId, transactionId);
         res.json(anomalyRecord);
     } catch (err) {
-        console.error('Anomaly scan error:', err);
+        logger.error('Anomaly scan error:', err);
         res.status(500).json({ error: err.message || 'Anomaly scan execution failed' });
     }
 });
@@ -108,13 +84,13 @@ const getAnomaly = asyncHandler(async (req, res) => {
         
         // If it doesn't exist yet, run scanning on the fly
         if (!anomalyRecord) {
-            console.log(`Anomaly record missing for transaction ${transactionId} - running scan now...`);
+            logger.info(`Anomaly record missing for transaction ${transactionId} - running scan now...`);
             anomalyRecord = await detectAndSaveAnomaly(userId, transactionId);
         }
         
         res.json(anomalyRecord);
     } catch (err) {
-        console.error('Fetch anomaly error:', err);
+        logger.error(`Fetch anomaly error for transaction ${transactionId}:`, err);
         res.status(500).json({ error: err.message || 'Failed to fetch anomaly record' });
     }
 });

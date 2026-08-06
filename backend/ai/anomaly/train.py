@@ -3,10 +3,10 @@ import sys
 import pandas as pd
 from sklearn.ensemble import IsolationForest
 
-from utils import fetch_raw_transactions, get_user_budgets
-from preprocess import clean_and_format_transactions
-from feature_engineering import extract_features_df, normalize_features
-from model_loader import save_user_model
+from .utils import fetch_raw_transactions, get_user_budgets
+from .preprocess import clean_and_format_transactions
+from .feature_engineering import extract_features_df, normalize_features
+from .model_loader import save_user_model
 
 def train_anomaly_model(user_id):
     """

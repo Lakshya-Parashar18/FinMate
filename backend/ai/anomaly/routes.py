@@ -1,6 +1,6 @@
 from fastapi import FastAPI, APIRouter, HTTPException, Query
-from detect import evaluate_transaction_anomaly
-from train import train_anomaly_model
+from .detect import evaluate_transaction_anomaly
+from .train import train_anomaly_model
 
 app = FastAPI(
     title="FinMate AI Anomaly Detection Engine",

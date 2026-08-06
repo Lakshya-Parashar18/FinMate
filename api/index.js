@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import helmet from "helmet";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -42,8 +43,9 @@ if (!MONGO_URI || !SESSION_SECRET) {
 }
 
 // Middleware
+app.use(helmet());
 app.use(cors({
-  origin: true, // Allow the current origin
+  origin: process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(',') : true,
   credentials: true
 }));
 app.use(express.json());
@@ -84,6 +86,37 @@ app.use("/api/goals", goalRoutes);
 app.use("/api/circles", circleRoutes);
 app.use("/api/ai", aiRoutes);
 app.use("/api/ai/anomaly", anomalyRoutes);
+
+app.get("/api/health", async (req, res) => {
+  const dbConnected = mongoose.connection.readyState === 1;
+  let aiStatus = "NOT_CONFIGURED";
+  let aiHealthDetails = null;
+
+  if (process.env.AI_SERVICE_URL) {
+    try {
+      const response = await fetch(`${process.env.AI_SERVICE_URL}/api/ai/health`);
+      if (response.ok) {
+        aiHealthDetails = await response.json();
+        aiStatus = aiHealthDetails.status === "healthy" ? "CONNECTED" : "DEGRADED";
+      } else {
+        aiStatus = "UNHEALTHY";
+      }
+    } catch (err) {
+      aiStatus = "ERROR";
+    }
+  }
+
+  res.json({
+    status: (dbConnected && (aiStatus === "CONNECTED" || aiStatus === "NOT_CONFIGURED")) ? "healthy" : "unhealthy",
+    uptime: process.uptime(),
+    database: dbConnected ? "CONNECTED" : "DISCONNECTED",
+    aiService: {
+      status: aiStatus,
+      details: aiHealthDetails
+    },
+    timestamp: new Date().toISOString()
+  });
+});
 
 app.get("/", (req, res) => {
   res.send("✅ FinMate API is alive and kicking!");

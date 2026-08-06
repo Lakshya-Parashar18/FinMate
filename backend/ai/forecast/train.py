@@ -2,10 +2,10 @@ import os
 import sys
 import pandas as pd
 from xgboost import XGBRegressor
-from utils import fetch_raw_transactions, get_db_client, get_user_budget, get_database
-from preprocess import clean_and_format_transactions
-from feature_engineering import build_feature_matrix
-from model_loader import save_model
+from .utils import fetch_raw_transactions, get_db_client, get_user_budget, get_database
+from .preprocess import clean_and_format_transactions
+from .feature_engineering import build_feature_matrix
+from .model_loader import save_model
 
 def train_user_model(user_id):
     """

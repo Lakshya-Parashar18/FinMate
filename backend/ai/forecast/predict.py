@@ -5,11 +5,11 @@ import numpy as np
 import pandas as pd
 from scipy.stats import norm
 
-from utils import fetch_raw_transactions, get_db_client, get_user_budget, get_database
-from preprocess import clean_and_format_transactions
-from feature_engineering import build_feature_matrix, CATEGORIES, CATEGORY_MAP
-from model_loader import load_model
-from train import train_user_model
+from .utils import fetch_raw_transactions, get_db_client, get_user_budget, get_database
+from .preprocess import clean_and_format_transactions
+from .feature_engineering import build_feature_matrix, CATEGORIES, CATEGORY_MAP
+from .model_loader import load_model
+from .train import train_user_model
 
 def get_forecast(user_id):
     """

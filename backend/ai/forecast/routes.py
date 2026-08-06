@@ -1,6 +1,6 @@
 from fastapi import FastAPI, APIRouter, HTTPException, Query
-from predict import get_forecast
-from train import train_user_model
+from .predict import get_forecast
+from .train import train_user_model
 
 app = FastAPI(
     title="FinMate ML Forecasting Engine",
