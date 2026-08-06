@@ -39,7 +39,7 @@ MERCHANT_METADATA_PATH: Path = DATASET_GEN_DIR / "merchant_metadata.csv"
 # Model Defaults
 DEFAULT_EMBEDDING_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
 EMBEDDING_DIMENSION: int = 384
-ENABLE_ONNX_INFERENCE: bool = False  # Toggle between Native joblib and ONNX backend
+ENABLE_ONNX_INFERENCE: bool = True  # Toggle between Native joblib and ONNX backend
 
 # Confidence Thresholds
 CONFIDENCE_THRESHOLDS: Dict[str, float] = {

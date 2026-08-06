@@ -1,14 +1,15 @@
 """
 Embedding_service.py
-Encodes text into dense vector embeddings using SentenceTransformers (all-MiniLM-L6-v2)
-with automatic embedding cache lookup to ensure zero redundant recomputation.
+Encodes text into dense vector embeddings using the centralized Platform Embedding Service
+(which dynamically chooses between PyTorch and ONNX backends).
+Eliminates redundant PyTorch loads and respects the central low-RAM environment settings.
 """
 
 from typing import List, Union
 import numpy as np
-from sentence_transformers import SentenceTransformer
 from embeddings.embedding_store import EmbeddingStore
 from embeddings.embedding_cache import EmbeddingCache
+from embeddings.embedding_service import platform_embedding_service
 from engine_utils.config import DEFAULT_EMBEDDING_MODEL
 from engine_utils.logger import logger
 
@@ -20,8 +21,9 @@ class EmbeddingService:
         self.model_name = model_name
         self.use_cache = use_cache
 
-        logger.info(f"Loading SentenceTransformer model: {self.model_name}...")
-        self.model = SentenceTransformer(self.model_name)
+        logger.info(f"Connecting to Platform Embedding model: {self.model_name}...")
+        # Resolve the single model instance (SentenceTransformer or ONNXEmbeddingModel)
+        self.model = platform_embedding_service._get_model(self.model_name)
 
         if self.use_cache:
             self.store = EmbeddingStore()
@@ -38,7 +40,11 @@ class EmbeddingService:
         text_list = [texts] if is_single else texts
 
         if not text_list:
-            return np.empty((0, self.model.get_sentence_embedding_dimension()))
+            # Safely get embedding dimension from the underlying model representation
+            dim = 384
+            if hasattr(self.model, "get_sentence_embedding_dimension"):
+                dim = self.model.get_sentence_embedding_dimension()
+            return np.empty((0, dim))
 
         if not self.use_cache:
             embeddings = self.model.encode(text_list, batch_size=batch_size, show_progress_bar=False)

@@ -1,11 +1,7 @@
 # =============================================================================
-# FinMate AI Service — Consolidated Python Requirements
-# This is the single authoritative requirements file.
-# The Dockerfile and CI/CD pipelines reference this file only.
-#
-# Sub-module requirements files (categorization/, dataset_generator/) are kept
-# for standalone local development within those modules but are not used in
-# production builds.
+# FinMate AI Service — Consolidated Python Requirements (ONNX Optimized)
+# Single authoritative requirements file optimized for low-resource environments (e.g. Render Free Tier).
+# Eliminates massive PyTorch (torch) and sentence-transformers to stay under 150MB RAM.
 # =============================================================================
 
 # --- Web Framework ---
@@ -21,9 +17,10 @@ xgboost>=1.7.0
 scipy>=1.10.0
 joblib>=1.2.0
 
-# --- Embeddings & NLP ---
-sentence-transformers>=2.2.2
-torch>=2.0.0
+# --- Embeddings & NLP (ONNX Optimized for Free Tier) ---
+onnxruntime>=1.15.0
+tokenizers>=0.13.0
+huggingface-hub>=0.14.0
 
 # --- Database ---
 pymongo>=4.3.0
@@ -37,5 +34,4 @@ python-dotenv>=1.0.0
 faker>=18.0.0
 
 # --- Dev / Testing (not needed in production Docker image) ---
-# To install without dev deps: pip install -r requirements.txt --ignore-requires-python
 pytest>=7.3.0
