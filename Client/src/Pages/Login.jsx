@@ -19,6 +19,7 @@ import { API_URL } from "../config";
 import { useAuth } from "../context/AuthContext";
 import AuthLayout from "../components/AuthLayout";
 import FloatingDemo from "../components/FloatingDemo";
+import TurnstileWidget from "../components/TurnstileWidget";
 import "./Login.css";
 
 
@@ -26,6 +27,8 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(true);
+  const [turnstileToken, setTurnstileToken] = useState(null);
+
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -64,6 +67,7 @@ export default function Login() {
       const response = await axios.post(`${API_URL}/auth/login`, {
         email,
         password,
+        turnstileToken,
       });
 
       // Backend signals 2FA is required
@@ -401,12 +405,15 @@ export default function Login() {
                 </label>
               </div>
 
+              {/* Cloudflare Turnstile Verification */}
+              <TurnstileWidget onVerify={setTurnstileToken} />
+
               {/* Submit Button */}
               <motion.button
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !turnstileToken}
                 className="auth-submit-btn"
               >
                 {isSubmitting ? (

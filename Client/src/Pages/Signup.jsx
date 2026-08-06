@@ -24,6 +24,7 @@ import { API_URL } from "../config";
 import { useAuth } from "../context/AuthContext";
 import AuthLayout from "../components/AuthLayout";
 import FloatingDemo from "../components/FloatingDemo";
+import TurnstileWidget from "../components/TurnstileWidget";
 import "./Login.css";
 import "./Signup.css";
 
@@ -45,6 +46,8 @@ export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [agreeTerms, setAgreeTerms] = useState(true);
+  const [turnstileToken, setTurnstileToken] = useState(null);
+
 
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
@@ -216,6 +219,7 @@ export default function Signup() {
         username,
         email,
         password,
+        turnstileToken,
       });
 
       setSuccessMessage(response.data.message || "Registered successfully! Check your email to verify account.");
@@ -563,12 +567,15 @@ export default function Signup() {
             </label>
           </div>
 
+          {/* Cloudflare Turnstile Verification */}
+          <TurnstileWidget onVerify={setTurnstileToken} />
+
           {/* Submit Button */}
           <motion.button
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.98 }}
             type="submit"
-            disabled={isSubmitting || !allRulesPassed || !passwordsMatch || !agreeTerms}
+            disabled={isSubmitting || !allRulesPassed || !passwordsMatch || !agreeTerms || !turnstileToken}
             className="auth-submit-btn"
           >
             {isSubmitting ? (

@@ -1,6 +1,7 @@
 import express from 'express';
 import { register, login, logout, getMe, deleteUser, googleLogin, verifyEmail, resendVerification, changePassword, previewEmail, sendSupportEmail, checkUsername } from '../controllers/authController.js';
 import { protect } from '../middleware/authMiddleware.js';
+import { verifyTurnstile } from '../middleware/turnstileMiddleware.js';
 
 const router = express.Router();
 
@@ -14,10 +15,10 @@ router.get('/check-username', checkUsername);
 router.post('/send-support-email', sendSupportEmail);
 
 // POST - Register User
-router.post('/register', register);
+router.post('/register', verifyTurnstile, register);
 
 // POST - Login User
-router.post('/login', login);
+router.post('/login', verifyTurnstile, login);
 
 // POST - Google Login
 router.post('/google', googleLogin);
