@@ -23,6 +23,17 @@ export default function LandingPage() {
   const { login } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // Hide scrollbar completely on landing page & enforce dark mode
+  useEffect(() => {
+    document.documentElement.classList.add('hide-landing-scrollbar');
+    document.body.classList.add('hide-landing-scrollbar');
+    document.documentElement.setAttribute('data-theme', 'dark');
+    return () => {
+      document.documentElement.classList.remove('hide-landing-scrollbar');
+      document.body.classList.remove('hide-landing-scrollbar');
+    };
+  }, []);
+
   // Handle scrolling to URL hash sections on load (e.g. from footer links on other pages)
   useEffect(() => {
     if (window.location.hash) {
@@ -69,6 +80,14 @@ export default function LandingPage() {
     return () => window.removeEventListener("scroll", handleScroll, true);
   }, []);
 
+  // Auto-dismiss error banner after 5 seconds
+  useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => setError(''), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [error]);
+
   useEffect(() => {
     if (location.state?.accountDeleted) {
       setShowDeletedMessage(true);
@@ -111,6 +130,13 @@ export default function LandingPage() {
       <div className="overlay" />
       <HeroSection />
 
+      {error && (
+        <div className="landing-error-toast">
+          <span>{error}</span>
+          <button className="toast-close-btn" onClick={() => setError('')}>&times;</button>
+        </div>
+      )}
+
       {showDeletedMessage && (
         <div className="delete-success-message">
           Your account has been successfully deleted
@@ -139,7 +165,6 @@ export default function LandingPage() {
               text="signin_with"
               size="large"
             />
-            {error && <div className="error-message">{error}</div>}
           </div>
         </div>
       </header>

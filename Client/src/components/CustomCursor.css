@@ -23,12 +23,10 @@
     position: absolute;
     width: 10px;
     height: 10px;
-    background: radial-gradient(
-        circle at 35% 35%,
-        rgba(199, 210, 254, 0.85),
-        rgba(129, 140, 248, 0.45) 50%,
-        rgba(79, 70, 229, 0.25) 100%
-    );
+    background: radial-gradient(circle at 35% 35%,
+            rgba(199, 210, 254, 0.85),
+            rgba(129, 140, 248, 0.45) 50%,
+            rgba(79, 70, 229, 0.25) 100%);
     border-radius: 50%;
     box-shadow:
         0 0 4px rgba(129, 140, 248, 0.35),
@@ -38,14 +36,14 @@
 }
 
 /* Hide default cursor on the landing page layout */
-.landing-page, 
+.landing-page,
 .hero-section,
 .overlay {
     cursor: none;
 }
 
 /* Use hand cursor for clickable elements (footer links, buttons, etc.) */
-.landing-page a, 
+.landing-page a,
 .landing-page a *,
 .landing-page button,
 .landing-page button *,
@@ -70,4 +68,7 @@ textarea,
 .landing-page select,
 .landing-page iframe {
     cursor: text !important;
+}
+
+cursor: text !important;
 }

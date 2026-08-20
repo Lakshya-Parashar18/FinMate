@@ -748,3 +748,95 @@ body {
   inset: 0;
   background: radial-gradient(circle at center, transparent 35%, rgba(9, 13, 22, 0.85) 100%);
 }
+
+/* Global Google Login Iframe Box Wrapper Reset */
+.google-login-wrapper {
+  min-height: 42px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #ffffff !important;
+  border-radius: 9999px !important;
+  padding: 1px !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), 0 0 12px rgba(255, 255, 255, 0.12) !important;
+  width: fit-content !important;
+  margin: 0 auto !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.google-login-wrapper:hover {
+  transform: translateY(-1.5px) scale(1.015);
+  box-shadow: 0 6px 22px rgba(255, 255, 255, 0.25) !important;
+}
+
+.google-login-wrapper > div,
+.google-login-wrapper iframe {
+  border-radius: 9999px !important;
+  background: #ffffff !important;
+  margin: 0 auto !important;
+}
+
+/* ULTRA-HIGH SPECIFICITY LANDING PAGE SCROLLBAR ANNIHILATOR */
+html.hide-landing-scrollbar,
+body.hide-landing-scrollbar,
+html.hide-landing-scrollbar body {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+html.hide-landing-scrollbar::-webkit-scrollbar,
+body.hide-landing-scrollbar::-webkit-scrollbar,
+html.hide-landing-scrollbar body::-webkit-scrollbar,
+html.hide-landing-scrollbar *::-webkit-scrollbar,
+body.hide-landing-scrollbar *::-webkit-scrollbar,
+html[data-theme="dark"].hide-landing-scrollbar::-webkit-scrollbar,
+html[data-theme="dark"].hide-landing-scrollbar body::-webkit-scrollbar,
+html[data-theme="dark"].hide-landing-scrollbar *::-webkit-scrollbar,
+html:not([data-theme="dark"]).hide-landing-scrollbar::-webkit-scrollbar,
+html:not([data-theme="dark"]).hide-landing-scrollbar body::-webkit-scrollbar,
+html:not([data-theme="dark"]).hide-landing-scrollbar *::-webkit-scrollbar,
+.lenis.hide-landing-scrollbar::-webkit-scrollbar,
+.lenis.hide-landing-scrollbar body::-webkit-scrollbar,
+.lenis.hide-landing-scrollbar *::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+html.hide-landing-scrollbar::-webkit-scrollbar-thumb,
+body.hide-landing-scrollbar::-webkit-scrollbar-thumb,
+html.hide-landing-scrollbar body::-webkit-scrollbar-thumb,
+html.hide-landing-scrollbar *::-webkit-scrollbar-thumb,
+body.hide-landing-scrollbar *::-webkit-scrollbar-thumb,
+html[data-theme="dark"].hide-landing-scrollbar::-webkit-scrollbar-thumb,
+html[data-theme="dark"].hide-landing-scrollbar body::-webkit-scrollbar-thumb,
+html[data-theme="dark"].hide-landing-scrollbar *::-webkit-scrollbar-thumb,
+html:not([data-theme="dark"]).hide-landing-scrollbar::-webkit-scrollbar-thumb,
+html:not([data-theme="dark"]).hide-landing-scrollbar body::-webkit-scrollbar-thumb,
+html:not([data-theme="dark"]).hide-landing-scrollbar *::-webkit-scrollbar-thumb,
+.lenis.hide-landing-scrollbar::-webkit-scrollbar-thumb,
+.lenis.hide-landing-scrollbar body::-webkit-scrollbar-thumb,
+.lenis.hide-landing-scrollbar *::-webkit-scrollbar-thumb {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+html.hide-landing-scrollbar::-webkit-scrollbar-track,
+body.hide-landing-scrollbar::-webkit-scrollbar-track,
+html.hide-landing-scrollbar body::-webkit-scrollbar-track,
+html.hide-landing-scrollbar *::-webkit-scrollbar-track,
+body.hide-landing-scrollbar *::-webkit-scrollbar-track,
+html[data-theme="dark"].hide-landing-scrollbar::-webkit-scrollbar-track,
+html[data-theme="dark"].hide-landing-scrollbar body::-webkit-scrollbar-track,
+html[data-theme="dark"].hide-landing-scrollbar *::-webkit-scrollbar-track,
+html:not([data-theme="dark"]).hide-landing-scrollbar::-webkit-scrollbar-track,
+html:not([data-theme="dark"]).hide-landing-scrollbar body::-webkit-scrollbar-track,
+html:not([data-theme="dark"]).hide-landing-scrollbar *::-webkit-scrollbar-track {
+  display: none !important;
+  background: transparent !important;
+}

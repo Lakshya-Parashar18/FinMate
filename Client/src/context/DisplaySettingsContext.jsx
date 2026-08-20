@@ -9,7 +9,7 @@ const getSystemTheme = () => (
 
 const getInitialDisplaySettings = () => {
   const defaults = {
-    theme: 'system',
+    theme: 'dark',
     currency: 'INR',
     sidebarLayout: 'expanded',
     firstDayOfWeek: 'monday',

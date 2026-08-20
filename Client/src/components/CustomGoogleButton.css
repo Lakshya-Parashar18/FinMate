@@ -1,0 +1,106 @@
+/* ─────────────────────────────────────────────────────────────
+   Custom Ultra-Aesthetic Glassmorphic Google Auth Button
+   ───────────────────────────────────────────────────────────── */
+
+.custom-google-auth-container {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-google-glass-btn {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  padding: 0 1.25rem;
+  border-radius: 9999px;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.custom-google-auth-container:hover .custom-google-glass-btn {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.14) 0%, rgba(30, 41, 59, 0.7) 100%);
+  border-color: rgba(16, 185, 129, 0.45);
+  transform: translateY(-1.5px) scale(1.01);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.28), 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.custom-google-auth-container:active .custom-google-glass-btn {
+  transform: translateY(0) scale(0.99);
+}
+
+/* Light beam shimmer effect */
+.custom-google-shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.15) 50%,
+      transparent 100%);
+  transform: skewX(-25deg);
+  transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.custom-google-auth-container:hover .custom-google-shimmer {
+  left: 140%;
+}
+
+.custom-google-btn-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  z-index: 2;
+}
+
+.custom-google-svg {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: transform 0.25s ease;
+}
+
+.custom-google-auth-container:hover .custom-google-svg {
+  transform: scale(1.08);
+}
+
+.custom-google-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Hidden native Google button overlay for native event triggering */
+.hidden-native-google-wrapper {
+  position: absolute;
+  inset: 0;
+  opacity: 0.001;
+  overflow: hidden;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.hidden-native-google-wrapper>div,
+.hidden-native-google-wrapper iframe {
+  width: 100% !important;
+  height: 100% !important;
+  cursor: pointer !important;
+}

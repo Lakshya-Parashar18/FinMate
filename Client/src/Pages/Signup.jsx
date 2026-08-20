@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { GoogleLogin } from "@react-oauth/google";
+import CustomGoogleButton from "../components/CustomGoogleButton";
 import axios from "axios";
 import {
   User,
@@ -599,16 +599,12 @@ export default function Signup() {
         </div>
 
         {/* Google OAuth Button & Demo Action */}
-        <div>
-          <div className="google-login-wrapper">
-            <GoogleLogin
-              onSuccess={handleGoogleSuccess}
-              onError={() => setError("Google Sign Up failed. Please try again.")}
-              theme="outline"
-              shape="pill"
-              text="signup_with"
-            />
-          </div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+          <CustomGoogleButton
+            onSuccess={handleGoogleSuccess}
+            onError={() => setError("Google Sign Up failed. Please try again.")}
+            text="Sign Up with Google"
+          />
 
           <button
             type="button"

@@ -25,29 +25,35 @@ export default function HeroSection() {
   return (
     <div className="hero-section">
       <AnimatedBackground />
-      <div
-        className="static-hero-container"
-        style={{
-          transform: `rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
-          transition: "transform 0.15s cubic-bezier(0.25, 1, 0.5, 1)",
-          transformStyle: "preserve-3d"
-        }}
-      >
-        <div className="hero-text brand-name">
-          {originalChars.map((char, i) => (
-            <div
-              key={i}
-              className="char-cube"
-            >
-              <span className="char-en">{char}</span>
-              <span className="char-jp">{japaneseChars[i]}</span>
-            </div>
-          ))}
+      <div className="hero-center-anchor">
+        <div
+          className="static-hero-container"
+          style={{
+            transform: `rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
+            transition: "transform 0.15s cubic-bezier(0.25, 1, 0.5, 1)",
+            transformStyle: "preserve-3d"
+          }}
+        >
+          <div className="hero-text brand-name">
+            {originalChars.map((char, i) => (
+              <div
+                key={i}
+                className="char-cube"
+              >
+                <span className="char-en">{char}</span>
+                <span className="char-jp">{japaneseChars[i]}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <div className="scroll-indicator">
-        <FaChevronDown className="arrow-down" />
-        <p>Scroll down</p>
+        <span className="scroll-label">Scroll to explore</span>
+        <div className="scroll-chevrons">
+          <span className="chevron-arrow" />
+          <span className="chevron-arrow" />
+          <span className="chevron-arrow" />
+        </div>
       </div>
     </div>
   );

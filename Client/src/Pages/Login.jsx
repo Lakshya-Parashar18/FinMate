@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { GoogleLogin } from "@react-oauth/google";
+import CustomGoogleButton from "../components/CustomGoogleButton";
 import axios from "axios";
 import {
   Mail,
@@ -437,17 +437,12 @@ export default function Login() {
             </div>
 
             {/* Google OAuth & Demo Action Buttons */}
-            <div>
-              <div className="google-login-wrapper">
-                <GoogleLogin
-                  onSuccess={handleGoogleSuccess}
-                  onError={() => setError("Google Sign In failed. Please try again.")}
-                  useOneTap
-                  theme="outline"
-                  shape="pill"
-                  text="continue_with"
-                />
-              </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+              <CustomGoogleButton
+                onSuccess={handleGoogleSuccess}
+                onError={() => setError("Google Sign In failed. Please try again.")}
+                text="Continue with Google"
+              />
 
               <button
                 type="button"
