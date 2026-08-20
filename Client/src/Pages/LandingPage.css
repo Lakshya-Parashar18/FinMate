@@ -292,119 +292,120 @@ footer,
 }
 
 .auth-boxes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
-  max-width: 900px;
-  width: 100%;
-  margin: 3rem auto 0;
-  padding: 0;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 2.5rem !important;
+  max-width: 900px !important;
+  width: 100% !important;
+  margin: 3rem auto 0 !important;
+  padding: 0 !important;
 }
 
 .landing-action-card {
-  position: relative;
-  background: rgba(15, 23, 42, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 28px;
-  padding: 3rem 2.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative !important;
+  background: rgba(30, 41, 59, 0.45) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-radius: 24px !important;
+  padding: 2.5rem 2rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  overflow: hidden !important;
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .landing-signup-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(16, 185, 129, 0.45);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 0 0 30px rgba(16, 185, 129, 0.18);
+  transform: translateY(-8px) !important;
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 0 0 35px rgba(16, 185, 129, 0.22) !important;
 }
 
 .landing-login-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(99, 102, 241, 0.45);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 0 0 30px rgba(99, 102, 241, 0.18);
+  transform: translateY(-8px) !important;
+  border-color: rgba(99, 102, 241, 0.5) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 0 0 35px rgba(99, 102, 241, 0.22) !important;
 }
 
 .landing-action-card h3 {
-  font-size: 1.85rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 0.85rem;
-  letter-spacing: -0.02em;
+  font-size: 1.75rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  margin-bottom: 0.85rem !important;
+  letter-spacing: -0.02em !important;
 }
 
 .brand-gradient-emerald {
-  background: linear-gradient(135deg, #34d399 0%, #059669 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: linear-gradient(135deg, #34d399 0%, #059669 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }
 
 .brand-gradient-indigo {
-  background: linear-gradient(135deg, #818cf8 0%, #4f46e5 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: linear-gradient(135deg, #818cf8 0%, #4f46e5 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }
 
 .landing-action-card p {
-  font-size: 1.05rem;
-  color: #94a3b8;
-  line-height: 1.6;
-  margin-bottom: 2.25rem;
+  font-size: 1rem !important;
+  color: #94a3b8 !important;
+  line-height: 1.6 !important;
+  margin-bottom: 2rem !important;
 }
 
 .landing-action-btn {
-  width: 100%;
-  padding: 1rem 1.75rem;
-  border-radius: 9999px;
-  font-weight: 700;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  text-decoration: none;
-  cursor: pointer;
-  border: none;
-  margin-top: auto;
+  width: 100% !important;
+  padding: 0.95rem 1.75rem !important;
+  border-radius: 9999px !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  border: none !important;
+  margin-top: auto !important;
+  color: #ffffff !important;
 }
 
 .emerald-btn {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: #ffffff;
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.35);
-  border: 1px solid rgba(52, 211, 153, 0.3);
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.35) !important;
+  border: 1px solid rgba(52, 211, 153, 0.3) !important;
 }
 
 .emerald-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 35px rgba(16, 185, 129, 0.5);
+  transform: translateY(-2px) !important;
+  box-shadow: 0 14px 35px rgba(16, 185, 129, 0.5) !important;
 }
 
 .indigo-btn {
-  background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
-  color: #ffffff;
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.35);
-  border: 1px solid rgba(129, 140, 248, 0.3);
+  background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.35) !important;
+  border: 1px solid rgba(129, 140, 248, 0.3) !important;
 }
 
 .indigo-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 35px rgba(99, 102, 241, 0.5);
+  transform: translateY(-2px) !important;
+  box-shadow: 0 14px 35px rgba(99, 102, 241, 0.5) !important;
 }
 
 .btn-arrow {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .landing-action-btn:hover .btn-arrow {
-  transform: translateX(6px);
+  transform: translateX(6px) !important;
 }
 
 @keyframes fadeIn {
