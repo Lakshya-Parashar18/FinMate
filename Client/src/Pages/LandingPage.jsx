@@ -7,6 +7,7 @@ import { API_URL } from "../config";
 import { useAuth } from "../context/AuthContext";
 import HeroSection from "../components/HeroSection";
 import CustomCursor from "../components/CustomCursor";
+import CustomGoogleButton from "../components/CustomGoogleButton";
 import FeaturesSection from "../components/FeaturesSection";
 import PreviewSection from "../components/PreviewSection";
 import FloatingDemo from "../components/FloatingDemo";
@@ -155,17 +156,11 @@ export default function LandingPage() {
           <Link to="/signup" className="get-started-button">
             Get Started <FaArrowRight className="cta-arrow" />
           </Link>
-          <div className="google-login-container">
-            <GoogleLogin
-              onSuccess={responseGoogle}
-              onError={() => setError('Google login failed. Please try again.')}
-              useOneTap
-              theme="filled_blue"
-              shape="pill"
-              text="signin_with"
-              size="large"
-            />
-          </div>
+          <CustomGoogleButton
+            onSuccess={responseGoogle}
+            onError={() => setError('Google login failed. Please try again.')}
+            text="Sign in with Google"
+          />
         </div>
       </header>
 
