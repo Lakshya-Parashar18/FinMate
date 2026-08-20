@@ -160,6 +160,7 @@ export default function LandingPage() {
             onSuccess={responseGoogle}
             onError={() => setError('Google login failed. Please try again.')}
             text="Sign in with Google"
+            variant="filled_blue"
           />
         </div>
       </header>

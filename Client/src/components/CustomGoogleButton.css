@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────
-   Custom Ultra-Aesthetic Glassmorphic Google Auth Button
+   Custom Ultra-Aesthetic Google Auth Button (Filled Blue & Glass)
    ───────────────────────────────────────────────────────────── */
 
 .custom-google-auth-container {
@@ -31,14 +31,50 @@
   transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.custom-google-auth-container:hover .custom-google-glass-btn {
+/* Original Google Filled Blue Pill Variant */
+.custom-google-glass-btn.variant-filled_blue {
+  background: #1a73e8;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0 1.25rem 0 2.85rem;
+  box-shadow: 0 4px 18px rgba(26, 115, 232, 0.4);
+}
+
+.custom-google-auth-container:hover .custom-google-glass-btn.variant-filled_blue {
+  background: #1557b0;
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(26, 115, 232, 0.55);
+}
+
+.custom-google-auth-container:active .custom-google-glass-btn.variant-filled_blue {
+  transform: translateY(0) scale(0.98);
+}
+
+/* White Circle Badge forming full 100% left cap */
+.google-icon-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Default Glass Variant Hover */
+.custom-google-auth-container:hover .custom-google-glass-btn:not(.variant-filled_blue) {
   background: linear-gradient(135deg, rgba(16, 185, 129, 0.14) 0%, rgba(30, 41, 59, 0.7) 100%);
   border-color: rgba(16, 185, 129, 0.45);
   transform: translateY(-1.5px) scale(1.01);
   box-shadow: 0 0 25px rgba(16, 185, 129, 0.28), 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
-.custom-google-auth-container:active .custom-google-glass-btn {
+.custom-google-auth-container:active .custom-google-glass-btn:not(.variant-filled_blue) {
   transform: translateY(0) scale(0.99);
 }
 
@@ -71,21 +107,20 @@
 }
 
 .custom-google-svg {
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
   transition: transform 0.25s ease;
 }
 
 .custom-google-auth-container:hover .custom-google-svg {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
 .custom-google-text {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.92rem;
-  font-weight: 600;
+  font-family: 'Roboto', 'Google Sans', 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
   color: #ffffff;
-  letter-spacing: -0.01em;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.01em;
 }
 
 /* Hidden native Google button overlay for native event triggering */
@@ -98,8 +133,8 @@
   cursor: pointer;
 }
 
-.hidden-native-google-wrapper>div,
-.hidden-native-google-wrapper iframe {
+.hidden-native-google-wrapper iframe,
+.hidden-native-google-wrapper div {
   width: 100% !important;
   height: 100% !important;
   cursor: pointer !important;
