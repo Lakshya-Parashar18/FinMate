@@ -87,7 +87,13 @@ const formatTimeAgo = (dateInput) => {
 };
 
 const Circles = () => {
-  const { user } = useAuth();
+  const { user, checkAuthStatus } = useAuth();
+
+  useEffect(() => {
+    if (checkAuthStatus) {
+      checkAuthStatus();
+    }
+  }, [checkAuthStatus]);
   const { formatCurrency: baseFormatCurrency, formatCurrencyRaw: baseFormatCurrencyRaw, currency } = useDisplaySettings();
   const navigate = useNavigate();
   const location = useLocation();
@@ -1242,38 +1248,38 @@ const Circles = () => {
 
         {/* Inner page content panel */}
         <div className="settings-layout circles-content-wrap">
-          {!user?.isVerified && !user?.isPhoneVerified ? (
+          {!user?.isVerified && !user?.isPhoneVerified && !user?.isDemo ? (
             /* ──────────────── Strict Verification Lock Screen ──────────────── */
-            <div className="balances-summary-card" style={{ gridColumn: 'span 2', display: 'flex', flexDirection: 'column', gap: '2rem', padding: '2.5rem', transform: 'translateZ(0)' }}>
+            <div className="balances-summary-card" style={{ gridColumn: 'span 2', display: 'flex', flexDirection: 'column', gap: '2rem', padding: '3rem 2.5rem', transform: 'translateZ(0)', background: 'rgba(15, 23, 42, 0.55)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '24px', boxShadow: '0 20px 50px rgba(0, 0, 0, 0.3)' }}>
               <div style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
-                <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'rgba(245,158,11,0.1)', color: '#f59e0b', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem auto' }}>
+                <div style={{ width: 68, height: 68, borderRadius: '50%', background: 'rgba(245, 158, 11, 0.12)', color: '#f59e0b', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem auto', boxShadow: '0 0 30px rgba(245, 158, 11, 0.15)' }}>
                   <FaShieldAlt size={32} />
                 </div>
-                <h3 style={{ fontFamily: 'Outfit', fontSize: '1.5rem', fontWeight: 700, color: '#f1f5f9', margin: '0 0 0.5rem 0' }}>Account Verification Required</h3>
-                <p style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: 1.6, margin: 0 }}>
+                <h3 style={{ fontFamily: 'Outfit', fontSize: '1.75rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.5rem 0', letterSpacing: '-0.02em' }}>Account Verification Required</h3>
+                <p style={{ fontSize: '0.92rem', color: '#cbd5e1', lineHeight: 1.6, margin: 0 }}>
                   To ensure community security and prevent spam, collaborative workspaces require verification of either your email or phone number before sending requests, managing budgets, or joining circles.
                 </p>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem', maxWidth: '800px', margin: '0 auto', width: '100%' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', maxWidth: '820px', margin: '0 auto', width: '100%' }}>
                 {/* Email verification card */}
-                <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid rgba(255,255,255,0.04)', borderRadius: 16, padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem', position: 'relative', overflow: 'hidden' }}>
+                <div style={{ background: 'rgba(30, 41, 59, 0.45)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: 20, padding: '1.75rem', display: 'flex', flexDirection: 'column', gap: '1.2rem', position: 'relative', overflow: 'hidden' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                    {user?.isVerified ? <FaCheckCircle size={20} style={{ color: '#10b981' }} /> : <FaTimesCircle size={20} style={{ color: '#ef4444' }} />}
-                    <span style={{ fontFamily: 'Outfit', fontWeight: 700, color: '#f1f5f9', fontSize: '1rem' }}>Email Address</span>
+                    {user?.isVerified ? <FaCheckCircle size={22} style={{ color: '#10b981' }} /> : <FaTimesCircle size={22} style={{ color: '#ef4444' }} />}
+                    <span style={{ fontFamily: 'Outfit', fontWeight: 700, color: '#ffffff', fontSize: '1.1rem' }}>Email Address</span>
                   </div>
-                  <p style={{ fontSize: '0.78rem', color: '#64748b', lineHeight: 1.5, margin: 0 }}>
-                    Current email: <strong>{user?.email}</strong>
+                  <p style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: 1.5, margin: 0 }}>
+                    Current email: <strong style={{ color: '#e2e8f0' }}>{user?.email}</strong>
                   </p>
                   {user?.isVerified ? (
-                    <div style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.15)', color: '#10b981', padding: '8px 12px', borderRadius: 8, fontSize: '0.76rem', display: 'flex', alignItems: 'center', gap: 6, fontWeight: 600, marginTop: 'auto' }}>
+                    <div style={{ background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.25)', color: '#10b981', padding: '10px 14px', borderRadius: 10, fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: 8, fontWeight: 600, marginTop: 'auto' }}>
                       <FaCheck /> Email verified successfully
                     </div>
                   ) : (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 'auto' }}>
                       <button
                         className="verify-action-trigger-btn"
-                        style={{ width: '100%', justifyContent: 'center' }}
+                        style={{ width: '100%', justifyContent: 'center', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', color: '#ffffff', fontWeight: 700, padding: '12px 18px', borderRadius: 12, border: 'none', cursor: 'pointer', boxShadow: '0 4px 15px rgba(16, 185, 129, 0.25)' }}
                         onClick={handleResendEmailVerification}
                         disabled={resendingEmail}
                       >
@@ -1284,44 +1290,43 @@ const Circles = () => {
                 </div>
 
                 {/* Phone verification card */}
-                <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid rgba(255,255,255,0.04)', borderRadius: 16, padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem', position: 'relative', overflow: 'hidden' }}>
+                <div style={{ background: 'rgba(30, 41, 59, 0.45)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: 20, padding: '1.75rem', display: 'flex', flexDirection: 'column', gap: '1.2rem', position: 'relative', overflow: 'hidden' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                    {user?.isPhoneVerified ? <FaCheckCircle size={20} style={{ color: '#10b981' }} /> : <FaTimesCircle size={20} style={{ color: '#ef4444' }} />}
-                    <span style={{ fontFamily: 'Outfit', fontWeight: 700, color: '#f1f5f9', fontSize: '1rem' }}>Phone Number</span>
+                    {user?.isPhoneVerified ? <FaCheckCircle size={22} style={{ color: '#10b981' }} /> : <FaTimesCircle size={22} style={{ color: '#ef4444' }} />}
+                    <span style={{ fontFamily: 'Outfit', fontWeight: 700, color: '#ffffff', fontSize: '1.1rem' }}>Phone Number</span>
                   </div>
-                  <p style={{ fontSize: '0.78rem', color: '#64748b', lineHeight: 1.5, margin: 0 }}>
+                  <p style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: 1.5, margin: 0 }}>
                     Verify your phone number to receive real-time SMS alerts and notifications.
                   </p>
 
                   {user?.isPhoneVerified ? (
-                    <div style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.15)', color: '#10b981', padding: '8px 12px', borderRadius: 8, fontSize: '0.76rem', display: 'flex', alignItems: 'center', gap: 6, fontWeight: 600, marginTop: 'auto' }}>
+                    <div style={{ background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.25)', color: '#10b981', padding: '10px 14px', borderRadius: 10, fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: 8, fontWeight: 600, marginTop: 'auto' }}>
                       <FaCheck /> Phone number verified successfully
                     </div>
                   ) : (
-                    <form onSubmit={isOtpSent ? handleConfirmVerificationOtp : handleSendVerificationOtp} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: 'auto' }}>
+                    <form onSubmit={isOtpSent ? handleConfirmVerificationOtp : handleSendVerificationOtp} style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', marginTop: 'auto' }}>
                       {!isOtpSent ? (
-                        <div className="settings-field" style={{ margin: 0 }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, margin: 0 }}>
                           <input
                             type="tel"
                             value={verificationPhone}
                             onChange={(e) => setVerificationPhone(e.target.value)}
                             required
                             placeholder="e.g. +919876543210"
-                            style={{ background: 'rgba(255,255,255,0.04)', padding: '0.45rem 0.75rem' }}
+                            style={{ background: 'rgba(15, 23, 42, 0.65)', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: 10, padding: '10px 14px', color: '#ffffff', fontSize: '0.9rem', width: '100%', outline: 'none' }}
                           />
                           <button
                             type="submit"
-                            className="verify-action-trigger-btn"
-                            style={{ width: '100%', justifyContent: 'center', marginTop: 8 }}
+                            style={{ width: '100%', justifyContent: 'center', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', color: '#ffffff', fontWeight: 700, padding: '12px 18px', borderRadius: 12, border: 'none', cursor: 'pointer', boxShadow: '0 4px 15px rgba(16, 185, 129, 0.25)' }}
                             disabled={sendingOtp}
                           >
                             {sendingOtp ? 'Sending code...' : 'Send Verification Code'}
                           </button>
                         </div>
                       ) : (
-                        <div className="settings-field" style={{ margin: 0 }}>
-                          <label style={{ fontSize: '0.7rem', color: '#64748b' }}>Enter 6-digit OTP code sent to phone:</label>
-                          <div style={{ display: 'flex', gap: 8, marginTop: 4 }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 10, margin: 0 }}>
+                          <label style={{ fontSize: '0.78rem', color: '#94a3b8' }}>Enter 6-digit OTP code sent to phone:</label>
+                          <div style={{ display: 'flex', gap: 8 }}>
                             <input
                               type="text"
                               maxLength={6}
@@ -1329,11 +1334,11 @@ const Circles = () => {
                               onChange={(e) => setVerificationOtp(e.target.value)}
                               required
                               placeholder="123456"
-                              style={{ flex: 1, background: 'rgba(255,255,255,0.04)', padding: '0.45rem 0.75rem', textAlign: 'center', letterSpacing: 4, fontWeight: 700 }}
+                              style={{ flex: 1, background: 'rgba(15, 23, 42, 0.65)', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: 10, padding: '10px 14px', color: '#ffffff', fontSize: '1rem', textAlign: 'center', letterSpacing: 4, fontWeight: 700 }}
                             />
                             <button
                               type="submit"
-                              className="verify-action-trigger-btn"
+                              style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', color: '#ffffff', fontWeight: 700, padding: '10px 16px', borderRadius: 10, border: 'none', cursor: 'pointer' }}
                               disabled={verifyingOtp}
                             >
                               {verifyingOtp ? 'Confirming...' : 'Verify Code'}
