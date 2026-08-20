@@ -143,19 +143,21 @@ export default function LandingPage() {
           Your account has been successfully deleted
         </div>
       )}
-      <header className={`navbar glass ${isScrolled ? "scrolling-navbar" : "hidden-navbar"}`}>
+      <header className={`navbar ${isScrolled ? "scrolling-navbar" : "hidden-navbar"}`}>
         <div className="logo-container">
           <img src="/logo.png" alt="FinMate Logo" className="logo-icon" />
           <div className="logo-text">
-            <div className="brand-name">FinMate</div>
-            <div className="slogan">Let the SAVINGS Begin!!</div>
+            <span className="brand-name">FinMate</span>
+            <span className="slogan">Smart Expense Tracker</span>
           </div>
         </div>
 
         <div className="nav-group">
           <Link to="/signup" className="get-started-button">
-            Get Started <FaArrowRight className="cta-arrow" />
+            <span>Get Started</span>
+            <span className="cta-arrow">&rarr;</span>
           </Link>
+          
           <CustomGoogleButton
             onSuccess={responseGoogle}
             onError={() => setError('Google login failed. Please try again.')}
