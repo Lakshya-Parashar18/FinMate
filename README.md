@@ -1,29 +1,47 @@
 # FinMate
 
-A personal finance management platform with AI-powered transaction categorization, spending forecasting, anomaly detection, and financial health scoring.
+A personal finance management platform with AI-powered transaction categorization, spending forecasting, anomaly detection, real-time email notification alerts, and financial health scoring.
 
 ---
 
 ## Architecture
 
-FinMate runs as three independent services:
+FinMate runs as three modular, high-performance services:
 
 ```
-┌─────────────────────┐     ┌──────────────────────┐     ┌────────────────────────┐
-│   Client (Vite/React)│────▶│  Server (Node/Express)│────▶│  Backend (FastAPI/Python)│
-│   localhost:5173     │     │  localhost:5000        │     │  localhost:8000         │
-│   Deployed: Vercel   │     │  Deployed: Vercel      │     │  Deployed: Railway/Fly  │
-└─────────────────────┘     └──────────────────────┘     └────────────────────────┘
-                                        │                            │
-                                        └────────────────────────────┘
-                                                  MongoDB Atlas
+┌─────────────────────────┐     ┌─────────────────────────┐     ┌─────────────────────────────┐
+│   Client (Vite/React)   │────▶│  Server (Node/Express)  │────▶│   Backend (FastAPI/Python)  │
+│   localhost:5173        │     │  localhost:5000         │     │   localhost:8000            │
+│   Deployed: Vercel      │     │  Deployed: Render       │     │   Deployed: Render          │
+└─────────────────────────┘     └─────────────────────────┘     └─────────────────────────────┘
+                                             │                                 │
+                                             └─────────────────────────────────┘
+                                                       MongoDB Atlas
 ```
 
-| Service | Directory | Runtime | Purpose |
-|---------|-----------|---------|---------|
-| **Client** | `Client/` | React + Vite | Frontend UI |
-| **Server** | `server/` | Node.js + Express | REST API, auth, DB queries |
-| **Backend** | `backend/` | Python + FastAPI | AI models, categorization, forecasting |
+| Service | Directory | Runtime | Purpose | Deployment |
+|---------|-----------|---------|---------|------------|
+| **Client** | `Client/` | React + Vite | Frontend UI, Glassmorphic Design, CustomSelect, CustomDatePicker | **Vercel** |
+| **Server** | `server/` | Node.js + Express | REST API, Auth, MongoDB Queries, Real-Time Email Alerts, Cloudflare Security | **Render** |
+| **Backend** | `backend/` | Python + FastAPI | AI Models, Categorization, Forecasting, Embeddings, Anomaly Detection | **Render** |
+
+---
+
+## ✨ Key Features & Recent Enhancements
+
+- 🎨 **Glassmorphic Custom UI System**:
+  - `CustomSelect`: Custom searchable select dropdowns with 45+ global country flags, popover width auto-fit, single-line text layout, and smart search input.
+  - `CustomDatePicker`: Custom month/date calendar picker replacing native browser inputs.
+- 📧 **Automated Real-Time Email & Alert Engine**:
+  - **Budget Threshold Warnings**: Sends dark-themed HTML alert emails when category spending crosses **80%** (Amber Warning) or **100%** (Limit Exceeded).
+  - **High-Value Expense Alerts**: Immediate warning email when a transaction amount exceeds user threshold (default: ₹10,000).
+  - **Goal Milestone Celebrations**: Emerald emails celebrating **25%, 50%, 75%, and 100%** savings goal completion.
+- ⚡ **Instant Synchronous Auth Hydration**:
+  - 0ms frame-1 UI state hydration from local storage upon login, resolving sidebar delays and loading overlays.
+- 🛡️ **Cloudflare Turnstile CAPTCHA Integration**:
+  - Server-side `siteverify` token validation middleware protecting `/api/auth/login` and `/api/auth/register`.
+- 🎨 **Sleek Light Mode Theme Scrollbars**:
+  - Custom 8px emerald pill scrollbars with zero native browser arrow buttons.
 
 ---
 
@@ -41,45 +59,44 @@ FinMate runs as three independent services:
 
 ## Local Development Setup
 
-### 1. Clone and install root dependencies
+### 1. Clone and install dependencies
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/Lakshya-Parashar18/FinMate.git
 cd FinMate
 npm install
 ```
 
 ### 2. Configure environment variables
 
-**Backend (Python AI service):**
-```bash
-cp backend/.env.example backend/.env
-# Edit backend/.env and set MONGO_URI
+**Client (Vite Frontend): `Client/.env`**
+```env
+VITE_GOOGLE_CLIENT_ID=your_google_client_id
+VITE_CLOUDFLARE_TURNSTILE_SITE_KEY=your_turnstile_site_key
+VITE_API_URL=http://localhost:5000
 ```
 
-**Server (Node.js):**
-```bash
-cp server/.env.example server/.env
-# Edit server/.env and fill in all required values
-# Important: also set AI_SERVICE_URL=http://localhost:8000
+**Server (Node.js Server): `server/.env`**
+```env
+MONGO_URI=your_mongodb_connection_uri
+JWT_SECRET=your_jwt_secret
+SESSION_SECRET=your_session_secret
+GOOGLE_CLIENT_ID=your_google_client_id
+FRONTEND_URL=http://localhost:5173
+AI_SERVICE_URL=http://localhost:8000
+EMAIL_USER=finmate.support01@gmail.com
+EMAIL_PASS=your_gmail_app_password
+CLOUDFLARE_TURNSTILE_SECRET_KEY=your_turnstile_secret_key
 ```
 
-**Client (Vite):**
-```bash
-cp Client/.env.example Client/.env   # if example exists
-# Or create Client/.env with:
-# VITE_GOOGLE_CLIENT_ID=<your-google-oauth-client-id>
-# VITE_CLOUDFLARE_TURNSTILE_SITE_KEY=<your-turnstile-site-key>
+**Backend (Python AI Service): `backend/.env`**
+```env
+MONGO_URI=your_mongodb_connection_uri
+PORT=8000
+ENVIRONMENT=development
 ```
 
-### 3. Install Python dependencies
-
-```bash
-cd backend
-pip install -r requirements.txt
-```
-
-### 4. Start all three services
+### 3. Start all three services
 
 Open **three separate terminals**:
 
@@ -101,148 +118,45 @@ cd Client
 npm run dev
 ```
 
-The app will be available at **http://localhost:5173**.
+The app will be live at **http://localhost:5173**.
 
 ---
 
 ## Environment Variable Reference
 
-### `backend/.env` (Python AI Service)
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `MONGO_URI` | ✅ **Required** | — | MongoDB Atlas connection URI. Service **will not start** without this. |
-| `PORT` | Optional | `8000` | Port for the FastAPI service |
-| `ENVIRONMENT` | Optional | `development` | `development` or `production` |
-| `COMMIT_SHA` | Optional | auto-detected | Git commit hash; set by Docker/CI builds |
-
-### `server/.env` (Node.js Server)
+### `server/.env` (Node.js Server — Deployed on Render)
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
 | `MONGO_URI` | ✅ Required | — | MongoDB Atlas connection URI |
-| `JWT_SECRET` | ✅ Required | — | Long random string for JWT signing |
-| `SESSION_SECRET` | ✅ Required | — | Long random string for Express sessions |
-| `GOOGLE_CLIENT_ID` | ✅ Required | — | Google OAuth 2.0 client ID |
-| `AI_SERVICE_URL` | ✅ Required | — | URL of the Python AI service (e.g. `http://localhost:8000`) |
-| `FRONTEND_URL` | ✅ Required | — | Frontend origin for CORS (e.g. `http://localhost:5173`) |
-| `EMAIL_USER` | ✅ Required | — | Gmail address for transactional emails |
-| `EMAIL_PASS` | ✅ Required | — | Gmail app password (not your account password) |
-| `TWILIO_ACCOUNT_SID` | ✅ Required | — | Twilio Account SID for SMS auth |
-| `TWILIO_AUTH_TOKEN` | ✅ Required | — | Twilio Auth Token |
-| `TWILIO_PHONE_NUMBER` | ✅ Required | — | Twilio phone number (E.164 format) |
-| `GEMINI_API_KEY` | ✅ Required | — | Google Gemini API key for financial insights |
-| `GROQ_API_KEY` | ✅ Required | — | Groq API key for analytics |
-| `CLOUDFLARE_TURNSTILE_SECRET_KEY` | Optional | testing key | Cloudflare Turnstile secret |
-| `PORT` | Optional | `5000` | Node.js server port |
-| `NODE_ENV` | Optional | `development` | `development` or `production` |
+| `JWT_SECRET` | ✅ Required | — | String for JWT signing |
+| `SESSION_SECRET` | ✅ Required | — | Express session secret |
+| `FRONTEND_URL` | ✅ Required | — | Frontend origin URL (e.g. `https://finmate-app.me`) |
+| `EMAIL_USER` | ✅ Required | — | Gmail address for transactional email alerts |
+| `EMAIL_PASS` | ✅ Required | — | Gmail App Password for SMTP dispatch |
+| `CLOUDFLARE_TURNSTILE_SECRET_KEY` | ✅ Required | testing key | Cloudflare Turnstile secret key |
+| `AI_SERVICE_URL` | ✅ Required | — | URL of the Python AI service on Render |
 
-### `Client/.env` (Vite Frontend)
+### `Client/.env` (Vite Frontend — Deployed on Vercel)
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `VITE_GOOGLE_CLIENT_ID` | ✅ Required | Google OAuth Client ID (same as server) |
+| `VITE_GOOGLE_CLIENT_ID` | ✅ Required | Google OAuth Client ID |
 | `VITE_CLOUDFLARE_TURNSTILE_SITE_KEY` | ✅ Required | Cloudflare Turnstile site key |
+| `VITE_API_URL` | Optional | Backend server URL |
 
 ---
 
-## API Endpoints (AI Service)
-
-### Health & Version
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/api/ai/health` | Service health, model status, DB connectivity |
-| `GET` | `/api/version` | Deployed version, commit hash, environment |
-
-**`GET /api/ai/health` — example response:**
-```json
-{
-  "status": "healthy",
-  "uptime": 142.3,
-  "database": "CONNECTED",
-  "startup_validation": "PASSED",
-  "readiness": "READY",
-  "models": {
-    "categorization_model": "LOADED",
-    "financial_health_model": "LOADED",
-    "embedding_model": "LOADED"
-  },
-  "version": { "version": "1.0.0", "commit": "a3f9d12", "environment": "production" }
-}
-```
-
-**`GET /api/version` — example response:**
-```json
-{
-  "version": "1.0.0",
-  "commit": "a3f9d12",
-  "environment": "production",
-  "build_timestamp": "2026-08-06T12:30:00Z",
-  "python_version": "3.10.14"
-}
-```
-
----
-
-## Docker (AI Service)
-
-The Python AI service can be containerized independently.
-
-### Build
-
-```bash
-# From the project root — pass the current git commit as a build arg
-docker build \
-  --build-arg COMMIT_SHA=$(git rev-parse --short HEAD) \
-  -t finmate-ai:latest \
-  ./backend
-```
-
-### Run
-
-```bash
-docker run -p 8000:8000 \
-  -e MONGO_URI="mongodb+srv://..." \
-  -e ENVIRONMENT=production \
-  finmate-ai:latest
-```
-
-### Environment injection
-
-Do **not** mount a `.env` file into the container. Instead, inject environment variables directly via `-e` flags or your deployment platform's secret management (Railway, Fly.io, etc.).
-
----
-
-## Deployment
+## Deployment (Vercel + Render)
 
 | Service | Platform | Notes |
 |---------|----------|-------|
-| Client + Server | Vercel | Configured via `vercel.json` |
-| AI Backend | Railway / Fly.io | Use the `backend/Dockerfile`; inject env vars via platform secrets |
-
-### Required `server/.env` addition before deployment
-
-Add this line to your production `server/.env` (or your Vercel environment variables):
-```
-AI_SERVICE_URL=<your-railway-or-flyio-backend-url>
-```
+| **Client (Frontend)** | **Vercel** | Configured via `vercel.json` and static build |
+| **Server (Node API)** | **Render** | Node.js Web Service running `server.js` |
+| **Backend (Python AI)** | **Render** | Web Service running FastAPI `uvicorn main:app` |
 
 ---
 
-## Known Gotchas
+## License
 
-### Python import namespace collision
-The `categorization/` module and the root `backend/ai/` module both define an `embeddings` package. `main.py` uses `sys.modules` injection and manual namespace merging to resolve this at startup. Do not rename or restructure the `embeddings/` directories without updating the dynamic loader in `main.py` (lines 25–73).
-
-### Startup validation failure
-If the Python service exits immediately on startup with a non-zero code, check:
-1. Is `MONGO_URI` set in `backend/.env` or as an OS env var?
-2. Is the MongoDB cluster accessible from your machine/container?
-3. Check the structured JSON logs for `"Startup Validation FAILED"`.
-
-### Cross-layer `.env` dependency (historical)
-Prior to this refactor, `forecast/utils.py` and `anomaly/utils.py` path-crawled to `../../../server/.env` to find `MONGO_URI`. This was removed. Both modules now load from `backend/.env`. If you see `MONGO_URI not set` errors in the AI service, ensure `backend/.env` contains the URI.
-
-### Model loading on cold start
-The first startup takes 30–90 seconds for the embedding model (`all-MiniLM-L6-v2`) to download from HuggingFace. Subsequent starts use the cached model. The Docker `HEALTHCHECK` has a 60-second start period to account for this.
+Copyright © 2026 FinMate. All rights reserved.
