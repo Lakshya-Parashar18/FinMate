@@ -20,7 +20,6 @@ export const verifyTurnstile = async (req, res, next) => {
         body: new URLSearchParams({
           secret: secretKey,
           response: token,
-          remoteip: req.ip,
         }).toString(),
       }
     );

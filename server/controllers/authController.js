@@ -284,11 +284,13 @@ export const login = async (req, res) => {
     const token = generateToken(user._id);
 
     // Establish Session
-    req.session.userId = user._id;
+    if (req.session) {
+      req.session.userId = user._id;
+    }
 
     // Record activity & session (async, don't block response)
-    recordLoginActivity(user._id, 'login_success', req, true);
-    recordSession(user._id, req);
+    recordLoginActivity(user._id, 'login_success', req, true).catch(err => console.error('recordLoginActivity err:', err));
+    recordSession(user._id, req).catch(err => console.error('recordSession err:', err));
 
     res.json({
       token,
@@ -296,7 +298,7 @@ export const login = async (req, res) => {
     });
   } catch (err) {
     console.error('Login error:', err);
-    res.status(500).json({ message: "Server error during login" });
+    res.status(500).json({ message: err.message || "Server error during login" });
   }
 };
 
