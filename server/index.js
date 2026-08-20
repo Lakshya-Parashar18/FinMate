@@ -139,9 +139,24 @@ const mongoOptions = {
   heartbeatFrequencyMS: 10000,       // how often to ping the server
 };
 
-// Reconnect event handlers — prevents unhandled promise rejection crash
+// Health check & Render Keep-Alive Heartbeat endpoint
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'active', timestamp: new Date().toISOString() });
+});
+
+// Self-ping interval (every 10 minutes) to prevent Render free-tier containers from sleeping
+if (process.env.RENDER || process.env.NODE_ENV === 'production') {
+  setInterval(() => {
+    const serviceUrl = process.env.RENDER_EXTERNAL_URL || 'https://finmate-api.onrender.com';
+    fetch(`${serviceUrl}/api/health`)
+      .then(() => console.log('💓 Keep-alive heartbeat ping successful'))
+      .catch(() => {});
+  }, 10 * 60 * 1000);
+}
+
+// Global MongoDB Event Listeners
 mongoose.connection.on('disconnected', () => {
-  console.warn('⚠️  MongoDB disconnected — attempting reconnect...');
+  console.warn('⚠️ MongoDB disconnected — attempting reconnect...');
 });
 mongoose.connection.on('reconnected', () => {
   console.log('✅ MongoDB reconnected');

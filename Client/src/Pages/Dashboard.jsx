@@ -37,6 +37,7 @@ import aiIconAnimation from '../assets/ai-icon.json';
 import { API_URL } from '../config';
 import { useAuth } from '../context/AuthContext';
 import { useDisplaySettings } from '../context/DisplaySettingsContext';
+import { getCachedData, setCachedData } from '../utils/apiCache';
 
 
 const GRADIENTS = [
@@ -261,16 +262,27 @@ const Dashboard = () => {
 
 
   const fetchDashboardData = useCallback(async () => {
-    setLoading(true);
+    const cachedSummary = getCachedData('dashboard_summary');
+    const cachedRecentTxs = getCachedData('recent_transactions');
+    if (cachedSummary && cachedRecentTxs) {
+      setDashboardData(cachedSummary);
+      setRecentTransactions(cachedRecentTxs);
+      setLoading(false);
+    } else {
+      setLoading(true);
+    }
+
     setApiError('');
     try {
-      const summaryResponse = await axios.get(`${API_URL}/dashboard/summary`, { withCredentials: true });
-      const summary = summaryResponse.data;
+      const [summaryResponse, transactionsResponse] = await Promise.all([
+        axios.get(`${API_URL}/dashboard/summary`, { withCredentials: true }),
+        axios.get(`${API_URL}/transactions?limit=4`, { withCredentials: true })
+      ]);
 
-      const transactionsResponse = await axios.get(`${API_URL}/transactions?limit=4`, { withCredentials: true });
+      const summary = summaryResponse.data;
       const recentTxs = transactionsResponse.data.transactions || [];
 
-      setDashboardData({
+      const newDashboardData = {
         totalBalance: summary.totalBalance || 0,
         income: summary.income || 0,
         expenses: summary.expenses || 0,
@@ -278,8 +290,13 @@ const Dashboard = () => {
         budgetLeft: summary.budgetLeft || 0,
         monthlyComparison: summary.monthlyComparison || [],
         expenseBreakdown: summary.expenseBreakdown || [],
-      });
+      };
+
+      setDashboardData(newDashboardData);
       setRecentTransactions(recentTxs);
+
+      setCachedData('dashboard_summary', newDashboardData);
+      setCachedData('recent_transactions', recentTxs);
 
     } catch (err) {
       console.error('Error fetching dashboard data:', err);

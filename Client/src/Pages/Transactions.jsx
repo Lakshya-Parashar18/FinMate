@@ -23,6 +23,7 @@ import './Transactions.css';
 import Loading from '../components/Loading';
 import CustomDatePicker from '../components/CustomDatePicker';
 import CustomSelect from '../components/CustomSelect';
+import { getCachedData, setCachedData } from '../utils/apiCache';
 
 const Transactions = () => {
   const navigate = useNavigate();
@@ -82,17 +83,26 @@ const Transactions = () => {
   const [anomalyCheckResult, setAnomalyCheckResult] = useState(null);
 
   const fetchTransactions = useCallback(async () => {
-    setLoading(true);
+    const cached = getCachedData('all_transactions');
+    if (cached) {
+      setTransactions(cached);
+      setLoading(false);
+    } else {
+      setLoading(true);
+    }
+
     setApiError('');
     try {
       const response = await axios.get(`${API_URL}/transactions`, {
         withCredentials: true,
       });
-      setTransactions(response.data.transactions || []);
+      const txs = response.data.transactions || [];
+      setTransactions(txs);
+      setCachedData('all_transactions', txs);
     } catch (err) {
       console.error('Error fetching transactions:', err);
       setApiError(err.response?.data?.message || 'Failed to fetch transactions.');
-      setTransactions([]);
+      if (!cached) setTransactions([]);
     } finally {
       setLoading(false);
     }
