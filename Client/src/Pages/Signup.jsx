@@ -133,7 +133,7 @@ export default function Signup() {
         const rand = Math.floor(10 + Math.random() * 900);
         generated = `${base}${rand}`;
       }
-      
+
       try {
         const res = await axios.get(`${API_URL}/auth/check-username`, {
           params: { username: generated }

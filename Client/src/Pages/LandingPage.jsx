@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleLogin } from '@react-oauth/google';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
 import { FaArrowRight } from 'react-icons/fa';
 import { API_URL } from "../config";
@@ -16,6 +17,7 @@ import Footer from "../components/Footer";
 import "./LandingPage.css";
 
 export default function LandingPage() {
+  const [isLoading, setIsLoading] = useState(true);
   const [isDemoOpen, setIsDemoOpen] = useState(false);
   const [error, setError] = useState('');
   const [showDeletedMessage, setShowDeletedMessage] = useState(false);
@@ -23,6 +25,14 @@ export default function LandingPage() {
   const location = useLocation();
   const { login } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
+
+  // Subtle reload loading splash overlay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 700);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Hide scrollbar completely on landing page & enforce dark mode
   useEffect(() => {
@@ -127,6 +137,28 @@ export default function LandingPage() {
 
   return (
     <div className="landing-page">
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div
+            className="landing-loader-screen"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0, scale: 1.03 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="landing-loader-content">
+              <div className="loader-logo-wrapper">
+                <div className="loader-glow-ring" />
+                <img src="/logo.png" alt="FinMate" className="loader-logo-img" />
+              </div>
+              <div className="loader-brand-title">FinMate</div>
+              <div className="loader-progress-bar">
+                <div className="loader-progress-fill" />
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <CustomCursor />
       <div className="overlay" />
       <HeroSection />

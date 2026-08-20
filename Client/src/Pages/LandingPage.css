@@ -2,6 +2,111 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
+/* Landing Page Subtle Reload Loader Overlay */
+.landing-loader-screen {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+  background-color: #0a0f1f !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important;
+  pointer-events: all !important;
+}
+
+.landing-loader-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1.25rem !important;
+}
+
+.loader-logo-wrapper {
+  position: relative !important;
+  width: 72px !important;
+  height: 72px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.loader-glow-ring {
+  position: absolute !important;
+  inset: -8px !important;
+  border-radius: 50% !important;
+  background: rgba(16, 185, 129, 0.25) !important;
+  animation: pulseGlow 1.5s ease-in-out infinite alternate !important;
+}
+
+.loader-logo-img {
+  width: 56px !important;
+  height: 48px !important;
+  object-fit: contain !important;
+  position: relative !important;
+  z-index: 2 !important;
+  filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.4)) !important;
+  animation: logoFloat 1.5s ease-in-out infinite alternate !important;
+}
+
+.loader-brand-title {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.6rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  letter-spacing: -0.02em !important;
+}
+
+.loader-progress-bar {
+  width: 120px !important;
+  height: 3px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 9999px !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.loader-progress-fill {
+  height: 100% !important;
+  width: 100% !important;
+  background: #10b981 !important;
+  border-radius: 9999px !important;
+  animation: shimmerLoader 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1.15);
+    opacity: 0.95;
+  }
+}
+
+@keyframes logoFloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes shimmerLoader {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
 /* Hide scrollbar completely on landing page */
 html.hide-landing-scrollbar::-webkit-scrollbar,
 body.hide-landing-scrollbar::-webkit-scrollbar,
@@ -73,7 +178,8 @@ footer,
 }
 
 .glass {
-  background: rgba(15, 23, 42, 0.9); /* Higher opacity instead of blur */
+  background: rgba(15, 23, 42, 0.9);
+  /* Higher opacity instead of blur */
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
@@ -98,7 +204,7 @@ footer,
   -webkit-backdrop-filter: blur(20px) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .hidden-navbar {
@@ -183,12 +289,10 @@ footer,
   left: -150%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent);
   transform: skewX(-25deg);
   transition: none;
 }
@@ -221,14 +325,17 @@ footer,
     transform: translateX(0);
     opacity: 1;
   }
+
   40% {
     transform: translateX(6px);
     opacity: 0;
   }
+
   42% {
     transform: translateX(-6px);
     opacity: 0;
   }
+
   100% {
     transform: translateX(0);
     opacity: 1;
@@ -543,7 +650,8 @@ footer,
 }
 
 /* Lenis smooth scrolling core styles */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -607,6 +715,7 @@ html.lenis, html.lenis body {
     opacity: 0;
     transform: translate(-50%, -20px);
   }
+
   to {
     opacity: 1;
     transform: translate(-50%, 0);
