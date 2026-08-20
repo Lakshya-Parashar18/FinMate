@@ -385,6 +385,13 @@ html, body {
   width: 100%;
 }
 
+.google-login-container iframe,
+.google-login-container div {
+  background: transparent !important;
+  border-radius: 9999px !important;
+  overflow: hidden !important;
+}
+
 .delete-success-message {
   position: fixed;
   top: 20px;
