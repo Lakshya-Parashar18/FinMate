@@ -755,10 +755,11 @@ body {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background: #ffffff !important;
+  background: transparent !important;
   border-radius: 9999px !important;
-  padding: 1px !important;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), 0 0 12px rgba(255, 255, 255, 0.12) !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35) !important;
   width: fit-content !important;
   margin: 0 auto !important;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
@@ -770,10 +771,12 @@ body {
 }
 
 .google-login-wrapper > div,
-.google-login-wrapper iframe {
+.google-login-wrapper iframe,
+.google-login-container iframe {
   border-radius: 9999px !important;
-  background: #ffffff !important;
+  background: transparent !important;
   margin: 0 auto !important;
+  overflow: hidden !important;
 }
 
 /* ULTRA-HIGH SPECIFICITY LANDING PAGE SCROLLBAR ANNIHILATOR */
