@@ -7,12 +7,12 @@ import Lenis from 'lenis';
 import './TestimonialsSection.css';
 
 const INITIAL_TESTIMONIALS = [
-  { id: 1, name: "Aman Sharma", role: "Engineering Student", text: "FinMate helped me save ₹2000/month just by identifying my bad coffee habits! Absolute lifesaver for hostel students.", rating: 5, avatar: "A", createdAt: "2024-01-01T10:00:00Z" },
-  { id: 2, name: "Riya Singh", role: "Medical Intern", text: "The AI AI insights are scarily accurate. It predicted my month-end cash crunch before it happened. Best app for students!", rating: 5, avatar: "R", createdAt: "2024-01-02T10:00:00Z" },
-  { id: 3, name: "Vikram Malhotra", role: "B.Com Final Year", text: "Minimalist, clean, and fast. I've tried every budget app, but this is the only one I actually use every day.", rating: 4, avatar: "V", createdAt: "2024-01-03T10:00:00Z" },
-  { id: 4, name: "Sanya Gupta", role: "MBA Aspirant", text: "Finally an app that doesn't feel like a chore to use. The UI is addictive.", rating: 5, avatar: "S", createdAt: "2024-01-04T10:00:00Z" },
-  { id: 5, name: "Rahul Verma", role: "CS Sophomore", text: "The real-time transaction tracking is flawless. Highly recommend.", rating: 5, avatar: "R", createdAt: "2024-01-05T10:00:00Z" },
-  { id: 6, name: "Priya Das", role: "Arts Student", text: "Saved me from several unnecessary purchases this month already!", rating: 4, avatar: "P", createdAt: "2024-01-06T10:00:00Z" }
+  { id: 1, name: "Aman Sharma", role: "Software Engineer", text: "FinMate helped me save ₹2000/month just by identifying unnecessary coffee & subscription habits! Absolute lifesaver.", rating: 5, avatar: "A", createdAt: "2024-01-01T10:00:00Z" },
+  { id: 2, name: "Riya Singh", role: "Financial Analyst", text: "The AI insights are scarily accurate. It predicted my month-end cash crunch before it happened. Best app for money management!", rating: 5, avatar: "R", createdAt: "2024-01-02T10:00:00Z" },
+  { id: 3, name: "Vikram Malhotra", role: "Product Manager", text: "Minimalist, clean, and fast. I've tried every budget app, but this is the only one I actually use every day.", rating: 4, avatar: "V", createdAt: "2024-01-03T10:00:00Z" },
+  { id: 4, name: "Sanya Gupta", role: "Marketing Lead", text: "Finally an app that doesn't feel like a chore to use. The UI is addictive.", rating: 5, avatar: "S", createdAt: "2024-01-04T10:00:00Z" },
+  { id: 5, name: "Rahul Verma", role: "UX Designer", text: "The real-time transaction tracking is flawless. Highly recommend.", rating: 5, avatar: "R", createdAt: "2024-01-05T10:00:00Z" },
+  { id: 6, name: "Priya Das", role: "Freelance Creator", text: "Saved me from several unnecessary impulse purchases this month already!", rating: 4, avatar: "P", createdAt: "2024-01-06T10:00:00Z" }
 ];
 
 const TestimonialsSection = () => {
@@ -158,11 +158,11 @@ const TestimonialsSection = () => {
   return (
     <section className="testimonials-section">
       <div className="testimonials-container">
-        <motion.div className="section-header" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <div className="section-header">
           <div className="section-tag">SOCIAL PROOF</div>
-          <h2>Trusted by <span className="text-gradient">Thousands</span> of Students</h2>
-          <p>Join the movement of financially intelligent young achievers.</p>
-        </motion.div>
+          <h2>Trusted by <span className="text-gradient">Thousands</span> of Smart Savers</h2>
+          <p>Join the movement of financially intelligent achievers.</p>
+        </div>
 
         <div className="testimonials-grid">
           {recentTestimonials.map((item, idx) => (
@@ -235,10 +235,10 @@ const TestimonialsSection = () => {
                 exit={{ scale: 0.9, opacity: 0, y: 20 }}
               >
                 {submitted ? (
-                  <div className="submission-success">
+                  <div className="feedback-success">
                     <FaCheckCircle className="success-icon" />
                     <h3>Thank You!</h3>
-                    <p>Your story helps other students start their journey.</p>
+                    <p>Your story helps others start their financial growth journey.</p>
                   </div>
                 ) : (
                   <>

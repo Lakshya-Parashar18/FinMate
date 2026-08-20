@@ -167,7 +167,7 @@ export default function LandingPage() {
 
       <main className="landing-main-content glass">
         <h1>Stop Guessing Your Spending. Start Controlling It.</h1>
-        <p>Your intelligent expense companion built for student life.</p>
+        <p>Your intelligent expense companion built for smart money management.</p>
         
         <div className="auth-boxes">
           <div className="auth-box signup-box">

@@ -159,7 +159,7 @@ const Footer = () => {
             <span>FinMate</span>
           </div>
           <p className="brand-desc">
-            Empowering students to take control of their financial future through
+            Empowering individuals and teams to take control of their financial future through
             intelligent tracking and AI-driven insights.
           </p>
           <div className="social-links">
@@ -201,7 +201,7 @@ const Footer = () => {
             <form className="footer-newsletter" onSubmit={handleSubscribe}>
               <input
                 type="email"
-                placeholder="student@university.edu"
+                placeholder="name@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -237,7 +237,7 @@ const Footer = () => {
                   finmate.support01@gmail.com
                 </a>
               </span>
-              <span><FaMapMarkerAlt /> Global Student Community</span>
+              <span><FaMapMarkerAlt /> Global Community</span>
             </div>
           </div>
         </div>
@@ -245,7 +245,7 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <div className="copyright">
-          © {new Date().getFullYear()} FinMate. Created with ❤️ for Students.
+          © {new Date().getFullYear()} FinMate. Created with ❤️ for Smart Savers.
         </div>
         <div className="footer-theme-tag"> DARK MODE ACTIVE </div>
       </div>

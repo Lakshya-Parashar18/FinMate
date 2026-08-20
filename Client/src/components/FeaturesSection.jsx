@@ -46,34 +46,18 @@ const FeaturesSection = () => {
   return (
     <section className="features-section">
       <div className="section-header">
-        <motion.div 
-          className="feature-tag"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-        >
+        <div className="feature-tag">
           POWERED BY AI
-        </motion.div>
+        </div>
         
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <h2>
           Designed for the <span className="text-gradient">Financial Future</span>
-        </motion.h2>
+        </h2>
         
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="section-description"
-        >
+        <p className="section-description">
           Ditch the spreadsheets. FinMate brings enterprise-grade financial management 
           to your pocket with a design that's as intelligent as it is beautiful.
-        </motion.p>
+        </p>
       </div>
 
       <div className="features-grid">
