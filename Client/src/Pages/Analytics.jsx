@@ -34,6 +34,8 @@ import utc from 'dayjs/plugin/utc';
 import aiIconData from '../assets/ai-icon.json';
 import { API_URL } from '../config';
 import Loading from '../components/Loading';
+import CustomDatePicker from '../components/CustomDatePicker';
+import CustomSelect from '../components/CustomSelect';
 import { useAuth } from '../context/AuthContext'; // Use auth context
 import { useDisplaySettings } from '../context/DisplaySettingsContext';
 import './Analytics.css';
@@ -60,9 +62,35 @@ const Analytics = () => {
   const [apiError, setApiError] = useState('');
 
   // State for date range selection
-  // Initialize with default range (e.g., last 30 days)
   const [endDate, setEndDate] = useState(dayjs().format('YYYY-MM-DD'));
   const [startDate, setStartDate] = useState(dayjs().subtract(29, 'day').format('YYYY-MM-DD'));
+  const [activePreset, setActivePreset] = useState('30d');
+
+  const setQuickRange = (rangeType) => {
+    setActivePreset(rangeType);
+    const today = dayjs();
+    let start, end;
+
+    if (rangeType === '1m') {
+      start = today.startOf('month').format('YYYY-MM-DD');
+      end = today.format('YYYY-MM-DD');
+    } else if (rangeType === '30d') {
+      start = today.subtract(29, 'day').format('YYYY-MM-DD');
+      end = today.format('YYYY-MM-DD');
+    } else if (rangeType === '3m') {
+      const quarterMonth = Math.floor(today.month() / 3) * 3;
+      start = dayjs().month(quarterMonth).startOf('month').format('YYYY-MM-DD');
+      end = today.format('YYYY-MM-DD');
+    } else if (rangeType === '1y') {
+      start = today.startOf('year').format('YYYY-MM-DD');
+      end = today.format('YYYY-MM-DD');
+    }
+
+    if (start && end) {
+      setStartDate(start);
+      setEndDate(end);
+    }
+  };
 
   // Forecast Widget State
   const [forecast, setForecast] = useState(null);
@@ -115,17 +143,19 @@ const Analytics = () => {
     if (!containerRef.current) return;
 
     const measureCoords = () => {
+      if (!containerRef.current) return;
       const parentRect = containerRef.current.getBoundingClientRect();
+      const zoomFactor = window.innerWidth > 768 ? 0.9 : 1.0;
       const coordsMap = {};
       const cards = containerRef.current.querySelectorAll('[data-flow-id]');
       cards.forEach(card => {
         const id = card.getAttribute('data-flow-id');
         const rect = card.getBoundingClientRect();
         coordsMap[id] = {
-          x: rect.left - parentRect.left,
-          y: rect.top - parentRect.top,
-          width: rect.width,
-          height: rect.height
+          x: (rect.left - parentRect.left) / zoomFactor,
+          y: (rect.top - parentRect.top) / zoomFactor,
+          width: rect.width / zoomFactor,
+          height: rect.height / zoomFactor
         };
       });
       setCardCoords(coordsMap);
@@ -1085,25 +1115,52 @@ const Analytics = () => {
             <p className="header-subtitle">Visualize spending trends and financial insights</p>
           </div>
           <div className="date-range-selector">
-            <FaCalendarAlt className="date-range-icon" />
-            <div className="date-input-group">
-              <label htmlFor="startDate">From</label>
-              <input
-                type="date"
-                id="startDate"
-                name="startDate"
-                value={startDate}
-                onChange={handleDateChange}
-              />
+            <div className="quick-range-pills">
+              <button
+                type="button"
+                className={`range-pill ${activePreset === '30d' ? 'active' : ''}`}
+                onClick={() => setQuickRange('30d')}
+              >
+                30D
+              </button>
+              <button
+                type="button"
+                className={`range-pill ${activePreset === '1m' ? 'active' : ''}`}
+                onClick={() => setQuickRange('1m')}
+              >
+                1M
+              </button>
+              <button
+                type="button"
+                className={`range-pill ${activePreset === '3m' ? 'active' : ''}`}
+                onClick={() => setQuickRange('3m')}
+              >
+                3M
+              </button>
+              <button
+                type="button"
+                className={`range-pill ${activePreset === '1y' ? 'active' : ''}`}
+                onClick={() => setQuickRange('1y')}
+              >
+                1Y
+              </button>
             </div>
-            <div className="date-input-group">
-              <label htmlFor="endDate">To</label>
-              <input
-                type="date"
-                id="endDate"
-                name="endDate"
+            <div className="date-inputs-wrapper">
+              <CustomDatePicker
+                label="From"
+                value={startDate}
+                onChange={(newVal) => {
+                  setActivePreset('custom');
+                  setStartDate(newVal);
+                }}
+              />
+              <CustomDatePicker
+                label="To"
                 value={endDate}
-                onChange={handleDateChange}
+                onChange={(newVal) => {
+                  setActivePreset('custom');
+                  setEndDate(newVal);
+                }}
               />
             </div>
           </div>
@@ -1608,7 +1665,18 @@ const Analytics = () => {
                           <h3>Intelligent Spending Analysis</h3>
                         </div>
                       </div>
-                      <p className="no-data-message">No spending data available for this period.</p>
+                      <div className="analytics-empty-state-box">
+                        <div className="empty-state-badge">
+                          <FaChartBar />
+                        </div>
+                        <h4 className="empty-state-title">No Spending Data Available</h4>
+                        <p className="empty-state-desc">
+                          There are no recorded expenses for this period. Add transactions or adjust your date range to unlock AI category analysis and spending insights.
+                        </p>
+                        <Link to="/transactions" className="empty-state-btn">
+                          <FaPlus /> Add Expense
+                        </Link>
+                      </div>
                     </div>
                   );
                 }
@@ -2733,8 +2801,8 @@ const Analytics = () => {
                               <div className="card-pulse-glow" />
                               <div className="card-top-row">
                                 <span className="card-emoji-badge text-rose" style={{ background: 'rgba(244, 63, 94, 0.08)' }}>
-                                <img src="https://img.icons8.com/fluency/48/card-in-use-1.png" alt="Expenses" style={{ width: '22px', height: '22px', display: 'block' }} />
-                              </span>
+                                  <img src="https://img.icons8.com/fluency/48/card-in-use-1.png" alt="Expenses" style={{ width: '22px', height: '22px', display: 'block' }} />
+                                </span>
                                 <span className="card-budget-status status-rose">{expPct.toFixed(0)}% Spent</span>
                               </div>
                               <div className="card-meta-title">Total Spent</div>
@@ -2776,7 +2844,9 @@ const Analytics = () => {
                                     <div className="cat-info-middle">
                                       <div className="cat-title-text-row">
                                         <span className="cat-title-name">{c.name}</span>
-                                        <span className={`cat-budget-tag bg-${budgetInfo.class}`}>{budgetInfo.status}</span>
+                                        {budgetInfo && budgetInfo.class !== 'neutral' && (
+                                          <span className={`cat-budget-tag bg-${budgetInfo.class}`}>{budgetInfo.status}</span>
+                                        )}
                                       </div>
                                       <div className="cat-details-row">
                                         <span className="cat-pct-share">
@@ -2919,28 +2989,33 @@ const Analytics = () => {
                     <div className="form-row-two-cols">
                       <div className="form-group-item">
                         <label htmlFor="goalTargetDate">Target Date *</label>
-                        <input
-                          type="date"
-                          id="goalTargetDate"
+                        <CustomDatePicker
                           value={goalTargetDate}
-                          onChange={e => setGoalTargetDate(e.target.value)}
-                          required
+                          onChange={newVal => setGoalTargetDate(newVal)}
+                          placeholder="Target date"
                         />
                       </div>
                       <div className="form-group-item">
                         <label htmlFor="goalCategory">Category</label>
-                        <select
+                        <input
+                          type="text"
                           id="goalCategory"
                           value={goalCategory}
                           onChange={e => setGoalCategory(e.target.value)}
-                        >
-                          <option value="General">General</option>
-                          <option value="Emergency Fund">Emergency Fund</option>
-                          <option value="Travel">Travel</option>
-                          <option value="Savings">Savings</option>
-                          <option value="Investment">Investment</option>
-                          <option value="Purchase">Purchase</option>
-                        </select>
+                          placeholder="e.g. Travel, Emergency, House"
+                        />
+                        <div className="category-suggestions" style={{ marginTop: '8px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                          {['General', 'Emergency Fund', 'Travel', 'Savings', 'Investment', 'Purchase', 'Gadgets', 'Education', 'Vehicle'].map(cat => (
+                            <button
+                              key={cat}
+                              type="button"
+                              className={`suggestion-btn ${goalCategory === cat ? 'active' : ''}`}
+                              onClick={() => setGoalCategory(cat)}
+                            >
+                              {cat}
+                            </button>
+                          ))}
+                        </div>
                       </div>
                     </div>
                     <button type="submit" className="goals-modal-submit-btn">

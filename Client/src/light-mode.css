@@ -28,8 +28,8 @@ html:not([data-theme="dark"]) .dashboard-header {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-  left: calc(var(--sidebar-width) + 2rem + max(0px, (100vw - var(--sidebar-width) - 4rem - var(--max-content-width)) / 2)) !important;
-  width: calc(100vw - var(--sidebar-width) - 4rem) !important;
+  left: calc(var(--sidebar-width) + 2.6rem + max(0px, (100vw - var(--sidebar-width) - 3.7rem - var(--max-content-width)) / 2)) !important;
+  width: calc(100vw - var(--sidebar-width) - -6rem) !important;
   max-width: var(--max-content-width) !important;
   padding: 1.6rem 2rem !important;
   border-radius: 12px !important;
@@ -47,8 +47,8 @@ html:not([data-theme="dark"]) .settings-header {
   border: none !important;
   background: transparent !important;
   box-shadow: none !important;
-  left: calc(var(--sidebar-width) + 2rem + max(0px, (100vw - var(--sidebar-width) - 4rem - var(--max-content-width)) / 2)) !important;
-  width: calc(100vw - var(--sidebar-width) - 4rem) !important;
+  left: calc(var(--sidebar-width) + 2.4rem + max(0px, (100vw - var(--sidebar-width) - 3.7rem - var(--max-content-width)) / 2)) !important;
+  width: calc(100vw - var(--sidebar-width) - -6rem) !important;
   max-width: var(--max-content-width) !important;
 }
 
@@ -543,13 +543,13 @@ html:not([data-theme="dark"]) .balances-member-net.zero {
 }
 
 /* 9. GLOBAL LIGHT MODE HEADER BUTTON OVERRIDES */
-html:not([data-theme="dark"]) .dashboard-header button,
-html:not([data-theme="dark"]) .settings-header button,
-html:not([data-theme="dark"]) .analytics-header button,
-html:not([data-theme="dark"]) .transactions-header button,
-html:not([data-theme="dark"]) .monthly-budget-header button,
-html:not([data-theme="dark"]) .circles-header button,
-html:not([data-theme="dark"]) .circle-detail-banner button {
+html:not([data-theme="dark"]) .dashboard-header button:not(.custom-datepicker-container button),
+html:not([data-theme="dark"]) .settings-header button:not(.custom-datepicker-container button),
+html:not([data-theme="dark"]) .analytics-header button:not(.custom-datepicker-container button),
+html:not([data-theme="dark"]) .transactions-header button:not(.custom-datepicker-container button),
+html:not([data-theme="dark"]) .monthly-budget-header button:not(.custom-datepicker-container button),
+html:not([data-theme="dark"]) .circles-header button:not(.custom-datepicker-container button),
+html:not([data-theme="dark"]) .circle-detail-banner button:not(.custom-datepicker-container button) {
   background: rgba(255, 255, 255, 0.95) !important;
   border: 1.5px solid rgba(16, 185, 129, 0.55) !important;
   color: #059669 !important;
@@ -565,13 +565,13 @@ html:not([data-theme="dark"]) .circle-detail-banner button {
   transition: all 0.2s ease !important;
 }
 
-html:not([data-theme="dark"]) .dashboard-header button:hover,
-html:not([data-theme="dark"]) .settings-header button:hover,
-html:not([data-theme="dark"]) .analytics-header button:hover,
-html:not([data-theme="dark"]) .transactions-header button:hover,
-html:not([data-theme="dark"]) .monthly-budget-header button:hover,
-html:not([data-theme="dark"]) .circles-header button:hover,
-html:not([data-theme="dark"]) .circle-detail-banner button:hover {
+html:not([data-theme="dark"]) .dashboard-header button:not(.custom-datepicker-container button):hover,
+html:not([data-theme="dark"]) .settings-header button:not(.custom-datepicker-container button):hover,
+html:not([data-theme="dark"]) .analytics-header button:not(.custom-datepicker-container button):hover,
+html:not([data-theme="dark"]) .transactions-header button:not(.custom-datepicker-container button):hover,
+html:not([data-theme="dark"]) .monthly-budget-header button:not(.custom-datepicker-container button):hover,
+html:not([data-theme="dark"]) .circles-header button:not(.custom-datepicker-container button):hover,
+html:not([data-theme="dark"]) .circle-detail-banner button:not(.custom-datepicker-container button):hover {
   background: #10b981 !important;
   color: #ffffff !important;
   border-color: #10b981 !important;
@@ -579,25 +579,25 @@ html:not([data-theme="dark"]) .circle-detail-banner button:hover {
 }
 
 /* Specific inline style selector overrides for buttons inside banners */
-html:not([data-theme="dark"]) .dashboard-header button[style*="color"],
-html:not([data-theme="dark"]) .settings-header button[style*="color"],
-html:not([data-theme="dark"]) .analytics-header button[style*="color"],
-html:not([data-theme="dark"]) .transactions-header button[style*="color"],
-html:not([data-theme="dark"]) .monthly-budget-header button[style*="color"],
-html:not([data-theme="dark"]) .circles-header button[style*="color"],
-html:not([data-theme="dark"]) .circle-detail-banner button[style*="color"] {
+html:not([data-theme="dark"]) .dashboard-header button:not(.custom-datepicker-container button)[style*="color"],
+html:not([data-theme="dark"]) .settings-header button:not(.custom-datepicker-container button)[style*="color"],
+html:not([data-theme="dark"]) .analytics-header button:not(.custom-datepicker-container button)[style*="color"],
+html:not([data-theme="dark"]) .transactions-header button:not(.custom-datepicker-container button)[style*="color"],
+html:not([data-theme="dark"]) .monthly-budget-header button:not(.custom-datepicker-container button)[style*="color"],
+html:not([data-theme="dark"]) .circles-header button:not(.custom-datepicker-container button)[style*="color"],
+html:not([data-theme="dark"]) .circle-detail-banner button:not(.custom-datepicker-container button)[style*="color"] {
   background: rgba(255, 255, 255, 0.95) !important;
   border: 1.5px solid rgba(16, 185, 129, 0.55) !important;
   color: #059669 !important;
 }
 
-html:not([data-theme="dark"]) .dashboard-header button[style*="color"]:hover,
-html:not([data-theme="dark"]) .settings-header button[style*="color"]:hover,
-html:not([data-theme="dark"]) .analytics-header button[style*="color"]:hover,
-html:not([data-theme="dark"]) .transactions-header button[style*="color"]:hover,
-html:not([data-theme="dark"]) .monthly-budget-header button[style*="color"]:hover,
-html:not([data-theme="dark"]) .circles-header button[style*="color"]:hover,
-html:not([data-theme="dark"]) .circle-detail-banner button[style*="color"]:hover {
+html:not([data-theme="dark"]) .dashboard-header button:not(.custom-datepicker-container button)[style*="color"]:hover,
+html:not([data-theme="dark"]) .settings-header button:not(.custom-datepicker-container button)[style*="color"]:hover,
+html:not([data-theme="dark"]) .analytics-header button:not(.custom-datepicker-container button)[style*="color"]:hover,
+html:not([data-theme="dark"]) .transactions-header button:not(.custom-datepicker-container button)[style*="color"]:hover,
+html:not([data-theme="dark"]) .monthly-budget-header button:not(.custom-datepicker-container button)[style*="color"]:hover,
+html:not([data-theme="dark"]) .circles-header button:not(.custom-datepicker-container button)[style*="color"]:hover,
+html:not([data-theme="dark"]) .circle-detail-banner button:not(.custom-datepicker-container button)[style*="color"]:hover {
   background: #10b981 !important;
   color: #ffffff !important;
   border-color: #10b981 !important;
@@ -1415,8 +1415,8 @@ html:not([data-theme="dark"]) .transactions-header {
   background: transparent !important;
   box-shadow: none !important;
 
-  left: calc(var(--sidebar-width) + 2rem + max(0px, (100vw - var(--sidebar-width) - 4rem - var(--max-content-width)) / 2)) !important;
-  width: calc(100vw - var(--sidebar-width) - 4rem) !important;
+  left: calc(var(--sidebar-width) + 2.5rem + max(0px, (100vw - var(--sidebar-width) - 3.7rem - var(--max-content-width)) / 2)) !important;
+  width: calc(100vw - var(--sidebar-width) - -6rem) !important;
   max-width: var(--max-content-width) !important;
 }
 
@@ -1487,23 +1487,21 @@ html:not([data-theme="dark"]) .search-box input:focus {
 
 /* Sort Select Container styling */
 html:not([data-theme="dark"]) .sort-container {
-  background: rgba(255, 255, 255, 0.8) !important;
-  backdrop-filter: blur(15px) !important;
-  border: 1px solid rgba(16, 185, 129, 0.15) !important;
-  border-radius: 18px !important;
-  padding: 6px 18px !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
   display: flex !important;
   align-items: center !important;
-  gap: 15px !important;
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
 }
 
 html:not([data-theme="dark"]) .sort-container:focus-within,
 html:not([data-theme="dark"]) .sort-container:hover {
-  background: rgba(255, 255, 255, 0.95) !important;
-  border-color: #10b981 !important;
-  box-shadow: 0 0 25px rgba(16, 185, 129, 0.15), 0 0 0 3px rgba(16, 185, 129, 0.05) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
 }
 
 html:not([data-theme="dark"]) .sort-select {
@@ -1787,8 +1785,8 @@ html:not([data-theme="dark"]) .analytics-header {
   border: none !important;
   padding: 0 !important;
 
-  left: calc(var(--sidebar-width) + 2rem + max(0px, (100vw - var(--sidebar-width) - 4rem - var(--max-content-width)) / 2)) !important;
-  width: calc(100vw - var(--sidebar-width) - 4rem) !important;
+  left: calc(var(--sidebar-width) + 2.65rem + max(0px, (100vw - var(--sidebar-width) - 3.7rem - var(--max-content-width)) / 2)) !important;
+  width: calc(100vw - var(--sidebar-width) - -6rem) !important;
   max-width: var(--max-content-width) !important;
   pointer-events: none !important;
   transform: translateX(0px) !important;
@@ -2430,6 +2428,26 @@ html:not([data-theme="dark"]) .chat-launcher .ai-button-animation-container svg 
   filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.95)) brightness(1.6) contrast(1.1) !important;
 }
 
+html:not([data-theme="dark"]) .chat-ai-label {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border: 1px solid rgba(139, 92, 246, 0.3) !important;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 0 10px rgba(139, 92, 246, 0.1) !important;
+}
+
+html:not([data-theme="dark"]) .chat-ai-label-text {
+  background: linear-gradient(90deg, #7c3aed, #a855f7, #c026d3) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+html:not([data-theme="dark"]) .chat-ai-label-dot {
+  background: #8b5cf6 !important;
+  box-shadow: 0 0 6px rgba(139, 92, 246, 0.8) !important;
+}
+
 /* ── Light Mode: Anomaly Badge ───────────────────────────────── */
 html:not([data-theme="dark"]) .anomaly-badge-high {
   color: #dc2626;
@@ -2532,36 +2550,62 @@ html:not([data-theme="dark"]) .goals-modal-overlay {
   touch-action: none !important;
 }
 
-/* ── Light Mode Custom Inset Line Modal Scrollbar ───────────── */
-html:not([data-theme="dark"]) ::-webkit-scrollbar {
-  display: block !important;
-  width: 3px !important;
-  height: 0 !important;
+/* ── Light Mode Main Window & Global Custom Scrollbar ───────────── */
+html:not([data-theme="dark"]),
+html:not([data-theme="dark"]) body {
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(16, 185, 129, 0.4) rgba(16, 185, 129, 0.05) !important;
 }
 
-html:not([data-theme="dark"]) ::-webkit-scrollbar-button {
+html:not([data-theme="dark"])::-webkit-scrollbar,
+html:not([data-theme="dark"]) body::-webkit-scrollbar,
+html:not([data-theme="dark"]) ::-webkit-scrollbar {
+  display: block !important;
+  width: 8px !important;
+  height: 8px !important;
+}
+
+html:not([data-theme="dark"])::-webkit-scrollbar-button,
+html:not([data-theme="dark"]) body::-webkit-scrollbar-button,
+html:not([data-theme="dark"]) ::-webkit-scrollbar-button,
+html:not([data-theme="dark"])::-webkit-scrollbar-button:single-button,
+html:not([data-theme="dark"]) body::-webkit-scrollbar-button:single-button,
+html:not([data-theme="dark"]) ::-webkit-scrollbar-button:single-button,
+html:not([data-theme="dark"])::-webkit-scrollbar-button:vertical:decrement,
+html:not([data-theme="dark"]) body::-webkit-scrollbar-button:vertical:decrement,
+html:not([data-theme="dark"])::-webkit-scrollbar-button:vertical:increment,
+html:not([data-theme="dark"]) body::-webkit-scrollbar-button:vertical:increment,
+html:not([data-theme="dark"])::-webkit-scrollbar-button:start,
+html:not([data-theme="dark"]) body::-webkit-scrollbar-button:start,
+html:not([data-theme="dark"])::-webkit-scrollbar-button:end,
+html:not([data-theme="dark"]) body::-webkit-scrollbar-button:end {
   display: none !important;
   width: 0 !important;
   height: 0 !important;
-}
-
-html:not([data-theme="dark"]) ::-webkit-scrollbar-track {
   background: transparent !important;
 }
 
-html:not([data-theme="dark"]) ::-webkit-scrollbar-thumb {
-  background: rgba(16, 185, 129, 0.4) !important;
+html:not([data-theme="dark"])::-webkit-scrollbar-track,
+html:not([data-theme="dark"]) body::-webkit-scrollbar-track,
+html:not([data-theme="dark"]) ::-webkit-scrollbar-track {
+  background: rgba(16, 185, 129, 0.05) !important;
   border-radius: 10px !important;
-  transition: background 0.2s ease !important;
 }
 
+html:not([data-theme="dark"])::-webkit-scrollbar-thumb,
+html:not([data-theme="dark"]) body::-webkit-scrollbar-thumb,
+html:not([data-theme="dark"]) ::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.35) !important;
+  border-radius: 10px !important;
+  border: 2px solid #f8fafc !important;
+  transition: all 0.25s ease !important;
+}
+
+html:not([data-theme="dark"])::-webkit-scrollbar-thumb:hover,
+html:not([data-theme="dark"]) body::-webkit-scrollbar-thumb:hover,
 html:not([data-theme="dark"]) ::-webkit-scrollbar-thumb:hover {
-  background: rgba(16, 185, 129, 0.8) !important;
-}
-
-html:not([data-theme="dark"]) * {
-  scrollbar-width: thin !important;
-  scrollbar-color: rgba(16, 185, 129, 0.4) transparent !important;
+  background: #10b981 !important;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.5) !important;
 }
 
 html:not([data-theme="dark"]) .modal-content {
@@ -2706,6 +2750,65 @@ html:not([data-theme="dark"]) .cancel-btn {
   background: rgba(15, 23, 42, 0.05) !important;
   color: #64748b !important;
   border: 1px solid rgba(15, 23, 42, 0.1) !important;
+}
+
+/* Light mode analytics empty state */
+html:not([data-theme="dark"]) .analytics-empty-state-box .empty-state-badge {
+  background: rgba(16, 185, 129, 0.08) !important;
+  border-color: rgba(16, 185, 129, 0.25) !important;
+  color: #059669 !important;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.1) !important;
+}
+
+html:not([data-theme="dark"]) .analytics-empty-state-box .empty-state-title {
+  color: #0f172a !important;
+}
+
+html:not([data-theme="dark"]) .analytics-empty-state-box .empty-state-desc {
+  color: #64748b !important;
+}
+
+/* Light mode date selector & quick pills */
+html:not([data-theme="dark"]) .date-range-selector {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  border-radius: 16px !important;
+  padding: 6px 10px !important;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.08) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+html:not([data-theme="dark"]) .quick-range-pills {
+  background: rgba(16, 185, 129, 0.06) !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+  border-radius: 12px !important;
+}
+
+html:not([data-theme="dark"]) .range-pill {
+  color: #475569 !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 4px 10px !important;
+}
+
+html:not([data-theme="dark"]) .range-pill:hover {
+  color: #059669 !important;
+  background: rgba(16, 185, 129, 0.1) !important;
+}
+
+html:not([data-theme="dark"]) .range-pill.active {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3) !important;
+  border: none !important;
+}
+
+html:not([data-theme="dark"]) .date-inputs-wrapper {
+  background: rgba(16, 185, 129, 0.06) !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+  border-radius: 12px !important;
 }
 
 html:not([data-theme="dark"]) .btn-secondary:hover,

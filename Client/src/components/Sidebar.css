@@ -6,17 +6,18 @@
     linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.65) 100%);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  width: calc(var(--sidebar-width) - 32px);
+  width: var(--sidebar-width);
   padding: 24px 14px;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 32px);
+  height: auto !important;
   border: 1px solid rgba(16, 185, 129, 0.08);
   border-right: 1px solid rgba(16, 185, 129, 0.18);
-  border-radius: 16px;
+  border-radius: 0 16px 16px 0;
   position: fixed;
-  left: 16px;
-  top: 16px;
+  left: 0;
+  top: 0;
+  bottom: 0;
   z-index: 100;
   box-shadow:
     0 10px 35px rgba(0, 0, 0, 0.03),
@@ -244,6 +245,7 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 /* Subtle scanning line animation to show live AI processing */

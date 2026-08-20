@@ -10,15 +10,24 @@ axios.defaults.withCredentials = true;
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [loading, setLoading] = useState(true); // Start loading until auth check is done
+  const [user, setUser] = useState(() => {
+    try {
+      const saved = localStorage.getItem('userData');
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  });
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return !!localStorage.getItem('userData');
+  });
+  const [loading, setLoading] = useState(() => {
+    return !localStorage.getItem('userData');
+  });
 
   // Function to check authentication status with the backend
   const checkAuthStatus = useCallback(async () => {
-    setLoading(true);
     try {
-      // Explicitly add withCredentials here for this specific call
       const response = await axios.get(`${API_URL}/auth/me`, {
         withCredentials: true, 
       }); 
@@ -26,21 +35,18 @@ export const AuthProvider = ({ children }) => {
       if (response.data && response.data.user) {
         setUser(response.data.user);
         setIsAuthenticated(true);
-         // Optionally store user data in localStorage again if needed elsewhere (but context is better)
-         // localStorage.setItem('userData', JSON.stringify(response.data.user));
+        localStorage.setItem('userData', JSON.stringify(response.data.user));
       } else {
-        // Valid request but no user data? Treat as unauthenticated
         setIsAuthenticated(false);
         setUser(null);
-        localStorage.removeItem('token'); // Clear potentially invalid token
+        localStorage.removeItem('token');
         localStorage.removeItem('userData');
       }
     } catch (error) {
-      // 401 Unauthorized or other errors mean not authenticated
       console.log('Auth check failed:', error.response ? error.response.data.message : error.message);
       setIsAuthenticated(false);
       setUser(null);
-      localStorage.removeItem('token'); // Clear potentially invalid token
+      localStorage.removeItem('token');
       localStorage.removeItem('userData');
     } finally {
       setLoading(false);

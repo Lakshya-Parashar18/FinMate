@@ -12,7 +12,7 @@ const getPageSpecificSuggestions = (path) => {
     return [
       { text: "Largest transactions?", prompt: "Show my largest transactions this month" },
       { text: "High-value expenses?", prompt: "Did I have any high-value expenses?" },
-      { text: "Analyze Swiggy?", prompt: "Analyze my Swiggy orders" },
+      { text: "Food & dining spend?", prompt: "How much did I spend on food and dining?" },
       { text: "Recurring items?", prompt: "Show recurring expenses" }
     ];
   }
@@ -28,7 +28,7 @@ const getPageSpecificSuggestions = (path) => {
     return [
       { text: "Near limit budgets?", prompt: "Which budgets are close to limit?" },
       { text: "Remaining fund allocation?", prompt: "How can I allocate my remaining funds?" },
-      { text: "Swiggy budget status?", prompt: "Show status of Swiggy budget" },
+      { text: "Food budget status?", prompt: "Show status of food and dining budget" },
       { text: "Recommend limits?", prompt: "Recommend budget limits for next month" }
     ];
   }
@@ -54,7 +54,7 @@ const getPageSpecificSuggestions = (path) => {
     { text: "Where did I overspend?", prompt: "Where did I overspend?" },
     { text: "How much is left?", prompt: "How much is left?" },
     { text: "Top category?", prompt: "What is my top spending category?" },
-    { text: "Saving tips", prompt: "Reduce Swiggy spending" },
+    { text: "Saving tips", prompt: "Give me personalized saving tips" },
     { text: "Budget plan?", prompt: "Suggest a budget plan to save money" }
   ];
 };
@@ -71,6 +71,25 @@ export default function AskFinSenseChatbot() {
   const aiButtonRef = useRef(null);
   const aiChatIconRef = useRef(null);
   const chatEndRef = useRef(null);
+  const chatWindowRef = useRef(null);
+  const launcherWrapperRef = useRef(null);
+
+  // Close on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        isChatOpen &&
+        chatWindowRef.current &&
+        !chatWindowRef.current.contains(e.target) &&
+        launcherWrapperRef.current &&
+        !launcherWrapperRef.current.contains(e.target)
+      ) {
+        setIsChatOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isChatOpen]);
 
   // Auto-scroll chat history
   useEffect(() => {
@@ -135,23 +154,31 @@ export default function AskFinSenseChatbot() {
   return (
     <>
       {/* Floating Launcher Button */}
-      <button className="chat-launcher" onClick={() => setIsChatOpen(!isChatOpen)} style={{ zIndex: 1002 }}>
-        <div ref={aiButtonRef} className="ai-button-animation-container" />
-      </button>
-
-      {/* Chat Window */}
-      {isChatOpen && (
-        <div className="floating-chat-window">
-          <div className="chat-window-header">
-            <h3>
-              <div ref={aiChatIconRef} className="ai-chat-header-lottie-container" />
-              <span className="chat-title-light">Ask</span>
-              <span className="chat-title-bold">FinSense</span>
-            </h3>
-            <button onClick={() => setIsChatOpen(false)} className="close-chat-btn">
-              <FaTimes />
-            </button>
+      <div ref={launcherWrapperRef} className={`chat-launcher-wrapper ${isChatOpen ? 'chat-open' : ''}`}>
+        <button className="chat-launcher" onClick={() => setIsChatOpen(prev => !prev)} style={{ zIndex: 1002 }}>
+          <div ref={aiButtonRef} className="ai-button-animation-container" />
+        </button>
+        {/* "Ask AI" label pill — hidden when chat is open */}
+        {!isChatOpen && (
+          <div className="chat-ai-label">
+            <span className="chat-ai-label-dot" />
+            <span className="chat-ai-label-text">Ask AI</span>
           </div>
+        )}
+      </div>
+
+      {/* Chat Window — always in DOM, toggled via CSS transition */}
+      <div ref={chatWindowRef} className={`floating-chat-window ${isChatOpen ? 'chat-window-visible' : ''}`}>
+        <div className="chat-window-header">
+          <h3>
+            <div ref={aiChatIconRef} className="ai-chat-header-lottie-container" />
+            <span className="chat-title-light">Ask</span>
+            <span className="chat-title-bold">FinSense</span>
+          </h3>
+          <button onClick={() => setIsChatOpen(false)} className="close-chat-btn">
+            <FaTimes />
+          </button>
+        </div>
           <div className="ai-chat-container">
             <div className="chat-history" data-lenis-prevent>
               {chatHistory.map((chat, idx) => (
@@ -188,7 +215,6 @@ export default function AskFinSenseChatbot() {
             </form>
           </div>
         </div>
-      )}
     </>
   );
 }

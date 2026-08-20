@@ -1,16 +1,11 @@
 export const verifyTurnstile = async (req, res, next) => {
-  const secretKey = process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY;
-  
-  // If no secret key is set, bypass turnstile verification (useful in dev/test)
-  if (!secretKey) {
-    return next();
-  }
+  const secretKey = process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY || '1x000000000000000000000000000000AA';
 
   const token = req.body.turnstileToken || req.body['cf-turnstile-response'];
 
   if (!token) {
     return res.status(400).json({ 
-      message: 'Security verification is required. Please complete the verification.' 
+      message: 'Security verification is required. Please complete the captcha verification.' 
     });
   }
 

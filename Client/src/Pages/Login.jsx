@@ -85,7 +85,7 @@ export default function Login() {
       }
 
       login(response.data.user, response.data.token);
-      window.location.replace("/dashboard");
+      navigate("/dashboard");
     } catch (err) {
       const data = err.response?.data;
       if (data?.needsVerification) {

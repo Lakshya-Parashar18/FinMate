@@ -95,8 +95,8 @@ const getInsights = async (req, res) => {
         };
 
         const fetchGeminiInsights = async () => {
-            console.log("System - Prompting Gemini-2.5-flash for Smart Insights...");
-            const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+            console.log("System - Prompting Gemini-1.5-flash for Smart Insights...");
+            const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
             const prompt = `Act as a senior wealth analyst. Use actual data.
                 ${insightUserContent}`;
             const result = await model.generateContent(prompt);
@@ -286,7 +286,7 @@ const getChatResponse = async (req, res) => {
                 messages: [
                     {
                         role: "system",
-                        content: "You are FinMate AI, a helpful finance expert. Answer the user's question briefly (under 2 sentences). Use ₹ for currency. If the user greets you (e.g. 'hi', 'hello', 'hey'), reply with a warm, friendly greeting and ask how you can help them, without listing their budget details unless they specifically asked for them."
+                        content: "You are FinMate AI, a helpful finance expert. Answer the user's question briefly (under 2 sentences). Use ₹ for currency. Do not use markdown bold formatting like **. If the user greets you (e.g. 'hi', 'hello', 'hey'), reply with a warm, friendly greeting and ask how you can help them, without listing their budget details unless they specifically asked for them."
                     },
                     {
                         role: "user",
@@ -301,12 +301,12 @@ const getChatResponse = async (req, res) => {
         };
 
         const fetchGeminiChat = async (financialContext) => {
-            console.log("System - Prompting Gemini-2.5-flash for Chat...");
-            const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+            console.log("System - Prompting Gemini-1.5-flash for Chat...");
+            const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
             const prompt = `You are FinMate AI, a helpful finance expert.
 Financial Data Context: ${financialContext}
 User Question: "${message}"
-Instructions: Answer the user's question briefly (under 2 sentences). Use ₹ for currency. If the user greets you (e.g. 'hi', 'hello', 'hey'), reply with a warm, friendly greeting and ask how you can help, without listing the budget numbers or details unless asked.`;
+Instructions: Answer the user's question briefly (under 2 sentences). Use ₹ for currency. Do not use markdown bold formatting like **. If the user greets you (e.g. 'hi', 'hello', 'hey'), reply with a warm, friendly greeting and ask how you can help, without listing the budget numbers or details unless asked.`;
             const result = await model.generateContent(prompt);
             return result.response.text();
         };
@@ -357,29 +357,31 @@ Instructions: Answer the user's question briefly (under 2 sentences). Use ₹ fo
         const topCategory = sortedCategories[0]?.[0] || '';
         const topCategoryAmount = sortedCategories[0]?.[1] || 0;
 
+        let fallbackText = "";
+
         // Budget / Balance / Remaining limit queries
         if (msg.includes('budget') || msg.includes('balance') || msg.includes('left') || msg.includes('remaining') || msg.includes('limit')) {
             if (limit > 0) {
-                response = `Your total budget limit is ₹${limit.toLocaleString()}. You have spent ₹${spentThisMonth.toLocaleString()} this month, leaving you with ₹${remaining.toLocaleString()} to spend safely.`;
+                fallbackText = `Your total budget limit is ₹${limit.toLocaleString()}. You have spent ₹${spentThisMonth.toLocaleString()} this month, leaving you with ₹${remaining.toLocaleString()} to spend safely.`;
             } else {
-                response = `You have spent ₹${spentThisMonth.toLocaleString()} this month. You haven't set a budget limit yet — you can configure one in the Budget tab!`;
+                fallbackText = `You have spent ₹${spentThisMonth.toLocaleString()} this month. You haven't set a budget limit yet — you can configure one in the Budget tab!`;
             }
         }
         // Category spending / Overspending queries
-        else if (msg.includes('overspend') || msg.includes('most spent') || msg.includes('spend most') || msg.includes('where did') || msg.includes('spending category')) {
+        else if (msg.includes('overspend') || msg.includes('most spent') || msg.includes('spend most') || msg.includes('where did') || msg.includes('spending category') || msg.includes('top category')) {
             if (topCategory) {
-                response = `Your highest spending category this month is **${topCategory}**, with a total of ₹${topCategoryAmount.toLocaleString()} spent across your recent transactions.`;
+                fallbackText = `Your highest spending category this month is "${topCategory}", with a total of ₹${topCategoryAmount.toLocaleString()} spent across your recent transactions.`;
             } else {
-                response = "You haven't recorded any expenses this month yet. Once you add some transactions, I will analyze your top categories!";
+                fallbackText = "You haven't recorded any expenses this month yet. Once you add some transactions, I will analyze your top categories!";
             }
         }
         // Savings / Saving Tips
         else if (msg.includes('save') || msg.includes('saving') || msg.includes('tips') || msg.includes('reduce') || msg.includes('cut')) {
             if (topCategory) {
                 const savings = Math.round(topCategoryAmount * 0.15);
-                response = `Your top expense category is **${topCategory}** (₹${topCategoryAmount.toLocaleString()}). If you cut down your spending on ${topCategory} by 15%, you would save ₹${savings.toLocaleString()} this month!`;
+                fallbackText = `Your top expense category is "${topCategory}" (₹${topCategoryAmount.toLocaleString()}). If you cut down your spending on ${topCategory} by 15%, you would save ₹${savings.toLocaleString()} this month!`;
             } else {
-                response = "To save more money, try setting tight category budgets and tracking all your daily transactions. Add some transactions to get specific tips!";
+                fallbackText = "To save more money, try setting tight category budgets and tracking all your daily transactions. Add some transactions to get specific tips!";
             }
         }
         // Swiggy / Food delivery check
@@ -391,17 +393,78 @@ Instructions: Answer the user's question briefly (under 2 sentences). Use ₹ fo
             );
             const foodTotal = foodTx.reduce((acc, t) => acc + Math.abs(t.amount), 0);
             if (foodTotal > 0) {
-                response = `You spent a total of ₹${foodTotal.toLocaleString()} on food delivery and dining out recently across ${foodTx.length} transactions.`;
+                fallbackText = `You spent a total of ₹${foodTotal.toLocaleString()} on food delivery and dining out recently across ${foodTx.length} transactions.`;
             } else {
-                response = "I couldn't find any recent food delivery or restaurant orders in your transactions.";
+                fallbackText = "I couldn't find any recent food delivery or restaurant orders in your transactions.";
             }
+        }
+        // Income vs Expense / Trends / Comparison queries
+        else if (msg.includes('income') || msg.includes('trend') || msg.includes('vs') || msg.includes('compare') || msg.includes('last month')) {
+            const incomeThisMonth = transactions.filter(t => t.amount > 0).reduce((s, t) => s + t.amount, 0);
+            fallbackText = `This month you have recorded ₹${incomeThisMonth.toLocaleString()} in income and ₹${spentThisMonth.toLocaleString()} in total expenses. Visit the "Analytics" page to explore interactive trends!`;
+        }
+        // Fastest growing category
+        else if (msg.includes('growing') || msg.includes('fastest')) {
+            if (topCategory) {
+                fallbackText = `Based on your recent transactions, "${topCategory}" is your fastest growing category with ₹${topCategoryAmount.toLocaleString()} spent.`;
+            } else {
+                fallbackText = "Add more transactions to track category growth and spending velocity!";
+            }
+        }
+        // Predictions / Forecast
+        else if (msg.includes('predict') || msg.includes('forecast') || msg.includes('next month')) {
+            const estNext = Math.round(spentThisMonth * 1.08);
+            fallbackText = `Based on current spending velocity, your estimated total expenses for next month will be approximately ₹${estNext.toLocaleString()}.`;
+        }
+        // Largest / High-value transactions
+        else if (msg.includes('largest') || msg.includes('high-value') || msg.includes('biggest')) {
+            const largestTx = transactions.filter(t => t.amount < 0).sort((a, b) => Math.abs(b.amount) - Math.abs(a.amount))[0];
+            if (largestTx) {
+                fallbackText = `Your largest recent expense is "${largestTx.description}" (${largestTx.category}) for ₹${Math.abs(largestTx.amount).toLocaleString()}.`;
+            } else {
+                fallbackText = "No large expenses recorded in your recent transactions.";
+            }
+        }
+        // Recurring expenses
+        else if (msg.includes('recurring')) {
+            fallbackText = "Your recurring expenses like Rent, Subscriptions, and Bills are tracked automatically in your Analytics & Budget tabs.";
+        }
+        // Near limit / Budget thresholds (Budget Page)
+        else if (msg.includes('close to limit') || msg.includes('near limit') || msg.includes('threshold') || msg.includes('exceed')) {
+            if (limit > 0) {
+                const pct = Math.round((spentThisMonth / limit) * 100);
+                if (pct >= 70) {
+                    fallbackText = `⚠️ Budget Warning: You have used ${pct}% of your total monthly budget limit (₹${spentThisMonth.toLocaleString()} / ₹${limit.toLocaleString()}).`;
+                } else {
+                    fallbackText = `Your overall budget is healthy! You have used ${pct}% of your monthly limit so far (₹${spentThisMonth.toLocaleString()} / ₹${limit.toLocaleString()}).`;
+                }
+            } else {
+                fallbackText = "You haven't configured a monthly budget limit yet. Set one up in the Budget tab to get threshold warnings!";
+            }
+        }
+        // Fund Allocation & Unspent funds (Budget Page)
+        else if (msg.includes('allocate') || msg.includes('allocation') || msg.includes('remaining funds')) {
+            if (remaining > 0) {
+                fallbackText = `You have ₹${remaining.toLocaleString()} remaining in unspent funds this month. Consider allocating a portion to your emergency savings goal!`;
+            } else {
+                fallbackText = "You have exhausted your budget for this month. Focus on essential spending until next month's reset.";
+            }
+        }
+        // Recommend budget limits (Budget Page)
+        else if (msg.includes('recommend') || msg.includes('suggest budget') || msg.includes('budget plan')) {
+            const recBudget = Math.round(spentThisMonth * 1.15) || 25000;
+            fallbackText = `💡 Recommended Target: Based on your recent spending pace, setting a monthly budget limit of ₹${recBudget.toLocaleString()} will keep your finances balanced.`;
+        }
+        // Circles & Group splits / dues (Circles Page)
+        else if (msg.includes('who owes') || msg.includes('owe') || msg.includes('dues') || msg.includes('settle') || msg.includes('split') || msg.includes('dinner')) {
+            fallbackText = "👥 FinMate Circles: Track group splits, shared dinner bills, and settle member dues directly in the Circles tab!";
         }
         // General fallback
         else {
-            response = "I am ready to help you analyze your budget, spending categories, or give saving tips. Try asking me: 'Where did I overspend?' or 'How much budget is left?'";
+            fallbackText = "I am ready to help you analyze your budget, spending categories, or give saving tips. Try asking me: 'Where did I overspend?' or 'How much budget is left?'";
         }
 
-        res.status(200).json({ response });
+        res.status(200).json({ response: fallbackText });
     } catch (error) {
         console.error("Chat error:", error);
         res.status(500).json({ message: "Chat error" });

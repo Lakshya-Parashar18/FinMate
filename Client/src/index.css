@@ -23,6 +23,27 @@ html {
   scrollbar-gutter: stable;
 }
 
+/* ── Desktop Visual Density Adjustment ────────────────────────────────────────
+ * Goal: Chrome 100% zoom → visually matches the original app at Chrome 90% zoom.
+ *
+ * `zoom: 0.9` on html is the closest CSS analog to real browser zoom:
+ *   • Scales ALL CSS units (px, rem, em, vh, vw) proportionally before layout.
+ *   • Fixed/sticky elements are positioned in the zoomed coordinate system,
+ *     so they stay aligned with scaled content (unlike transform: scale).
+ *   • Portal content (document.body children) inherits the zoom because body
+ *     is inside the zoomed html — no separate handling needed.
+ *   • Recharts ResponsiveContainer re-measures via ResizeObserver after zoom,
+ *     so charts render at the correct scaled dimension.
+ *
+ * Scoped to desktop only — mobile/tablet (≤768px) is unaffected.
+ * ONE line of change. Do not scatter this into component files.
+ * ─────────────────────────────────────────────────────────────────────────── */
+@media (min-width: 769px) {
+  html {
+    zoom: 0.9;
+  }
+}
+
 /* Lenis smooth scrolling rules */
 html.lenis, html.lenis body {
   height: auto;
@@ -165,8 +186,7 @@ body {
 html,
 body {
   min-height: 100vh;
-  width: 100vw;
-  /* Force viewport width */
+  width: 100%; /* was 100vw — 100vw causes a right-side gap when html has zoom: 0.9 */
   overflow-x: hidden;
   /* Prevent horizontal scroll */
   margin: 0;
@@ -216,8 +236,7 @@ body {
 .monthly-budget-header {
   position: fixed;
   top: 1.5rem;
-  left: 260px;
-  /* Sidebar offset */
+  left: var(--sidebar-width); /* use CSS var — consistent with light-mode.css counterpart */
   right: 0;
   z-index: 1000;
   display: flex;
@@ -363,11 +382,17 @@ body {
   overscroll-behavior: contain !important;
 }
 
-/* Hide scrollbar arrow buttons globally */
-::-webkit-scrollbar-button {
+/* Hide scrollbar arrow buttons globally across all browsers */
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-button:single-button,
+::-webkit-scrollbar-button:vertical:decrement,
+::-webkit-scrollbar-button:vertical:increment,
+::-webkit-scrollbar-button:start,
+::-webkit-scrollbar-button:end {
   display: none !important;
   width: 0 !important;
   height: 0 !important;
+  background: transparent !important;
 }
 
 /* Light Mode Global Modal Scrollbar Isolation */
@@ -529,6 +554,124 @@ table {
 th {
   background-color: var(--table-header-bg);
   color: var(--text-primary);
+}
+
+/* Global Glassmorphic Select Styling */
+select {
+  background-color: rgba(15, 23, 42, 0.6) !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+  color: #f8fafc !important;
+  border-radius: 12px !important;
+  padding: 0.75rem 2.5rem 0.75rem 1rem !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2310b981'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 1rem center !important;
+  background-size: 1.1em !important;
+  cursor: pointer !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+select:hover,
+select:focus {
+  border-color: #10b981 !important;
+  background-color: rgba(30, 41, 59, 0.8) !important;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.25) !important;
+  outline: none !important;
+}
+
+select option {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  padding: 10px !important;
+}
+
+html:not([data-theme="dark"]) select {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+  color: #0f172a !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23059669'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") !important;
+}
+
+html:not([data-theme="dark"]) select option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Category Bubble Pills */
+.suggestion-btn {
+  background: rgba(15, 23, 42, 0.6) !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+  color: #cbd5e1 !important;
+  border-radius: 20px !important;
+  padding: 6px 14px !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 0.82rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.suggestion-btn:hover {
+  background: rgba(16, 185, 129, 0.15) !important;
+  border-color: #10b981 !important;
+  color: #ffffff !important;
+}
+
+.suggestion-btn.active {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  border-color: #10b981 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4) !important;
+  transform: scale(1.03) !important;
+}
+
+html:not([data-theme="dark"]) .suggestion-btn {
+  background: #f1f5f9 !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+  color: #334155 !important;
+}
+
+html:not([data-theme="dark"]) .suggestion-btn.active {
+  background: #10b981 !important;
+  color: #ffffff !important;
+}
+
+/* Global Input With Icon Left Padding */
+.input-with-icon,
+.form-group .input-with-icon,
+[data-theme="dark"] .form-group .input-with-icon {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.input-icon,
+.input-with-icon .input-icon,
+.form-group .input-with-icon .input-icon,
+[data-theme="dark"] .form-group .input-with-icon .input-icon {
+  position: absolute !important;
+  left: 16px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #10b981 !important;
+  font-size: 1rem !important;
+  z-index: 10 !important;
+  pointer-events: none !important;
+}
+
+.input-with-icon input,
+.form-group .input-with-icon input,
+[data-theme="dark"] .form-group .input-with-icon input,
+html:not([data-theme="dark"]) .form-group .input-with-icon input {
+  width: 100% !important;
+  padding-left: 3.2rem !important;
 }
 
 tr:hover {

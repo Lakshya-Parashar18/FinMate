@@ -448,3 +448,199 @@ export const sendSupportMessage = async (fromEmail, subject, textContent) => {
     return { fallback: true };
   }
 };
+
+/**
+ * Generate Budget Alert HTML content
+ */
+export const getBudgetWarningEmailHtml = (name = 'User', categoryName = 'Overall Budget', spent = 0, limit = 0, percentage = 80) => {
+  const isExceeded = percentage >= 100;
+  const badgeColor = isExceeded ? '#ef4444' : '#f59e0b';
+  const badgeText = isExceeded ? 'BUDGET EXCEEDED (100%)' : 'BUDGET WARNING (80%)';
+  const year = new Date().getFullYear();
+
+  return `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>${badgeText}</title>
+  <style>
+    body { margin: 0; padding: 32px 12px; background-color: #0b0f19; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #94a3b8; }
+    .card { max-width: 580px; margin: 0 auto; background: #111827; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); padding: 32px; box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+    .badge { display: inline-block; padding: 6px 14px; background: ${isExceeded ? 'rgba(239, 68, 68, 0.15)' : 'rgba(245, 158, 11, 0.15)'}; border: 1px solid ${badgeColor}; color: ${badgeColor}; font-weight: 700; font-size: 0.78rem; border-radius: 20px; letter-spacing: 0.05em; margin-bottom: 16px; }
+    .title { color: #f8fafc; font-size: 1.4rem; font-weight: 700; margin: 0 0 12px 0; }
+    .stat-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 20px; margin: 20px 0; }
+    .stat-row { display: flex; justify-content: space-between; margin-bottom: 8px; color: #cbd5e1; font-weight: 600; }
+    .bar-bg { width: 100%; height: 10px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-top: 10px; }
+    .bar-fill { height: 100%; background: ${badgeColor}; width: ${Math.min(percentage, 100)}%; border-radius: 10px; }
+    .footer { text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">${badgeText}</div>
+    <h2 class="title">Budget Limit Alert for ${categoryName}</h2>
+    <p>Hi ${name},</p>
+    <p>Your spending for <strong>${categoryName}</strong> has reached <strong>${percentage}%</strong> of your monthly limit.</p>
+    <div class="stat-box">
+      <div class="stat-row">
+        <span>Spent: ₹${spent.toLocaleString('en-IN')}</span>
+        <span>Limit: ₹${limit.toLocaleString('en-IN')}</span>
+      </div>
+      <div class="bar-bg">
+        <div class="bar-fill"></div>
+      </div>
+    </div>
+    <p>Sign in to your FinMate workspace to review your spending and adjust your budget goals.</p>
+    <div class="footer">&copy; ${year} FinMate Financial Technologies. All rights reserved.</div>
+  </div>
+</body>
+</html>
+  `;
+};
+
+/**
+ * Generate High-Value Transaction Alert HTML
+ */
+export const getHighValueAlertEmailHtml = (name = 'User', description = 'Transaction', amount = 0, threshold = 10000) => {
+  const year = new Date().getFullYear();
+  return `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>High-Value Transaction Warning</title>
+  <style>
+    body { margin: 0; padding: 32px 12px; background-color: #0b0f19; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #94a3b8; }
+    .card { max-width: 580px; margin: 0 auto; background: #111827; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); padding: 32px; box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+    .badge { display: inline-block; padding: 6px 14px; background: rgba(59, 130, 246, 0.15); border: 1px solid #3b82f6; color: #3b82f6; font-weight: 700; font-size: 0.78rem; border-radius: 20px; margin-bottom: 16px; }
+    .title { color: #f8fafc; font-size: 1.4rem; font-weight: 700; margin: 0 0 12px 0; }
+    .stat-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 20px; margin: 20px 0; }
+    .amount { font-size: 1.8rem; font-weight: 800; color: #38bdf8; margin: 8px 0; }
+    .footer { text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">HIGH-VALUE ALERT</div>
+    <h2 class="title">Large Expense Detected</h2>
+    <p>Hi ${name},</p>
+    <p>A new transaction crossed your alert threshold of <strong>₹${threshold.toLocaleString('en-IN')}</strong>:</p>
+    <div class="stat-box">
+      <div style="color: #cbd5e1; font-weight: 600;">${description}</div>
+      <div class="amount">₹${amount.toLocaleString('en-IN')}</div>
+    </div>
+    <p>If you did not authorize this transaction, please review your account settings immediately.</p>
+    <div class="footer">&copy; ${year} FinMate Financial Technologies. All rights reserved.</div>
+  </div>
+</body>
+</html>
+  `;
+};
+
+/**
+ * Generate Goal Milestone Celebration HTML
+ */
+export const getGoalMilestoneEmailHtml = (name = 'User', goalName = 'Savings Goal', currentAmount = 0, targetAmount = 0, percentage = 50) => {
+  const year = new Date().getFullYear();
+  return `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Goal Milestone Reached!</title>
+  <style>
+    body { margin: 0; padding: 32px 12px; background-color: #0b0f19; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #94a3b8; }
+    .card { max-width: 580px; margin: 0 auto; background: #111827; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); padding: 32px; box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+    .badge { display: inline-block; padding: 6px 14px; background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; color: #10b981; font-weight: 700; font-size: 0.78rem; border-radius: 20px; margin-bottom: 16px; }
+    .title { color: #f8fafc; font-size: 1.4rem; font-weight: 700; margin: 0 0 12px 0; }
+    .stat-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 20px; margin: 20px 0; }
+    .bar-bg { width: 100%; height: 10px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-top: 10px; }
+    .bar-fill { height: 100%; background: #10b981; width: ${Math.min(percentage, 100)}%; border-radius: 10px; }
+    .footer { text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">🎉 MILESTONE REACHED (${percentage}%)</div>
+    <h2 class="title">Congratulations on your progress!</h2>
+    <p>Hi ${name},</p>
+    <p>Great job! You have reached <strong>${percentage}%</strong> of your savings target for <strong>${goalName}</strong>.</p>
+    <div class="stat-box">
+      <div style="display: flex; justify-content: space-between; color: #cbd5e1; font-weight: 600;">
+        <span>Saved: ₹${currentAmount.toLocaleString('en-IN')}</span>
+        <span>Target: ₹${targetAmount.toLocaleString('en-IN')}</span>
+      </div>
+      <div class="bar-bg">
+        <div class="bar-fill"></div>
+      </div>
+    </div>
+    <p>Keep up the great work! Your financial freedom journey is moving forward.</p>
+    <div class="footer">&copy; ${year} FinMate Financial Technologies. All rights reserved.</div>
+  </div>
+</body>
+</html>
+  `;
+};
+
+/**
+ * Send Budget Warning Email
+ */
+export const sendBudgetAlertEmail = async (to, name, categoryName, spent, limit, percentage) => {
+  const isExceeded = percentage >= 100;
+  const subject = isExceeded
+    ? `🚨 Alert: Monthly Budget Exceeded for ${categoryName} (100%)`
+    : `⚠️ Warning: Budget Limit ${percentage}% Reached for ${categoryName}`;
+
+  const mailOptions = {
+    from: `"FinMate Alerts" <${process.env.EMAIL_USER}>`,
+    to,
+    subject,
+    html: getBudgetWarningEmailHtml(name, categoryName, spent, limit, percentage)
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log(`[ALERT DISPATCHED] Budget warning sent to ${to} (${categoryName}: ${percentage}%)`);
+  } catch (err) {
+    console.error(`[ALERT ERROR] Failed to send budget alert to ${to}:`, err.message);
+  }
+};
+
+/**
+ * Send High-Value Alert Email
+ */
+export const sendHighValueAlertEmail = async (to, name, description, amount, threshold) => {
+  const mailOptions = {
+    from: `"FinMate Alerts" <${process.env.EMAIL_USER}>`,
+    to,
+    subject: `🔔 High-Value Transaction Alert: ₹${amount.toLocaleString('en-IN')}`,
+    html: getHighValueAlertEmailHtml(name, description, amount, threshold)
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log(`[ALERT DISPATCHED] High-value alert sent to ${to} (Amount: ${amount})`);
+  } catch (err) {
+    console.error(`[ALERT ERROR] Failed to send high-value alert to ${to}:`, err.message);
+  }
+};
+
+/**
+ * Send Goal Milestone Email
+ */
+export const sendGoalMilestoneEmail = async (to, name, goalName, currentAmount, targetAmount, percentage) => {
+  const mailOptions = {
+    from: `"FinMate Goals" <${process.env.EMAIL_USER}>`,
+    to,
+    subject: `🎉 Milestone Reached: ${percentage}% saved for ${goalName}!`,
+    html: getGoalMilestoneEmailHtml(name, goalName, currentAmount, targetAmount, percentage)
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log(`[ALERT DISPATCHED] Goal milestone email sent to ${to} (${goalName}: ${percentage}%)`);
+  } catch (err) {
+    console.error(`[ALERT ERROR] Failed to send goal milestone email to ${to}:`, err.message);
+  }
+};

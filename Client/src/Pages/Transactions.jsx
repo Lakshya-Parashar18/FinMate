@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../config';
@@ -21,6 +21,8 @@ import { useAuth } from '../context/AuthContext';
 import { useDisplaySettings } from '../context/DisplaySettingsContext';
 import './Transactions.css';
 import Loading from '../components/Loading';
+import CustomDatePicker from '../components/CustomDatePicker';
+import CustomSelect from '../components/CustomSelect';
 
 const Transactions = () => {
   const navigate = useNavigate();
@@ -46,6 +48,31 @@ const Transactions = () => {
     type: 'expense',
   });
   const [budgetCategories, setBudgetCategories] = useState([]);
+
+  const allAvailableCategories = useMemo(() => {
+    const defaults = [
+      'Income',
+      'Salary',
+      'Investment',
+      'Food',
+      'Rent',
+      'Utilities',
+      'Entertainment',
+      'Shopping',
+      'Transportation',
+      'Health & Fitness',
+      'Education',
+      'Travel',
+      'Subscriptions',
+      'Miscellaneous',
+      'Other'
+    ];
+    const combined = [...new Set([...(budgetCategories || []), ...defaults])];
+    return [
+      { value: '', label: 'All Categories' },
+      ...combined.map(cat => ({ value: cat, label: cat }))
+    ];
+  }, [budgetCategories]);
   const [loading, setLoading] = useState(true);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [transactionToDelete, setTransactionToDelete] = useState(null);
@@ -249,7 +276,11 @@ const Transactions = () => {
   const handleAddSubmit = async (e) => {
     e.preventDefault();
     setApiError('');
-    if (!formData.description || !formData.category || !formData.amount || !formData.type) {
+    if (!formData.category) {
+      setApiError('Please select a category bubble from the options below to move forward.');
+      return;
+    }
+    if (!formData.description || !formData.amount || !formData.type) {
       setApiError('Please fill in all required fields.');
       return;
     }
@@ -315,7 +346,11 @@ const Transactions = () => {
     e.preventDefault();
     if (!currentTransaction) return;
     setApiError('');
-    if (!formData.description || !formData.category || !formData.amount || !formData.type) {
+    if (!formData.category) {
+      setApiError('Please select a category bubble from the options below to move forward.');
+      return;
+    }
+    if (!formData.description || !formData.amount || !formData.type) {
       setApiError('Please fill in all required fields.');
       return;
     }
@@ -399,23 +434,25 @@ const Transactions = () => {
             </button>
           </div>
           <div className="action-buttons">
-            <div className="sort-container">
-              <FaSortAmountDown className="sort-icon" />
-              <select
-                className="sort-select"
+            <div className="sort-container" style={{ minWidth: '190px' }}>
+              <CustomSelect
+                icon={FaSortAmountDown}
                 value={`${sortBy}-${sortOrder}`}
                 onChange={(e) => {
                   const [type, order] = e.target.value.split('-');
                   setSortBy(type);
                   setSortOrder(order);
                 }}
-              >
-                <option value="date-desc">Newest First</option>
-                <option value="date-asc">Oldest First</option>
-                <option value="amount-desc">Highest Amount</option>
-                <option value="amount-asc">Lowest Amount</option>
-                <option value="category-asc">Category (A-Z)</option>
-              </select>
+                searchable={false}
+                popoverMinWidth={190}
+                options={[
+                  { value: 'date-desc', label: 'Newest First' },
+                  { value: 'date-asc', label: 'Oldest First' },
+                  { value: 'amount-desc', label: 'Highest Amount' },
+                  { value: 'amount-asc', label: 'Lowest Amount' },
+                  { value: 'category-asc', label: 'Category (A-Z)' }
+                ]}
+              />
             </div>
           </div>
         </div>
@@ -483,8 +520,8 @@ const Transactions = () => {
       </div>
 
       {showFilterModal && (
-        <div className="modal-overlay" data-lenis-prevent>
-          <div className="modal-content">
+        <div className="modal-overlay" onClick={closeFilterModal} data-lenis-prevent>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Filter Transactions</h3>
               <button onClick={closeFilterModal} className="close-btn"><FaTimes /></button>
@@ -493,19 +530,33 @@ const Transactions = () => {
               {apiError && <p className="error-message">{apiError}</p>}
               <div className="form-group">
                 <label>Category</label>
-                <input type="text" name="category" value={filters.category} onChange={handleFilterChange} placeholder="e.g., Food" />
+                <CustomSelect
+                  name="category"
+                  value={filters.category}
+                  onChange={handleFilterChange}
+                  options={allAvailableCategories}
+                />
               </div>
               <div className="form-group">
                 <label>Date</label>
-                <input type="date" name="date" value={filters.date} onChange={handleFilterChange} />
+                <CustomDatePicker
+                  value={filters.date}
+                  onChange={newVal => setFilters(prev => ({ ...prev, date: newVal }))}
+                  placeholder="Select date"
+                />
               </div>
               <div className="form-group">
                 <label>Type</label>
-                <select name="type" value={filters.type} onChange={handleFilterChange}>
-                  <option value="">All Types</option>
-                  <option value="income">Income</option>
-                  <option value="expense">Expense</option>
-                </select>
+                <CustomSelect
+                  name="type"
+                  value={filters.type}
+                  onChange={handleFilterChange}
+                  options={[
+                    { value: '', label: 'All Types' },
+                    { value: 'income', label: 'Income' },
+                    { value: 'expense', label: 'Expense' }
+                  ]}
+                />
               </div>
               <div className="form-actions">
                 <button type="button" className="btn btn-secondary" onClick={closeFilterModal}>Cancel</button>
@@ -517,8 +568,8 @@ const Transactions = () => {
       )}
 
       {(showAddModal || showEditModal) && (
-        <div className="modal-overlay" data-lenis-prevent>
-          <div className="modal-content" data-lenis-prevent>
+        <div className="modal-overlay" onClick={closeModal} data-lenis-prevent>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()} data-lenis-prevent>
             <div className="modal-header">
               <h3>{showEditModal ? 'Edit Transaction' : 'Add New Transaction'}</h3>
               <button onClick={closeModal} className="close-btn"><FaTimes /></button>
@@ -528,14 +579,23 @@ const Transactions = () => {
               <div className="form-group form-row">
                 <div style={{ flex: 1 }}>
                   <label>Date *</label>
-                  <input type="date" name="date" value={formData.date} onChange={handleInputChange} required />
+                  <CustomDatePicker
+                    value={formData.date}
+                    onChange={newVal => setFormData(prev => ({ ...prev, date: newVal }))}
+                    placeholder="Select date"
+                  />
                 </div>
                 <div style={{ flex: 1 }}>
                   <label>Type *</label>
-                  <select name="type" value={formData.type} onChange={handleInputChange} required>
-                    <option value="expense">Expense</option>
-                    <option value="income">Income</option>
-                  </select>
+                  <CustomSelect
+                    name="type"
+                    value={formData.type}
+                    onChange={handleInputChange}
+                    options={[
+                      { value: 'expense', label: 'Expense' },
+                      { value: 'income', label: 'Income' }
+                    ]}
+                  />
                 </div>
               </div>
               <div className="form-group">
@@ -545,33 +605,45 @@ const Transactions = () => {
               <div className="form-group form-row">
                 <div style={{ flex: 1 }}>
                   <label>Category *</label>
-                  <input
-                    type="text"
+                  <CustomSelect
                     name="category"
                     value={formData.category}
-                    onChange={handleInputChange}
-                    placeholder="e.g., Food, Salary"
-                    required
+                    onChange={e => {
+                      handleInputChange(e);
+                      setApiError('');
+                    }}
+                    options={
+                      formData.type === 'expense'
+                        ? [...new Set([...(budgetCategories || []), 'Food', 'Rent', 'Utilities', 'Entertainment', 'Shopping', 'Transportation', 'Health & Fitness', 'Education', 'Travel', 'Subscriptions', 'Miscellaneous', 'Other'])].map(c => ({ value: c, label: c }))
+                        : ['Income', 'Salary', 'Investment', 'Freelance', 'Bonus', 'Other Income'].map(c => ({ value: c, label: c }))
+                    }
+                    placeholder="Select or click a category bubble..."
                   />
-                  <div className="category-suggestions" style={{ marginTop: '8px' }}>
+                  <div className="category-suggestions" style={{ marginTop: '10px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                     {formData.type === 'expense' ? (
-                      [...new Set([...budgetCategories, 'Miscellaneous'])].map(cat => (
+                      [...new Set([...(budgetCategories || []), 'Food', 'Rent', 'Utilities', 'Entertainment', 'Shopping', 'Transportation', 'Health & Fitness', 'Education', 'Travel', 'Subscriptions', 'Miscellaneous', 'Other'])].map(cat => (
                         <button
                           key={cat}
                           type="button"
                           className={`suggestion-btn ${formData.category === cat ? 'active' : ''}`}
-                          onClick={() => setFormData(prev => ({ ...prev, category: cat }))}
+                          onClick={() => {
+                            setFormData(prev => ({ ...prev, category: cat }));
+                            setApiError('');
+                          }}
                         >
                           {cat}
                         </button>
                       ))
                     ) : (
-                      ['Income', 'Salary', 'Investment', 'Other Income'].map(cat => (
+                      ['Income', 'Salary', 'Investment', 'Freelance', 'Bonus', 'Other Income'].map(cat => (
                         <button
                           key={cat}
                           type="button"
                           className={`suggestion-btn ${formData.category === cat ? 'active' : ''}`}
-                          onClick={() => setFormData(prev => ({ ...prev, category: cat }))}
+                          onClick={() => {
+                            setFormData(prev => ({ ...prev, category: cat }));
+                            setApiError('');
+                          }}
                         >
                           {cat}
                         </button>
@@ -607,8 +679,8 @@ const Transactions = () => {
         </div>
       )}
       {showDeleteModal && (
-        <div className="modal-overlay" data-lenis-prevent>
-          <div className="modal-content delete-modal">
+        <div className="modal-overlay" onClick={() => setShowDeleteModal(false)} data-lenis-prevent>
+          <div className="modal-content delete-modal" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3 className="delete-title">
                 <FaExclamationTriangle style={{ color: '#e53e3e', marginRight: '10px' }} />

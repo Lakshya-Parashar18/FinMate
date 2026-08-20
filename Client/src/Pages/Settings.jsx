@@ -50,21 +50,58 @@ import axios from 'axios';
 import { API_URL } from '../config';
 import { useDisplaySettings } from '../context/DisplaySettingsContext';
 import { useAuth } from '../context/AuthContext';
+import CustomSelect from '../components/CustomSelect';
 import './Settings.css';
 import Loading from '../components/Loading';
 import dayjs from 'dayjs';
 
-/* Country Code List */
+/* Comprehensive Global Country Code List with Flags */
 const COUNTRY_CODES = [
-  { code: '+91',  label: '+91 (IN)'  },
-  { code: '+1',   label: '+1 (US)'   },
-  { code: '+44',  label: '+44 (UK)'  },
-  { code: '+971', label: '+971 (AE)' },
-  { code: '+61',  label: '+61 (AU)'  },
-  { code: '+65',  label: '+65 (SG)'  },
-  { code: '+81',  label: '+81 (JP)'  },
-  { code: '+49',  label: '+49 (DE)'  },
-  { code: '+33',  label: '+33 (FR)'  }
+  { code: '+91',  flag: '🇮🇳', name: 'India' },
+  { code: '+1',   flag: '🇺🇸', name: 'United States' },
+  { code: '+44',  flag: '🇬🇧', name: 'United Kingdom' },
+  { code: '+971', flag: '🇦🇪', name: 'United Arab Emirates' },
+  { code: '+1',   flag: '🇨🇦', name: 'Canada' },
+  { code: '+61',  flag: '🇦🇺', name: 'Australia' },
+  { code: '+65',  flag: '🇸🇬', name: 'Singapore' },
+  { code: '+81',  flag: '🇯🇵', name: 'Japan' },
+  { code: '+49',  flag: '🇩🇪', name: 'Germany' },
+  { code: '+33',  flag: '🇫🇷', name: 'France' },
+  { code: '+39',  flag: '🇮🇹', name: 'Italy' },
+  { code: '+34',  flag: '🇪🇸', name: 'Spain' },
+  { code: '+55',  flag: '🇧🇷', name: 'Brazil' },
+  { code: '+52',  flag: '🇲🇽', name: 'Mexico' },
+  { code: '+27',  flag: '🇿🇦', name: 'South Africa' },
+  { code: '+7',   flag: '🇷🇺', name: 'Russia' },
+  { code: '+86',  flag: '🇨🇳', name: 'China' },
+  { code: '+82',  flag: '🇰🇷', name: 'South Korea' },
+  { code: '+966', flag: '🇸🇦', name: 'Saudi Arabia' },
+  { code: '+974', flag: '🇶🇦', name: 'Qatar' },
+  { code: '+965', flag: '🇰🇼', name: 'Kuwait' },
+  { code: '+968', flag: '🇴🇲', name: 'Oman' },
+  { code: '+973', flag: '🇧🇭', name: 'Bahrain' },
+  { code: '+64',  flag: '🇳🇿', name: 'New Zealand' },
+  { code: '+31',  flag: '🇳🇱', name: 'Netherlands' },
+  { code: '+41',  flag: '🇨🇭', name: 'Switzerland' },
+  { code: '+46',  flag: '🇸🇪', name: 'Sweden' },
+  { code: '+47',  flag: '🇳🇴', name: 'Norway' },
+  { code: '+45',  flag: '🇩🇰', name: 'Denmark' },
+  { code: '+353', flag: '🇮🇪', name: 'Ireland' },
+  { code: '+60',  flag: '🇲🇾', name: 'Malaysia' },
+  { code: '+66',  flag: '🇹🇭', name: 'Thailand' },
+  { code: '+62',  flag: '🇮🇩', name: 'Indonesia' },
+  { code: '+63',  flag: '🇵🇭', name: 'Philippines' },
+  { code: '+84',  flag: '🇻🇳', name: 'Vietnam' },
+  { code: '+92',  flag: '🇵🇰', name: 'Pakistan' },
+  { code: '+880', flag: '🇧🇩', name: 'Bangladesh' },
+  { code: '+94',  flag: '🇱🇰', name: 'Sri Lanka' },
+  { code: '+977', flag: '🇳🇵', name: 'Nepal' },
+  { code: '+234', flag: '🇳🇬', name: 'Nigeria' },
+  { code: '+254', flag: '🇰🇪', name: 'Kenya' },
+  { code: '+20',  flag: '🇪🇬', name: 'Egypt' },
+  { code: '+54',  flag: '🇦🇷', name: 'Argentina' },
+  { code: '+56',  flag: '🇨🇱', name: 'Chile' },
+  { code: '+57',  flag: '🇨🇴', name: 'Colombia' }
 ];
 
 const parsePhone = (phoneStr) => {
@@ -1364,11 +1401,17 @@ const Settings = () => {
                 <span className="privacy-row-title">Profile Visibility</span>
                 <span className="privacy-row-desc">Control who can see your profile</span>
               </div>
-              <select className="privacy-select" value={profileVisibility} onChange={e => handlePrivacyChange(e.target.value)}>
-                <option value="public">Everyone</option>
-                <option value="friends">Friends Only</option>
-                <option value="private">Only Me</option>
-              </select>
+              <div style={{ width: '160px' }}>
+                <CustomSelect
+                  value={profileVisibility}
+                  onChange={e => handlePrivacyChange(e.target.value)}
+                  options={[
+                    { value: 'public', label: 'Everyone' },
+                    { value: 'friends', label: 'Friends Only' },
+                    { value: 'private', label: 'Only Me' }
+                  ]}
+                />
+              </div>
             </div>
             <div className="privacy-row">
               <div className="privacy-row-info">
@@ -1710,31 +1753,52 @@ const Settings = () => {
             'Interface Theme',
             'Switch between light mode, dark mode, or follow your system default.',
             FaEye,
-            <select name="theme" value={displaySettings.theme} onChange={handleDisplaySettingChange} className="privacy-select" style={{ minWidth: '160px' }}>
-              <option value="system">System Default</option>
-              <option value="light">Light Mode</option>
-              <option value="dark">Dark Mode</option>
-            </select>
+            <div style={{ width: '160px' }}>
+              <CustomSelect
+                name="theme"
+                value={displaySettings.theme}
+                onChange={handleDisplaySettingChange}
+                options={[
+                  { value: 'system', label: 'System Default' },
+                  { value: 'light', label: 'Light Mode' },
+                  { value: 'dark', label: 'Dark Mode' }
+                ]}
+              />
+            </div>
           )}
 
           {renderDisplayRow(
             'Default Currency',
             'Choose the default currency symbol and conversion rate for balances.',
             FaGlobe,
-            <select name="currency" value={displaySettings.currency} onChange={handleDisplaySettingChange} className="privacy-select" style={{ minWidth: '160px' }}>
-              <option value="INR">Indian Rupee (₹)</option>
-              <option value="USD">US Dollar ($)</option>
-            </select>
+            <div style={{ width: '160px' }}>
+              <CustomSelect
+                name="currency"
+                value={displaySettings.currency}
+                onChange={handleDisplaySettingChange}
+                options={[
+                  { value: 'INR', label: 'Indian Rupee (₹)' },
+                  { value: 'USD', label: 'US Dollar ($)' }
+                ]}
+              />
+            </div>
           )}
 
           {renderDisplayRow(
             'Numeric System Format',
             'Toggle between Lakhs/Crores (Indian System) or Millions (International System).',
             FaCheck,
-            <select name="numberFormat" value={displaySettings.numberFormat || 'indian'} onChange={handleDisplaySettingChange} className="privacy-select" style={{ minWidth: '160px' }}>
-              <option value="indian">Indian (Lakhs)</option>
-              <option value="international">International</option>
-            </select>
+            <div style={{ width: '160px' }}>
+              <CustomSelect
+                name="numberFormat"
+                value={displaySettings.numberFormat || 'indian'}
+                onChange={handleDisplaySettingChange}
+                options={[
+                  { value: 'indian', label: 'Indian (Lakhs)' },
+                  { value: 'international', label: 'International' }
+                ]}
+              />
+            </div>
           )}
         </div>
 
@@ -1748,42 +1812,70 @@ const Settings = () => {
             'Sidebar Navigation Layout',
             'Choose between showing full names or a clean, condensed icons sidebar.',
             FaFileExport,
-            <select name="sidebarLayout" value={displaySettings.sidebarLayout || 'expanded'} onChange={handleDisplaySettingChange} className="privacy-select" style={{ minWidth: '160px' }}>
-              <option value="expanded">Expanded Menu</option>
-              <option value="condensed">Condensed Icons</option>
-            </select>
+            <div style={{ width: '160px' }}>
+              <CustomSelect
+                name="sidebarLayout"
+                value={displaySettings.sidebarLayout || 'expanded'}
+                onChange={handleDisplaySettingChange}
+                options={[
+                  { value: 'expanded', label: 'Expanded Menu' },
+                  { value: 'condensed', label: 'Condensed Icons' }
+                ]}
+              />
+            </div>
           )}
 
           {renderDisplayRow(
             'Calendar First Day of Week',
             'Alters how schedules, weekly digests, and chart points start.',
             FaCalendarAlt,
-            <select name="firstDayOfWeek" value={displaySettings.firstDayOfWeek || 'monday'} onChange={handleDisplaySettingChange} className="privacy-select" style={{ minWidth: '160px' }}>
-              <option value="monday">Monday</option>
-              <option value="sunday">Sunday</option>
-            </select>
+            <div style={{ width: '160px' }}>
+              <CustomSelect
+                name="firstDayOfWeek"
+                value={displaySettings.firstDayOfWeek || 'monday'}
+                onChange={handleDisplaySettingChange}
+                options={[
+                  { value: 'monday', label: 'Monday' },
+                  { value: 'sunday', label: 'Sunday' }
+                ]}
+              />
+            </div>
           )}
 
           {renderDisplayRow(
             'Dashboard Graph Style',
             'Choose the stroke and fill style of main budget metrics and charts.',
             FaHistory,
-            <select name="chartStyle" value={displaySettings.chartStyle || 'gradient'} onChange={handleDisplaySettingChange} className="privacy-select" style={{ minWidth: '160px' }}>
-              <option value="gradient">Filled Gradients</option>
-              <option value="outline">Clean Outline</option>
-              <option value="bars">Column Bars</option>
-            </select>
+            <div style={{ width: '160px' }}>
+              <CustomSelect
+                name="chartStyle"
+                value={displaySettings.chartStyle || 'gradient'}
+                onChange={handleDisplaySettingChange}
+                options={[
+                  { value: 'gradient', label: 'Filled Gradients' },
+                  { value: 'outline', label: 'Clean Outline' },
+                  { value: 'bars', label: 'Column Bars' }
+                ]}
+              />
+            </div>
           )}
 
           {renderDisplayRow(
             'AI Insights Density',
             'Customize the amount of smart financial recommendations generated on-screen.',
             FaSearchPlus,
-            <select name="insightDensity" value={displaySettings.insightDensity || 'rich'} onChange={handleDisplaySettingChange} className="privacy-select" style={{ minWidth: '160px' }}>
-              <option value="rich">Rich Detail</option>
-              <option value="standard">Brief Summary</option>
-              <option value="compact">Data Only</option>
-            </select>
+            <div style={{ width: '160px' }}>
+              <CustomSelect
+                name="insightDensity"
+                value={displaySettings.insightDensity || 'rich'}
+                onChange={handleDisplaySettingChange}
+                options={[
+                  { value: 'rich', label: 'Rich Detail' },
+                  { value: 'standard', label: 'Brief Summary' },
+                  { value: 'compact', label: 'Data Only' }
+                ]}
+              />
+            </div>
           )}
         </div>
       </div>
@@ -1857,13 +1949,19 @@ const Settings = () => {
               <div style={{ fontSize:'0.875rem', fontWeight:600, color:'var(--text-primary)', marginBottom:4 }}>Transaction History Retention</div>
               <div className="privacy-switch-desc" style={{ fontSize:'0.78rem', color:'#64748b', lineHeight:1.5 }}>How long FinMate retains your transaction history for analytics and insights.</div>
             </div>
-            <select className="privacy-select" value={privacyPrefs.dataRetention} onChange={e => handlePrivacyRetentionChange(e.target.value)}>
-              <option value="3months">3 Months</option>
-              <option value="6months">6 Months</option>
-              <option value="12months">12 Months (Default)</option>
-              <option value="24months">24 Months</option>
-              <option value="forever">Keep Forever</option>
-            </select>
+            <div style={{ width: '180px' }}>
+              <CustomSelect
+                value={privacyPrefs.dataRetention}
+                onChange={e => handlePrivacyRetentionChange(e.target.value)}
+                options={[
+                  { value: '3months', label: '3 Months' },
+                  { value: '6months', label: '6 Months' },
+                  { value: '12months', label: '12 Months (Default)' },
+                  { value: '24months', label: '24 Months' },
+                  { value: 'forever', label: 'Keep Forever' }
+                ]}
+              />
+            </div>
           </div>
         </div>
 
@@ -2208,27 +2306,16 @@ const Settings = () => {
                     <label htmlFor="edit-phone">Phone Number</label>
                     <div className="phone-input-split-wrapper">
                       <div className="country-code-select-container">
-                        <div className="country-code-mockup">
-                          <span className="country-code-value">{phoneCountryCode}</span>
-                          <span className="country-code-arrow">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                              <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                          </span>
-                        </div>
-                        <select 
-                          id="edit-country-code" 
-                          value={phoneCountryCode} 
+                        <CustomSelect
+                          value={phoneCountryCode}
                           onChange={(e) => setPhoneCountryCode(e.target.value)}
-                          className="country-code-select-hidden"
-                          disabled={saveLoading}
-                        >
-                          {COUNTRY_CODES.map((item) => (
-                            <option key={item.label} value={item.code}>
-                              {item.label}
-                            </option>
-                          ))}
-                        </select>
+                          popoverMinWidth={260}
+                          options={COUNTRY_CODES.map(item => ({
+                            value: item.code,
+                            label: `${item.flag} ${item.name} (${item.code})`,
+                            displayLabel: item.code
+                          }))}
+                        />
                       </div>
                       <div className="settings-input-row">
                         <span className="settings-input-icon"><FaPhone /></span>

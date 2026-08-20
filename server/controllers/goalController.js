@@ -1,4 +1,5 @@
 import Goal from '../models/Goal.js';
+import { evaluateGoalMilestoneAlerts } from '../services/notificationAlertService.js';
 
 // @desc    Get all savings goals for the user
 // @route   GET /api/goals
@@ -36,6 +37,12 @@ export const createGoal = async (req, res) => {
     });
 
     const savedGoal = await newGoal.save();
+
+    // Check goal milestone alerts in background
+    evaluateGoalMilestoneAlerts(userId, savedGoal, 0).catch(err => {
+      console.error('Background goal milestone alert failed:', err);
+    });
+
     res.status(201).json(savedGoal);
   } catch (err) {
     console.error('Error creating savings goal:', err);
@@ -57,6 +64,8 @@ export const updateGoal = async (req, res) => {
       return res.status(404).json({ message: 'Savings goal not found or unauthorized.' });
     }
 
+    const previousAmount = goal.currentAmount;
+
     if (name !== undefined) goal.name = name;
     if (targetAmount !== undefined) goal.targetAmount = Number(targetAmount);
     if (currentAmount !== undefined) goal.currentAmount = Number(currentAmount);
@@ -64,6 +73,12 @@ export const updateGoal = async (req, res) => {
     if (category !== undefined) goal.category = category;
 
     const updatedGoal = await goal.save();
+
+    // Check goal milestone alerts in background
+    evaluateGoalMilestoneAlerts(userId, updatedGoal, previousAmount).catch(err => {
+      console.error('Background goal milestone alert failed:', err);
+    });
+
     res.json(updatedGoal);
   } catch (err) {
     console.error('Error updating savings goal:', err);

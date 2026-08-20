@@ -461,7 +461,7 @@ Return ONLY the JSON block. Do not include markdown wraps or explanations.`;
 
     const fetchGeminiForecast = async () => {
         console.log("System - Prompting Gemini-2.5-flash for Spending Forecast...");
-        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
         const result = await model.generateContent(forecastPrompt);
         return result.response.text();
     };
@@ -787,8 +787,8 @@ Return ONLY valid JSON — no markdown, no commentary:
 {"headline":"...","trends":"...","achievements":"... or null","risks":"... or null","recommendations":["...","...","..."]}`;
 
     const fetchGeminiSummary = async () => {
-        console.log('System - Prompting Gemini-2.5-flash for Monthly Summary...');
-        const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
+        console.log('System - Prompting Gemini-1.5-flash for Monthly Summary...');
+        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
         const result = await model.generateContent(summaryPrompt);
         return result.response.text();
     };

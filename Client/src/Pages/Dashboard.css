@@ -35,129 +35,9 @@ html {
 
 /* Remove .dashboard-container prefix from subsequent rules */
 
-/* Sidebar styles - Standard Fixed */
-.sidebar {
-  background-color: var(--sidebar-bg, #ffffff);
-  /* Solid background */
-  width: 250px;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  /* Full viewport height */
-  box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 10;
-}
+/* Legacy sidebar styles removed - handled by Sidebar.css */
 
-.sidebar h2 {
-  text-align: left;
-  color: var(--primary-color, #2563eb);
-  margin-bottom: 2rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.sidebar a {
-  text-decoration: none;
-  color: var(--sidebar-text, #4b5563);
-  font-size: 16px;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  padding: 12px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.sidebar a:hover {
-  background-color: var(--sidebar-hover, #f3f4f6);
-  color: var(--primary-color, #2563eb);
-}
-
-.sidebar a.active {
-  background-color: var(--sidebar-hover, #e0e7ff);
-  color: var(--primary-color, #2563eb);
-  font-weight: 600;
-}
-
-.sidebar a .icon {
-  margin-right: 12px;
-  font-size: 18px;
-}
-
-/* Profile Section */
-.profile-section {
-  margin-top: auto;
-  /* Pushes profile to bottom */
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-color, #e2e8f0);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.profile-avatar-container {
-  position: relative;
-}
-
-.profile-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: var(--primary-color, #4c51bf);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.profile-info {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  /* Prevent long names/emails breaking layout */
-}
-
-.profile-name {
-  font-weight: 600;
-  font-size: 15px;
-  color: var(--text-primary, #2d3748);
-  line-height: 1.2;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.profile-email {
-  font-size: 13px;
-  color: var(--text-secondary, #718096);
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.profile-dropdown {
-  position: absolute;
-  bottom: 55px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--card-background, white);
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  width: 200px;
-  z-index: 100;
-  /* Ensure above other elements */
-  overflow: hidden;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateX(-50%) translateY(10px);
-  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, transform 0.2s ease-in-out;
-  pointer-events: none;
-}
+/* Legacy profile-section styles removed - handled by Sidebar.css */
 
 .profile-avatar-container:hover .profile-dropdown {
   opacity: 1;
@@ -334,14 +214,26 @@ html {
 
 .chart-container h2 {
   text-align: left;
-  /* Align chart titles left */
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  color: var(--text-primary, #1a202c);
+  padding-left: 12px;
+  border-left: 3px solid #10b981;
 }
 
 .chart-container .chart-subtitle {
   text-align: left;
   margin-bottom: 16px;
-  /* Space below subtitle */
+  padding-left: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary, #64748b);
+  text-transform: uppercase;
 }
 
 .transactions-section {
@@ -1207,8 +1099,8 @@ html {
   justify-content: space-between !important;
   align-items: center !important;
 
-  left: calc(var(--sidebar-width) + 2rem + max(0px, (100vw - var(--sidebar-width) - 3.7rem - var(--max-content-width)) / 2)) !important;
-  width: calc(100vw - var(--sidebar-width) - 4rem) !important;
+  left: calc(var(--sidebar-width) + 2.7rem + max(0px, (100vw - var(--sidebar-width) - 3.7rem - var(--max-content-width)) / 2)) !important;
+  width: calc(100vw - var(--sidebar-width) - -6rem) !important;
   max-width: var(--max-content-width) !important;
 }
 
@@ -1666,12 +1558,140 @@ html {
 }
 
 /* Floating Chat Launcher - Modern Animated Version */
-.chat-launcher {
+/* ── AI Chat Launcher Wrapper ── */
+.chat-launcher-wrapper {
   position: fixed;
-  bottom: 30px;
+  bottom: 76px;
+  /* raised to leave room for the pill below */
   right: 30px;
   width: 72px;
+  /* exactly the button size — never shifts */
   height: 72px;
+  z-index: 2000;
+}
+
+/* "Ask AI" floating pill label */
+.chat-ai-label {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 28px;
+  padding: 5px 12px;
+  background: rgba(18, 18, 28, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 999px;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.35),
+    0 0 12px rgba(99, 102, 241, 0.2);
+  animation:
+    aiLabelSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both,
+    aiPillBreath 7s ease-in-out 1.5s infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  pointer-events: none;
+  max-width: 110px;
+  box-sizing: border-box;
+}
+
+.chat-ai-label-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  background: linear-gradient(90deg, #a78bfa, #c084fc, #e879f9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: aiTextFade 7s ease-in-out 1.5s infinite;
+  overflow: hidden;
+  max-width: 80px;
+  display: inline-block;
+}
+
+/* Pulsing live dot */
+.chat-ai-label-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #a855f7;
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.9);
+  animation: aiDotPulse 1.8s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes aiDotPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 8px rgba(168, 85, 247, 0.9);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.3);
+    box-shadow: 0 0 14px rgba(232, 121, 249, 0.9);
+  }
+}
+
+@keyframes aiLabelSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Pill collapses → holds as dot → expands → holds open — 7s synchronized loop */
+@keyframes aiPillBreath {
+  0%, 35% {
+    max-width: 110px;
+    padding: 5px 12px;
+    gap: 7px;
+  }
+  48%, 68% {
+    max-width: 28px;
+    padding: 5px;
+    gap: 0px;
+  }
+  82%, 100% {
+    max-width: 110px;
+    padding: 5px 12px;
+    gap: 7px;
+  }
+}
+
+@keyframes aiTextFade {
+  0%, 30% {
+    opacity: 1;
+    max-width: 80px;
+  }
+  42%, 72% {
+    opacity: 0;
+    max-width: 0px;
+  }
+  84%, 100% {
+    opacity: 1;
+    max-width: 80px;
+  }
+}
+
+.chat-launcher {
+  position: relative;
+  /* no longer fixed — wrapper handles positioning */
+  bottom: unset;
+  right: unset;
+  width: 72px;
+  height: 72px;
+
   background:
     linear-gradient(rgba(18, 18, 28, 0.85), rgba(18, 18, 28, 0.85)) padding-box,
     linear-gradient(90deg, #6366f1, #a855f7, #ec4899, #3b82f6, #6366f1) border-box;
@@ -1783,7 +1803,7 @@ html {
 /* Floating Chat Window */
 .floating-chat-window {
   position: fixed;
-  bottom: 90px;
+  bottom: 160px;
   right: 30px;
   width: 410px;
   max-height: 580px;
@@ -1798,19 +1818,26 @@ html {
   flex-direction: column;
   z-index: 1001;
   overflow: hidden;
-  animation: chatSlideUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(28px) scale(0.9);
+  transform-origin: bottom right;
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.55s;
 }
 
-@keyframes chatSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px) scale(0.96);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+.floating-chat-window.chat-window-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: translateY(0) scale(1);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0s;
 }
 
 .chat-window-header {
@@ -1911,6 +1938,18 @@ html {
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4),
     inset 0 1px 1px rgba(255, 255, 255, 0.08) !important;
   color: #e2e8f0;
+  /* preserve transition so open/close animation still works */
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.55s !important;
+}
+
+[data-theme="dark"] .floating-chat-window.chat-window-visible {
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0s !important;
 }
 
 [data-theme="dark"] .chat-window-header {
@@ -2005,6 +2044,24 @@ html {
   color: #f8fafc !important;
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease !important;
+}
+
+[data-theme="dark"] .chart-container h2 {
+  color: #f1f5f9 !important;
+  border-left-color: #10b981 !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.4px !important;
+  text-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+}
+
+[data-theme="dark"] .chart-container .chart-subtitle {
+  color: #475569 !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
 }
 
 [data-theme="dark"] .charts-section:hover,
@@ -2969,7 +3026,7 @@ html {
 }
 
 [data-theme="dark"] .no-categories-message,
-[data-theme="dark"] .categories-list > p {
+[data-theme="dark"] .categories-list>p {
   grid-column: 1 / -1 !important;
   text-align: center !important;
   width: 100% !important;

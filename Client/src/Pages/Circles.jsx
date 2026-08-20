@@ -4,6 +4,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { Html5Qrcode } from 'html5-qrcode';
 import { API_URL } from '../config';
+import CustomDatePicker from '../components/CustomDatePicker';
+import CustomSelect from '../components/CustomSelect';
 import { useAuth } from '../context/AuthContext';
 import { useDisplaySettings } from '../context/DisplaySettingsContext';
 import lottie from 'lottie-web';
@@ -34,6 +36,10 @@ import {
   FaInfoCircle,
   FaLightbulb,
   FaBullseye,
+  FaDivide,
+  FaPercent,
+  FaLayerGroup,
+  FaEquals,
   FaList,
   FaCog,
   FaEye,
@@ -136,6 +142,73 @@ const Circles = () => {
   const [newCircleDesc, setNewCircleDesc] = useState('');
   const [newCircleIcon, setNewCircleIcon] = useState('✈');
   const [newCircleTheme, setNewCircleTheme] = useState('#f59e0b');
+
+  const circleThemeOptions = useMemo(() => [
+    {
+      value: '#f59e0b',
+      label: 'Amber Gold',
+      icon: <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#f59e0b', boxShadow: '0 0 8px #f59e0b', display: 'inline-block' }} />
+    },
+    {
+      value: '#10b981',
+      label: 'Emerald Green',
+      icon: <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 8px #10b981', display: 'inline-block' }} />
+    },
+    {
+      value: '#3b82f6',
+      label: 'Sapphire Blue',
+      icon: <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#3b82f6', boxShadow: '0 0 8px #3b82f6', display: 'inline-block' }} />
+    },
+    {
+      value: '#f43f5e',
+      label: 'Rose Quartz',
+      icon: <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#f43f5e', boxShadow: '0 0 8px #f43f5e', display: 'inline-block' }} />
+    },
+    {
+      value: '#8b5cf6',
+      label: 'Purple Amethyst',
+      icon: <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#8b5cf6', boxShadow: '0 0 8px #8b5cf6', display: 'inline-block' }} />
+    },
+    {
+      value: '#06b6d4',
+      label: 'Cyan Wave',
+      icon: <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#06b6d4', boxShadow: '0 0 8px #06b6d4', display: 'inline-block' }} />
+    },
+    {
+      value: '#f97316',
+      label: 'Sunset Orange',
+      icon: <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#f97316', boxShadow: '0 0 8px #f97316', display: 'inline-block' }} />
+    },
+    {
+      value: '#ec4899',
+      label: 'Neon Pink',
+      icon: <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ec4899', boxShadow: '0 0 8px #ec4899', display: 'inline-block' }} />
+    },
+    {
+      value: '#14b8a6',
+      label: 'Teal Diamond',
+      icon: <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#14b8a6', boxShadow: '0 0 8px #14b8a6', display: 'inline-block' }} />
+    },
+    {
+      value: '#6366f1',
+      label: 'Midnight Indigo',
+      icon: <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#6366f1', boxShadow: '0 0 8px #6366f1', display: 'inline-block' }} />
+    }
+  ], []);
+
+  const circleIconOptions = useMemo(() => [
+    { value: '✈', label: '✈ Trip' },
+    { value: '🏠', label: '🏠 House' },
+    { value: '❤️', label: '❤️ Couple' },
+    { value: '👨‍👩‍👧‍👦', label: '👨‍👩‍👧‍👦 Family' },
+    { value: '🤝', label: '🤝 Friend' },
+    { value: '🎉', label: '🎉 Event' },
+    { value: '🍔', label: '🍔 Food' },
+    { value: '🎓', label: '🎓 Education' },
+    { value: '💼', label: '💼 Work' },
+    { value: '🎮', label: '🎮 Gaming' },
+    { value: '🚗', label: '🚗 Travel' }
+  ], []);
   const [newCircleMembers, setNewCircleMembers] = useState([]); // selected friend IDs
 
   // Workspace preferences states
@@ -2643,25 +2716,19 @@ const Circles = () => {
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                   <div className="settings-field">
                     <label htmlFor="circle-icon">Icon / Emoji</label>
-                    <select id="circle-icon" value={newCircleIcon} onChange={(e) => setNewCircleIcon(e.target.value)}>
-                      <option value="✈">✈ Trip</option>
-                      <option value="🏠">🏠 House</option>
-                      <option value="❤️">❤️ Couple</option>
-                      <option value="👨‍👩‍👧‍👦">👨‍👩‍👧‍👦 Family</option>
-                      <option value="🤝">🤝 Friend</option>
-                      <option value="🎉">🎉 Event</option>
-                      <option value="🍔">🍔 Food</option>
-                    </select>
+                    <CustomSelect
+                      value={newCircleIcon}
+                      onChange={(e) => setNewCircleIcon(e.target.value)}
+                      options={circleIconOptions}
+                    />
                   </div>
                   <div className="settings-field">
                     <label htmlFor="circle-theme">Theme Color</label>
-                    <select id="circle-theme" value={newCircleTheme} onChange={(e) => setNewCircleTheme(e.target.value)}>
-                      <option value="#f59e0b">Amber Gold</option>
-                      <option value="#10b981">Emerald Green</option>
-                      <option value="#3b82f6">Sapphire Blue</option>
-                      <option value="#ec4899">Pink Rose</option>
-                      <option value="#8b5cf6">Purple Amethyst</option>
-                    </select>
+                    <CustomSelect
+                      value={newCircleTheme}
+                      onChange={(e) => setNewCircleTheme(e.target.value)}
+                      options={circleThemeOptions}
+                    />
                   </div>
                 </div>
 
@@ -2810,26 +2877,35 @@ const Circles = () => {
                   </div>
                   <div className="settings-field">
                     <label htmlFor="exp-paid">Paid By</label>
-                    <select id="exp-paid" value={expensePaidBy} onChange={(e) => setExpensePaidBy(e.target.value)}>
-                      <option value="you">Lakshya (You)</option>
-                      {activeCircle?.members.filter(m => m._id !== user?._id).map(m => (
-                        <option key={m._id} value={m._id}>{getMemberName(m._id)}</option>
-                      ))}
-                    </select>
+                    <CustomSelect
+                      value={expensePaidBy}
+                      onChange={(e) => setExpensePaidBy(e.target.value)}
+                      options={[
+                        { value: 'you', label: `${user?.name || 'You'} (You)` },
+                        ...(activeCircle?.members.filter(m => m._id !== user?._id).map(m => ({
+                          value: m._id,
+                          label: getMemberName(m._id)
+                        })) || [])
+                      ]}
+                    />
                   </div>
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                   <div className="settings-field">
                     <label htmlFor="exp-cat">Category</label>
-                    <select id="exp-cat" value={expenseCategory} onChange={(e) => setExpenseCategory(e.target.value)}>
-                      <option value="Food">Food</option>
-                      <option value="Rent">Rent</option>
-                      <option value="Stay">Stay</option>
-                      <option value="Flights">Flights</option>
-                      <option value="Utilities">Utilities</option>
-                      <option value="Miscellaneous">Miscellaneous</option>
-                    </select>
+                    <CustomSelect
+                      value={expenseCategory}
+                      onChange={(e) => setExpenseCategory(e.target.value)}
+                      options={[
+                        { value: 'Food', label: 'Food' },
+                        { value: 'Rent', label: 'Rent' },
+                        { value: 'Stay', label: 'Stay' },
+                        { value: 'Flights', label: 'Flights' },
+                        { value: 'Utilities', label: 'Utilities' },
+                        { value: 'Miscellaneous', label: 'Miscellaneous' }
+                      ]}
+                    />
                   </div>
                   <div className="settings-field">
                     <label htmlFor="exp-notes">Notes / Receipt</label>
@@ -2838,21 +2914,44 @@ const Circles = () => {
                 </div>
 
                 <div className="split-config-section">
-                  <span style={{ fontSize: '0.78rem', color: '#94a3b8', fontWeight: 700 }}>Split Configuration</span>
+                  <div className="split-config-header">
+                    <span className="split-config-title">Split Configuration</span>
+                    <span className="split-config-subtitle">Choose division mode and customize member allocation</span>
+                  </div>
 
-                  <div className="split-type-tabs">
-                    {['equal', 'exact', 'percentage', 'shares'].map(t => (
-                      <button key={t} type="button" className={`split-type-btn ${expenseSplitType === t ? 'active' : ''}`} onClick={() => setExpenseSplitType(t)}>
-                        {t.toUpperCase()}
+                  {/* 4 Mode Grid Cards */}
+                  <div className="split-mode-grid">
+                    {[
+                      { id: 'equal', icon: <FaEquals size={14} />, label: 'Equal', sub: 'Split evenly' },
+                      { id: 'exact', icon: <FaBullseye size={14} />, label: 'Exact', sub: 'Custom ₹' },
+                      { id: 'percentage', icon: <FaPercent size={14} />, label: 'Percent', sub: '% Share' },
+                      { id: 'shares', icon: <FaLayerGroup size={14} />, label: 'Shares', sub: 'Ratio' }
+                    ].map(m => (
+                      <button
+                        key={m.id}
+                        type="button"
+                        className={`split-mode-card ${expenseSplitType === m.id ? 'active' : ''}`}
+                        onClick={() => setExpenseSplitType(m.id)}
+                      >
+                        <span className="mode-card-icon">{m.icon}</span>
+                        <div className="mode-card-text">
+                          <span className="mode-card-label">{m.label}</span>
+                          <span className="mode-card-sub">{m.sub}</span>
+                        </div>
                       </button>
                     ))}
                   </div>
 
+                  {/* Members Breakdown List */}
                   <div className="split-members-list">
                     {activeCircle?.members.map(m => {
                       const involved = expenseMembers.includes(m._id);
+                      const activeCount = expenseMembers.length || 1;
+                      const totalAmt = parseFloat(expenseAmount) || 0;
+                      const equalShare = totalAmt > 0 && involved ? (totalAmt / activeCount).toFixed(2) : '0.00';
+
                       return (
-                        <div key={m._id} className="split-member-input-row">
+                        <div key={m._id} className={`split-member-card ${involved ? 'is-involved' : ''}`}>
                           <label className="split-member-checkbox-label">
                             <input
                               type="checkbox"
@@ -2865,22 +2964,32 @@ const Circles = () => {
                                 }
                               }}
                             />
-                            {getMemberFirstName(m._id)}
+                            <span className={`member-avatar-badge ${involved ? 'active-avatar' : ''}`}>
+                              {getMemberFirstName(m._id).charAt(0).toUpperCase()}
+                            </span>
+                            <div className="member-name-group">
+                              <span className="member-full-name">{getMemberFirstName(m._id)}</span>
+                              {involved && expenseSplitType === 'equal' && totalAmt > 0 && (
+                                <span className="member-live-share">{currency === 'INR' ? '₹' : '$'}{equalShare} each</span>
+                              )}
+                            </div>
                           </label>
 
                           {involved && expenseSplitType !== 'equal' && (
-                            <input
-                              type="number"
-                              step="any"
-                              className="split-member-value-input"
-                              placeholder={expenseSplitType === 'exact' ? `${currency === 'INR' ? '₹' : '$'}0` : expenseSplitType === 'percentage' ? '0%' : '1 share'}
-                              value={expenseSplitsVal[m._id] || ''}
-                              onChange={(e) => {
-                                const val = e.target.value;
-                                setExpenseSplitsVal(prev => ({ ...prev, [m._id]: val }));
-                              }}
-                              required
-                            />
+                            <div className="split-input-wrapper">
+                              <input
+                                type="number"
+                                step="any"
+                                className="split-member-value-input"
+                                placeholder={expenseSplitType === 'exact' ? `${currency === 'INR' ? '₹' : '$'}0` : expenseSplitType === 'percentage' ? '0%' : '1 share'}
+                                value={expenseSplitsVal[m._id] || ''}
+                                onChange={(e) => {
+                                  const val = e.target.value;
+                                  setExpenseSplitsVal(prev => ({ ...prev, [m._id]: val }));
+                                }}
+                                required
+                              />
+                            </div>
                           )}
                         </div>
                       );
@@ -2937,12 +3046,17 @@ const Circles = () => {
               <form onSubmit={handleSettleUpSubmit} className="premium-modal-body" style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 <div className="settings-field">
                   <label htmlFor="settle-member">Select Member to Settle With</label>
-                  <select id="settle-member" value={settleMemberId} onChange={(e) => setSettleMemberId(e.target.value)} required>
-                    <option value="">-- Select Member --</option>
-                    {activeCircle?.members.filter(m => m._id !== user?._id).map(m => (
-                      <option key={m._id} value={m._id}>{getMemberName(m._id)}</option>
-                    ))}
-                  </select>
+                  <CustomSelect
+                    value={settleMemberId}
+                    onChange={(e) => setSettleMemberId(e.target.value)}
+                    options={[
+                      { value: '', label: '-- Select Member --' },
+                      ...(activeCircle?.members.filter(m => m._id !== user?._id).map(m => ({
+                        value: m._id,
+                        label: getMemberName(m._id)
+                      })) || [])
+                    ]}
+                  />
                 </div>
 
                 <div className="settings-field">
@@ -3003,16 +3117,18 @@ const Circles = () => {
               {/* Privacy Controls (displays granular user visibility toggles) */}
               <div className="privacy-controls-box">
                 <h5>🔒 My Privacy Settings</h5>
-                <select
-                  className="privacy-dropdown"
-                  value={privacySettings.profile}
-                  onChange={(e) => setPrivacySettings(prev => ({ ...prev, profile: e.target.value }))}
-                >
-                  <option value="public">Public (Everyone)</option>
-                  <option value="friends">Friends Only</option>
-                  <option value="circles">Circles Only</option>
-                  <option value="private">Private (Only Me)</option>
-                </select>
+                <div style={{ width: '190px' }}>
+                  <CustomSelect
+                    value={privacySettings.profile}
+                    onChange={(e) => setPrivacySettings(prev => ({ ...prev, profile: e.target.value }))}
+                    options={[
+                      { value: 'public', label: 'Public (Everyone)' },
+                      { value: 'friends', label: 'Friends Only' },
+                      { value: 'circles', label: 'Circles Only' },
+                      { value: 'private', label: 'Private (Only Me)' }
+                    ]}
+                  />
+                </div>
                 <div className="privacy-toggles-grid">
                   <label className="privacy-toggle-label">
                     <input
@@ -3068,7 +3184,7 @@ const Circles = () => {
                   </div>
                   <div className="settings-field">
                     <label htmlFor="goal-deadline">Target Date</label>
-                    <input type="date" id="goal-deadline" value={newGoalDeadline} onChange={(e) => setNewGoalDeadline(e.target.value)} />
+                    <CustomDatePicker value={newGoalDeadline} onChange={newVal => setNewGoalDeadline(newVal)} placeholder="Target date" />
                   </div>
                 </div>
                 <div className="premium-modal-actions" style={{ marginTop: '0.5rem' }}>
@@ -3087,7 +3203,7 @@ const Circles = () => {
           <motion.div className="premium-modal-overlay" data-lenis-prevent initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setShowEditBudgetModal(false)}>
             <motion.div className="premium-modal-content" initial={{ scale: 0.95 }} animate={{ scale: 1 }} exit={{ scale: 0.95 }} onClick={(e) => e.stopPropagation()}>
               <div className="modal-header-container">
-                <h3 className="premium-modal-title">📊 Update Budget Limit</h3>
+                <h3 className="premium-modal-title">Update Budget Limit</h3>
                 <p className="panel-subtitle">Set a new monthly spending cap for this circle</p>
               </div>
               <form onSubmit={handleUpdateBudgetLimit} className="premium-modal-body" style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '1rem' }}>

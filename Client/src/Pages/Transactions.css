@@ -104,17 +104,10 @@
 .sort-container {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: var(--card-bg);
-  padding: 8px 16px;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  transition: all 0.2s ease;
-}
-
-.sort-container:hover {
-  border-color: var(--secondary-hover-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .sort-icon {
@@ -582,23 +575,21 @@
    DARK MODE OVERRIDES
    ============================================= */
 [data-theme="dark"] .sort-container {
-  background: rgba(30, 41, 59, 0.4) !important;
-  backdrop-filter: blur(15px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 18px !important;
-  padding: 6px 18px !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
   display: flex !important;
   align-items: center !important;
-  gap: 15px !important;
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
 }
 
 [data-theme="dark"] .sort-container:focus-within,
 [data-theme="dark"] .sort-container:hover {
-  background: rgba(30, 41, 59, 0.6) !important;
-  border-color: #2dd4bf !important;
-  box-shadow: 0 0 25px rgba(45, 212, 191, 0.15), 0 0 0 3px rgba(45, 212, 191, 0.05) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
 }
 
 [data-theme="dark"] .sort-select {
@@ -665,8 +656,8 @@
   border: none !important;
   border-bottom: none !important;
 
-  left: calc(var(--sidebar-width) + 2rem + max(0px, (100vw - var(--sidebar-width) - 4rem - var(--max-content-width)) / 2)) !important;
-  width: calc(100vw - var(--sidebar-width) - 4rem) !important;
+  left: calc(var(--sidebar-width) + 2.7rem + max(0px, (100vw - var(--sidebar-width) - 3.7rem - var(--max-content-width)) / 2)) !important;
+  width: calc(100vw - var(--sidebar-width) - -6rem) !important;
   max-width: var(--max-content-width) !important;
 }
 

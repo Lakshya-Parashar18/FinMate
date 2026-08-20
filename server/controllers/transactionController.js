@@ -1,6 +1,7 @@
 import Transaction from '../models/Transaction.js';
 import Anomaly from '../models/Anomaly.js';
 import { detectAndSaveAnomaly } from './anomalyController.js';
+import { evaluateTransactionAlerts } from '../services/notificationAlertService.js';
 import mongoose from 'mongoose';
 import { spawn } from 'child_process';
 import path from 'path';
@@ -118,6 +119,11 @@ const createTransaction = async (req, res) => {
       });
     }
 
+    // Evaluate budget threshold alerts & high-value notifications in background
+    evaluateTransactionAlerts(req.user._id, createdTransaction).catch(err => {
+      console.error('Background transaction alert evaluation failed:', err);
+    });
+
     res.status(201).json(createdTransaction);
   } catch (error) {
     console.error('Error creating transaction:', error);
@@ -169,6 +175,11 @@ const updateTransaction = async (req, res) => {
         console.error('Background anomaly detection failed:', err);
       });
     }
+
+    // Evaluate budget threshold alerts & high-value notifications in background
+    evaluateTransactionAlerts(req.user._id, updatedTransaction).catch(err => {
+      console.error('Background transaction alert evaluation failed:', err);
+    });
 
     res.status(200).json(updatedTransaction);
   } catch (error) {

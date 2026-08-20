@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import {
   FaDollarSign,
@@ -30,6 +30,8 @@ import {
 import './Dashboard.css';
 import axios from 'axios';
 import Loading from '../components/Loading';
+import CustomDatePicker from '../components/CustomDatePicker';
+import CustomSelect from '../components/CustomSelect';
 import lottie from 'lottie-web';
 import aiIconAnimation from '../assets/ai-icon.json';
 import { API_URL } from '../config';
@@ -179,6 +181,31 @@ const Dashboard = () => {
   const [transactionToDelete, setTransactionToDelete] = useState(null);
   const [editingTransaction, setEditingTransaction] = useState(null);
   const [budgetCategories, setBudgetCategories] = useState([]);
+
+  const allAvailableCategories = useMemo(() => {
+    const defaults = [
+      'Income',
+      'Salary',
+      'Investment',
+      'Food',
+      'Rent',
+      'Utilities',
+      'Entertainment',
+      'Shopping',
+      'Transportation',
+      'Health & Fitness',
+      'Education',
+      'Travel',
+      'Subscriptions',
+      'Miscellaneous',
+      'Other'
+    ];
+    const combined = [...new Set([...(budgetCategories || []), ...defaults])];
+    return [
+      { value: '', label: 'All Categories' },
+      ...combined.map(cat => ({ value: cat, label: cat }))
+    ];
+  }, [budgetCategories]);
   const [formData, setFormData] = useState({
     date: new Date().toISOString().split('T')[0],
     description: '',
@@ -1045,8 +1072,8 @@ const Dashboard = () => {
       )}
 
       {showFilterModal && (
-        <div className="modal-overlay" data-lenis-prevent>
-          <div className="modal-content" data-lenis-prevent>
+        <div className="modal-overlay" onClick={closeFilterModal} data-lenis-prevent>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()} data-lenis-prevent>
             <div className="modal-header">
               <h3>Filter Transactions</h3>
               <button onClick={closeFilterModal} className="close-btn"><FaTimes /></button>
@@ -1054,19 +1081,20 @@ const Dashboard = () => {
             <form onSubmit={handleFilterSubmit} className="modal-form">
               <div className="form-group">
                 <label>Category</label>
-                <select name="category" value={filterCategory} onChange={handleFilterChange}>
-                  <option value="">All Categories</option>
-                  <option value="Income">Income</option>
-                  <option value="Food">Food</option>
-                  <option value="Rent">Rent</option>
-                  <option value="Entertainment">Entertainment</option>
-                  <option value="Utilities">Utilities</option>
-                  <option value="Other">Other</option>
-                </select>
+                <CustomSelect
+                  name="category"
+                  value={filterCategory}
+                  onChange={handleFilterChange}
+                  options={allAvailableCategories}
+                />
               </div>
               <div className="form-group">
                 <label>Date</label>
-                <input type="date" name="date" value={filterDate} onChange={handleFilterChange} />
+                <CustomDatePicker
+                  value={filterDate}
+                  onChange={newVal => setFilterDate(newVal)}
+                  placeholder="Select date"
+                />
               </div>
               <div className="modal-actions">
                 <button type="button" className="btn btn-secondary" onClick={closeFilterModal}>Cancel</button>
@@ -1078,8 +1106,8 @@ const Dashboard = () => {
       )}
 
       {showAddModal && (
-        <div className="modal-overlay" data-lenis-prevent>
-          <div className="modal-content" data-lenis-prevent>
+        <div className="modal-overlay" onClick={closeAddModal} data-lenis-prevent>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()} data-lenis-prevent>
             <div className="modal-header">
               <h3>Add New Transaction</h3>
               <button onClick={closeAddModal} className="close-btn"><FaTimes /></button>
@@ -1089,14 +1117,23 @@ const Dashboard = () => {
               <div className="form-group form-row">
                 <div style={{ flex: 1 }}>
                   <label>Date</label>
-                  <input type="date" name="date" value={formData.date} onChange={handleInputChange} required />
+                  <CustomDatePicker
+                    value={formData.date}
+                    onChange={newVal => setFormData(prev => ({ ...prev, date: newVal }))}
+                    placeholder="Select date"
+                  />
                 </div>
                 <div style={{ flex: 1 }}>
                   <label>Type</label>
-                  <select name="type" value={formData.type} onChange={handleInputChange} required>
-                    <option value="expense">Expense</option>
-                    <option value="income">Income</option>
-                  </select>
+                  <CustomSelect
+                    name="type"
+                    value={formData.type}
+                    onChange={handleInputChange}
+                    options={[
+                      { value: 'expense', label: 'Expense' },
+                      { value: 'income', label: 'Income' }
+                    ]}
+                  />
                 </div>
               </div>
               <div className="form-group">
@@ -1105,27 +1142,46 @@ const Dashboard = () => {
               </div>
               <div className="form-group form-row">
                 <div style={{ flex: 1 }}>
-                  <label>Category</label>
-                  <input type="text" name="category" value={formData.category} onChange={handleInputChange} placeholder="e.g., Food, Income" required />
-                  <div className="category-suggestions" style={{ marginTop: '8px' }}>
+                  <label>Category *</label>
+                  <CustomSelect
+                    name="category"
+                    value={formData.category}
+                    onChange={e => {
+                      handleInputChange(e);
+                      setFormError('');
+                    }}
+                    options={
+                      formData.type === 'expense'
+                        ? [...new Set([...(budgetCategories || []), 'Food', 'Rent', 'Utilities', 'Entertainment', 'Shopping', 'Transportation', 'Health & Fitness', 'Education', 'Travel', 'Subscriptions', 'Miscellaneous', 'Other'])].map(c => ({ value: c, label: c }))
+                        : ['Income', 'Salary', 'Investment', 'Freelance', 'Bonus', 'Other Income'].map(c => ({ value: c, label: c }))
+                    }
+                    placeholder="Select or click a category bubble..."
+                  />
+                  <div className="category-suggestions" style={{ marginTop: '10px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                     {formData.type === 'expense' ? (
-                      [...new Set([...budgetCategories, 'Miscellaneous'])].map(cat => (
+                      [...new Set([...(budgetCategories || []), 'Food', 'Rent', 'Utilities', 'Entertainment', 'Shopping', 'Transportation', 'Health & Fitness', 'Education', 'Travel', 'Subscriptions', 'Miscellaneous', 'Other'])].map(cat => (
                         <button
                           key={cat}
                           type="button"
                           className={`suggestion-btn ${formData.category === cat ? 'active' : ''}`}
-                          onClick={() => setFormData(prev => ({ ...prev, category: cat }))}
+                          onClick={() => {
+                            setFormData(prev => ({ ...prev, category: cat }));
+                            setFormError('');
+                          }}
                         >
                           {cat}
                         </button>
                       ))
                     ) : (
-                      ['Income', 'Salary', 'Investment', 'Other Income'].map(cat => (
+                      ['Income', 'Salary', 'Investment', 'Freelance', 'Bonus', 'Other Income'].map(cat => (
                         <button
                           key={cat}
                           type="button"
                           className={`suggestion-btn ${formData.category === cat ? 'active' : ''}`}
-                          onClick={() => setFormData(prev => ({ ...prev, category: cat }))}
+                          onClick={() => {
+                            setFormData(prev => ({ ...prev, category: cat }));
+                            setFormError('');
+                          }}
                         >
                           {cat}
                         </button>
@@ -1150,8 +1206,8 @@ const Dashboard = () => {
       )}
 
       {showEditModal && (
-        <div className="modal-overlay" data-lenis-prevent>
-          <div className="modal-content" data-lenis-prevent>
+        <div className="modal-overlay" onClick={closeEditModal} data-lenis-prevent>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()} data-lenis-prevent>
             <div className="modal-header">
               <h3>Edit Transaction</h3>
               <button onClick={closeEditModal} className="close-btn"><FaTimes /></button>
@@ -1161,14 +1217,23 @@ const Dashboard = () => {
               <div className="form-group form-row">
                 <div style={{ flex: 1 }}>
                   <label>Date</label>
-                  <input type="date" name="date" value={formData.date} onChange={handleInputChange} required />
+                  <CustomDatePicker
+                    value={formData.date}
+                    onChange={newVal => setFormData(prev => ({ ...prev, date: newVal }))}
+                    placeholder="Select date"
+                  />
                 </div>
                 <div style={{ flex: 1 }}>
                   <label>Type</label>
-                  <select name="type" value={formData.type} onChange={handleInputChange} required>
-                    <option value="expense">Expense</option>
-                    <option value="income">Income</option>
-                  </select>
+                  <CustomSelect
+                    name="type"
+                    value={formData.type}
+                    onChange={handleInputChange}
+                    options={[
+                      { value: 'expense', label: 'Expense' },
+                      { value: 'income', label: 'Income' }
+                    ]}
+                  />
                 </div>
               </div>
               <div className="form-group">
@@ -1177,19 +1242,51 @@ const Dashboard = () => {
               </div>
               <div className="form-group form-row">
                 <div style={{ flex: 1 }}>
-                  <label>Category</label>
-                  <input type="text" name="category" value={formData.category} onChange={handleInputChange} placeholder="e.g., Food, Income" required />
-                  <div className="category-suggestions" style={{ marginTop: '8px' }}>
-                    {[...new Set([...budgetCategories, 'Miscellaneous', 'Income', 'Salary', 'Investment'])].map(cat => (
-                      <button
-                        key={cat}
-                        type="button"
-                        className={`suggestion-btn ${formData.category === cat ? 'active' : ''}`}
-                        onClick={() => setFormData(prev => ({ ...prev, category: cat }))}
-                      >
-                        {cat}
-                      </button>
-                    ))}
+                  <label>Category *</label>
+                  <CustomSelect
+                    name="category"
+                    value={formData.category}
+                    onChange={e => {
+                      handleInputChange(e);
+                      setFormError('');
+                    }}
+                    options={
+                      formData.type === 'expense'
+                        ? [...new Set([...(budgetCategories || []), 'Food', 'Rent', 'Utilities', 'Entertainment', 'Shopping', 'Transportation', 'Health & Fitness', 'Education', 'Travel', 'Subscriptions', 'Miscellaneous', 'Other'])].map(c => ({ value: c, label: c }))
+                        : ['Income', 'Salary', 'Investment', 'Freelance', 'Bonus', 'Other Income'].map(c => ({ value: c, label: c }))
+                    }
+                    placeholder="Select or click a category bubble..."
+                  />
+                  <div className="category-suggestions" style={{ marginTop: '10px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                    {formData.type === 'expense' ? (
+                      [...new Set([...(budgetCategories || []), 'Food', 'Rent', 'Utilities', 'Entertainment', 'Shopping', 'Transportation', 'Health & Fitness', 'Education', 'Travel', 'Subscriptions', 'Miscellaneous', 'Other'])].map(cat => (
+                        <button
+                          key={cat}
+                          type="button"
+                          className={`suggestion-btn ${formData.category === cat ? 'active' : ''}`}
+                          onClick={() => {
+                            setFormData(prev => ({ ...prev, category: cat }));
+                            setFormError('');
+                          }}
+                        >
+                          {cat}
+                        </button>
+                      ))
+                    ) : (
+                      ['Income', 'Salary', 'Investment', 'Freelance', 'Bonus', 'Other Income'].map(cat => (
+                        <button
+                          key={cat}
+                          type="button"
+                          className={`suggestion-btn ${formData.category === cat ? 'active' : ''}`}
+                          onClick={() => {
+                            setFormData(prev => ({ ...prev, category: cat }));
+                            setFormError('');
+                          }}
+                        >
+                          {cat}
+                        </button>
+                      ))
+                    )}
                   </div>
                 </div>
                 <div style={{ flex: 1 }}>
@@ -1208,8 +1305,8 @@ const Dashboard = () => {
         </div>
       )}
       {showDeleteModal && (
-        <div className="modal-overlay" data-lenis-prevent>
-          <div className="modal-content delete-modal">
+        <div className="modal-overlay" onClick={() => setShowDeleteModal(false)} data-lenis-prevent>
+          <div className="modal-content delete-modal" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3 className="delete-title">
                 <FaExclamationTriangle style={{ color: '#e53e3e', marginRight: '10px' }} />

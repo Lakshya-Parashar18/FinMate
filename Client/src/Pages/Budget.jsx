@@ -22,6 +22,7 @@ import {
 import { PieChart, Pie, Cell, Sector, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 import axios from 'axios';
 import Loading from '../components/Loading';
+import CustomDatePicker from '../components/CustomDatePicker';
 import { API_URL } from '../config';
 import groceryIcon from '../assets/grocery.png';
 import foodIcon from '../assets/food.png';
@@ -748,12 +749,11 @@ const Budget = () => {
           <>
             <div className="budget-controls">
               <div className="month-selector-group">
-                <FaCalendar className="calendar-icon" />
-                <input
-                  type="month"
+                <CustomDatePicker
+                  mode="month"
                   value={selectedMonth}
-                  onChange={handleMonthChange}
-                  className="month-input"
+                  onChange={newVal => setSelectedMonth(newVal)}
+                  placeholder="Select Month"
                 />
               </div>
               <button className="budget-page-set-btn" onClick={openSetBudgetModal}>
@@ -1118,8 +1118,8 @@ const Budget = () => {
             </div>
 
             {showSetBudgetModal && (
-              <div className="modal-overlay" data-lenis-prevent>
-                <div className="modal-content">
+              <div className="modal-overlay" onClick={closeModal} data-lenis-prevent>
+                <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                   <div className="modal-header">
                     <h3>Set Monthly Budget</h3>
                     <button onClick={closeModal} className="close-btn">
@@ -1138,6 +1138,7 @@ const Budget = () => {
                           value={budgetFormData.total}
                           onChange={handleBudgetInputChange}
                           placeholder="Enter total budget"
+                          style={{ paddingLeft: '3.2rem' }}
                           required
                         />
                       </div>
@@ -1154,6 +1155,7 @@ const Budget = () => {
                             value={value}
                             onChange={(e) => handleBudgetInputChange(e, category)}
                             placeholder={`Enter ${category.toLowerCase()} budget`}
+                            style={{ paddingLeft: '3.2rem' }}
                             required
                           />
                         </div>
@@ -1174,8 +1176,8 @@ const Budget = () => {
             )}
 
             {showBudgetExceededModal && (
-              <div className="modal-overlay" data-lenis-prevent>
-                <div className="modal-content">
+              <div className="modal-overlay" onClick={closeModal} data-lenis-prevent>
+                <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                   <div className="modal-header">
                     <h3 style={{ color: '#e53e3e' }}>
                       <FaExclamationTriangle style={{ marginRight: '8px' }} />
@@ -1228,8 +1230,8 @@ const Budget = () => {
             )}
 
             {(showAddCategoryModal || showEditCategoryModal) && (
-              <div className="modal-overlay" data-lenis-prevent>
-                <div className="modal-content">
+              <div className="modal-overlay" onClick={closeModal} data-lenis-prevent>
+                <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                   <div className="modal-header">
                     <h3>{showEditCategoryModal ? 'Edit Category' : 'Add New Category'}</h3>
                     <button onClick={closeModal} className="close-btn">
@@ -1333,8 +1335,8 @@ const Budget = () => {
             )}
 
             {showDeleteModal && (
-              <div className="modal-overlay" data-lenis-prevent>
-                <div className="modal-content delete-modal">
+              <div className="modal-overlay" onClick={closeModal} data-lenis-prevent>
+                <div className="modal-content delete-modal" onClick={(e) => e.stopPropagation()}>
                   <div className="modal-header">
                     <h3 className="delete-title">
                       <FaExclamationTriangle style={{ color: '#e53e3e', marginRight: '10px' }} />
