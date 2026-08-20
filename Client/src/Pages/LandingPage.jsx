@@ -170,16 +170,22 @@ export default function LandingPage() {
         <p>Your intelligent expense companion built for smart money management.</p>
         
         <div className="auth-boxes">
-          <div className="auth-box signup-box">
-            <h2>New to FinMate?</h2>
-            <p>Create an account and start managing your finances today.</p>
-            <Link to="/signup" className="cta-button signup">Sign Up</Link>
+          <div className="landing-action-card landing-signup-card">
+            <h3>New to <span className="brand-gradient-emerald">FinMate?</span></h3>
+            <p>Create an account and start mastering your personal finances today.</p>
+            <Link to="/signup" className="landing-action-btn emerald-btn">
+              <span>Sign Up</span>
+              <FaArrowRight className="btn-arrow" />
+            </Link>
           </div>
           
-          <div className="auth-box login-box">
-            <h2>Already a Member?</h2>
-            <p>Welcome back! Sign in to continue your financial journey.</p>
-            <Link to="/login" className="cta-button login">Login</Link>
+          <div className="landing-action-card landing-login-card">
+            <h3>Already a <span className="brand-gradient-indigo">Member?</span></h3>
+            <p>Welcome back! Sign in to access your financial dashboard & AI insights.</p>
+            <Link to="/login" className="landing-action-btn indigo-btn">
+              <span>Login</span>
+              <FaArrowRight className="btn-arrow" />
+            </Link>
           </div>
         </div>
       </main>
