@@ -11,13 +11,7 @@ const PreviewSection = ({ onLaunchDemo }) => {
   return (
     <section className="preview-section">
       <div className="preview-content">
-        <motion.div 
-          className="preview-text"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="preview-text">
           <div className="demo-tag">LIVE PREVIEW</div>
           <h2>Experience the <span className="text-gradient">Power</span> in Real-Time</h2>
           <p>
@@ -36,15 +30,9 @@ const PreviewSection = ({ onLaunchDemo }) => {
               <FaMousePointer /> Instant access, 0s setup
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div 
-          className="preview-mockup-container"
-          initial={{ opacity: 0, scale: 0.9, rotateY: 20 }}
-          whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, type: 'spring' }}
-        >
+        <div className="preview-mockup-container">
           <div className="mockup-window">
             <div className="window-header">
               <div className="windows-tab-info">
@@ -89,7 +77,7 @@ const PreviewSection = ({ onLaunchDemo }) => {
           >
             💰 Real-time Budgeting
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

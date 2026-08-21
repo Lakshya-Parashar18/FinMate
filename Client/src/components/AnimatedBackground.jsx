@@ -15,7 +15,7 @@ export default function AnimatedBackground() {
     let particles = [];
 
     // Config parameters
-    const particleCount = prefersReducedMotion ? 75 : 350;
+    const particleCount = prefersReducedMotion ? 85 : 440;
     const connectionDistance = 80;
     const mouseConnectionDistance = 160;
 
@@ -131,10 +131,17 @@ export default function AnimatedBackground() {
       animationFrameId = requestAnimationFrame(animate);
     };
 
+    const getZoom = () => parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
+
     const handleMouseMove = (e) => {
-      mouseRef.current.x = e.clientX;
-      mouseRef.current.y = e.clientY;
-      mouseRef.current.active = true;
+      const canvasEl = canvasRef.current;
+      if (canvasEl) {
+        const rect = canvasEl.getBoundingClientRect();
+        const z = getZoom();
+        mouseRef.current.x = (e.clientX - rect.left) / z;
+        mouseRef.current.y = (e.clientY - rect.top) / z;
+        mouseRef.current.active = true;
+      }
     };
 
     const handleMouseLeave = () => {

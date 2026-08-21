@@ -166,7 +166,7 @@ const TestimonialsSection = () => {
 
         <div className="testimonials-grid">
           {recentTestimonials.map((item, idx) => (
-            <motion.div key={item.id} className="testimonial-card glass" initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4, delay: idx * 0.1 }}>
+            <motion.div key={item.id} className="testimonial-card glass" whileHover={{ y: -6 }}>
               <div className="quote-icon"><FaQuoteLeft /></div>
               <div className="stars">{[...Array(item.rating)].map((_, i) => <FaStar key={i} />)}</div>
               <p className="testimonial-text">"{item.text}"</p>
