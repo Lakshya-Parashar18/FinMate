@@ -46,6 +46,8 @@ const userSchema = new mongoose.Schema(
       select: false
     },
     googleId: { type: String, unique: true, sparse: true },
+    isAdmin: { type: Boolean, default: false },
+    role: { type: String, enum: ['user', 'admin', 'superadmin'], default: 'user' },
     isVerified: { type: Boolean, default: false },
     verificationToken: { type: String, select: false },
     verificationTokenExpires: { type: Date, select: false },

