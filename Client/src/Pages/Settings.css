@@ -326,12 +326,13 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  text-align: left !important;
 }
 
 .panel-header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   padding-bottom: 1rem;
-  text-align: left;
+  text-align: left !important;
 }
 
 .panel-header h3 {
@@ -340,12 +341,14 @@
   font-weight: 700;
   color: #f1f5f9;
   margin: 0 0 4px 0;
+  text-align: left !important;
 }
 
 .panel-subtitle {
   font-size: 0.85rem;
   color: #64748b;
   margin: 0;
+  text-align: left !important;
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -1367,12 +1370,29 @@ html.lenis body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   padding-bottom: 1rem;
   width: 100%;
+  text-align: left !important;
 }
 
 .profile-overview-title-group {
   display: flex;
   flex-direction: column;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
   gap: 4px;
+}
+
+.profile-overview-title-group h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0;
+  text-align: left !important;
+}
+
+.profile-overview-title-group p {
+  text-align: left !important;
 }
 
 .settings-outline-btn {
