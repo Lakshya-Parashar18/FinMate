@@ -1,7 +1,7 @@
 .features-section {
   width: 100%;
-  padding: 8rem 2rem 5rem 2rem !important;
-  background: radial-gradient(circle at 50% 10%, rgba(16, 185, 129, 0.12) 0%, rgba(99, 102, 241, 0.06) 40%, transparent 70%) !important;
+  padding: 9.5rem 2rem 6.5rem 2rem !important;
+  background: radial-gradient(circle at 50% -20%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +17,7 @@
   align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
-  margin: 0 auto 4.5rem auto !important;
+  margin: 0 auto 7rem auto !important;
   max-width: 850px !important;
   width: 100% !important;
   opacity: 1 !important;
@@ -26,22 +26,8 @@
   z-index: 5 !important;
 }
 
-.features-section .features-header::before {
-  content: '' !important;
-  position: absolute !important;
-  top: 40% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  width: 580px !important;
-  height: 280px !important;
-  background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.35) 0%, rgba(99, 102, 241, 0.18) 55%, transparent 75%) !important;
-  filter: blur(45px) !important;
-  pointer-events: none !important;
-  z-index: -1 !important;
-}
-
 .features-section .feature-tag {
-  background: rgba(16, 185, 129, 0.12) !important;
+  background: rgba(16, 185, 129, 0.1) !important;
   color: #10b981 !important;
   padding: 0.5rem 1.25rem !important;
   border-radius: 2rem !important;
@@ -50,8 +36,8 @@
   letter-spacing: 0.15em !important;
   display: inline-block !important;
   margin-bottom: 1.5rem !important;
-  border: 1px solid rgba(16, 185, 129, 0.3) !important;
-  box-shadow: 0 0 25px rgba(16, 185, 129, 0.25) !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.1) !important;
   opacity: 1 !important;
   visibility: visible !important;
 }
@@ -76,12 +62,12 @@
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
   display: inline !important;
-  filter: drop-shadow(0 0 25px rgba(16, 185, 129, 0.6)) drop-shadow(0 0 45px rgba(99, 102, 241, 0.4)) !important;
+  filter: drop-shadow(0 0 25px rgba(16, 185, 129, 0.45)) !important;
 }
 
 .features-section .features-description {
   font-size: 1.2rem !important;
-  color: rgba(248, 250, 252, 0.85) !important;
+  color: rgba(248, 250, 252, 0.8) !important;
   line-height: 1.6 !important;
   max-width: 680px !important;
   margin: 0 auto !important;
@@ -123,7 +109,7 @@
   background: rgba(25, 33, 52, 0.8);
   border-color: var(--accent-color);
   box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6),
-              0 0 30px -10px var(--accent-color);
+    0 0 30px -10px var(--accent-color);
 }
 
 .card-glass-effect {
@@ -187,9 +173,20 @@
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); box-shadow: 0 0 0 0 var(--accent-color); }
-  70% { transform: scale(1.5); box-shadow: 0 0 0 10px transparent; }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 transparent; }
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 var(--accent-color);
+  }
+
+  70% {
+    transform: scale(1.5);
+    box-shadow: 0 0 0 10px transparent;
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 transparent;
+  }
 }
 
 /* Tablet / Mobile Tweak */
@@ -203,16 +200,16 @@
   .features-section {
     padding: 6rem 1.5rem;
   }
-  
+
   .section-header h2 {
     font-size: 2.8rem;
   }
-  
+
   .features-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .feature-card {
     padding: 2.5rem 2rem;
   }

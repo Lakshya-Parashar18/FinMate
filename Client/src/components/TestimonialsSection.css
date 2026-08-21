@@ -30,22 +30,6 @@
   box-sizing: border-box !important;
   opacity: 1 !important;
   visibility: visible !important;
-  position: relative !important;
-  z-index: 5 !important;
-}
-
-.testimonials-section .testimonials-header::before {
-  content: '' !important;
-  position: absolute !important;
-  top: 40% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  width: 580px !important;
-  height: 280px !important;
-  background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.35) 0%, rgba(99, 102, 241, 0.18) 55%, transparent 75%) !important;
-  filter: blur(45px) !important;
-  pointer-events: none !important;
-  z-index: -1 !important;
 }
 
 .testimonials-section .section-tag {
@@ -76,7 +60,7 @@
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
   display: inline !important;
-  filter: drop-shadow(0 0 25px rgba(16, 185, 129, 0.6)) drop-shadow(0 0 45px rgba(99, 102, 241, 0.4)) !important;
+  filter: drop-shadow(0 0 25px rgba(16, 185, 129, 0.45)) !important;
 }
 
 .testimonials-section .testimonials-description {
@@ -171,7 +155,8 @@
   margin-top: 2rem;
 }
 
-.view-more-btn, .share-feedback-btn {
+.view-more-btn,
+.share-feedback-btn {
   padding: 1.2rem 2.5rem;
   border-radius: 1.2rem;
   font-weight: 700;
@@ -264,7 +249,9 @@
   gap: 1rem;
 }
 
-.reviews-header h3 svg { color: #10b981; }
+.reviews-header h3 svg {
+  color: #10b981;
+}
 
 .close-reviews {
   background: rgba(255, 255, 255, 0.05);
@@ -395,10 +382,23 @@
 }
 
 /* Custom Scrollbar for Reviews */
-.reviews-scroll-area::-webkit-scrollbar { width: 8px; }
-.reviews-scroll-area::-webkit-scrollbar-track { background: transparent; }
-.reviews-scroll-area::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
-.reviews-scroll-area::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+.reviews-scroll-area::-webkit-scrollbar {
+  width: 8px;
+}
+
+.reviews-scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.reviews-scroll-area::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.reviews-scroll-area::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
 .feedback-modal-root {
   position: fixed;
   inset: 0;
@@ -477,7 +477,9 @@
   gap: 1rem;
 }
 
-.feedback-card input, .feedback-card select, .feedback-card textarea {
+.feedback-card input,
+.feedback-card select,
+.feedback-card textarea {
   padding: 1.2rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.07);
@@ -489,12 +491,14 @@
   transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.feedback-card input::placeholder, .feedback-card textarea::placeholder {
+.feedback-card input::placeholder,
+.feedback-card textarea::placeholder {
   color: rgba(255, 255, 255, 0.25);
   font-size: 0.95rem;
 }
 
-.feedback-card input:focus, .feedback-card textarea:focus {
+.feedback-card input:focus,
+.feedback-card textarea:focus {
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(16, 185, 129, 0.35);
   box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.12);
@@ -595,7 +599,16 @@
 
 /* Modal Responsive */
 @media (max-width: 768px) {
-  .testimonials-section .section-header h2 { font-size: 2.5rem; }
-  .testimonials-actions { flex-direction: column; align-items: stretch; }
-  .form-row { flex-direction: column; }
+  .testimonials-section .section-header h2 {
+    font-size: 2.5rem;
+  }
+
+  .testimonials-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
 }
