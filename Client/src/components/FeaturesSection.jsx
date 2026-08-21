@@ -45,16 +45,16 @@ const features = [
 const FeaturesSection = () => {
   return (
     <section className="features-section">
-      <div className="section-header">
+      <div className="features-header">
         <div className="feature-tag">
           POWERED BY AI
         </div>
         
-        <h2>
-          Designed for the <span className="text-gradient">Financial Future</span>
+        <h2 className="features-title">
+          Designed for the <span className="features-title-gradient">Financial Future</span>
         </h2>
         
-        <p className="section-description">
+        <p className="features-description">
           Ditch the spreadsheets. FinMate brings enterprise-grade financial management 
           to your pocket with a design that's as intelligent as it is beautiful.
         </p>

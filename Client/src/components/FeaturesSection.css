@@ -11,45 +11,65 @@
   box-sizing: border-box;
 }
 
-.section-header {
-  text-align: center;
-  margin-bottom: 6rem;
-  max-width: 800px;
+.features-section .features-header {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  margin-bottom: 5rem !important;
+  max-width: 800px !important;
+  width: 100% !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: relative !important;
+  z-index: 5 !important;
 }
 
-.feature-tag {
-  background: rgba(16, 185, 129, 0.1);
-  color: #10b981;
-  padding: 0.5rem 1.25rem;
-  border-radius: 2rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  display: inline-block;
-  margin-bottom: 2rem;
-  border: 1px solid rgba(16, 185, 129, 0.2);
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+.features-section .feature-tag {
+  background: rgba(16, 185, 129, 0.1) !important;
+  color: #10b981 !important;
+  padding: 0.5rem 1.25rem !important;
+  border-radius: 2rem !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.15em !important;
+  display: inline-block !important;
+  margin-bottom: 1.5rem !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.1) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-.section-header h2 {
-  font-size: 4rem;
-  font-weight: 800;
-  line-height: 1.1;
-  color: #fff;
-  margin-bottom: 1.5rem;
+.features-section .features-title {
+  font-size: 3.8rem !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  color: #ffffff !important;
+  margin-bottom: 1.25rem !important;
+  text-align: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-.section-description {
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
+.features-section .features-title-gradient {
+  background: linear-gradient(135deg, #10b981 0%, #6366f1 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  display: inline !important;
 }
 
-.text-gradient {
-  background: linear-gradient(135deg, #10b981 0%, #4f46e5 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.features-section .features-description {
+  font-size: 1.2rem !important;
+  color: rgba(248, 250, 252, 0.8) !important;
+  line-height: 1.6 !important;
+  max-width: 680px !important;
+  text-align: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 /* Features Grid - The 'Hyper-Glass' System */
