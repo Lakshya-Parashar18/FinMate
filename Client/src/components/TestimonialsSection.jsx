@@ -158,10 +158,10 @@ const TestimonialsSection = () => {
   return (
     <section className="testimonials-section">
       <div className="testimonials-container">
-        <div className="section-header">
+        <div className="testimonials-header">
           <div className="section-tag">SOCIAL PROOF</div>
-          <h2>Trusted by <span className="text-gradient">Thousands</span> of Smart Savers</h2>
-          <p>Join the movement of financially intelligent achievers.</p>
+          <h2 className="testimonials-title">Trusted by <span className="testimonials-title-gradient">Thousands</span> of Smart Savers</h2>
+          <p className="testimonials-description">Join the movement of financially intelligent achievers.</p>
         </div>
 
         <div className="testimonials-grid">

@@ -1,5 +1,5 @@
 .testimonials-section {
-  padding: 7.5rem 2rem;
+  padding: 5rem 2rem 7.5rem 2rem !important;
   background: radial-gradient(circle at 50% 85%, rgba(16, 185, 129, 0.06) 0%, transparent 45%);
   position: relative;
   overflow: hidden;
@@ -18,43 +18,58 @@
   box-sizing: border-box;
 }
 
-.testimonials-section .section-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  max-width: 56rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 5rem;
-  box-sizing: border-box;
-}
-
-.section-tag {
-  color: #10b981;
-  font-weight: 800;
-  letter-spacing: 0.2em;
-  font-size: 0.75rem;
-  margin-bottom: 1.5rem;
-}
-
-.testimonials-section .section-header h2 {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 1.5rem;
+.testimonials-section .testimonials-header {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
   text-align: center !important;
-  width: 100%;
-  max-width: 100%;
+  width: 100% !important;
+  max-width: 800px !important;
+  margin: 0 auto 4.5rem auto !important;
+  box-sizing: border-box !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-.testimonials-section .section-header p {
+.testimonials-section .section-tag {
+  color: #10b981 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.2em !important;
+  font-size: 0.75rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.testimonials-section .testimonials-title {
+  font-size: 3.5rem !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  color: #ffffff !important;
+  margin: 0 auto 1.25rem auto !important;
   text-align: center !important;
-  max-width: 36rem;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100% !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.testimonials-section .testimonials-title-gradient {
+  background: linear-gradient(135deg, #10b981 0%, #6366f1 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  display: inline-block !important;
+  filter: drop-shadow(0 0 25px rgba(16, 185, 129, 0.45)) !important;
+}
+
+.testimonials-section .testimonials-description {
+  text-align: center !important;
+  max-width: 36rem !important;
+  margin: 0 auto !important;
+  font-size: 1.15rem !important;
+  color: rgba(248, 250, 252, 0.8) !important;
+  line-height: 1.6 !important;
 }
 
 .testimonials-grid {
