@@ -17,8 +17,8 @@
   align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
-  margin-bottom: 5rem !important;
-  max-width: 800px !important;
+  margin: 0 auto 5rem auto !important;
+  max-width: 850px !important;
   width: 100% !important;
   opacity: 1 !important;
   visibility: visible !important;
@@ -47,8 +47,10 @@
   font-weight: 800 !important;
   line-height: 1.15 !important;
   color: #ffffff !important;
-  margin-bottom: 1.25rem !important;
+  margin: 0 auto 1.25rem auto !important;
   text-align: center !important;
+  width: 100% !important;
+  display: block !important;
   opacity: 1 !important;
   visibility: visible !important;
 }
@@ -59,7 +61,8 @@
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
-  display: inline !important;
+  display: inline-block !important;
+  text-align: center !important;
 }
 
 .features-section .features-description {
@@ -67,7 +70,9 @@
   color: rgba(248, 250, 252, 0.8) !important;
   line-height: 1.6 !important;
   max-width: 680px !important;
+  margin: 0 auto !important;
   text-align: center !important;
+  width: 100% !important;
   opacity: 1 !important;
   visibility: visible !important;
 }
